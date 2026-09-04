@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@/components/layout/analytics";
 import { ConsentBar } from "@/components/layout/consent-bar";
 import { Footer } from "@/components/layout/footer";
@@ -112,6 +113,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
             <Footer />
             <ConsentBar />
             <Analytics />
+            <SpeedInsights />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
