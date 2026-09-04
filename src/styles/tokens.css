@@ -1,0 +1,135 @@
+/*
+  Design tokens — source of truth is docs/07-design-system.md.
+  Light values live on :root; dark overrides on [data-theme="dark"] (set by next-themes)
+  with a prefers-color-scheme fallback for the pre-hydration paint.
+*/
+
+:root {
+  color-scheme: light;
+
+  --bg: #f7f4ee;
+  --surface: #ffffff;
+  --surface-2: #efebe3;
+  --border: rgba(20, 20, 23, 0.1);
+  --border-strong: rgba(20, 20, 23, 0.22);
+  --fg: #141417;
+  --fg-muted: rgba(20, 20, 23, 0.64);
+  --fg-faint: rgba(20, 20, 23, 0.5); /* ≥ 18px text only — fails AA at small sizes */
+  --accent: #c93415; /* 4.8:1 on --bg, so 12px eyebrow numerals pass AA */
+  --accent-hover: #a82a10;
+  --accent-fg: #ffffff;
+  --accent-soft: rgba(201, 52, 21, 0.1);
+  --accent-strong: #a82a10; /* text on --accent-soft tints (5.4:1) */
+  --success: #1b9e6b;
+  --danger: #c62828;
+  --focus: #c93415;
+
+  --glow: 0 0 0 1px var(--accent), 0 24px 64px -24px rgba(201, 52, 21, 0.35);
+  --shadow-1: 0 1px 2px rgba(20, 20, 23, 0.06), 0 8px 24px -12px rgba(20, 20, 23, 0.12);
+  --shadow-2: 0 2px 4px rgba(20, 20, 23, 0.08), 0 24px 48px -16px rgba(20, 20, 23, 0.18);
+
+  --section-y: clamp(4rem, 10vw, 9rem);
+  --header-h: 3.5rem;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0b0b0d;
+  --surface: #141417;
+  --surface-2: #1c1c21;
+  --border: rgba(244, 241, 234, 0.09);
+  --border-strong: rgba(244, 241, 234, 0.2);
+  --fg: #f4f1ea;
+  --fg-muted: rgba(244, 241, 234, 0.64);
+  --fg-faint: rgba(244, 241, 234, 0.48);
+  --accent: #ff5a3c;
+  --accent-hover: #ff7a5c;
+  --accent-fg: #0b0b0d;
+  --accent-soft: rgba(255, 90, 60, 0.14);
+  --accent-strong: #ff7a5c;
+  --success: #3ddc97;
+  --danger: #ff6b6b;
+  --focus: #ff5a3c;
+
+  --glow: 0 0 0 1px var(--accent), 0 24px 64px -24px rgba(255, 90, 60, 0.45);
+  --shadow-1: none;
+  --shadow-2: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --bg: #0b0b0d;
+    --surface: #141417;
+    --surface-2: #1c1c21;
+    --border: rgba(244, 241, 234, 0.09);
+    --border-strong: rgba(244, 241, 234, 0.2);
+    --fg: #f4f1ea;
+    --fg-muted: rgba(244, 241, 234, 0.64);
+    --fg-faint: rgba(244, 241, 234, 0.48);
+    --accent: #ff5a3c;
+    --accent-hover: #ff7a5c;
+    --accent-fg: #0b0b0d;
+    --accent-soft: rgba(255, 90, 60, 0.14);
+    --accent-strong: #ff7a5c;
+    --success: #3ddc97;
+    --danger: #ff6b6b;
+    --focus: #ff5a3c;
+
+    --glow: 0 0 0 1px var(--accent), 0 24px 64px -24px rgba(255, 90, 60, 0.45);
+    --shadow-1: none;
+    --shadow-2: none;
+  }
+}
+
+/* Expose tokens to Tailwind utilities (bg-bg, text-fg-muted, border-border, font-display, rounded-lg…). */
+@theme inline {
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-faint: var(--fg-faint);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-strong: var(--accent-strong);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-focus: var(--focus);
+  --color-white: #ffffff;
+  --color-black: #0b0b0d;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-soft: var(--shadow-1);
+  --shadow-soft-lg: var(--shadow-2);
+  --shadow-glow: var(--glow);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --container-content: 80rem;
+  --container-bleed: 90rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 4rem;
+  }
+}

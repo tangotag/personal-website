@@ -1,0 +1,85 @@
+[
+  {
+    "company": "Cygnus Payments",
+    "role": { "en": "Senior Product Designer", "es": "Diseñador de Producto Senior" },
+    "start": "2025-07",
+    "location": "Reston, VA · remote",
+    "kind": "full-time",
+    "summary": {
+      "en": "Designing the Compass POS and kiosk ecosystem: ordering, payments, kitchen display, employee time, AI reporting and the back-office portal — one design system across five surfaces.",
+      "es": "Diseño del ecosistema Compass POS y kioscos: pedidos, pagos, pantalla de cocina, control horario, reportes con IA y el portal de administración; un solo sistema de diseño en cinco superficies."
+    },
+    "tags": ["Fintech", "POS & Kiosk", "Design system"],
+    "url": "https://cygnuspay.com"
+  },
+  {
+    "company": "Upwork",
+    "role": {
+      "en": "Freelance Product & Game Designer",
+      "es": "Diseñador de producto y videojuegos freelance"
+    },
+    "start": "2020-01",
+    "location": "Remote · US, Canada, Europe",
+    "kind": "freelance",
+    "summary": {
+      "en": "End-to-end UI/UX for clients across mobile apps, real estate, event ticketing and a cross-platform multiplayer shooter.",
+      "es": "UI/UX de principio a fin para clientes en apps móviles, inmobiliaria, venta de entradas y un shooter multijugador multiplataforma."
+    },
+    "tags": ["Mobile", "Web", "Games"]
+  },
+  {
+    "company": "360SynergyTech",
+    "role": { "en": "Senior Product Designer", "es": "Diseñador de Producto Senior" },
+    "start": "2021-09",
+    "end": "2024-11",
+    "location": "Lahore, Pakistan",
+    "kind": "full-time",
+    "summary": {
+      "en": "Enterprise SaaS — anti-money-laundering screening and RPA tooling. Dev-ready wireframes and prototypes cut development time by 25% (≈ $5k per project); mentored junior designers.",
+      "es": "SaaS empresarial: screening antilavado de dinero y herramientas de RPA. Wireframes y prototipos listos para desarrollo redujeron el tiempo de desarrollo un 25 % (≈ 5 000 $ por proyecto); mentoría a diseñadores junior."
+    },
+    "tags": ["Enterprise SaaS", "RegTech", "Mentoring"]
+  },
+  {
+    "company": "Fifty Cats",
+    "role": { "en": "Senior UI/UX Designer", "es": "Diseñador UI/UX Senior" },
+    "start": "2022-07",
+    "end": "2023-06",
+    "location": "Ontario, Canada · remote contract",
+    "kind": "contract",
+    "summary": {
+      "en": "Led end-to-end UX/UI for two launched casino games; the Open Omaha redesign lifted conversion by 40%.",
+      "es": "Lideré la UX/UI de principio a fin de dos juegos de casino lanzados; el rediseño de Open Omaha aumentó la conversión un 40 %."
+    },
+    "tags": ["Casino games", "Conversion", "Usability testing"]
+  },
+  {
+    "company": "Argon Tech",
+    "role": {
+      "en": "Team Lead, Gaming Dept. (UI/UX)",
+      "es": "Líder de equipo, Dpto. de videojuegos (UI/UX)"
+    },
+    "start": "2018-10",
+    "end": "2020-05",
+    "location": "Lahore, Pakistan",
+    "kind": "full-time",
+    "summary": {
+      "en": "Owned the UX vision through game design documents and specs; planning and estimation improved delivery timelines by 20%, gameplay UI work lifted player retention by 30%.",
+      "es": "Definí la visión de UX con documentos de diseño de juego y especificaciones; la planificación y estimación mejoraron los plazos de entrega un 20 % y la UI de juego elevó la retención un 30 %."
+    },
+    "tags": ["Leadership", "GDD", "Retention"]
+  },
+  {
+    "company": "Argon Tech",
+    "role": { "en": "Game Graphics Designer", "es": "Diseñador gráfico de videojuegos" },
+    "start": "2017-09",
+    "end": "2018-10",
+    "location": "Lahore, Pakistan",
+    "kind": "full-time",
+    "summary": {
+      "en": "UI/UX concepts and interface assets for PC and mobile games, working with game designers to improve the play experience.",
+      "es": "Conceptos de UI/UX y recursos de interfaz para juegos de PC y móvil, en colaboración con diseñadores de juego."
+    },
+    "tags": ["Game UI", "2D assets"]
+  }
+]

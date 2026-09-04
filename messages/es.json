@@ -1,0 +1,496 @@
+{
+  "meta": {
+    "siteName": "Raheel Ahmad Qureshi — Diseñador de Producto Senior",
+    "titleTemplate": "%s — Raheel Ahmad Qureshi",
+    "home": {
+      "title": "Raheel Ahmad Qureshi — Diseñador de Producto Senior",
+      "description": "Diseñador de Producto Senior con más de 9 años en fintech, POS, SaaS y videojuegos. Convierto sistemas complejos en productos que la gente disfruta usar — y entrego diseños que los desarrolladores implementan un 25% más rápido."
+    }
+  },
+  "nav": {
+    "work": "Trabajo",
+    "services": "Servicios",
+    "about": "Sobre mí",
+    "contact": "Contacto",
+    "cta": "Hablemos",
+    "menu": "Menú",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "skipToContent": "Saltar al contenido",
+    "home": "Inicio"
+  },
+  "common": {
+    "available": "Disponible para empleo y freelance",
+    "downloadResume": "Descargar CV",
+    "startProject": "Empezar un proyecto",
+    "viewWork": "Ver trabajo",
+    "seeAll": "Ver todo",
+    "readCase": "Leer caso de estudio",
+    "copyEmail": "Copiar email",
+    "copied": "Copiado",
+    "bookCall": "Reservar una llamada de 30 min",
+    "sendMessage": "Enviar un mensaje",
+    "theme": {
+      "toggle": "Cambiar tema",
+      "light": "Claro",
+      "dark": "Oscuro"
+    },
+    "language": {
+      "label": "Idioma",
+      "en": "Inglés",
+      "es": "Español"
+    },
+    "email": "Email"
+  },
+  "marquee": {
+    "items": [
+      "Disponible para empleo a tiempo completo",
+      "Abierto a proyectos freelance",
+      "Remoto en todo el mundo",
+      "Fintech",
+      "POS y kioscos",
+      "SaaS",
+      "Videojuegos"
+    ]
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Diseñador de Producto Senior · Remoto en todo el mundo",
+      "title": "Convierto sistemas complejos en productos que la gente realmente disfruta usar.",
+      "highlight": "realmente disfruta",
+      "lead": "Más de 9 años diseñando productos de principio a fin: POS y kioscos de autoservicio para restaurantes, SaaS de cumplimiento y videojuegos multijugador. Entrega con rigor de ingeniero, instinto de gamer para lo que hace que la gente vuelva.",
+      "replyTime": "Suelo responder en menos de 24 horas."
+    },
+    "paths": {
+      "hiring": {
+        "title": "¿Contratas para tu equipo?",
+        "text": "Diseñador de producto senior, más de 9 años, listo para trabajar en remoto, disponible ahora.",
+        "cta": "Ver experiencia"
+      },
+      "client": {
+        "title": "¿Necesitas diseñar un producto?",
+        "text": "Proyectos de alcance fijo o un diseñador senior integrado, sin proceso de contratación.",
+        "cta": "Ver servicios"
+      }
+    },
+    "work": {
+      "eyebrow": "Trabajo seleccionado",
+      "title": "Cuatro proyectos que muestran cómo pienso.",
+      "lead": "Fintech, SaaS y videojuegos: cada uno con un problema real, un rol claro y un resultado comprobable.",
+      "all": "Todo el trabajo"
+    },
+    "numbers": {
+      "eyebrow": "Pruebas en números",
+      "title": "Entregado y medido.",
+      "years": "años diseñando productos digitales",
+      "devTime": "menos tiempo de desarrollo gracias a entregas listas para programar (≈ 5 000 $ ahorrados por proyecto)",
+      "conversion": "de conversión tras el rediseño de Open Omaha",
+      "retention": "de retención de jugadores en los títulos de Argon Tech",
+      "awards": "premios del sector"
+    },
+    "familiar": {
+      "eyebrow": "¿Te suena?",
+      "title": "¿Te suena?",
+      "items": [
+        {
+          "pain": "El producto funciona, pero los usuarios no se quedan.",
+          "answer": "Diseño bucles de engagement, no solo pantallas: lo aprendí en los videojuegos y lo aplico a SaaS y fintech."
+        },
+        {
+          "pain": "Los desarrolladores vuelven una y otra vez con preguntas.",
+          "answer": "Recibes especificaciones listas para programar, librerías de componentes y QA de diseño. En la entrega es donde ahorro a los equipos un 25 % del tiempo de desarrollo."
+        },
+        {
+          "pain": "Lanzamos en hardware (POS, kiosco, tablet) y parece una página web.",
+          "answer": "He diseñado para terminales, kioscos y modo sin conexión. Táctil, reflejos, colas y guantes incluidos."
+        },
+        {
+          "pain": "Necesitamos criterio senior, no un junior con una plantilla.",
+          "answer": "Nueve años, tres industrias y un diseñador que ha liderado un equipo y también ha entregado solo."
+        }
+      ],
+      "cta": "Empezar un proyecto"
+    },
+    "services": {
+      "eyebrow": "Qué puedo hacer por ti",
+      "title": "Diseño de producto senior, bajo demanda.",
+      "lead": "Elige un alcance o trae el problema: la primera llamada es gratis.",
+      "all": "Todos los servicios",
+      "quote": "Pedir presupuesto"
+    },
+    "worked": {
+      "eyebrow": "Dónde he trabajado",
+      "title": "Fintech, SaaS empresarial y estudios de videojuegos.",
+      "text": "Actualmente Diseñador de Producto Senior en Cygnus Payments (fintech, EE. UU.), diseñando el ecosistema Compass POS y kioscos. Antes, SaaS empresarial en 360SynergyTech, juegos de casino en Fifty Cats y líder del departamento de videojuegos de Argon Tech. Freelance en Upwork desde 2020.",
+      "cta": "La historia completa"
+    },
+    "testimonials": {
+      "eyebrow": "Lo que dicen",
+      "title": "De las personas con las que he trabajado.",
+      "empty": "Estoy recopilando testimonios, con permiso, y aparecerán aquí.",
+      "viewProject": "Ver proyecto"
+    },
+    "process": {
+      "eyebrow": "Cómo trabajo",
+      "title": "Cuatro pasos, sin sorpresas.",
+      "steps": [
+        {
+          "title": "Descubrir",
+          "text": "Objetivos, usuarios, restricciones y datos existentes.",
+          "gets": "Recibes: un brief de una página que firmamos los dos."
+        },
+        {
+          "title": "Definir",
+          "text": "Flujos, arquitectura de información, wireframes.",
+          "gets": "Recibes: un prototipo navegable, temprano y feo a propósito."
+        },
+        {
+          "title": "Diseñar",
+          "text": "UI, sistema de diseño, movimiento.",
+          "gets": "Recibes: una librería de Figma y especificaciones."
+        },
+        {
+          "title": "Entregar",
+          "text": "Entrega, QA de diseño e iteración con tus desarrolladores.",
+          "gets": "Recibes: una versión pixel-perfect y menos preguntas en Slack."
+        }
+      ],
+      "cta": "Pedir presupuesto"
+    },
+    "cta": {
+      "title": "Construyamos algo a lo que la gente vuelva.",
+      "call": "Reservar una llamada de 30 min",
+      "message": "O envía un mensaje"
+    },
+    "faq": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Lo que la gente pregunta antes de escribir."
+    }
+  },
+  "footer": {
+    "tagline": "Diseñador de Producto Senior — fintech, SaaS y videojuegos.",
+    "rights": "© {year} Raheel Ahmad Qureshi. Todos los derechos reservados.",
+    "navigate": "Navegar",
+    "work": "Trabajo",
+    "connect": "Conectar",
+    "backToTop": "Volver arriba",
+    "email": "Email"
+  },
+  "notFound": {
+    "title": "Esta página no existe.",
+    "description": "Puede que el enlace sea antiguo o que la página se haya movido.",
+    "cta": "Volver al inicio"
+  },
+  "consent": {
+    "text": "Uso analítica respetuosa con la privacidad (sin cookies) y, si lo permites, Google Analytics.",
+    "accept": "Permitir",
+    "decline": "No, gracias",
+    "learnMore": "Privacidad"
+  },
+  "pages": {
+    "work": {
+      "title": "Trabajo",
+      "description": "Diseño de producto en fintech, SaaS y videojuegos. Filtra por lo que estás construyendo.",
+      "placeholder": "Los casos de estudio llegan en las fases 5–7.",
+      "filters": {
+        "all": "Todo",
+        "fintech-pos": "Fintech y POS",
+        "saas": "SaaS",
+        "mobile": "Móvil",
+        "games": "Videojuegos",
+        "web-brand": "Web y marca"
+      },
+      "filterLabel": "Filtrar trabajo",
+      "count": "{count, plural, =1 {1 proyecto} other {# proyectos}}",
+      "empty": "Aún no hay nada aquí; prueba otro filtro.",
+      "ctaTitle": "¿No ves tu sector?",
+      "ctaText": "Seguramente he diseñado algo parecido. Cuéntame qué estás construyendo.",
+      "cta": "Cuéntame qué estás construyendo"
+    },
+    "services": {
+      "title": "Servicios",
+      "description": "Diseño de producto senior bajo demanda: proyectos de alcance fijo o un diseñador senior integrado.",
+      "placeholder": "La página de servicios llega en la fase 8.",
+      "hero": {
+        "title": "Diseño de producto senior, bajo demanda.",
+        "lead": "Proyectos de alcance fijo o un diseñador senior integrado, sin proceso de contratación. Elige un alcance o trae el problema: la primera llamada es gratis.",
+        "cta": "Pedir presupuesto"
+      },
+      "cardsEyebrow": "Contrátame para",
+      "cardsTitle": "Siete formas de trabajar juntos.",
+      "detail": {
+        "deliverables": "Qué recibes",
+        "timeline": "Plazo habitual",
+        "quote": "Pedir presupuesto para esto"
+      },
+      "models": {
+        "eyebrow": "Modelos de colaboración",
+        "title": "Proyecto, retainer o integrado.",
+        "items": [
+          {
+            "title": "Proyecto",
+            "text": "Alcance fijo, precio fijo, hitos claros. Ideal para un lanzamiento, un rediseño o un módulo nuevo."
+          },
+          {
+            "title": "Retainer",
+            "text": "Un número fijo de días al mes para equipos que lanzan continuamente y necesitan diseño senior disponible."
+          },
+          {
+            "title": "Integrado / tiempo completo",
+            "text": "Me uno a tu equipo como diseñador de producto senior; disponible ahora para el rol adecuado."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "Cómo funciona",
+        "title": "Cuatro pasos y qué necesito de ti en cada uno.",
+        "steps": [
+          {
+            "title": "Descubrir",
+            "text": "Objetivos, usuarios, restricciones, datos existentes.",
+            "needs": "De ti: 60 minutos, acceso a analítica y a quien sea dueño del producto."
+          },
+          {
+            "title": "Definir",
+            "text": "Flujos, arquitectura de información, wireframes.",
+            "needs": "De ti: feedback honesto en las 48 horas siguientes a cada revisión."
+          },
+          {
+            "title": "Diseñar",
+            "text": "UI, sistema de diseño, movimiento.",
+            "needs": "De ti: recursos de marca y un desarrollador presente para validar viabilidad."
+          },
+          {
+            "title": "Entregar",
+            "text": "Entrega, QA de diseño e iteración con tus desarrolladores.",
+            "needs": "De ti: un enlace de staging para hacer QA sobre lo real."
+          }
+        ]
+      },
+      "quote": {
+        "eyebrow": "Pedir presupuesto",
+        "title": "Cuéntame qué estás construyendo.",
+        "lead": "Con unas líneas basta: respondo en menos de 24 horas con preguntas o una propuesta.",
+        "next": {
+          "title": "Qué pasa después",
+          "items": [
+            "Respondo en menos de 24 horas con preguntas o un alcance aproximado.",
+            "Hacemos una llamada gratuita de 30 minutos para alinear objetivos y plazos.",
+            "Recibes una propuesta escrita: alcance, precio e hitos."
+          ]
+        }
+      },
+      "faqEyebrow": "Preguntas frecuentes",
+      "faqTitle": "Lo que suelen preguntar los clientes."
+    },
+    "about": {
+      "title": "Sobre mí",
+      "description": "Los videojuegos me enseñaron el engagement. El fintech, lo que está en juego.",
+      "placeholder": "La página Sobre mí llega en la fase 8.",
+      "hero": {
+        "eyebrow": "Sobre mí",
+        "title": "Los videojuegos me enseñaron el engagement. El fintech, lo que está en juego."
+      },
+      "story": [
+        "Empecé en 2017 diseñando gráficos de videojuegos en Argon Tech, en Lahore, y en menos de un año lideraba la UI/UX del departamento de videojuegos: escribía documentos de diseño de juego, estimaba trabajo y lanzaba funciones que elevaron la retención un 30 %. Los videojuegos son maestros implacables: si una pantalla confunde, el jugador se va en segundos.",
+        "Ese instinto me acompañó al SaaS empresarial en 360SynergyTech (paneles antilavado de dinero, herramientas de RPA), donde los usuarios eran analistas en lugar de jugadores y el coste de la confusión era riesgo de cumplimiento. Allí aprendí que la forma más rápida de lanzar buen diseño es entregar a los desarrolladores algo que no tengan que interpretar: redujo el tiempo de desarrollo una cuarta parte.",
+        "Hoy soy Diseñador de Producto Senior en Cygnus Payments, diseñando el ecosistema Compass POS y kioscos con el que los restaurantes operan todo el día. Entre medias, desde 2020 trabajo como freelance para clientes de EE. UU., Canadá y Europa: apps, sitios inmobiliarios, plataformas de entradas y un shooter multiplataforma."
+      ],
+      "bring": {
+        "eyebrow": "Qué aporto",
+        "title": "Tres cosas de las que la mayoría de diseñadores tiene una.",
+        "items": [
+          {
+            "title": "Sistemas + engagement",
+            "text": "Complejidad empresarial (POS, AML, RPA) y bucles de engagement de videojuegos (retención, conversión, recompensas) en un solo diseñador."
+          },
+          {
+            "title": "Entrega con rigor de ingeniero",
+            "text": "Un grado en Ingeniería de Software significa especificaciones listas para programar, librerías de componentes y QA de diseño; cuantificado en un 25 % menos de tiempo de desarrollo."
+          },
+          {
+            "title": "Pensado para hardware",
+            "text": "Terminales POS y kioscos: objetivos táctiles, modo sin conexión, reflejos, guantes y presión de la cola. Restricciones reales, no solo pantallas."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Experiencia",
+        "title": "Nueve años, tres industrias.",
+        "now": "Actual",
+        "kinds": {
+          "full-time": "Tiempo completo",
+          "contract": "Contrato",
+          "freelance": "Freelance"
+        }
+      },
+      "skills": {
+        "eyebrow": "Habilidades",
+        "title": "Lo que hago realmente todo el día.",
+        "groups": [
+          {
+            "title": "Producto",
+            "items": [
+              "Estrategia de producto",
+              "Descubrimiento",
+              "Arquitectura de información",
+              "Flujos de usuario",
+              "Gamificación"
+            ]
+          },
+          {
+            "title": "Investigación",
+            "items": [
+              "Entrevistas",
+              "Pruebas de usabilidad",
+              "Tests A/B",
+              "Auditorías de UX",
+              "Síntesis asistida por IA"
+            ]
+          },
+          {
+            "title": "Oficio",
+            "items": [
+              "Diseño de UI",
+              "Prototipado",
+              "Movimiento",
+              "Sistemas de diseño",
+              "Accesibilidad"
+            ]
+          },
+          {
+            "title": "Liderazgo",
+            "items": [
+              "Líder de equipo",
+              "Mentoría",
+              "Gestión de stakeholders",
+              "Documentos de diseño de juego",
+              "Estimación"
+            ]
+          },
+          {
+            "title": "Herramientas",
+            "items": [
+              "Figma",
+              "Librerías de componentes en Figma",
+              "QA de diseño"
+            ]
+          }
+        ]
+      },
+      "awards": {
+        "eyebrow": "Reconocimientos",
+        "title": "Premios y certificaciones",
+        "items": [
+          {
+            "title": "The Brainiac Award",
+            "org": "360SynergyTech",
+            "year": "2023"
+          },
+          {
+            "title": "Empleado del año 2021",
+            "org": "360SynergyTech",
+            "year": "2022"
+          },
+          {
+            "title": "Star Performer, Dpto. de videojuegos 2019",
+            "org": "Argon Tech",
+            "year": "2020"
+          }
+        ],
+        "certs": [
+          "Certificado profesional de Diseño UX de Google"
+        ]
+      },
+      "education": {
+        "title": "Formación",
+        "degree": "Grado en Ingeniería de Software",
+        "school": "University of Management and Technology",
+        "years": "2012 – 2016",
+        "coursework": "Interacción persona-ordenador · Toma de requisitos de software · Gestión de proyectos de software"
+      },
+      "resume": {
+        "title": "¿Prefieres la versión de una página?",
+        "text": "CV completo en PDF, con datos de contacto.",
+        "cta": "Descargar CV"
+      }
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Contratación, un proyecto o solo una pregunta: lo leo todo.",
+      "placeholder": "El formulario de contacto llega en la fase 8.",
+      "hero": {
+        "title": "Hablemos.",
+        "lead": "Contratación, un proyecto o solo una pregunta: lo leo todo."
+      },
+      "details": {
+        "email": "Email",
+        "calendar": "Reservar una llamada",
+        "calendarText": "30 minutos, sin discurso de ventas; solo preguntas.",
+        "socials": "En otros sitios",
+        "response": "Suelo responder en menos de 24 horas."
+      },
+      "faqEyebrow": "Preguntas frecuentes",
+      "faqTitle": "Antes de escribir"
+    }
+  },
+  "caseStudy": {
+    "toc": "En esta página",
+    "prev": "Proyecto anterior",
+    "next": "Siguiente proyecto",
+    "minutes": "{count, plural, =1 {1 min de lectura} other {# min de lectura}}",
+    "fallbackNotice": "Este caso de estudio solo está disponible en inglés por ahora.",
+    "backToWork": "Todo el trabajo",
+    "meta": {
+      "role": "Rol",
+      "client": "Cliente",
+      "timeline": "Periodo",
+      "platforms": "Plataformas",
+      "industry": "Sector",
+      "team": "Equipo",
+      "readingTime": "Tiempo de lectura",
+      "link": "En vivo"
+    }
+  },
+  "forms": {
+    "name": "Nombre",
+    "email": "Email",
+    "company": "Empresa (opcional)",
+    "iam": "Soy…",
+    "iamOptions": {
+      "hiring": "Contrato para un equipo",
+      "client": "Un cliente con un proyecto",
+      "other": "Otra cosa"
+    },
+    "service": "Servicio",
+    "serviceAny": "Aún no lo sé",
+    "budget": "Presupuesto (opcional)",
+    "budgetOptions": {
+      "unsure": "Aún no lo sé",
+      "b1": "Menos de 3 000 $",
+      "b2": "3 000 – 10 000 $",
+      "b3": "10 000 – 25 000 $",
+      "b4": "Más de 25 000 $"
+    },
+    "message": "Mensaje",
+    "messagePlaceholder": "¿Qué estás construyendo y qué se interpone?",
+    "submit": "Enviar mensaje",
+    "submitQuote": "Pedir presupuesto",
+    "sending": "Enviando…",
+    "privacy": "Tus datos solo se usan para responderte.",
+    "success": {
+      "title": "Recibido. Respondo en menos de 24 horas.",
+      "text": "¿Quieres saltarte la espera? Reserva una llamada de 30 minutos.",
+      "cta": "Reservar una llamada",
+      "another": "Enviar otro"
+    },
+    "errors": {
+      "name": "Dime cómo te llamas.",
+      "email": "Introduce un email válido.",
+      "message": "Unas palabras más ayudarían: al menos 10 caracteres.",
+      "turnstile": "Completa la comprobación antispam.",
+      "rate": "Demasiados mensajes en poco tiempo; inténtalo en un minuto.",
+      "generic": "Algo falló al enviar tu mensaje. Escríbeme directamente a {email}."
+    }
+  }
+}

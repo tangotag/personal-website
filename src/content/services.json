@@ -1,0 +1,146 @@
+[
+  {
+    "slug": "end-to-end-product-design",
+    "title": { "en": "End-to-end product design", "es": "Diseño de producto de principio a fin" },
+    "scope": {
+      "en": "From discovery to handoff for a new product or a major release — research, flows, UI, prototype and a design system your developers can build from.",
+      "es": "Del descubrimiento a la entrega para un producto nuevo o una versión importante: investigación, flujos, UI, prototipo y un sistema de diseño desde el que tu equipo pueda construir."
+    },
+    "deliverables": [
+      { "en": "Research summary and brief", "es": "Resumen de investigación y brief" },
+      {
+        "en": "Flows, IA and wireframes",
+        "es": "Flujos, arquitectura de información y wireframes"
+      },
+      { "en": "UI, prototype and design system", "es": "UI, prototipo y sistema de diseño" },
+      { "en": "Developer handoff and design QA", "es": "Entrega a desarrollo y QA de diseño" }
+    ],
+    "tags": ["0→1", "Discovery", "Design system"],
+    "timeline": { "en": "6–12 weeks", "es": "6–12 semanas" },
+    "timelineStatus": "confirm",
+    "serviceType": "Product design"
+  },
+  {
+    "slug": "mobile-web-app-design",
+    "title": { "en": "Mobile & web app UI/UX", "es": "UI/UX de apps móviles y web" },
+    "scope": {
+      "en": "iOS, Android and web apps that feel native and convert — onboarding, core flows, edge states and the details users notice.",
+      "es": "Apps iOS, Android y web que se sienten nativas y convierten: onboarding, flujos principales, estados límite y los detalles que la gente nota."
+    },
+    "deliverables": [
+      { "en": "User flows and wireframes", "es": "Flujos de usuario y wireframes" },
+      { "en": "High-fidelity UI for every state", "es": "UI de alta fidelidad para cada estado" },
+      { "en": "Clickable prototype", "es": "Prototipo navegable" }
+    ],
+    "tags": ["iOS", "Android", "Web"],
+    "timeline": { "en": "3–8 weeks", "es": "3–8 semanas" },
+    "timelineStatus": "confirm",
+    "serviceType": "Mobile and web application design"
+  },
+  {
+    "slug": "saas-dashboard-design",
+    "title": { "en": "SaaS & dashboard design", "es": "Diseño de SaaS y dashboards" },
+    "scope": {
+      "en": "Data-dense admin panels, reporting and multi-role systems — the kind of complexity I designed for compliance, automation and POS back-office products.",
+      "es": "Paneles de administración densos en datos, reportes y sistemas multi-rol: la complejidad que diseñé para productos de cumplimiento, automatización y back-office de POS."
+    },
+    "deliverables": [
+      {
+        "en": "Information architecture and role model",
+        "es": "Arquitectura de información y modelo de roles"
+      },
+      {
+        "en": "Table, filter and reporting patterns",
+        "es": "Patrones de tablas, filtros y reportes"
+      },
+      { "en": "Component library", "es": "Librería de componentes" }
+    ],
+    "tags": ["Enterprise", "Dashboards", "Multi-role"],
+    "timeline": { "en": "4–10 weeks", "es": "4–10 semanas" },
+    "timelineStatus": "confirm",
+    "serviceType": "SaaS product design"
+  },
+  {
+    "slug": "pos-kiosk-design",
+    "title": { "en": "POS & kiosk design", "es": "Diseño de POS y kioscos" },
+    "scope": {
+      "en": "Hardware-aware interfaces for restaurants and retail: ordering, payments, kitchen display, offline flows and self-service kiosks that first-time customers finish.",
+      "es": "Interfaces pensadas para hardware en restaurantes y retail: pedidos, pagos, pantalla de cocina, flujos sin conexión y kioscos de autoservicio que los clientes completan a la primera."
+    },
+    "deliverables": [
+      {
+        "en": "Surface map (POS, kiosk, KDS, admin)",
+        "es": "Mapa de superficies (POS, kiosco, KDS, admin)"
+      },
+      { "en": "Offline and error-state matrix", "es": "Matriz de estados sin conexión y de error" },
+      { "en": "Touch-first UI and design system", "es": "UI táctil y sistema de diseño" }
+    ],
+    "tags": ["POS", "Kiosk", "Offline-first"],
+    "timeline": { "en": "6–12 weeks", "es": "6–12 semanas" },
+    "timelineStatus": "confirm",
+    "serviceType": "Point-of-sale and kiosk interface design"
+  },
+  {
+    "slug": "game-ui-ux",
+    "title": { "en": "Game UI/UX", "es": "UI/UX para videojuegos" },
+    "scope": {
+      "en": "HUDs, menus, onboarding, economy and reward screens — UX aligned to the game design document for mobile, web and PC titles.",
+      "es": "HUD, menús, onboarding, pantallas de economía y recompensas: UX alineada al documento de diseño del juego para títulos móviles, web y PC."
+    },
+    "deliverables": [
+      { "en": "UX specification aligned to the GDD", "es": "Especificación de UX alineada al GDD" },
+      { "en": "HUD, menu and store screens", "es": "Pantallas de HUD, menús y tienda" },
+      { "en": "Platform-adaptive component set", "es": "Set de componentes adaptable a plataforma" }
+    ],
+    "tags": ["HUD", "Economy", "Cross-platform"],
+    "timeline": { "en": "3–10 weeks", "es": "3–10 semanas" },
+    "timelineStatus": "confirm",
+    "serviceType": "Game user interface design"
+  },
+  {
+    "slug": "design-systems-handoff",
+    "title": {
+      "en": "Design systems & Figma-to-dev handoff",
+      "es": "Sistemas de diseño y entrega Figma a desarrollo"
+    },
+    "scope": {
+      "en": "Component libraries, tokens, specs and design QA that cut build time — a quarter less development time on the last team I did this for.",
+      "es": "Librerías de componentes, tokens, especificaciones y QA de diseño que reducen el tiempo de desarrollo: una cuarta parte menos en el último equipo con el que lo hice."
+    },
+    "deliverables": [
+      {
+        "en": "Token and component library in Figma",
+        "es": "Librería de tokens y componentes en Figma"
+      },
+      {
+        "en": "Specs, redlines and usage docs",
+        "es": "Especificaciones, redlines y documentación de uso"
+      },
+      { "en": "Design QA per release", "es": "QA de diseño por versión" }
+    ],
+    "tags": ["Figma", "Tokens", "Design QA"],
+    "timeline": { "en": "2–6 weeks", "es": "2–6 semanas" },
+    "timelineStatus": "confirm",
+    "serviceType": "Design system development"
+  },
+  {
+    "slug": "ux-audit",
+    "title": { "en": "UX audit", "es": "Auditoría de UX" },
+    "scope": {
+      "en": "Heuristic and data review of an existing product with a prioritised fix list — the fastest way to find out where users are leaving.",
+      "es": "Revisión heurística y de datos de un producto existente con una lista priorizada de mejoras: la forma más rápida de saber dónde se van los usuarios."
+    },
+    "deliverables": [
+      { "en": "Annotated audit of key flows", "es": "Auditoría anotada de los flujos clave" },
+      {
+        "en": "Prioritised fix list with effort estimates",
+        "es": "Lista priorizada de mejoras con estimaciones"
+      },
+      { "en": "Readout call", "es": "Llamada de presentación de resultados" }
+    ],
+    "tags": ["Heuristics", "Analytics", "Quick wins"],
+    "timeline": { "en": "1–2 weeks", "es": "1–2 semanas" },
+    "timelineStatus": "confirm",
+    "serviceType": "User experience audit"
+  }
+]

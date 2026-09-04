@@ -1,0 +1,496 @@
+{
+  "meta": {
+    "siteName": "Raheel Ahmad Qureshi — Senior Product Designer",
+    "titleTemplate": "%s — Raheel Ahmad Qureshi",
+    "home": {
+      "title": "Raheel Ahmad Qureshi — Senior Product Designer",
+      "description": "Senior Product Designer with 9+ years across fintech, POS, SaaS and games. I turn complex systems into products people enjoy using — and hand off designs developers can ship 25% faster."
+    }
+  },
+  "nav": {
+    "work": "Work",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Let's talk",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content",
+    "home": "Home"
+  },
+  "common": {
+    "available": "Available for full-time & freelance",
+    "downloadResume": "Download resume",
+    "startProject": "Start a project",
+    "viewWork": "View work",
+    "seeAll": "See all",
+    "readCase": "Read case study",
+    "copyEmail": "Copy email",
+    "copied": "Copied",
+    "bookCall": "Book a 30-min call",
+    "sendMessage": "Send a message",
+    "theme": {
+      "toggle": "Toggle theme",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "language": {
+      "label": "Language",
+      "en": "English",
+      "es": "Spanish"
+    },
+    "email": "Email"
+  },
+  "marquee": {
+    "items": [
+      "Available for full-time roles",
+      "Open to freelance projects",
+      "Remote worldwide",
+      "Fintech",
+      "POS & Kiosk",
+      "SaaS",
+      "Games"
+    ]
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Senior Product Designer · Remote worldwide",
+      "title": "I turn complex systems into products people actually enjoy using.",
+      "highlight": "actually enjoy",
+      "lead": "9+ years designing end-to-end products — restaurant POS and self-service kiosks, compliance SaaS, and multiplayer games. Engineer's handoff, gamer's instinct for what keeps people coming back.",
+      "replyTime": "Usually replies within 24 hours."
+    },
+    "paths": {
+      "hiring": {
+        "title": "Hiring for your team?",
+        "text": "Senior product designer, 9+ years, remote-ready, available now.",
+        "cta": "See experience"
+      },
+      "client": {
+        "title": "Need a product designed?",
+        "text": "Fixed-scope projects or an embedded senior designer — without the hiring cycle.",
+        "cta": "See services"
+      }
+    },
+    "work": {
+      "eyebrow": "Selected work",
+      "title": "Four projects that show how I think.",
+      "lead": "Fintech, SaaS and games — each one with a real problem, a clear role and an outcome you can check.",
+      "all": "All work"
+    },
+    "numbers": {
+      "eyebrow": "Proof in numbers",
+      "title": "Shipped, measured.",
+      "years": "years designing digital products",
+      "devTime": "development time via dev-ready handoff (≈ $5k saved per project)",
+      "conversion": "conversion after the Open Omaha redesign",
+      "retention": "player retention on Argon Tech titles",
+      "awards": "industry awards"
+    },
+    "familiar": {
+      "eyebrow": "Sound familiar?",
+      "title": "Sound familiar?",
+      "items": [
+        {
+          "pain": "The product works, but users don’t stick around.",
+          "answer": "I design engagement loops, not just screens — learned in games, applied to SaaS and fintech."
+        },
+        {
+          "pain": "Developers keep coming back with questions.",
+          "answer": "You get dev-ready specs, component libraries and design QA. Handoff friction is where I save teams 25% of build time."
+        },
+        {
+          "pain": "We’re shipping to hardware — POS, kiosk, tablet — and it feels like a website.",
+          "answer": "I’ve designed for terminals, kiosks and offline mode. Touch, glare, queues and gloves included."
+        },
+        {
+          "pain": "We need senior judgment, not a junior with a template.",
+          "answer": "Nine years, three industries, one designer who has led a team and shipped alone."
+        }
+      ],
+      "cta": "Start a project"
+    },
+    "services": {
+      "eyebrow": "What I can do for you",
+      "title": "Senior product design, on demand.",
+      "lead": "Pick a scope or bring the problem — the first call is free.",
+      "all": "All services",
+      "quote": "Request a quote"
+    },
+    "worked": {
+      "eyebrow": "Where I’ve worked",
+      "title": "Fintech, enterprise SaaS and game studios.",
+      "text": "Currently Senior Product Designer at Cygnus Payments (US fintech), designing the Compass POS and kiosk ecosystem. Previously enterprise SaaS at 360SynergyTech, casino games at Fifty Cats, and team lead of Argon Tech’s gaming department. Freelancing on Upwork since 2020.",
+      "cta": "Full story"
+    },
+    "testimonials": {
+      "eyebrow": "What people say",
+      "title": "From the people I’ve worked with.",
+      "empty": "Testimonials are being collected — with permission — and will appear here.",
+      "viewProject": "View project"
+    },
+    "process": {
+      "eyebrow": "How I work",
+      "title": "Four steps, no surprises.",
+      "steps": [
+        {
+          "title": "Discover",
+          "text": "Goals, users, constraints, existing data.",
+          "gets": "You get: a one-page brief we both sign."
+        },
+        {
+          "title": "Define",
+          "text": "Flows, information architecture, wireframes.",
+          "gets": "You get: a clickable prototype — early and ugly on purpose."
+        },
+        {
+          "title": "Design",
+          "text": "UI, design system, motion.",
+          "gets": "You get: a Figma library and specs."
+        },
+        {
+          "title": "Deliver",
+          "text": "Handoff, design QA, iteration with your developers.",
+          "gets": "You get: a pixel-perfect release and fewer Slack questions."
+        }
+      ],
+      "cta": "Request a quote"
+    },
+    "cta": {
+      "title": "Let’s build something people come back to.",
+      "call": "Book a 30-min call",
+      "message": "Or send a message"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Questions people ask before they reach out."
+    }
+  },
+  "footer": {
+    "tagline": "Senior Product Designer — fintech, SaaS & games.",
+    "rights": "© {year} Raheel Ahmad Qureshi. All rights reserved.",
+    "navigate": "Navigate",
+    "work": "Work",
+    "connect": "Connect",
+    "backToTop": "Back to top",
+    "email": "Email"
+  },
+  "notFound": {
+    "title": "This page doesn't exist.",
+    "description": "The link may be old, or the page moved.",
+    "cta": "Back to home"
+  },
+  "consent": {
+    "text": "I use privacy-friendly analytics (no cookies) plus Google Analytics if you allow it.",
+    "accept": "Allow",
+    "decline": "No thanks",
+    "learnMore": "Privacy"
+  },
+  "pages": {
+    "work": {
+      "title": "Work",
+      "description": "Product design across fintech, SaaS and games. Filter by what you are building.",
+      "placeholder": "Case studies land in Phase 5–7.",
+      "filters": {
+        "all": "All",
+        "fintech-pos": "Fintech & POS",
+        "saas": "SaaS",
+        "mobile": "Mobile",
+        "games": "Games",
+        "web-brand": "Web & Brand"
+      },
+      "filterLabel": "Filter work",
+      "count": "{count, plural, =1 {1 project} other {# projects}}",
+      "empty": "Nothing here yet — try another filter.",
+      "ctaTitle": "Don’t see your industry?",
+      "ctaText": "I’ve probably designed something adjacent. Tell me what you’re building.",
+      "cta": "Tell me what you’re building"
+    },
+    "services": {
+      "title": "Services",
+      "description": "Senior product design, on demand — fixed-scope projects or an embedded senior designer.",
+      "placeholder": "Services page lands in Phase 8.",
+      "hero": {
+        "title": "Senior product design, on demand.",
+        "lead": "Fixed-scope projects or an embedded senior designer — without the hiring cycle. Pick a scope below or bring the problem; the first call is free.",
+        "cta": "Request a quote"
+      },
+      "cardsEyebrow": "Hire me for",
+      "cardsTitle": "Seven ways to work together.",
+      "detail": {
+        "deliverables": "What you get",
+        "timeline": "Typical timeline",
+        "quote": "Request a quote for this"
+      },
+      "models": {
+        "eyebrow": "Engagement models",
+        "title": "Project, retainer or embedded.",
+        "items": [
+          {
+            "title": "Project",
+            "text": "Fixed scope, fixed price, clear milestones. Best for a launch, a redesign or a new module."
+          },
+          {
+            "title": "Retainer",
+            "text": "A set number of days per month for teams that ship continuously and need senior design on tap."
+          },
+          {
+            "title": "Embedded / full-time",
+            "text": "I join your team as the senior product designer — available now for the right role."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "How it runs",
+        "title": "Four steps, and what I need from you at each.",
+        "steps": [
+          {
+            "title": "Discover",
+            "text": "Goals, users, constraints, existing data.",
+            "needs": "From you: 60 minutes, access to analytics and whoever owns the product."
+          },
+          {
+            "title": "Define",
+            "text": "Flows, information architecture, wireframes.",
+            "needs": "From you: honest feedback within 48 hours of each review."
+          },
+          {
+            "title": "Design",
+            "text": "UI, design system, motion.",
+            "needs": "From you: brand assets and a developer in the room for feasibility."
+          },
+          {
+            "title": "Deliver",
+            "text": "Handoff, design QA, iteration with your developers.",
+            "needs": "From you: a staging link so I can QA the real thing."
+          }
+        ]
+      },
+      "quote": {
+        "eyebrow": "Request a quote",
+        "title": "Tell me what you’re building.",
+        "lead": "A few lines are enough — I’ll reply within 24 hours with questions or a proposal.",
+        "next": {
+          "title": "What happens next",
+          "items": [
+            "I reply within 24 hours with questions or a rough scope.",
+            "We take a free 30-minute call to align on goals and timeline.",
+            "You get a written proposal: scope, price, milestones."
+          ]
+        }
+      },
+      "faqEyebrow": "FAQ",
+      "faqTitle": "What clients usually ask."
+    },
+    "about": {
+      "title": "About",
+      "description": "Games taught me engagement. Fintech taught me stakes.",
+      "placeholder": "About page lands in Phase 8.",
+      "hero": {
+        "eyebrow": "About",
+        "title": "Games taught me engagement. Fintech taught me stakes."
+      },
+      "story": [
+        "I started in 2017 designing game graphics at Argon Tech in Lahore and, within a year, was leading the gaming department’s UI/UX — writing game design documents, estimating work and shipping features that lifted retention by 30%. Games are unforgiving teachers: if a screen is confusing, players leave in seconds.",
+        "That instinct followed me into enterprise SaaS at 360SynergyTech — anti-money-laundering dashboards, RPA tooling — where the users were analysts instead of players and the cost of confusion was compliance risk. There I learned that the fastest way to ship good design is to hand developers something they don’t have to interpret: it cut build time by a quarter.",
+        "Today I’m Senior Product Designer at Cygnus Payments, designing the Compass POS and kiosk ecosystem that restaurants run their whole day on. In between, I’ve freelanced since 2020 for clients in the US, Canada and Europe — apps, real-estate sites, ticketing platforms and a cross-platform shooter."
+      ],
+      "bring": {
+        "eyebrow": "What I bring",
+        "title": "Three things most designers have one of.",
+        "items": [
+          {
+            "title": "Systems + engagement",
+            "text": "Enterprise complexity (POS, AML, RPA) and game engagement loops (retention, conversion, rewards) in one designer."
+          },
+          {
+            "title": "An engineer’s handoff",
+            "text": "A B.S. in Software Engineering means dev-ready specs, component libraries and design QA — quantified at −25% build time."
+          },
+          {
+            "title": "Hardware-aware",
+            "text": "POS terminals and kiosks: touch targets, offline mode, glare, gloves and queue pressure — real-world constraints, not just screens."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Experience",
+        "title": "Nine years, three industries.",
+        "now": "Now",
+        "kinds": {
+          "full-time": "Full-time",
+          "contract": "Contract",
+          "freelance": "Freelance"
+        }
+      },
+      "skills": {
+        "eyebrow": "Skills",
+        "title": "What I actually do all day.",
+        "groups": [
+          {
+            "title": "Product",
+            "items": [
+              "Product strategy",
+              "Discovery",
+              "Information architecture",
+              "User flows",
+              "Gamification"
+            ]
+          },
+          {
+            "title": "Research",
+            "items": [
+              "Interviews",
+              "Usability testing",
+              "A/B testing",
+              "UX audits",
+              "AI-assisted synthesis"
+            ]
+          },
+          {
+            "title": "Craft",
+            "items": [
+              "UI design",
+              "Prototyping",
+              "Motion",
+              "Design systems",
+              "Accessibility"
+            ]
+          },
+          {
+            "title": "Leadership",
+            "items": [
+              "Team lead",
+              "Mentoring",
+              "Stakeholder management",
+              "Game design documents",
+              "Estimation"
+            ]
+          },
+          {
+            "title": "Tools",
+            "items": [
+              "Figma",
+              "Figma component libraries",
+              "Design QA"
+            ]
+          }
+        ]
+      },
+      "awards": {
+        "eyebrow": "Recognition",
+        "title": "Awards & certifications",
+        "items": [
+          {
+            "title": "The Brainiac Award",
+            "org": "360SynergyTech",
+            "year": "2023"
+          },
+          {
+            "title": "Employee of the Year 2021",
+            "org": "360SynergyTech",
+            "year": "2022"
+          },
+          {
+            "title": "Star Performer, Gaming Dept. 2019",
+            "org": "Argon Tech",
+            "year": "2020"
+          }
+        ],
+        "certs": [
+          "Google UX Design Professional Certificate"
+        ]
+      },
+      "education": {
+        "title": "Education",
+        "degree": "B.S. Software Engineering",
+        "school": "University of Management and Technology",
+        "years": "2012 – 2016",
+        "coursework": "Human-Computer Interaction · Software Requirement Gathering · Software Project Management"
+      },
+      "resume": {
+        "title": "Want the one-page version?",
+        "text": "Full resume as a PDF, with contact details.",
+        "cta": "Download resume"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Hiring, a project, or just a question — I read everything.",
+      "placeholder": "Contact form lands in Phase 8.",
+      "hero": {
+        "title": "Let’s talk.",
+        "lead": "Hiring, a project, or just a question — I read everything."
+      },
+      "details": {
+        "email": "Email",
+        "calendar": "Book a call",
+        "calendarText": "30 minutes, no pitch — just questions.",
+        "socials": "Elsewhere",
+        "response": "Usually replies within 24 hours."
+      },
+      "faqEyebrow": "FAQ",
+      "faqTitle": "Before you write"
+    }
+  },
+  "caseStudy": {
+    "toc": "On this page",
+    "prev": "Previous project",
+    "next": "Next project",
+    "minutes": "{count, plural, =1 {1 min read} other {# min read}}",
+    "fallbackNotice": "This case study is only available in English for now.",
+    "backToWork": "All work",
+    "meta": {
+      "role": "Role",
+      "client": "Client",
+      "timeline": "Timeline",
+      "platforms": "Platforms",
+      "industry": "Industry",
+      "team": "Team",
+      "readingTime": "Reading time",
+      "link": "Live"
+    }
+  },
+  "forms": {
+    "name": "Name",
+    "email": "Email",
+    "company": "Company (optional)",
+    "iam": "I am…",
+    "iamOptions": {
+      "hiring": "Hiring for a team",
+      "client": "A client with a project",
+      "other": "Something else"
+    },
+    "service": "Service",
+    "serviceAny": "Not sure yet",
+    "budget": "Budget (optional)",
+    "budgetOptions": {
+      "unsure": "Not sure yet",
+      "b1": "Under $3k",
+      "b2": "$3k – $10k",
+      "b3": "$10k – $25k",
+      "b4": "$25k+"
+    },
+    "message": "Message",
+    "messagePlaceholder": "What are you building, and what’s in the way?",
+    "submit": "Send message",
+    "submitQuote": "Request a quote",
+    "sending": "Sending…",
+    "privacy": "Your details are only used to reply to you.",
+    "success": {
+      "title": "Got it — I’ll reply within 24 hours.",
+      "text": "Want to skip the wait? Book a 30-minute call.",
+      "cta": "Book a call",
+      "another": "Send another"
+    },
+    "errors": {
+      "name": "Please tell me your name.",
+      "email": "Enter a valid email address.",
+      "message": "A few more words would help — at least 10 characters.",
+      "turnstile": "Please complete the anti-spam check.",
+      "rate": "Too many messages in a short time — try again in a minute.",
+      "generic": "Something went wrong sending your message. Email me directly at {email}."
+    }
+  }
+}

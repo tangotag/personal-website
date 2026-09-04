@@ -1,0 +1,91 @@
+---
+slug: compass-pos
+title: "Compass POS — an AI-powered restaurant POS and kiosk ecosystem"
+hook: "Designing the system restaurants run their whole day on."
+template: full
+tier: hero
+client: "Cygnus Payments"
+role: "Senior Product Designer"
+timeline: "Jul 2025 – present"
+platforms: ["POS terminal", "Kiosk", "KDS", "Customer display", "Web admin"]
+industry: ["Fintech", "Hospitality"]
+tags: ["POS", "Kiosk", "Design system", "AI", "Offline-first"]
+filters: ["fintech-pos", "saas"]
+results:
+  - { value: "5", label: "surfaces, one design system" }
+  - { value: "Offline-first", label: "ordering and payments" }
+  - { value: "< 30 min", label: "cashier onboarding", status: "confirm" }
+featuredOrder: 1
+externalUrl: "https://cygnuspay.com/cpos"
+---
+
+{/* Phase 7 fills every [CONFIRM]/[NEEDED] below — outline per docs/06-case-study-framework.md §6. */}
+
+<TLDR
+  items={[
+    "Independent restaurants were stitching together POS, online ordering, timekeeping and reporting from different vendors.",
+    "I designed Compass as one system — front-of-house to back-office — sold with hardware as a single merchant bundle.",
+    "AI reporting and support live inside daily workflows instead of a separate dashboard; the whole thing works offline.",
+  ]}
+/>
+
+## Context & goal
+
+Cygnus Payments is a US payments ISO moving from reselling third-party POS to owning the product.
+The goal: a POS ecosystem competitive with Toast-, Square- and Clover-tier products at a price
+independent restaurants accept, differentiated by AI insights, dual pricing and offline resilience.
+
+## Users
+
+Owner-operators who live in reports, menus and pricing. Cashiers and servers who need speed and
+fewer mistakes at the counter. Kitchen staff reading tickets from three metres away. First-time
+customers at a kiosk with a queue behind them. And the Cygnus support team onboarding merchants
+through the back-office "Bridge" portal.
+
+## My role & team
+
+Sole product designer owning strategy, information architecture, flows, UI, the design system and
+handoff across all five surfaces. I partnered with product and engineering on scope and sequencing.
+I did not select hardware or integrate payment processors.
+
+<Callout kind="constraint">
+  Fixed hardware, offline-first operation with later reconciliation, dual-pricing disclosure rules,
+  staff turnover that demands learning the system in a single shift, and kiosk accessibility (reach,
+  contrast, time-outs).
+</Callout>
+
+## Constraints
+
+Every screen had to survive the worst shift, not the demo: gloves, glare, a dropped connection in
+the middle of a ticket, and a new hire on day one.
+
+## Flows & information architecture
+
+Nine modules mapped to five surfaces. Order → modify → pay (dual pricing) → kitchen → close on the
+terminal; attract → order → pay on the kiosk; live sales, AI reports and employee time in the admin.
+
+## Design system
+
+Shared tokens across POS, kiosk, KDS, customer display and admin; a large-touch component set;
+explicit states for offline and queued sync; role-based navigation so a cashier never sees the
+owner's tools.
+
+## Final solution
+
+Order screen, modifiers, payment and tipping, the offline banner and sync queue, the KDS board,
+the kiosk journey, and the Bridge admin with live sales and AI reports.
+
+<Callout kind="decision">
+  One design system across five surfaces instead of five apps — a merchant learns one language and
+  the engineering team builds one component library.
+</Callout>
+
+## Results & learnings
+
+<Results>
+  <Metric display="5" label="surfaces, one design system" />
+  <Metric display="Offline-first" label="ordering and payments" />
+</Results>
+
+Design for the worst shift, not the demo. One system beats five apps. AI belongs inside workflows,
+not in a dashboard nobody opens.
