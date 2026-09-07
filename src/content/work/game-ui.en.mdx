@@ -1,0 +1,127 @@
+---
+slug: game-ui
+title: "Game UI collection: menus, economies and progression"
+hook: "Nine years of game interfaces, starting with a battle royale front end."
+template: collection
+tier: collection
+client: "Turtle Studios and others"
+role: "UI/UX Designer"
+timeline: "2017 – present"
+platforms: ["PC", "Web", "Mobile"]
+industry: ["Games"]
+tags: ["Game UX", "Front end", "Economy", "Progression"]
+filters: ["games"]
+results: []
+cover: "/work/game-ui/cover.webp"
+coverAlt: "The Legacy battle royale lobby on a deep green ground, three armoured characters in a line above Battle Royal and Find Match buttons, with the career stats screen behind it."
+featuredOrder: 5
+---
+
+{/* Legacy Battle Royal assets are in. Taxa's Hold'em and Roulette still need screens: docs/11. */}
+
+A game interface is judged in the three seconds before a match. It has to say what the player owns,
+what they can do next and what it costs, without ever getting between them and the play button. This
+page collects that work. Below is the piece with the most surface area.
+
+## Legacy Battle Royal
+
+A PC battle royale front end for Turtle Studios: the lobby players return to between matches, the
+character pipeline, the season pass, the store and the settings nobody should have to think about.
+
+Everything hangs off one dark chrome with a single acid green accent. Green means available or
+selected and nothing else, which is what lets a player scan a dense screen quickly. The persistent
+top bar carries identity, currency and navigation in the same place on every screen, so the lobby
+never feels like a different app from the store.
+
+<Figure
+  src="/work/game-ui/legacy-lobby.webp"
+  alt="The Legacy lobby. A top navigation bar with Lobby, Locker, Shop, Bazaar, Career, Leaders and Drops, three armoured characters standing in a line on a dark backdrop, Battle Royal and Find Match buttons at the lower left, and a friends list on the right showing online, off-line, away and in-match players."
+  caption="The lobby. Play is one button, the squad is always visible, and everything else waits."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+### The character pipeline
+
+Three screens, increasing in depth: pick a preset, morph the face, then spend points on attributes.
+A player who wants to jump straight into a match never has to see the second or third.
+
+<Gallery
+  cols={3}
+  wide
+  items={[
+    {
+      src: "/work/game-ui/legacy-customizer.webp",
+      alt: "Legacy identity customizer storage screen with a gender selector offering male, female and non-binary, a grid of empty preset slots with one highlighted in green, preset controls on the left, and the character model on the right.",
+      caption: "Presets first",
+    },
+    {
+      src: "/work/game-ui/legacy-face-morph.webp",
+      alt: "Legacy identity customizer face morph screen with a list of facial regions on the left including procerus, brow drop, eye orbital, nose and jaw, and sliders for height, length and size beside the character model.",
+      caption: "Then face morph",
+    },
+    {
+      src: "/work/game-ui/legacy-attributes.webp",
+      alt: "Legacy DNA screen showing physical attributes for height, weight and muscle beside speed, acceleration and strength, and a skill attributes section with a hundred points to spend across play making and finishing sliders.",
+      caption: "Then a points budget",
+    },
+  ]}
+/>
+
+### The economy
+
+Three surfaces sell three different things, so each one states the price in the player's terms. The
+currency screen prices coin bundles in real money, the season pass prices a time window, the bazaar
+prices individual items. Rarity is a labelled band, never colour on its own.
+
+<Gallery
+  cols={3}
+  wide
+  items={[
+    {
+      src: "/work/game-ui/legacy-currency.webp",
+      alt: "Legacy Voolah currency screen offering four coin bundles of 1,000, 2,800, 5,000 and 13,500 coins, each illustrated with stacked gold coins and priced at $9.97, $16.76, $27 and $67 with a Buy Now button.",
+      caption: "Currency, priced in real money",
+    },
+    {
+      src: "/work/game-ui/legacy-season-pass.webp",
+      alt: "Legacy season pass screen headed Ticket 00, Season 00, with a warning that the season ends in thirty days, three large card slots with the middle one selected, Buy Now and Gift buttons, and a rarity and category panel on the right.",
+      caption: "Season pass, priced in time",
+    },
+    {
+      src: "/work/game-ui/legacy-item-shop.webp",
+      alt: "Legacy bazaar screen with a search field, category filters for outfits, gloves, wraps, emotes and winners, and a grid of item cards each showing a name and a coin price, with one item selected.",
+      caption: "Bazaar, priced per item",
+    },
+  ]}
+/>
+
+### Progression and settings
+
+Career stats are the reason a player comes back, so they get the same weight as the store. Settings
+use the same controls as the rest of the game rather than a separate options dialect.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/game-ui/legacy-career-stats.webp",
+      alt: "Legacy career stats screen with physical attribute bars, an all stats section covering time played, damage, assists, headshots, wins and favourite weapon, and a last ten games table listing result, time and score.",
+      caption: "Career stats, weighted like the store",
+    },
+    {
+      src: "/work/game-ui/legacy-settings.webp",
+      alt: "Legacy settings screen with tabs for display, audio, general, games, bindings and tutorials, display settings for screen mode, resolution, v-sync, motion blur and brightness, and quality settings offering low, medium, high and ultra, with revert and apply buttons.",
+      caption: "Settings, in the game's own controls",
+    },
+  ]}
+/>
+
+## Also in this collection
+
+Casino work at Fifty Cats, where the Open Omaha redesign lifted conversion by 40%, plus Taxa's
+Hold'em and Roulette. Screens for those are still being collected. The earliest work goes back to
+leading the gaming department's UI and UX at Argon Tech in 2018, writing game design documents
+alongside the interfaces they described.

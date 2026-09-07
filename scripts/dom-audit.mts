@@ -18,7 +18,16 @@
 import { chromium } from "@playwright/test";
 
 const BASE = process.argv[2] ?? process.env.AUDIT_URL ?? "http://localhost:3000";
-const ROUTES = ["/", "/work", "/work/compass-pos", "/services", "/about", "/contact"];
+const ROUTES = [
+  "/",
+  "/work",
+  "/work/compass-pos",
+  "/work/aml-watcher",
+  "/work/game-ui",
+  "/services",
+  "/about",
+  "/contact",
+];
 const THEMES = ["light", "dark"] as const;
 
 type Finding = Record<string, unknown>;

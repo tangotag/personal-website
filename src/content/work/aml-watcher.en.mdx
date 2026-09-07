@@ -14,11 +14,131 @@ filters: ["saas", "fintech-pos"]
 results:
   - { value: "−25%", label: "development time via dev-ready handoff" }
   - { value: "~$5k", label: "saved per project" }
+cover: "/work/aml-watcher/cover.webp"
+coverAlt: "The AML Watcher screening dashboard on a deep violet ground, a list of candidate matches for a sanctioned individual with risk badges beside a search information panel, with the linked entities screen behind it."
 featuredOrder: 4
 ---
 
 {/* Phase 7: confirm timeline and which project earned the −25% figure (docs/05 §3.4). */}
 
-Analysts triage hundreds of alerts; false positives and slow review cost money and compliance risk.
-I designed a triage-first information architecture, the alert and case workflows, and a dev-ready
-component library that cut build time by a quarter.
+<TLDR
+  items={[
+    "Compliance analysts screen names against sanctions, watchlists and adverse media, then have to decide, in seconds, whether a hit is really their customer.",
+    "I designed a triage-first architecture: the decision comes first, the evidence sits one click behind it, and every screen carries the same three-part layout.",
+    "Dev-ready specs and a component library cut build time by a quarter, about $5k per project.",
+  ]}
+/>
+
+## Context & goal
+
+360SynergyTech builds regulatory technology for banks and payment businesses. Screening is the
+unglamorous core of it: every customer, every payment counterparty, checked against sanctions lists,
+politically exposed person registers and adverse media, continuously.
+
+The hard part is not finding matches. It is that most matches are wrong. A common name returns
+dozens of candidates, and an analyst has to decide which, if any, is their customer. Get it wrong in
+one direction and you freeze an innocent account. Get it wrong in the other and you have a
+compliance failure.
+
+## Users
+
+Compliance analysts who clear hundreds of alerts a shift and are measured on both speed and
+accuracy. Their reviewers, who need to see why a decision was made months later. And the
+integration engineers who consume the same data through an API.
+
+## My role & team
+
+Product designer for the platform: information architecture, the screening and case workflows, the
+interface, the design system and the developer handoff. I worked alongside the compliance
+specialists who defined the matching rules. I did not build the matching engine or choose the data
+providers.
+
+<Callout kind="constraint">
+  Regulated work leaves a trail. Every decision needs a visible reason, an auditable history and a
+  named owner, and none of that may slow down the analyst making it.
+</Callout>
+
+## Flows & information architecture
+
+Three levels, always in the same order. A list of candidate matches, an entity summary, then the
+underlying evidence. The analyst never leaves the case to check something and lose their place.
+
+<Figure
+  src="/work/aml-watcher/main-page.webp"
+  alt="AML Watcher main screening page. A left navigation column with Create New Case, Manage Case, Advance Features and API, a results area with six candidate match cards each showing a percentage match, a High Risk or Low Risk badge, name, gender, date of birth and country flags, and a right panel headed Search Information listing the search terms, entity type, match score and the lists the entity appears on."
+  caption="The screening list. Match confidence and risk sit on the card, so an analyst can rule candidates out without opening any of them."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+The summary answers the only question that matters at this stage: is this person my customer? Name,
+date of birth, nationality and the reason for the flag, in one column, in a fixed order, so the eye
+learns where to look and stops reading.
+
+<Figure
+  src="/work/aml-watcher/summary.webp"
+  alt="AML Watcher entity summary page, a two-column record showing full name, aliases, date of birth, nationality, position held, the sanction programme and the date the listing was published, beside a right-hand search information panel."
+  caption="The summary. A fixed field order beats a prettier layout when someone reads a hundred of these a day."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+## Design system
+
+One three-part layout across every screen: navigation on the left, the working area in the middle,
+evidence on the right. Status colour is used sparingly and always with a text label beside it, since
+red and green alone are not a safe way to convey risk.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/aml-watcher/linked-entities.webp",
+      alt: "AML Watcher linked entities screen, a table of related people and companies with the relationship type and source for each, beside a details panel.",
+      caption: "Linked entities. Relationships are the usual reason a match is real.",
+    },
+    {
+      src: "/work/aml-watcher/sanction-details.webp",
+      alt: "AML Watcher sanction details screen, a long record of the sanction programme, issuing authority, listing date, legal basis and the full narrative text of the listing.",
+      caption: "Sanction detail, including the full listing text an auditor will ask for.",
+    },
+    {
+      src: "/work/aml-watcher/verifications.webp",
+      alt: "AML Watcher verifications screen with a checklist of verification steps, each with a status marker in red or green and a right panel of supporting information.",
+      caption: "Verifications. Each step is labelled, never colour alone.",
+    },
+    {
+      src: "/work/aml-watcher/sources.webp",
+      alt: "AML Watcher sources screen showing adverse media results as article cards with photographs and headlines, beside a panel listing the source information.",
+      caption: "Adverse media, shown as sources rather than a score.",
+    },
+  ]}
+/>
+
+## Handoff
+
+The part that saved the money. Component libraries with tokens, redlines and state matrices,
+including the empty, loading, error and partial-data states that a screening tool hits constantly.
+With a software engineering background I wrote the handoff the way engineers read it.
+
+<Figure
+  src="/work/aml-watcher/style-guide.webp"
+  alt="AML Watcher style guide card showing the Inter typeface in regular, semi bold and bold, a Figma tool marker, and four colour swatches labelled with their hex values in blue, violet, white and near-black."
+  caption="The tokens the component library was built from."
+  kind="plain"
+  aspect="16/10"
+/>
+
+## Results & learnings
+
+<Results>
+  <Metric display="−25%" label="development time via dev-ready handoff" />
+  <Metric display="~$5k" label="saved per project" />
+</Results>
+
+Analysts do not want more information, they want the decision to be easier. Put the evidence one
+click behind the decision, keep the layout identical on every screen, and never let colour be the
+only thing carrying meaning.
