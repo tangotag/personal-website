@@ -1,6 +1,6 @@
 # raheelqureshi.com
 
-Personal portfolio of **Raheel Ahmad Qureshi** — Senior Product Designer (fintech, SaaS, games).
+Personal portfolio of **Raheel Ahmad Qureshi**, Senior Product Designer (fintech, SaaS, games).
 Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · MDX case studies · EN/ES · deployed on Vercel.
 
 The full planning trail (positioning, reference audit, IA, content, project strategy, case-study framework,
@@ -23,11 +23,18 @@ and [`docs/11-content-request.md`](docs/11-content-request.md) for what the site
 | `npm run test:e2e`  | Build, then Playwright e2e against the production server                                        |
 | `npm run e2e`       | Playwright only (assumes a build exists); test servers use port 3100 so `npm run dev` keeps 3000 |
 | `npm run lhci`      | Build with a same-origin site URL, then Lighthouse (mobile) with budgets on the main routes     |
+| `npm run audit:dom` | DOM audit of every route in both themes: real contrast, accent contract, em-dashes, target size |
+| `npm run assets`    | Rebuild `public/work/**` .webp from the raw exports in `Images/`                                 |
 
 First time only: `npx playwright install chromium`.
 
-Lighthouse runs through `scripts/lighthouse.mts` (Playwright's Chromium, no chrome-launcher — it fails on
-Windows). Budgets: accessibility/best-practices/SEO ≥ 95, performance ≥ 90 (temporary — target 95, see docs/10 Phase 12), CLS ≤ 0.02, LCP ≤ 1.8 s (warn).
+Lighthouse runs through `scripts/lighthouse.mts` (Playwright's Chromium, no chrome-launcher, which fails on
+Windows). Budgets: accessibility/best-practices/SEO ≥ 95, performance ≥ 90 (temporary; target 95, see docs/10 Phase 12), CLS ≤ 0.02, LCP ≤ 1.8 s (warn).
+Run it on an otherwise idle machine: a parallel build or browser costs 10+ performance points.
+
+`npm run audit:dom` inspects the rendered DOM instead of the source. It composites every translucent
+background up the ancestor chain before measuring contrast, applies the WCAG 2.2 target-size exceptions,
+and enforces the two house rules below. It needs a server already running (3000 by default).
 Run it with `node`, not `tsx` — esbuild's `__name` helper breaks Lighthouse's in-page functions.
 
 ## Environment
@@ -82,6 +89,19 @@ tests/e2e              Playwright: smoke, navigation, home, work, case-study, pa
    production builds until removed.
 4. `npm run validate` fails the build on invalid frontmatter, missing covers or alt text, or a filter with
    no projects.
+
+## Design rules
+
+**Accent contract.** `--accent` is the acid lime `#DDF23A` in both themes and is for **filled surfaces
+only**: buttons, chips, bars, dots, always with `--accent-fg` ink on top (12.2:1). Lime is a near-white in
+luminance, so lime text or a lime hairline on the light theme measures 1.1:1 and disappears. Anything
+text-, icon- or line-shaped uses `--accent-strong` instead: evergreen `#0B6E51` on light (5.6:1), the lime
+itself on dark (14.2:1). `npm run audit:dom` fails if lime ever lands on a foreground in the light theme.
+
+**No em-dashes** in anything a visitor reads: message catalogs, JSON content, MDX, JSX text, email copy.
+Use a period, comma, colon or middot. Code comments are exempt. This follows the taste-skill guidelines
+(github.com/leonxlnx/taste-skill), along with one accent, one radius scale, one theme lock per page, AA on
+every control, and an animation budget where each effect has to justify itself.
 
 ## Conventions
 
