@@ -1,10 +1,10 @@
 {
   "meta": {
-    "siteName": "Raheel Ahmad Qureshi — Senior Product Designer",
-    "titleTemplate": "%s — Raheel Ahmad Qureshi",
+    "siteName": "Raheel Ahmad Qureshi · Senior Product Designer",
+    "titleTemplate": "%s · Raheel Ahmad Qureshi",
     "home": {
-      "title": "Raheel Ahmad Qureshi — Senior Product Designer",
-      "description": "Senior Product Designer with 9+ years across fintech, POS, SaaS and games. I turn complex systems into products people enjoy using — and hand off designs developers can ship 25% faster."
+      "title": "Raheel Ahmad Qureshi · Senior Product Designer",
+      "description": "Senior Product Designer with 9+ years across fintech, POS, SaaS and games. I turn complex systems into products people enjoy using, and hand off designs developers can ship 25% faster."
     }
   },
   "nav": {
@@ -58,7 +58,7 @@
       "eyebrow": "Senior Product Designer · Remote worldwide",
       "title": "I turn complex systems into products people actually enjoy using.",
       "highlight": "actually enjoy",
-      "lead": "9+ years designing end-to-end products — restaurant POS and self-service kiosks, compliance SaaS, and multiplayer games. Engineer's handoff, gamer's instinct for what keeps people coming back.",
+      "lead": "9+ years designing end-to-end products: restaurant POS and self-service kiosks, compliance SaaS, and multiplayer games. Engineer's handoff, gamer's instinct for what keeps people coming back.",
       "replyTime": "Usually replies within 24 hours."
     },
     "paths": {
@@ -69,14 +69,14 @@
       },
       "client": {
         "title": "Need a product designed?",
-        "text": "Fixed-scope projects or an embedded senior designer — without the hiring cycle.",
+        "text": "Fixed-scope projects or an embedded senior designer, without the hiring cycle.",
         "cta": "See services"
       }
     },
     "work": {
       "eyebrow": "Selected work",
       "title": "Four projects that show how I think.",
-      "lead": "Fintech, SaaS and games — each one with a real problem, a clear role and an outcome you can check.",
+      "lead": "Fintech, SaaS and games. Each one with a real problem, a clear role and an outcome you can check.",
       "all": "All work"
     },
     "numbers": {
@@ -94,14 +94,14 @@
       "items": [
         {
           "pain": "The product works, but users don’t stick around.",
-          "answer": "I design engagement loops, not just screens — learned in games, applied to SaaS and fintech."
+          "answer": "I design engagement loops, not just screens. Learned in games, applied to SaaS and fintech."
         },
         {
           "pain": "Developers keep coming back with questions.",
           "answer": "You get dev-ready specs, component libraries and design QA. Handoff friction is where I save teams 25% of build time."
         },
         {
-          "pain": "We’re shipping to hardware — POS, kiosk, tablet — and it feels like a website.",
+          "pain": "We’re shipping to POS, kiosk and tablet hardware, and it feels like a website.",
           "answer": "I’ve designed for terminals, kiosks and offline mode. Touch, glare, queues and gloves included."
         },
         {
@@ -114,7 +114,7 @@
     "services": {
       "eyebrow": "What I can do for you",
       "title": "Senior product design, on demand.",
-      "lead": "Pick a scope or bring the problem — the first call is free.",
+      "lead": "Pick a scope or bring the problem. The first call is free.",
       "all": "All services",
       "quote": "Request a quote"
     },
@@ -127,7 +127,7 @@
     "testimonials": {
       "eyebrow": "What people say",
       "title": "From the people I’ve worked with.",
-      "empty": "Testimonials are being collected — with permission — and will appear here.",
+      "empty": "Testimonials are being collected, with permission, and will appear here.",
       "viewProject": "View project"
     },
     "process": {
@@ -142,7 +142,7 @@
         {
           "title": "Define",
           "text": "Flows, information architecture, wireframes.",
-          "gets": "You get: a clickable prototype — early and ugly on purpose."
+          "gets": "You get: a clickable prototype, early and ugly on purpose."
         },
         {
           "title": "Design",
@@ -168,7 +168,7 @@
     }
   },
   "footer": {
-    "tagline": "Senior Product Designer — fintech, SaaS & games.",
+    "tagline": "Senior Product Designer · fintech, SaaS & games.",
     "rights": "© {year} Raheel Ahmad Qureshi. All rights reserved.",
     "navigate": "Navigate",
     "work": "Work",
@@ -202,18 +202,18 @@
       },
       "filterLabel": "Filter work",
       "count": "{count, plural, =1 {1 project} other {# projects}}",
-      "empty": "Nothing here yet — try another filter.",
+      "empty": "Nothing here yet. Try another filter.",
       "ctaTitle": "Don’t see your industry?",
       "ctaText": "I’ve probably designed something adjacent. Tell me what you’re building.",
       "cta": "Tell me what you’re building"
     },
     "services": {
       "title": "Services",
-      "description": "Senior product design, on demand — fixed-scope projects or an embedded senior designer.",
+      "description": "Senior product design, on demand. Fixed-scope projects or an embedded senior designer.",
       "placeholder": "Services page lands in Phase 8.",
       "hero": {
         "title": "Senior product design, on demand.",
-        "lead": "Fixed-scope projects or an embedded senior designer — without the hiring cycle. Pick a scope below or bring the problem; the first call is free.",
+        "lead": "Fixed-scope projects or an embedded senior designer, without the hiring cycle. Pick a scope below or bring the problem; the first call is free.",
         "cta": "Request a quote"
       },
       "cardsEyebrow": "Hire me for",
@@ -237,7 +237,7 @@
           },
           {
             "title": "Embedded / full-time",
-            "text": "I join your team as the senior product designer — available now for the right role."
+            "text": "I join your team as the senior product designer, available now for the right role."
           }
         ]
       },
@@ -270,7 +270,7 @@
       "quote": {
         "eyebrow": "Request a quote",
         "title": "Tell me what you’re building.",
-        "lead": "A few lines are enough — I’ll reply within 24 hours with questions or a proposal.",
+        "lead": "A few lines are enough. I’ll reply within 24 hours with questions or a proposal.",
         "next": {
           "title": "What happens next",
           "items": [
@@ -292,9 +292,9 @@
         "title": "Games taught me engagement. Fintech taught me stakes."
       },
       "story": [
-        "I started in 2017 designing game graphics at Argon Tech in Lahore and, within a year, was leading the gaming department’s UI/UX — writing game design documents, estimating work and shipping features that lifted retention by 30%. Games are unforgiving teachers: if a screen is confusing, players leave in seconds.",
-        "That instinct followed me into enterprise SaaS at 360SynergyTech — anti-money-laundering dashboards, RPA tooling — where the users were analysts instead of players and the cost of confusion was compliance risk. There I learned that the fastest way to ship good design is to hand developers something they don’t have to interpret: it cut build time by a quarter.",
-        "Today I’m Senior Product Designer at Cygnus Payments, designing the Compass POS and kiosk ecosystem that restaurants run their whole day on. In between, I’ve freelanced since 2020 for clients in the US, Canada and Europe — apps, real-estate sites, ticketing platforms and a cross-platform shooter."
+        "I started in 2017 designing game graphics at Argon Tech in Lahore and, within a year, was leading the gaming department’s UI/UX: writing game design documents, estimating work and shipping features that lifted retention by 30%. Games are unforgiving teachers: if a screen is confusing, players leave in seconds.",
+        "That instinct followed me into enterprise SaaS at 360SynergyTech, building anti-money-laundering dashboards and RPA tooling, where the users were analysts instead of players and the cost of confusion was compliance risk. There I learned that the fastest way to ship good design is to hand developers something they don’t have to interpret: it cut build time by a quarter.",
+        "Today I’m Senior Product Designer at Cygnus Payments, designing the Compass POS and kiosk ecosystem that restaurants run their whole day on. In between, I’ve freelanced since 2020 for clients in the US, Canada and Europe: apps, real-estate sites, ticketing platforms and a cross-platform shooter."
       ],
       "bring": {
         "eyebrow": "What I bring",
@@ -306,11 +306,11 @@
           },
           {
             "title": "An engineer’s handoff",
-            "text": "A B.S. in Software Engineering means dev-ready specs, component libraries and design QA — quantified at −25% build time."
+            "text": "A B.S. in Software Engineering means dev-ready specs, component libraries and design QA, quantified at −25% build time."
           },
           {
             "title": "Hardware-aware",
-            "text": "POS terminals and kiosks: touch targets, offline mode, glare, gloves and queue pressure — real-world constraints, not just screens."
+            "text": "POS terminals and kiosks: touch targets, offline mode, glare, gloves and queue pressure. Real-world constraints, not just screens."
           }
         ]
       },
@@ -350,13 +350,7 @@
           },
           {
             "title": "Craft",
-            "items": [
-              "UI design",
-              "Prototyping",
-              "Motion",
-              "Design systems",
-              "Accessibility"
-            ]
+            "items": ["UI design", "Prototyping", "Motion", "Design systems", "Accessibility"]
           },
           {
             "title": "Leadership",
@@ -370,11 +364,7 @@
           },
           {
             "title": "Tools",
-            "items": [
-              "Figma",
-              "Figma component libraries",
-              "Design QA"
-            ]
+            "items": ["Figma", "Figma component libraries", "Design QA"]
           }
         ]
       },
@@ -398,9 +388,7 @@
             "year": "2020"
           }
         ],
-        "certs": [
-          "Google UX Design Professional Certificate"
-        ]
+        "certs": ["Google UX Design Professional Certificate"]
       },
       "education": {
         "title": "Education",
@@ -417,16 +405,16 @@
     },
     "contact": {
       "title": "Contact",
-      "description": "Hiring, a project, or just a question — I read everything.",
+      "description": "Hiring, a project, or just a question. I read everything.",
       "placeholder": "Contact form lands in Phase 8.",
       "hero": {
         "title": "Let’s talk.",
-        "lead": "Hiring, a project, or just a question — I read everything."
+        "lead": "Hiring, a project, or just a question. I read everything."
       },
       "details": {
         "email": "Email",
         "calendar": "Book a call",
-        "calendarText": "30 minutes, no pitch — just questions.",
+        "calendarText": "30 minutes, no pitch. Just questions.",
         "socials": "Elsewhere",
         "response": "Usually replies within 24 hours."
       },
@@ -479,7 +467,7 @@
     "sending": "Sending…",
     "privacy": "Your details are only used to reply to you.",
     "success": {
-      "title": "Got it — I’ll reply within 24 hours.",
+      "title": "Got it. I’ll reply within 24 hours.",
       "text": "Want to skip the wait? Book a 30-minute call.",
       "cta": "Book a call",
       "another": "Send another"
@@ -487,9 +475,9 @@
     "errors": {
       "name": "Please tell me your name.",
       "email": "Enter a valid email address.",
-      "message": "A few more words would help — at least 10 characters.",
+      "message": "A few more words would help. At least 10 characters.",
       "turnstile": "Please complete the anti-spam check.",
-      "rate": "Too many messages in a short time — try again in a minute.",
+      "rate": "Too many messages in a short time. Try again in a minute.",
       "generic": "Something went wrong sending your message. Email me directly at {email}."
     }
   }

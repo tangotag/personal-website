@@ -1,10 +1,10 @@
 {
   "meta": {
-    "siteName": "Raheel Ahmad Qureshi — Diseñador de Producto Senior",
-    "titleTemplate": "%s — Raheel Ahmad Qureshi",
+    "siteName": "Raheel Ahmad Qureshi · Diseñador de Producto Senior",
+    "titleTemplate": "%s · Raheel Ahmad Qureshi",
     "home": {
-      "title": "Raheel Ahmad Qureshi — Diseñador de Producto Senior",
-      "description": "Diseñador de Producto Senior con más de 9 años en fintech, POS, SaaS y videojuegos. Convierto sistemas complejos en productos que la gente disfruta usar — y entrego diseños que los desarrolladores implementan un 25% más rápido."
+      "title": "Raheel Ahmad Qureshi · Diseñador de Producto Senior",
+      "description": "Diseñador de Producto Senior con más de 9 años en fintech, POS, SaaS y videojuegos. Convierto sistemas complejos en productos que la gente disfruta usar, y entrego diseños que los desarrolladores implementan un 25% más rápido."
     }
   },
   "nav": {
@@ -168,7 +168,7 @@
     }
   },
   "footer": {
-    "tagline": "Diseñador de Producto Senior — fintech, SaaS y videojuegos.",
+    "tagline": "Diseñador de Producto Senior · fintech, SaaS y videojuegos.",
     "rights": "© {year} Raheel Ahmad Qureshi. Todos los derechos reservados.",
     "navigate": "Navegar",
     "work": "Trabajo",
@@ -370,11 +370,7 @@
           },
           {
             "title": "Herramientas",
-            "items": [
-              "Figma",
-              "Librerías de componentes en Figma",
-              "QA de diseño"
-            ]
+            "items": ["Figma", "Librerías de componentes en Figma", "QA de diseño"]
           }
         ]
       },
@@ -398,9 +394,7 @@
             "year": "2020"
           }
         ],
-        "certs": [
-          "Certificado profesional de Diseño UX de Google"
-        ]
+        "certs": ["Certificado profesional de Diseño UX de Google"]
       },
       "education": {
         "title": "Formación",

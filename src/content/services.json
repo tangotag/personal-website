@@ -3,7 +3,7 @@
     "slug": "end-to-end-product-design",
     "title": { "en": "End-to-end product design", "es": "Diseño de producto de principio a fin" },
     "scope": {
-      "en": "From discovery to handoff for a new product or a major release — research, flows, UI, prototype and a design system your developers can build from.",
+      "en": "From discovery to handoff for a new product or a major release: research, flows, UI, prototype and a design system your developers can build from.",
       "es": "Del descubrimiento a la entrega para un producto nuevo o una versión importante: investigación, flujos, UI, prototipo y un sistema de diseño desde el que tu equipo pueda construir."
     },
     "deliverables": [
@@ -24,7 +24,7 @@
     "slug": "mobile-web-app-design",
     "title": { "en": "Mobile & web app UI/UX", "es": "UI/UX de apps móviles y web" },
     "scope": {
-      "en": "iOS, Android and web apps that feel native and convert — onboarding, core flows, edge states and the details users notice.",
+      "en": "iOS, Android and web apps that feel native and convert: onboarding, core flows, edge states and the details users notice.",
       "es": "Apps iOS, Android y web que se sienten nativas y convierten: onboarding, flujos principales, estados límite y los detalles que la gente nota."
     },
     "deliverables": [
@@ -41,7 +41,7 @@
     "slug": "saas-dashboard-design",
     "title": { "en": "SaaS & dashboard design", "es": "Diseño de SaaS y dashboards" },
     "scope": {
-      "en": "Data-dense admin panels, reporting and multi-role systems — the kind of complexity I designed for compliance, automation and POS back-office products.",
+      "en": "Data-dense admin panels, reporting and multi-role systems, the kind of complexity I designed for compliance, automation and POS back-office products.",
       "es": "Paneles de administración densos en datos, reportes y sistemas multi-rol: la complejidad que diseñé para productos de cumplimiento, automatización y back-office de POS."
     },
     "deliverables": [
@@ -84,7 +84,7 @@
     "slug": "game-ui-ux",
     "title": { "en": "Game UI/UX", "es": "UI/UX para videojuegos" },
     "scope": {
-      "en": "HUDs, menus, onboarding, economy and reward screens — UX aligned to the game design document for mobile, web and PC titles.",
+      "en": "HUDs, menus, onboarding, economy and reward screens. UX aligned to the game design document for mobile, web and PC titles.",
       "es": "HUD, menús, onboarding, pantallas de economía y recompensas: UX alineada al documento de diseño del juego para títulos móviles, web y PC."
     },
     "deliverables": [
@@ -104,7 +104,7 @@
       "es": "Sistemas de diseño y entrega Figma a desarrollo"
     },
     "scope": {
-      "en": "Component libraries, tokens, specs and design QA that cut build time — a quarter less development time on the last team I did this for.",
+      "en": "Component libraries, tokens, specs and design QA that cut build time. A quarter less development time on the last team I did this for.",
       "es": "Librerías de componentes, tokens, especificaciones y QA de diseño que reducen el tiempo de desarrollo: una cuarta parte menos en el último equipo con el que lo hice."
     },
     "deliverables": [
@@ -127,7 +127,7 @@
     "slug": "ux-audit",
     "title": { "en": "UX audit", "es": "Auditoría de UX" },
     "scope": {
-      "en": "Heuristic and data review of an existing product with a prioritised fix list — the fastest way to find out where users are leaving.",
+      "en": "Heuristic and data review of an existing product with a prioritised fix list. The fastest way to find out where users are leaving.",
       "es": "Revisión heurística y de datos de un producto existente con una lista priorizada de mejoras: la forma más rápida de saber dónde se van los usuarios."
     },
     "deliverables": [

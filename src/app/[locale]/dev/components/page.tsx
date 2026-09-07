@@ -54,15 +54,15 @@ export default async function ComponentsPage({ params }: PageProps<"/[locale]/de
                 <p className="text-h1">Heading one</p>
                 <p className="text-h2">Heading two</p>
                 <p className="text-h3">Heading three</p>
-                <p className="text-lead text-fg-muted">Lead — clamp(1.125rem, 1.4vw, 1.375rem)</p>
+                <p className="text-lead text-fg-muted">Lead · clamp(1.125rem, 1.4vw, 1.375rem)</p>
                 <p className="max-w-[68ch]">
-                  Body — Inter 16/1.65. Nine-plus years designing end-to-end products: restaurant
+                  Body · Inter 16/1.65. Nine-plus years designing end-to-end products: restaurant
                   POS and self-service kiosks, compliance SaaS, and multiplayer games.
                 </p>
                 <p className="text-eyebrow text-fg-muted">
-                  <span className="text-accent">01 / </span>Eyebrow mono
+                  <span className="text-accent-strong">01 / </span>Eyebrow mono
                 </p>
-                <p className="font-mono text-xs text-fg-muted">Caption mono — faint</p>
+                <p className="font-mono text-xs text-fg-muted">Caption mono · faint</p>
               </div>
             </Row>
 
@@ -201,7 +201,7 @@ export default async function ComponentsPage({ params }: PageProps<"/[locale]/de
                   </p>
                 </Callout>
                 <Callout kind="insight" title="What the kitchen told us">
-                  <p>Tickets were being read from three metres away — type had to be huge.</p>
+                  <p>Tickets were being read from three metres away. Type had to be huge.</p>
                 </Callout>
                 <Callout kind="decision">
                   <p>One design system across five surfaces instead of five apps.</p>

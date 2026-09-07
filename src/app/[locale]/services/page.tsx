@@ -48,7 +48,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "@id": `${site.url}#business`,
-      name: `${site.name} — ${site.role}`,
+      name: `${site.name} · ${site.role}`,
       url: pageUrl,
       email: site.email,
       areaServed: "Worldwide",
@@ -124,7 +124,9 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
                         <ul className="mt-2 space-y-1 text-sm text-fg">
                           {s.deliverables.map((d, i) => (
                             <li key={i} className="flex gap-2">
-                              <span className="text-accent">—</span>
+                              <span aria-hidden className="text-accent-strong">
+                                /
+                              </span>
                               {pick(d, locale)}
                             </li>
                           ))}
@@ -161,7 +163,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
           <ul className="mt-12 grid gap-6 md:grid-cols-3">
             {models.map((m, i) => (
               <li key={i} className="rounded-md border border-border bg-bg p-6">
-                <p className="font-mono text-xs text-accent">0{i + 1}</p>
+                <p className="font-mono text-xs text-accent-strong">0{i + 1}</p>
                 <h3 className="mt-3 text-h3">{m.title}</h3>
                 <p className="mt-3 text-fg-muted">{m.text}</p>
               </li>
@@ -176,8 +178,8 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
           <ol className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
               <li key={i} className="relative flex flex-col gap-3 border-t border-border pt-5">
-                <span aria-hidden className="absolute -top-px left-0 h-px w-10 bg-accent" />
-                <p className="font-mono text-xs text-accent">0{i + 1}</p>
+                <span aria-hidden className="absolute -top-px left-0 h-px w-10 bg-accent-strong" />
+                <p className="font-mono text-xs text-accent-strong">0{i + 1}</p>
                 <h3 className="text-h3">{step.title}</h3>
                 <p className="text-fg-muted">{step.text}</p>
                 <p className="mt-auto text-sm text-fg">{step.needs}</p>
@@ -209,7 +211,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
             <ol className="mt-4 space-y-4">
               {next.map((item, i) => (
                 <li key={i} className="flex gap-3 text-fg-muted">
-                  <span className="font-mono text-xs text-accent">0{i + 1}</span>
+                  <span className="font-mono text-xs text-accent-strong">0{i + 1}</span>
                   <span>{item}</span>
                 </li>
               ))}

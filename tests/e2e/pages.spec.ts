@@ -67,7 +67,7 @@ test.describe("contact", () => {
     await page.getByRole("button", { name: "Send message" }).click();
     await expect(page.getByText("Please tell me your name.")).toBeVisible();
     await expect(page.getByText("Enter a valid email address.")).toBeVisible();
-    await expect(page.getByText(/at least 10 characters/)).toBeVisible();
+    await expect(page.getByText(/at least 10 characters/i)).toBeVisible();
     // Values survive the round trip.
     await expect(page.getByLabel(/^Email/)).toHaveValue("not-an-email");
   });

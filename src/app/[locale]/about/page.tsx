@@ -56,7 +56,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
     sameAs: [site.social.linkedin, site.social.behance, site.social.upwork].filter(Boolean),
     worksFor: { "@type": "Organization", name: experience[0]?.company },
     alumniOf: { "@type": "CollegeOrUniversity", name: t("education.school") },
-    award: awards.map((a) => `${a.title} — ${a.org}, ${a.year}`),
+    award: awards.map((a) => `${a.title} · ${a.org}, ${a.year}`),
     hasCredential: certs.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })),
     knowsAbout: groups.flatMap((g) => g.items),
   };
@@ -120,7 +120,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
           <ul className="mt-12 grid gap-6 md:grid-cols-3">
             {bring.map((b, i) => (
               <li key={i} className="rounded-md border border-border bg-bg p-6">
-                <p className="font-mono text-xs text-accent">0{i + 1}</p>
+                <p className="font-mono text-xs text-accent-strong">0{i + 1}</p>
                 <h3 className="mt-3 text-h3">{b.title}</h3>
                 <p className="mt-3 text-fg-muted">{b.text}</p>
               </li>

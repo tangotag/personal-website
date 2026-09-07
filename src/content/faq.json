@@ -28,7 +28,7 @@
       "es": "¿Programas?"
     },
     "a": {
-      "en": "No — but I speak it. I hold a B.S. in Software Engineering, so handoffs come as specs, tokens and component libraries your developers can build from without guessing. That’s where the 25% build-time saving comes from.",
+      "en": "No, but I speak it. I hold a B.S. in Software Engineering, so handoffs come as specs, tokens and component libraries your developers can build from without guessing. That’s where the 25% build-time saving comes from.",
       "es": "No, pero hablo el idioma. Tengo un grado en Ingeniería de Software, así que las entregas llegan como especificaciones, tokens y librerías de componentes desde las que tus desarrolladores construyen sin adivinar. De ahí sale el 25 % de ahorro en tiempo de desarrollo."
     }
   },
@@ -39,7 +39,7 @@
       "es": "¿Puedes trabajar con nuestro sistema de diseño actual?"
     },
     "a": {
-      "en": "Yes. I’ll audit it first, extend it where it’s thin and flag what’s slowing you down — I don’t rebuild what already works.",
+      "en": "Yes. I’ll audit it first, extend it where it’s thin and flag what’s slowing you down. I don’t rebuild what already works.",
       "es": "Sí. Primero lo audito, lo amplío donde sea escaso y señalo lo que os frena; no reconstruyo lo que ya funciona."
     }
   },
@@ -61,7 +61,7 @@
       "es": "¿Cuándo puedes empezar?"
     },
     "a": {
-      "en": "Usually within one to two weeks for a project; embedded and full-time roles depend on notice. Ask — the booking link on the contact page is the fastest way to find out.",
+      "en": "Usually within one to two weeks for a project; embedded and full-time roles depend on notice. Ask. The booking link on the contact page is the fastest way to find out.",
       "es": "Normalmente en una o dos semanas para un proyecto; los roles integrados o a tiempo completo dependen del preaviso. Pregunta: el enlace de reserva en la página de contacto es la forma más rápida de saberlo."
     }
   },
@@ -83,7 +83,7 @@
       "es": "¿Empleo o freelance?"
     },
     "a": {
-      "en": "Both are open right now. Say which you have in mind and I’ll answer accordingly — no hard feelings either way.",
+      "en": "Both are open right now. Say which you have in mind and I’ll answer accordingly. No hard feelings either way.",
       "es": "Ahora mismo, ambas opciones. Dime cuál tienes en mente y responderé en consecuencia."
     }
   },
@@ -116,7 +116,7 @@
       "es": "¿Qué hace realmente un diseñador de producto senior?"
     },
     "a": {
-      "en": "A senior product designer owns a product's experience end to end: discovery and user research, information architecture and flows, UI design and prototyping, a design system, and the handoff and QA with developers. In my case that spans POS terminals and kiosks, compliance dashboards, mobile apps and game interfaces — and the business outcomes behind them, such as +40% conversion or 25% less development time.",
+      "en": "A senior product designer owns a product's experience end to end: discovery and user research, information architecture and flows, UI design and prototyping, a design system, and the handoff and QA with developers. In my case that spans POS terminals and kiosks, compliance dashboards, mobile apps and game interfaces, plus the business outcomes behind them, such as +40% conversion or 25% less development time.",
       "es": "Un diseñador de producto senior se encarga de la experiencia de un producto de principio a fin: descubrimiento e investigación de usuarios, arquitectura de información y flujos, diseño de UI y prototipado, un sistema de diseño, y la entrega y el QA con los desarrolladores. En mi caso abarca terminales POS y kioscos, paneles de cumplimiento, apps móviles e interfaces de videojuegos, y los resultados de negocio detrás: +40 % de conversión o un 25 % menos de tiempo de desarrollo."
     }
   },
@@ -138,7 +138,7 @@
       "es": "¿Puedes diseñar un sistema POS o un kiosco de autoservicio?"
     },
     "a": {
-      "en": "Yes — it is my current specialty. As Senior Product Designer at Cygnus Payments I design the Compass POS ecosystem: ordering, payments with dual pricing, offline mode, kitchen display, employee time, AI reporting, self-service kiosks and the admin portal, all on one design system across five hardware surfaces.",
+      "en": "Yes, it is my current specialty. As Senior Product Designer at Cygnus Payments I design the Compass POS ecosystem: ordering, payments with dual pricing, offline mode, kitchen display, employee time, AI reporting, self-service kiosks and the admin portal, all on one design system across five hardware surfaces.",
       "es": "Sí; es mi especialidad actual. Como Diseñador de Producto Senior en Cygnus Payments diseño el ecosistema Compass POS: pedidos, pagos con doble precio, modo sin conexión, pantalla de cocina, control horario, reportes con IA, kioscos de autoservicio y el portal de administración, todo sobre un solo sistema de diseño en cinco superficies de hardware."
     }
   },
@@ -149,7 +149,7 @@
       "es": "¿Diseñas UI y UX para videojuegos?"
     },
     "a": {
-      "en": "Yes. I led the gaming department's UI/UX at Argon Tech, designed two launched casino games at Fifty Cats — the Open Omaha redesign lifted conversion by 40% — and designed HUDs, lobbies, stores and progression for KOMPETE, a cross-platform multiplayer shooter. Game design documents, economy screens and platform-adaptive components are part of the work.",
+      "en": "Yes. I led the gaming department's UI/UX at Argon Tech, designed two launched casino games at Fifty Cats, where the Open Omaha redesign lifted conversion by 40%, and designed HUDs, lobbies, stores and progression for KOMPETE, a cross-platform multiplayer shooter. Game design documents, economy screens and platform-adaptive components are part of the work.",
       "es": "Sí. Lideré la UI/UX del departamento de videojuegos en Argon Tech, diseñé dos juegos de casino lanzados en Fifty Cats (el rediseño de Open Omaha aumentó la conversión un 40 %) y diseñé HUD, lobbies, tiendas y progresión para KOMPETE, un shooter multijugador multiplataforma. Los documentos de diseño de juego, las pantallas de economía y los componentes adaptables a plataforma forman parte del trabajo."
     }
   },
@@ -160,7 +160,7 @@
       "es": "¿Cómo entregas los diseños a los desarrolladores?"
     },
     "a": {
-      "en": "As dev-ready specs: Figma component libraries with tokens, redlines, state matrices (including offline and error states) and design QA on the real build. With a software-engineering background I write the handoff the way engineers read it — on my last enterprise team that cut development time by 25%, roughly $5,000 per project.",
+      "en": "As dev-ready specs: Figma component libraries with tokens, redlines, state matrices (including offline and error states) and design QA on the real build. With a software-engineering background I write the handoff the way engineers read it. On my last enterprise team that cut development time by 25%, roughly $5,000 per project.",
       "es": "Como especificaciones listas para programar: librerías de componentes en Figma con tokens, redlines, matrices de estados (incluidos los de sin conexión y error) y QA de diseño sobre la versión real. Con formación en ingeniería de software escribo la entrega tal como la leen los ingenieros; en mi último equipo empresarial eso redujo el tiempo de desarrollo un 25 %, unos 5 000 $ por proyecto."
     }
   },
@@ -204,7 +204,7 @@
       "es": "¿Cuánto cuesta el diseño de producto y cómo empezamos?"
     },
     "a": {
-      "en": "Projects are quoted, not priced from a list — scope, timeline and price come in a written proposal after a free 30-minute call. Send a few lines through the contact form or request a quote on the services page; I reply within 24 hours on working days.",
+      "en": "Projects are quoted, not priced from a list. Scope, timeline and price come in a written proposal after a free 30-minute call. Send a few lines through the contact form or request a quote on the services page; I reply within 24 hours on working days.",
       "es": "Los proyectos se presupuestan; no hay lista de precios. Alcance, plazo y precio llegan en una propuesta escrita tras una llamada gratuita de 30 minutos. Envía unas líneas por el formulario de contacto o pide presupuesto en la página de servicios; respondo en menos de 24 horas en días laborables."
     }
   }

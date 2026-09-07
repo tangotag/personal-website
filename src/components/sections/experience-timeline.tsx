@@ -27,7 +27,7 @@ export async function ExperienceTimeline({ locale }: { locale: string }) {
         >
           <div className="md:col-span-3">
             <p className="font-mono text-xs text-fg-muted">
-              {fmt(x.start, locale)} — {x.end ? fmt(x.end, locale) : t("now")}
+              {fmt(x.start, locale)}–{x.end ? fmt(x.end, locale) : t("now")}
             </p>
             <p className="mt-1 font-mono text-[0.6875rem] tracking-[0.08em] text-fg-muted uppercase">
               {t(`kinds.${x.kind}`)}

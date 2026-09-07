@@ -23,7 +23,7 @@ function CaseSection({
   return (
     <section className={cn("case-section mt-16 first:mt-0", className)}>
       <p className="text-eyebrow text-fg-muted">
-        <span className="text-accent">{n} / </span>
+        <span className="text-accent-strong">{n} / </span>
         {title}
       </p>
       {children}
@@ -35,7 +35,7 @@ function CaseSection({
 function TLDR({ items, label = "TL;DR" }: { items: string[]; label?: string }) {
   return (
     <aside className="rounded-md border border-border bg-surface p-6 md:p-8">
-      <p className="text-eyebrow text-accent">{label}</p>
+      <p className="text-eyebrow text-accent-strong">{label}</p>
       <ul className="mt-4 grid gap-3 md:grid-cols-3">
         {items.map((item, i) => (
           <li key={i} className="flex gap-3 text-fg">
@@ -50,9 +50,9 @@ function TLDR({ items, label = "TL;DR" }: { items: string[]; label?: string }) {
 
 function Quote({ children, by }: { children: ReactNode; by?: string }) {
   return (
-    <figure className="my-10 border-l-2 border-accent pl-6">
+    <figure className="my-10 border-l-2 border-accent-strong pl-6">
       <blockquote className="text-lead text-fg">{children}</blockquote>
-      {by ? <figcaption className="mt-3 font-mono text-xs text-fg-muted">— {by}</figcaption> : null}
+      {by ? <figcaption className="mt-3 font-mono text-xs text-fg-muted">{by}</figcaption> : null}
     </figure>
   );
 }
@@ -79,7 +79,7 @@ export const mdxComponents: MDXComponents = {
     <ol {...props} className={cn("mt-5 list-decimal space-y-2 pl-5 text-fg-muted", className)} />
   ),
   li: ({ className, ...props }: ComponentProps<"li">) => (
-    <li {...props} className={cn("pl-1 marker:text-accent", className)} />
+    <li {...props} className={cn("pl-1 marker:text-accent-strong", className)} />
   ),
   strong: ({ className, ...props }: ComponentProps<"strong">) => (
     <strong {...props} className={cn("font-semibold text-fg", className)} />
@@ -94,7 +94,7 @@ export const mdxComponents: MDXComponents = {
       );
     // Heading anchors (rehype-autolink) and in-page links.
     return (
-      <a href={href} {...props} className="no-underline hover:text-accent">
+      <a href={href} {...props} className="no-underline hover:text-accent-strong">
         {children}
       </a>
     );

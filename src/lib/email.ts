@@ -44,7 +44,7 @@ function notification(p: ContactPayload) {
     )
     .join("");
   return {
-    subject: `[raheelqureshi.com] ${p.intent} — ${p.name}`,
+    subject: `[raheelqureshi.com] ${p.intent} · ${p.name}`,
     html: `<table>${table}</table><hr><p style="white-space:pre-wrap">${escape(p.message)}</p>`,
     text:
       rows
@@ -57,11 +57,11 @@ function notification(p: ContactPayload) {
 function autoReply(p: ContactPayload) {
   const es = p.locale === "es";
   const subject = es
-    ? "Recibido — te respondo en menos de 24 horas"
-    : "Got it — I’ll reply within 24 hours";
+    ? "Recibido. Te respondo en menos de 24 horas"
+    : "Got it. I’ll reply within 24 hours";
   const body = es
-    ? `Hola ${p.name},\n\nGracias por escribir. He recibido tu mensaje y te respondo en menos de 24 horas.${site.calendarUrl ? `\n\nSi prefieres no esperar, reserva una llamada de 30 minutos: ${site.calendarUrl}` : ""}\n\n— Raheel\n${site.url}`
-    : `Hi ${p.name},\n\nThanks for writing. I’ve received your message and will reply within 24 hours.${site.calendarUrl ? `\n\nIf you’d rather not wait, book a 30-minute call: ${site.calendarUrl}` : ""}\n\n— Raheel\n${site.url}`;
+    ? `Hola ${p.name},\n\nGracias por escribir. He recibido tu mensaje y te respondo en menos de 24 horas.${site.calendarUrl ? `\n\nSi prefieres no esperar, reserva una llamada de 30 minutos: ${site.calendarUrl}` : ""}\n\nRaheel\n${site.url}`
+    : `Hi ${p.name},\n\nThanks for writing. I’ve received your message and will reply within 24 hours.${site.calendarUrl ? `\n\nIf you’d rather not wait, book a 30-minute call: ${site.calendarUrl}` : ""}\n\nRaheel\n${site.url}`;
   return { subject, text: body };
 }
 
@@ -74,7 +74,7 @@ export async function sendContactEmail(
 ): Promise<{ ok: boolean; error?: string }> {
   const key = process.env.RESEND_API_KEY;
   if (!key) {
-    console.info("[contact] RESEND_API_KEY not set — message logged only:", {
+    console.info("[contact] RESEND_API_KEY not set, message logged only:", {
       ...p,
       message: p.message.slice(0, 200),
     });
