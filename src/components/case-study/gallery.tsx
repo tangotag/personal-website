@@ -12,10 +12,12 @@ type Props = {
   cols?: 2 | 3;
   /** Aspect ratio of each thumbnail, e.g. "16/10". */
   aspect?: string;
+  /** Break out of the text column, matching <Figure wide>. */
+  wide?: boolean;
 };
 
 /** Thumbnail grid that opens a native <dialog> lightbox with keyboard and swipe navigation. */
-export function Gallery({ items, cols = 2, aspect = "16/10" }: Props) {
+export function Gallery({ items, cols = 2, aspect = "16/10", wide }: Props) {
   const [index, setIndex] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const touchStart = useRef<number | null>(null);
@@ -51,6 +53,8 @@ export function Gallery({ items, cols = 2, aspect = "16/10" }: Props) {
         className={cn(
           "my-8 grid gap-4",
           cols === 3 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2",
+          // Same bleed ladder as MediaFrame; see the comment there.
+          wide && "md:-mx-6 xl:-mx-10 2xl:-mx-24",
         )}
       >
         {items.map((item, i) => (
@@ -67,7 +71,7 @@ export function Gallery({ items, cols = 2, aspect = "16/10" }: Props) {
                   alt={item.alt}
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+                  className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
                 />
               </span>
             </button>

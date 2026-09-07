@@ -63,10 +63,10 @@ export function ProjectCard({
     >
       <div
         className={cn(
-          "relative overflow-hidden rounded-md bg-surface-2",
-          isHero
-            ? "aspect-[16/10] lg:col-span-8 lg:aspect-auto lg:min-h-[26rem]"
-            : "aspect-[16/10]",
+          // 16:10 at every breakpoint, including the hero card. Letting the hero slot stretch to the
+          // text column's height changed its ratio and cropped 13% off the cover.
+          "relative aspect-[16/10] overflow-hidden rounded-md bg-surface-2",
+          isHero && "lg:col-span-8",
         )}
       >
         <ViewTransition name={`cover-${entry.slug}`}>

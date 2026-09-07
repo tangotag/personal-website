@@ -33,11 +33,14 @@ export function MediaFrame({
   ...props
 }: Props) {
   return (
-    // Between md and lg the case-study article is full width, so the right-hand bleed has only the
-    // container's 4vw padding to spend before it forces a horizontal scrollbar. 1.5rem fits at
-    // 768px; the larger bleed waits for lg, where the article sits in a grid column and the extra
-    // width lands in the gutter beside it.
-    <figure {...props} className={cn("my-8 first:mt-0", wide && "md:-mx-6 lg:-mx-32", className)}>
+    // The bleed can never exceed the container padding on the left, because content overflowing to
+    // the left is silently clipped rather than scrollable. Each step stays inside the padding at
+    // its own breakpoint: 24px from 768px up, 40px at 1280 (padding 51px), 96px at 1536 where the
+    // container is capped and centred. See WIDE_BLEED in tests/e2e/responsive.spec.ts.
+    <figure
+      {...props}
+      className={cn("my-8 first:mt-0", wide && "md:-mx-6 xl:-mx-10 2xl:-mx-24", className)}
+    >
       <div
         data-frame={kind}
         className={cn(

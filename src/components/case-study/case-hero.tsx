@@ -27,7 +27,9 @@ export async function CaseHero({ entry }: Props) {
         <ViewTransition name={`cover-${entry.slug}`}>
           <Parallax
             amount={0.08}
-            className="relative aspect-[16/9] overflow-hidden rounded-lg border border-border bg-surface-2"
+            // 16:10 everywhere: the same ratio as the cover files and the /work cards, so a cover
+            // is never cropped in one place and whole in another.
+            className="relative aspect-[16/10] overflow-hidden rounded-lg border border-border bg-surface-2"
           >
             {entry.cover ? (
               <Image

@@ -33,7 +33,7 @@ export function Figure({ src, alt, caption, kind = "plain", aspect, wide, priori
         fill
         priority={priority}
         sizes={wide ? "(min-width: 1024px) 1100px, 100vw" : "(min-width: 1024px) 720px, 100vw"}
-        className="object-cover"
+        className="object-contain"
       />
     </MediaFrame>
   );

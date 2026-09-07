@@ -33,6 +33,23 @@ test.describe("responsive", () => {
             `horizontal overflow on ${path} @ ${width} (${theme})`,
           ).toBeLessThanOrEqual(clientWidth + 1);
 
+          // WIDE_BLEED: content that overflows to the LEFT is clipped silently, with no scrollbar
+          // and no effect on scrollWidth, so it has to be measured directly. A wide <Figure> or
+          // <Gallery> whose negative margin exceeds the container padding disappears off the edge.
+          const clipped = await page.evaluate(() => {
+            const out: string[] = [];
+            for (const el of document.querySelectorAll<HTMLElement>("figure, ul, li, img")) {
+              const r = el.getBoundingClientRect();
+              if (r.width === 0 || r.height === 0) continue;
+              if (r.left < -1) out.push(`${el.tagName.toLowerCase()} left=${Math.round(r.left)}`);
+            }
+            return out.slice(0, 5);
+          });
+          expect(
+            clipped,
+            `content clipped off the left edge on ${path} @ ${width} (${theme})`,
+          ).toEqual([]);
+
           // Tap targets: visible links/buttons/inputs must be ≥ 44px tall (inline text links exempt).
           const small = await page.evaluate(() => {
             const out: string[] = [];
