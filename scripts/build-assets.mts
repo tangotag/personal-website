@@ -193,7 +193,10 @@ const COVER = { w: 1600, h: 1000 } as const; // 16:10, the same ratio as the car
 type Cover = { slug: string; front: string; back?: string };
 
 const COVERS: Cover[] = [
-  { slug: "compass-pos", front: "pos-home-modules.webp", back: "kds-board.webp" },
+  // The ordering screen leads: it is the one that shows the argument, a ticket pinned to the left
+  // rail with the menu beside it. The customer display sits behind, so the part that peeks out is
+  // the photograph of someone paying rather than the empty half of the kitchen board.
+  { slug: "compass-pos", front: "pos-menu-grid.webp", back: "customer-display-tip.webp" },
   { slug: "compass-kiosk", front: "01-welcome.webp", back: "05-pizza-configurator.webp" },
   { slug: "aml-watcher", front: "main-page.webp", back: "linked-entities.webp" },
   { slug: "kompete", front: "lobby.webp", back: "career-stats.webp" },
