@@ -33,13 +33,14 @@ export function MediaFrame({
   ...props
 }: Props) {
   return (
-    // The bleed can never exceed the container padding on the left, because content overflowing to
-    // the left is silently clipped rather than scrollable. Each step stays inside the padding at
-    // its own breakpoint: 24px from 768px up, 40px at 1280 (padding 51px), 96px at 1536 where the
-    // container is capped and centred. See WIDE_BLEED in tests/e2e/responsive.spec.ts.
+    // The bleed runs to the RIGHT only, so a wide image keeps the same left edge as the headings
+    // and body copy beside it. Bleeding both ways put the media 24 to 96px further left than the
+    // text and the column read as two ragged edges. The right side has the column remainder, the
+    // grid gutter and the empty ninth column to spend, so it is the safe direction.
+    // See WIDE_BLEED in tests/e2e/responsive.spec.ts.
     <figure
       {...props}
-      className={cn("my-8 first:mt-0", wide && "md:-mx-6 xl:-mx-10 2xl:-mx-24", className)}
+      className={cn("my-8 first:mt-0", wide && "md:-mr-6 xl:-mr-16 2xl:-mr-32", className)}
     >
       <div
         data-frame={kind}

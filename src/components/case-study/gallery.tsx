@@ -53,8 +53,8 @@ export function Gallery({ items, cols = 2, aspect = "16/10", wide }: Props) {
         className={cn(
           "my-8 grid gap-4",
           cols === 3 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2",
-          // Same bleed ladder as MediaFrame; see the comment there.
-          wide && "md:-mx-6 xl:-mx-10 2xl:-mx-24",
+          // Same right-only bleed as MediaFrame; see the comment there.
+          wide && "md:-mr-6 xl:-mr-16 2xl:-mr-32",
         )}
       >
         {items.map((item, i) => (

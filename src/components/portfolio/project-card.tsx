@@ -96,7 +96,9 @@ export function ProjectCard({
 
       <div
         className={cn(
-          "flex flex-col gap-3 px-2 pb-2",
+          // No horizontal padding, so the text starts exactly where the cover image does, on the
+          // p-3 inset of the card itself. With px-2 the title sat 8px right of the image edge.
+          "flex flex-col gap-3 pb-2",
           isHero && "lg:col-span-4 lg:justify-center lg:py-6",
         )}
       >

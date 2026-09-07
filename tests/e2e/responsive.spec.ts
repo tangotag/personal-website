@@ -6,7 +6,15 @@ import { expect, test } from "@playwright/test";
  * saved under test-results/responsive/ for review (not committed).
  */
 const widths = [390, 412, 768, 1024, 1280, 1536, 1920] as const;
-const pages = ["/", "/work", "/work/compass-pos", "/services", "/about", "/contact"] as const;
+const pages = [
+  "/",
+  "/work",
+  "/work/compass-pos",
+  "/work/mintavibe",
+  "/services",
+  "/about",
+  "/contact",
+] as const;
 const themes = ["light", "dark"] as const;
 
 test.describe("responsive", () => {
@@ -71,6 +79,31 @@ test.describe("responsive", () => {
             return out;
           });
           expect(small, `tap targets < 44px on ${path} @ ${width} (${theme})`).toEqual([]);
+
+          // WIDE_BLEED: figures and galleries share the article's left edge. A wide image is allowed
+          // to run past the text on the RIGHT, into the gutter, but never to start further left,
+          // which would give the column two ragged edges.
+          const ragged = await page.evaluate(() => {
+            const article = document.querySelector("article.case-body");
+            if (!article) return [];
+            const left = Math.round(article.getBoundingClientRect().left);
+            const media = [
+              ...article.querySelectorAll("figure"),
+              ...[...article.querySelectorAll("ul")].filter((el) => el.querySelector("img")),
+            ];
+            const out: string[] = [];
+            for (const el of media) {
+              const r = el.getBoundingClientRect();
+              if (r.width === 0 || r.height === 0) continue;
+              if (Math.abs(Math.round(r.left) - left) > 1)
+                out.push(`${el.tagName.toLowerCase()} left ${Math.round(r.left)} vs text ${left}`);
+            }
+            return out.slice(0, 5);
+          });
+          expect(
+            ragged,
+            `media not left-aligned with text on ${path} @ ${width} (${theme})`,
+          ).toEqual([]);
 
           await page.screenshot({
             path: `test-results/responsive/${path.replace(/\W+/g, "_") || "home"}-${width}-${theme}.png`,
