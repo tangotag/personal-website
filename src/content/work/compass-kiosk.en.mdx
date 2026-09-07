@@ -1,0 +1,283 @@
+---
+slug: compass-kiosk
+title: "Compass Kiosk: self-service ordering with a queue behind you"
+hook: "Twelve screens from attract to printed receipt, each asking for one decision."
+template: full
+tier: featured
+client: "Cygnus Payments"
+role: "Senior Product Designer"
+timeline: "Jul 2025 – present"
+platforms: ["Self-service kiosk"]
+industry: ["Fintech", "Hospitality"]
+tags: ["Kiosk", "Self-service", "Accessibility", "Ordering", "Design system"]
+filters: ["fintech-pos", "saas"]
+results:
+  - { value: "12", label: "screens, attract to receipt" }
+  - { value: "1", label: "decision per screen" }
+  - { value: "0", label: "required fields after the order itself" }
+cover: "/work/compass-kiosk/cover.webp"
+coverAlt: "The Compass kiosk welcome screen on a deep green ground, showing a large tap to start button beside a burger and fries photograph, with the pizza configurator screen behind it."
+featuredOrder: 2
+externalUrl: "https://cygnuspay.com/cpos"
+---
+
+{/* The self-service half of the Compass ecosystem; the counter half is /work/compass-pos. Shipped screens appear only under the final-design section. Wireframes and low-fidelity sheets are drawn by scripts/build-compass.mts. */}
+
+<TLDR
+  items={[
+    "A kiosk has no staff to ask and a queue that makes people rush, so every screen asks for exactly one decision and states the consequence before it is taken.",
+    "The whole journey is twelve screens, and only the order itself is required. Name and phone exist so the counter can call you, and both can be skipped.",
+    "It shares its design system with the counter terminal, so a merchant learns one product rather than two.",
+  ]}
+/>
+
+## Overview
+
+Compass Kiosk is the self-service half of the Cygnus Payments restaurant ecosystem. A customer walks
+up, orders, pays and takes a printed number to the counter, without speaking to anyone. It runs the
+same menu, the same modifiers and the same design system as [the counter terminal](/work/compass-pos),
+on very different hardware for a very different person.
+
+| | |
+|---|---|
+| **Tools** | Figma, Adobe Illustrator, design QA on the enclosure |
+| **Methodology** | Observation of ordering behaviour, flow mapping, low-fidelity structure, prototype review, accessibility pass, design QA |
+| **Surfaces** | Kiosk enclosure, attached card terminal, receipt printer |
+| **Related** | [Compass POS](/work/compass-pos), the counter half of the same ecosystem |
+
+## Discovery and problem definition
+
+### The problem
+
+A terminal is used by a trained person many times a day. A kiosk is used once, by someone who has
+never seen it, with people waiting behind them. Every assumption that makes the counter fast makes
+the kiosk hostile.
+
+Three failures follow. People abandon halfway because a screen asked for something they did not
+expect. They order the wrong thing because a required choice was easy to miss. Or they freeze at
+payment because it was not clear what happens next.
+
+### The goal
+
+Get a first-time customer from attract to a printed order number without help, without a wrong
+order, and without ever presenting more than one decision at a time.
+
+### My role and responsibilities
+
+Product design for the self-service surface: the ordering flow, screen inventory, interface,
+accessibility pass, and design QA on the physical enclosure. The menu data, modifiers and pricing
+come from the same system as the counter, so my work was the journey rather than the catalogue.
+
+<Callout kind="constraint">
+  Reach and posture. A kiosk is used standing, sometimes from a wheelchair, so every control has to
+  sit in the lower half of the screen, and nothing important may live along the top edge.
+</Callout>
+
+## Understanding the users
+
+### Research summary
+
+The kiosk user is defined by three pressures that the counter user does not have. They are
+unfamiliar with the interface. They are being watched by the queue. And they have no one to ask.
+
+That combination means the interface has to be its own instruction. Anything that would normally be
+explained by a member of staff has to be written on the screen where the decision is made.
+
+### Journey mapping
+
+Attract, choose dine in or take away, browse categories, pick a category, configure the item, review
+the order, choose how to pay, pay at the terminal, give a name, give a phone number, take the
+receipt. Eleven moments, of which exactly one is mandatory.
+
+### Competitive audit
+
+Most quick-service kiosks front-load: they ask for loyalty sign-in, upsell before the order is
+complete, and hide the running total. Each of those adds a decision at the moment a first-timer is
+least able to take one. The approach here defers everything that is not the order.
+
+## Architecture and ideation
+
+### Information architecture
+
+A linear journey with one branch, dine in or take away, taken once at the start. Categories are a
+grid rather than a menu, and the running order total is visible from the moment there is something
+in it.
+
+### Design system
+
+The same tokens, components and type scale as the counter terminal, at kiosk scale. Photography does
+the work that labels do on the terminal, because a first-time customer recognises a burger faster
+than they read one. A persistent bottom bar carries language and a help number, so the two things a
+stuck person needs are never more than a glance away.
+
+## Starting the design
+
+### Wireframes
+
+Structure first, to settle what each screen is allowed to ask for.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/compass-kiosk/wireframe-1-attract.webp",
+      alt: "Wireframe of the kiosk attract screen: a brand block, a headline, a row of seven category icons, one large pill-shaped call to action in the lower left, a hero image block on the right, and a language and help bar across the bottom.",
+      caption: "01 Attract. One target, placed low enough to reach. Structure reconstructed for this case study.",
+    },
+    {
+      src: "/work/compass-kiosk/wireframe-2-menu.webp",
+      alt: "Wireframe of the menu screen: a mode toggle at the top left, a title, a view order block at the top right, and a grid of eleven category tiles above the language and help bar.",
+      caption: "02 Menu. Categories as a grid, order total always visible.",
+    },
+    {
+      src: "/work/compass-kiosk/wireframe-3-configure.webp",
+      alt: "Wireframe of the item configurator: an image block and name and description on the left, a required size row of three options, an optional fillings list of four stepper rows, and cancel, add to bag and total controls along the bottom.",
+      caption: "03 Configure. Required first, optional after, total live.",
+    },
+    {
+      src: "/work/compass-kiosk/wireframe-4-review.webp",
+      alt: "Wireframe of the review screen: two editable order rows on the left, an upsell row of four tiles beneath them, a summary panel on the right, and back to menu and continue buttons.",
+      caption: "04 Review. Editable to the last moment, summary pinned beside it.",
+    },
+  ]}
+/>
+
+### Low fidelity
+
+The same four screens with real copy and real prices, still greyscale. The decisions settled here
+were the position of the running total, the wording of the required marker, and the fact that the
+upsell sits below the order rather than inside it.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/compass-kiosk/lofi-1-attract.webp",
+      alt: "Low-fidelity attract screen reading welcome with a tap to start button, a row of category icons, a food photography block and a bar reading choose language, English, Spanish and a help number.",
+      caption: "One instruction, one target, and help on a bar that never moves.",
+    },
+    {
+      src: "/work/compass-kiosk/lofi-2-menu.webp",
+      alt: "Low-fidelity menu screen with a take away and dine in toggle, an our menu title, a view order control showing three items, and named category tiles for pizza, burger, wings, salad, sandwich, deserts, taco, wraps, fries, drinks and sauces.",
+      caption: "Eleven categories, and the order total updates on every add.",
+    },
+    {
+      src: "/work/compass-kiosk/lofi-3-configure.webp",
+      alt: "Low-fidelity configurator with a pizza priced at 9.50, a select size row marked required offering small, medium and large, an optional fillings list with per-item prices and steppers, and cancel, add to bag and total controls.",
+      caption: "Required is a word beside the group heading, never a colour.",
+    },
+    {
+      src: "/work/compass-kiosk/lofi-4-review.webp",
+      alt: "Low-fidelity review screen listing a pepperoni pizza and a sandwich with quantity steppers, a you may also like row, and a summary panel showing subtotal, tax, discount and total.",
+      caption: "Subtotal, tax and discount stay separate, never one merged figure.",
+    },
+  ]}
+/>
+
+### What testing changed
+
+The name and phone steps moved to the end and became skippable. Asking for them before payment read
+as a sign-up, and people abandoned. Asked afterwards, framed as how the counter will call you, they
+are answered willingly.
+
+## Final design
+
+The shipped journey, in order.
+
+<Gallery
+  cols={3}
+  wide
+  items={[
+    {
+      src: "/work/compass-kiosk/01-welcome.webp",
+      alt: "Kiosk welcome screen with the Cygnus Payments wordmark, the word welcome, a row of food category icons, a wide tap to start button and a burger and fries photograph, above a bar offering English and Spanish and a help number.",
+      caption: "01 Attract. One target, and language is settled before anything is asked.",
+    },
+    {
+      src: "/work/compass-kiosk/02-dine-in-or-take-away.webp",
+      alt: "Kiosk screen headed welcome, let us get started, asking how you would like to enjoy your meal today, with two large cards: dine in with cutlery, and take away with a bag.",
+      caption: "02 The only branch in the journey, taken once.",
+    },
+    {
+      src: "/work/compass-kiosk/03-menu.webp",
+      alt: "Kiosk menu screen headed our menu with photographed category tiles for pizza, burger, wings, salad, sandwich, desserts, taco, wraps, fries, drinks and sauces, and a view order button showing a running total.",
+      caption: "03 Categories as photographs, order total top right.",
+    },
+    {
+      src: "/work/compass-kiosk/04-category.webp",
+      alt: "Kiosk burgers listing grouped into chicken burger, beef burger and lamb burger rows, each item a photograph with a name and price, some showing a struck-through original price.",
+      caption: "04 Within a category, grouped and priced.",
+    },
+    {
+      src: "/work/compass-kiosk/05-pizza-configurator.webp",
+      alt: "Kiosk pizza configurator with a large photograph, a required select pizza size row of small, medium and large, an optional fillings list with steppers for onion, olive, tomato and mushroom, a drink row, a running total and an add to bag button.",
+      caption: "05 Configure. Required size first, then optional fillings.",
+    },
+    {
+      src: "/work/compass-kiosk/06-burger-configurator.webp",
+      alt: "Kiosk burger configurator showing a burger photograph, a required choose your side row, a fillings row of corn, olives, onion and capsicum with steppers and prices, a drink row, and the running total with an add to bag button.",
+      caption: "06 The same pattern on a different item, so it is learned once.",
+    },
+    {
+      src: "/work/compass-kiosk/07-order-review.webp",
+      alt: "Kiosk your order review screen listing a pepperoni pizza and a sandwich with their customisations, quantity steppers and remove buttons, an order summary panel with subtotal, tax, discount and total, a you may also like row, and back to menu and continue to payment buttons.",
+      caption: "07 Review. Every line still editable, upsell below the order.",
+    },
+    {
+      src: "/work/compass-kiosk/08-payment-methods.webp",
+      alt: "Kiosk pay now screen offering three payment methods as cards, cash counter, gift card and credit or debit card, beside an order summary showing subtotal, tax, discount and total.",
+      caption: "08 Choose how to pay, with the summary still on screen.",
+    },
+    {
+      src: "/work/compass-kiosk/09-card-terminal.webp",
+      alt: "Kiosk screen reading please tap, insert or swipe your card, with a note that the transaction can be cancelled by pressing X on the card terminal, the total shown large, and an illustration of a hand presenting a card to a reader.",
+      caption: "09 The card terminal, with the way out stated on screen.",
+    },
+    {
+      src: "/work/compass-kiosk/10-name.webp",
+      alt: "Kiosk screen asking please enter your name, explaining the name will be called once the order is ready at the takeout counter, with a single text field and an on-screen keyboard.",
+      caption: "10 Name, asked after payment and framed as how you will be called.",
+    },
+    {
+      src: "/work/compass-kiosk/11-phone.webp",
+      alt: "Kiosk screen asking please enter your phone number, explaining a text will be sent when the food is ready for pickup, with a single field and a large numeric keypad.",
+      caption: "11 Phone, optional, with the reason given.",
+    },
+    {
+      src: "/work/compass-kiosk/12-receipt.webp",
+      alt: "Kiosk confirmation screen with a green tick, the words printing receipt, an instruction to take the receipt to the cashier to finish checkout, and a large order number forty on a ticket illustration above a line-drawn city skyline.",
+      caption: "12 A printed number, and one instruction about what to do with it.",
+    },
+  ]}
+/>
+
+<Callout kind="decision">
+  Defer everything that is not the order. Name, phone and upsell all moved behind payment, which
+  turned three chances to abandon into three questions people answer once they have already
+  committed.
+</Callout>
+
+## Impact, accessibility and reflection
+
+### Accessibility
+
+Reach drove the layout. Primary controls sit in the lower half of the screen so the kiosk is usable
+seated as well as standing, and nothing needed to complete an order lives along the top edge. Targets
+clear 48 by 48 device-independent pixels with wide separation, because a mis-tap here costs a wrong
+order rather than a corrected one. Language is offered on the first screen and stays on a persistent
+bar, along with a help number, so a stuck customer never has to hunt. Required choices are labelled
+with the word required, and prices are numerals beside every option rather than a total that changes
+without explanation.
+
+### Impact and takeaways
+
+<Results>
+  <Metric display="12" label="screens, attract to receipt" />
+  <Metric display="1" label="decision per screen" />
+</Results>
+
+A kiosk is not a terminal with bigger buttons. The counter system optimises for someone who already
+knows it; the kiosk has to teach itself to a stranger in the time it takes to order lunch. Sharing
+the design system between them was right, but sharing the flow would have been wrong.

@@ -22,6 +22,7 @@ const ROUTES = [
   "/",
   "/work",
   "/work/compass-pos",
+  "/work/compass-kiosk",
   "/work/aml-watcher",
   "/work/kompete",
   "/work/open-omaha",

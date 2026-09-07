@@ -1,250 +1,274 @@
 ---
 slug: compass-pos
-title: "Compass POS: an AI-powered restaurant POS and kiosk ecosystem"
-hook: "Designing the system restaurants run their whole day on."
+title: "Compass POS: the terminal a restaurant runs its whole day on"
+hook: "One counter system for ordering, dual pricing, splitting and the kitchen behind it."
 template: full
 tier: hero
 client: "Cygnus Payments"
 role: "Senior Product Designer"
 timeline: "Jul 2025 – present"
-platforms: ["POS terminal", "Kiosk", "KDS", "Customer display", "Web admin"]
+platforms: ["POS terminal", "Kitchen display", "Customer display"]
 industry: ["Fintech", "Hospitality"]
-tags: ["POS", "Kiosk", "Design system", "AI", "Offline-first"]
+tags: ["POS", "Dual pricing", "Offline-first", "Design system", "Dev handoff"]
 filters: ["fintech-pos", "saas"]
 results:
-  - { value: "5", label: "surfaces, one design system" }
+  - { value: "12", label: "modules, no submenus" }
   - { value: "Offline-first", label: "ordering and payments" }
   - { value: "< 30 min", label: "cashier onboarding", status: "confirm" }
 cover: "/work/compass-pos/cover.webp"
-coverAlt: "Compass self-service kiosk welcome screen: a large Cygnus Payments wordmark over the word WELCOME, a row of food category icons, a wide TAP TO START button, and a burger and fries photograph on the right."
+coverAlt: "The Compass POS home screen on a deep green ground, a grid of twelve module tiles on a blue terminal interface, with the kitchen display board behind it."
 featuredOrder: 1
 externalUrl: "https://cygnuspay.com/cpos"
 ---
 
-{/* Phase 7 fills every [CONFIRM]/[NEEDED] below. Outline per docs/06-case-study-framework.md §6. */}
+{/* Compass Kiosk is a separate product and a separate case study. Shipped screens appear only under the final-design section; wireframes and low-fidelity sheets are drawn by scripts/build-compass.mts. The under-30-minute onboarding figure stays tagged `confirm` until Raheel verifies it. */}
 
 <TLDR
   items={[
-    "Independent restaurants were stitching together POS, online ordering, timekeeping and reporting from different vendors.",
-    "I designed Compass as one system, front-of-house to back-office, sold with hardware as a single merchant bundle.",
-    "AI reporting and support live inside daily workflows instead of a separate dashboard; the whole thing works offline.",
+    "A counter terminal that has to survive the worst shift, not the demo: gloves, glare, a dropped connection mid-ticket and a new hire on day one.",
+    "The order ticket never leaves the left rail. Menu, modifiers and payment all open beside it, so a cashier's eyes stay in one place from the first item to the receipt.",
+    "Dual pricing, tipping and splitting resolve in a single view, and the whole thing keeps taking orders when the connection goes.",
   ]}
 />
 
-## Context & goal
+## Overview
 
-Cygnus Payments is a US payments ISO moving from reselling third-party POS to owning the product.
-The goal: a POS ecosystem competitive with Toast-, Square- and Clover-tier products at a price
-independent restaurants accept, differentiated by AI insights, dual pricing and offline resilience.
+Cygnus Payments is a US payments ISO moving from reselling third-party point of sale to owning the
+product. Compass POS is the counter half of that: the terminal staff use all day, the kitchen board
+behind it, and the customer-facing display that asks for the tip and the signature.
 
-## Users
+| | |
+|---|---|
+| **Tools** | Figma, Adobe Illustrator, design QA on hardware |
+| **Methodology** | Stakeholder and staff interviews, flow mapping, low-fidelity structure, prototype review, design QA against the build |
+| **Surfaces** | Terminal, kitchen display, customer display |
+| **Related** | [Compass Kiosk](/work/compass-kiosk), the self-service half of the same ecosystem |
 
-Owner-operators who live in reports, menus and pricing. Cashiers and servers who need speed and
-fewer mistakes at the counter. Kitchen staff reading tickets from three metres away. First-time
-customers at a kiosk with a queue behind them. And the Cygnus support team onboarding merchants
-through the back-office "Bridge" portal.
+## Discovery and problem definition
 
-## My role & team
+### The problem
 
-Sole product designer owning strategy, information architecture, flows, UI, the design system and
-handoff across all five surfaces. I partnered with product and engineering on scope and sequencing.
-I did not select hardware or integrate payment processors.
+Independent restaurants were stitching a counter system together from separate vendors: one for
+orders, another for online, another for timekeeping, another for reporting. Nothing agreed, and
+staff paid for the disagreement during service.
+
+The design difficulty is not the feature list. It is that a terminal is used by someone with wet
+hands, under a heat lamp, with three people waiting, who may have started that morning. Every
+screen has to be legible and forgiving under exactly those conditions.
+
+### The goal
+
+A terminal a new hire can run in a single shift, that keeps taking orders when the internet drops,
+and that discloses dual pricing correctly without slowing the transaction down.
+
+### My role and responsibilities
+
+Sole product designer for the counter surfaces: information architecture, ordering and payment
+flows, the interface, the component library, offline and sync states, and design QA against the
+built terminal. I partnered with product and engineering on scope. I did not select hardware or
+integrate payment processors.
 
 <Callout kind="constraint">
-  Fixed hardware, offline-first operation with later reconciliation, dual-pricing disclosure rules,
-  staff turnover that demands learning the system in a single shift, and kiosk accessibility (reach,
-  contrast, time-outs).
+  Fixed hardware and a fixed screen size. Nothing could be solved by giving the layout more room, so
+  every improvement had to come from sequencing, labelling and state.
 </Callout>
 
-## Constraints
+## Understanding the users
 
-Every screen had to survive the worst shift, not the demo: gloves, glare, a dropped connection in
-the middle of a ticket, and a new hire on day one.
+### Research summary
 
-Staff turnover set the hardest one. A new hire starts on a numeric PIN, not a password, and the
-same keypad pattern reappears wherever a number is entered, so the first thing anyone learns is
-also the thing they reuse all day.
+Four people share this terminal. Cashiers and servers who need speed and fewer mistakes. Kitchen
+staff reading tickets from three metres away. Owner-operators who live in menus, pricing and
+reports. And the Cygnus support team onboarding merchants remotely.
 
-<Figure
-  src="/work/compass-pos/pos-staff-pin.webp"
-  alt="Two Compass screens side by side. On the left an idle attract poster reading Get Everything You Want. On the right a staff sign-in screen headed Type your PIN, with a large three-column numeric keypad under the Cygnus Payments logo."
-  caption="Shift start. The terminal idles on an attract screen and wakes to a PIN pad sized for a thumb, not a stylus."
-  kind="pos"
-  aspect="16/10"
-  wide
-/>
+They pull in different directions. Speed for the cashier means fewer taps; accuracy for the kitchen
+means more explicit modifiers; control for the owner means more configuration. The architecture had
+to serve all three without letting the owner's tools clutter the cashier's screen.
 
-## Flows & information architecture
+### Journey mapping
 
-The modules map onto five surfaces. Order, modify, pay with dual pricing, send to the kitchen and
-close out on the terminal. Attract, order and pay at the kiosk. Live sales, AI reports and employee
-time in the admin.
+Sign in on a PIN, open a ticket, add items, answer required modifiers, take payment with the right
+disclosure, fire to the kitchen, close out. Seven steps, and the terminal is judged on the two that
+take money.
 
-<Figure
-  src="/work/compass-pos/pos-home-modules.webp"
-  alt="Compass POS home screen. Twelve labelled tiles arranged in two rows: Dine In, To Go, Delivery, Pick Up, Menu, Orders, Reservation, Tables, Messages, Settings, Recall and Day Closing, with a Staff Report tile centred below them."
-  caption="Home. Every job a shift needs is one tap away, and role-based navigation keeps the owner's tools off a cashier's screen."
-  kind="pos"
-  aspect="16/10"
-  wide
-/>
+### Competitive audit
 
-## Design system
+Toast, Square and Clover set the expectation. Matching them feature for feature was not the goal at
+this price point, so the differentiators are dual pricing done properly, offline resilience, and a
+single design language across surfaces that competitors treat as separate products.
 
-Shared tokens across POS, kiosk, KDS, customer display and admin. A large-touch component set,
-explicit states for offline and queued sync, and role-based navigation so a cashier never sees the
-owner's tools.
+## Architecture and ideation
 
-The modifier sheet is the clearest test of the system. It has to hold a required choice, several
-optional ones and a running total, on a screen someone is using with one hand while a queue waits.
+### Information architecture
 
-<Figure
-  src="/work/compass-pos/pos-required-modifiers.webp"
-  alt="A Compass order ticket on the left listing a Double Bacon Burger Combo with its condiments and card and cash columns. On the right a sheet titled Condiments for Double Bacon Burger Combo marked Required, with plus and minus steppers for mustard, mayo, ketchup, onion, pickles and hot sauce, and a rail of optional add-ons, sides and drinks."
-  caption="Required modifiers hold the ticket until they are answered. Steppers replace typing, so a gloved hand can still build a combo at speed."
-  kind="pos"
-  aspect="16/10"
-  wide
-/>
+Twelve modules at the top level, no submenus. Role decides what renders, so a cashier never sees day
+closing or staff reports. Everything a shift needs is one tap from home.
 
-## Final solution
+### Design system
 
-### At the counter
+Shared tokens across terminal, kitchen display and customer display. A large-touch component set
+sized for gloves rather than fingertips. Explicit states for offline and queued sync, so a dropped
+connection is a visible condition rather than a silent failure. Status is never colour alone: the
+kitchen board ages tickets by colour and by a running timer.
 
-The ticket never leaves the left rail. Menu, modifiers and payment all open beside it, so a
-cashier's eyes stay in one place from the first item to the receipt.
+## Starting the design
+
+### Wireframes
+
+Structure before decoration, so the argument was about order rather than colour.
 
 <Gallery
   cols={2}
+  wide
   items={[
     {
+      src: "/work/compass-pos/wireframe-1-home.webp",
+      alt: "Wireframe of the POS shift home screen: a brand mark and user label across the top, a grid of twelve unlabelled module tiles, a wider tile centred below them and a status bar along the bottom, with four numbered annotations beside the terminal.",
+      caption: "01 Shift home. Structure reconstructed for this case study.",
+    },
+    {
+      src: "/work/compass-pos/wireframe-2-order.webp",
+      alt: "Wireframe of the ordering screen: an order ticket down the left rail with line items, total and pay button, a search field and filter chips along the top, a row of category tiles and a grid of eight item tiles.",
+      caption: "02 Order and menu. The ticket takes the left rail.",
+    },
+    {
+      src: "/work/compass-pos/wireframe-3-modifiers.webp",
+      alt: "Wireframe of the modifier screen: the order ticket on the left, a required condiments sheet with six option blocks in the centre, a rail of three optional groups on the right, and cancel and done buttons.",
+      caption: "03 Modifiers. Required blocks the ticket, optional sits in a rail.",
+    },
+    {
+      src: "/work/compass-pos/wireframe-4-payment.webp",
+      alt: "Wireframe of the payment screen: the order ticket on the left, card and cash amount blocks with a tip control, three rounding options, a three by three grid of split options and a split modes bar.",
+      caption: "04 Payment. Card and cash side by side, split grid below.",
+    },
+  ]}
+/>
+
+### Low fidelity
+
+The same four screens with real copy, real prices and real module names, still greyscale. This is
+where the hierarchy was settled: the ticket total had to stay readable while the modifier sheet was
+open, and the split grid had to be scannable without reading every cell.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/compass-pos/lofi-1-home.webp",
+      alt: "Low-fidelity shift home with real module names: dine in, to go, delivery, pick up, menu, orders, reservation, tables, messages, settings, recall and day closing, with a staff report tile below.",
+      caption: "Twelve named modules, and the role decides which ones render.",
+    },
+    {
+      src: "/work/compass-pos/lofi-2-order.webp",
+      alt: "Low-fidelity ordering screen with a ticket listing a double bacon burger with mustard and large fries and a Hawaiian pizza, a total of 20.82 card and 20.21 cash, category chips and named item tiles.",
+      caption: "Two totals on the ticket from the start, because dual pricing is disclosed.",
+    },
+    {
+      src: "/work/compass-pos/lofi-3-modifiers.webp",
+      alt: "Low-fidelity modifier screen with a condiments sheet marked required listing mustard, mayo, ketchup, onion, pickles and hot sauce, and an optional rail of add-ons, sides and drinks.",
+      caption: "Required is a word on the sheet, never a colour.",
+    },
+    {
+      src: "/work/compass-pos/lofi-4-payment.webp",
+      alt: "Low-fidelity payment screen showing a card amount of 40 dollars, a cash amount of 30, an add tip control, exact, round up and cash options, a grid of split by two through ten, and a split modes bar.",
+      caption: "The split grid does the arithmetic so nobody does it at the counter.",
+    },
+  ]}
+/>
+
+### What testing changed
+
+Two things stuck. Required modifiers moved from a dismissible sheet to one that blocks the ticket,
+because staff were sending incomplete items to the kitchen. And the two totals moved onto the ticket
+from the start rather than appearing at payment, which removed an argument at the counter.
+
+## Final design
+
+The shipped terminal, kitchen board and customer display.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/compass-pos/pos-staff-pin.webp",
+      alt: "Two Compass screens side by side. On the left an idle attract poster reading Get Everything You Want. On the right a staff sign-in screen headed Type your PIN, with a large three-column numeric keypad under the Cygnus Payments logo.",
+      caption: "Shift start. The terminal idles on an attract screen and wakes to a PIN pad.",
+    },
+    {
+      src: "/work/compass-pos/pos-home-modules.webp",
+      alt: "The Compass POS home screen. Twelve labelled tiles in two rows: dine in, to go, delivery, pick up, menu, orders, reservation, tables, messages, settings, recall and day closing, with a staff report tile centred below them.",
+      caption: "Home. Every job a shift needs is one tap away.",
+    },
+    {
       src: "/work/compass-pos/pos-menu-grid.webp",
-      alt: "Compass order screen with a menu grid beside the ticket. Category chips read All, Gifts, EBT and Dinner Menu, above a row of Cakes, Cookies, Burgers, Croissants and Pizza, and photographed item tiles with prices.",
+      alt: "The Compass order screen with a menu grid beside the ticket. Category chips read all, gifts, EBT and dinner menu, above a row of cakes, cookies, burgers, croissants and pizza, and photographed item tiles with prices.",
       caption: "Menu browse. Photographs carry the scan, prices confirm it.",
     },
     {
+      src: "/work/compass-pos/pos-required-modifiers.webp",
+      alt: "A Compass order ticket on the left listing a double bacon burger combo with its condiments and card and cash columns. On the right a sheet titled condiments for double bacon burger combo marked required, with plus and minus steppers for mustard, mayo, ketchup, onion, pickles and hot sauce, and a rail of optional add-ons, sides and drinks.",
+      caption: "Required modifiers hold the ticket until they are answered.",
+    },
+    {
       src: "/work/compass-pos/pos-pizza-builder.webp",
-      alt: "A Hawaiian Pizza builder beside the order ticket, with tabs for Pizza Size, Cheese, Meat and Veggies, a two-column topping list with per-item prices, and a half-and-half selector.",
+      alt: "A Hawaiian pizza builder beside the order ticket, with tabs for pizza size, cheese, meat and veggies, a two-column topping list with per-item prices, and a half-and-half selector.",
       caption: "The pizza builder handles per-half toppings without a second screen.",
     },
     {
       src: "/work/compass-pos/pos-payment-split.webp",
-      alt: "Compass payment screen showing a card amount of forty dollars and a cash amount of thirty, an Add Tip control, Exact, Round Up and Cash buttons, a grid of Split by 2 through Split by 10 with the amount each guest owes, and a payment method rail of card, cash and gift card.",
-      caption:
-        "Dual pricing, tipping and splitting in one view. The split grid does the arithmetic so nobody does it at the counter.",
+      alt: "The Compass payment screen showing a card amount of forty dollars and a cash amount of thirty, an add tip control, exact, round up and cash buttons, a grid of split by two through split by ten with the amount each guest owes, and a payment method rail of card, cash and gift card.",
+      caption: "Dual pricing, tipping and splitting in one view.",
     },
     {
       src: "/work/compass-pos/pos-drive-through.webp",
-      alt: "A Drive Through Orders screen with four order tickets open side by side, each with its own items, totals and Pay button, and a search field above them.",
-      caption:
-        "Drive-through keeps several tickets open at once, because cars do not arrive one at a time.",
+      alt: "A drive through orders screen with four order tickets open side by side, each with its own items, totals and pay button, and a search field above them.",
+      caption: "Drive-through keeps several tickets open, because cars do not arrive one at a time.",
+    },
+    {
+      src: "/work/compass-pos/kds-board.webp",
+      alt: "The kitchen display system board with four order cards in grey, red, green and amber. Each card shows an order number, a running timer, a to go or dine in label, the items with their modifications, and a complete button. A recall button sits in the top corner.",
+      caption: "The kitchen board. Colour and a timer both track how long a ticket has waited.",
     },
   ]}
-/>
-
-### Behind the counter
-
-<Figure
-  src="/work/compass-pos/kds-board.webp"
-  alt="Kitchen Display System board with four order cards in grey, red, green and amber. Each card shows an order number, a running timer, a TO GO or DINE IN label, the items with their modifications, and a Complete button. A Recall button sits in the top corner."
-  caption="The kitchen board. Colour tracks how long a ticket has waited, so the oldest order is obvious from three metres away."
-  kind="pos"
-  aspect="16/10"
-  wide
 />
 
 <Figure
   src="/work/compass-pos/customer-display-tip.webp"
-  alt="Customer-facing display asking Would you like to leave a tip, showing the bill total and a grid of tip options from No Tip through thirty percent plus a custom amount, above a signature area. Beside it, a photograph of a customer tapping a card on a terminal."
-  caption="The customer display asks for the tip and the signature. Amounts are shown in currency, not only percentages, so nobody has to do the maths."
+  alt="A customer-facing display asking would you like to leave a tip, showing the bill total and a grid of tip options from no tip through thirty percent plus a custom amount, above a signature area. Beside it, a photograph of a customer tapping a card on a terminal."
+  caption="The customer display asks for the tip and the signature, in currency rather than only percentages."
   kind="pos"
   aspect="16/10"
   wide
 />
 
-### At the kiosk
-
-A first-time customer with a queue behind them gets one decision per screen. Nothing is required
-except the order itself: the name and phone steps exist so the counter can call you, and both can
-be skipped.
-
-<Gallery
-  cols={3}
-  items={[
-    {
-      src: "/work/compass-pos/kiosk-01-welcome.webp",
-      alt: "Kiosk welcome screen with the Cygnus Payments wordmark, the word WELCOME, a row of food category icons, a wide TAP TO START button and a burger and fries photograph.",
-      caption: "01 Attract",
-    },
-    {
-      src: "/work/compass-pos/kiosk-02-dine-in-or-take-away.webp",
-      alt: "Kiosk screen headed Welcome, let's get started, asking how you would like to enjoy your meal today, with two large cards: Dine In with cutlery, and Take Away with a bag.",
-      caption: "02 Dine in or take away",
-    },
-    {
-      src: "/work/compass-pos/kiosk-03-menu.webp",
-      alt: "Kiosk menu screen headed OUR MENU with photographed category tiles for pizza, burger, wings, salad, sandwich, desserts, taco, wraps, fries, drinks and sauces, and a View Order button showing a running total.",
-      caption: "03 Categories",
-    },
-    {
-      src: "/work/compass-pos/kiosk-04-category.webp",
-      alt: "Kiosk BURGERS listing grouped into Chicken Burger, Beef Burger and Lamb Burger rows, each item a photograph with a name and price, some showing a struck-through original price.",
-      caption: "04 Category listing",
-    },
-    {
-      src: "/work/compass-pos/kiosk-05-pizza-configurator.webp",
-      alt: "Kiosk pizza configurator with a large photograph of the pizza, a required Select Pizza Size row of Small, Medium and Large, an optional fillings list with steppers for onion, olive, tomato and mushroom, a drink row, a running total and an Add to Bag button.",
-      caption: "05 Configure, required first",
-    },
-    {
-      src: "/work/compass-pos/kiosk-06-burger-configurator.webp",
-      alt: "Kiosk burger configurator showing a burger photograph, a required Choose Your Side row, a fillings row of corn, olives, onion and capsicum with steppers and prices, a drink row, and the running total with an Add to Bag button.",
-      caption: "06 Same pattern, different item",
-    },
-    {
-      src: "/work/compass-pos/kiosk-07-order-review.webp",
-      alt: "Kiosk Your Order review screen listing a pepperoni pizza and a sandwich with their customisations, quantity steppers and remove buttons, an order summary panel with subtotal, tax, discount and total, a You may also like row, and Back to Menu and Continue to Payment buttons.",
-      caption: "07 Review and edit",
-    },
-    {
-      src: "/work/compass-pos/kiosk-08-payment-methods.webp",
-      alt: "Kiosk Pay Now screen offering three payment methods as cards, Cash Counter, Gift Card and Credit or Debit Card, beside an order summary showing subtotal, tax, discount and total.",
-      caption: "08 Choose how to pay",
-    },
-    {
-      src: "/work/compass-pos/kiosk-09-card-terminal.webp",
-      alt: "Kiosk screen reading Please tap, insert or swipe your card, with a note that the transaction can be cancelled by pressing X on the card terminal, the total shown large, and an illustration of a hand presenting a card to a reader.",
-      caption: "09 Card terminal",
-    },
-    {
-      src: "/work/compass-pos/kiosk-10-name.webp",
-      alt: "Kiosk screen asking Please enter your name, explaining the name will be called once the order is ready at the takeout counter, with a single text field and an on-screen keyboard.",
-      caption: "10 Name for the counter",
-    },
-    {
-      src: "/work/compass-pos/kiosk-11-phone.webp",
-      alt: "Kiosk screen asking Please enter your phone number, explaining a text will be sent when the food is ready for pickup, with a single field and a large numeric keypad.",
-      caption: "11 Optional text when ready",
-    },
-    {
-      src: "/work/compass-pos/kiosk-12-receipt.webp",
-      alt: "Kiosk confirmation screen with a green tick, the words Printing receipt, an instruction to take the receipt to the cashier to finish checkout, and a large order number forty on a ticket illustration above a line-drawn city skyline.",
-      caption: "12 Order number, printed",
-    },
-  ]}
-/>
-
 <Callout kind="decision">
-  One design system across five surfaces instead of five apps. A merchant learns one language and
-  the engineering team builds one component library.
+  One design language across the counter surfaces instead of three products that happen to be sold
+  together. A merchant learns one system and the engineering team builds one component library.
 </Callout>
 
-## Results & learnings
+## Impact, accessibility and reflection
+
+### Accessibility
+
+Targets are sized for a gloved hand, well past 48 by 48 device-independent pixels, and spaced so a
+mis-tap lands on empty chrome rather than the wrong item. The kitchen board never relies on colour
+alone: every card carries a running timer and a dine-in or to-go word alongside its colour band,
+which is what makes it readable to a colourblind cook across a hot line. Required modifiers are
+labelled with the word required. Both prices are shown as numerals rather than one price and a
+percentage the cashier has to compute.
+
+### Impact and takeaways
 
 <Results>
-  <Metric display="5" label="surfaces, one design system" />
+  <Metric display="12" label="modules, no submenus" />
   <Metric display="Offline-first" label="ordering and payments" />
 </Results>
 
-Design for the worst shift, not the demo. One system beats five apps. AI belongs inside workflows,
-not in a dashboard nobody opens.
+Design for the worst shift, not the demo. When a product asks for a decision several times in a row,
+the design problem is sequencing rather than layout, and the fastest way to reduce mistakes is to
+make the incomplete state impossible rather than to warn about it.
+
+The self-service half of the same ecosystem has a different user with a different problem, which is
+why it is [its own case study](/work/compass-kiosk).

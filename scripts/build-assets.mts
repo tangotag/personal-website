@@ -45,19 +45,19 @@ const JOBS: Job[] = [
   { from: "Compass POS (1).png", to: "compass-pos/customer-display-tip.webp" },
   { from: "Compass POS (2).png", to: "compass-pos/pos-staff-pin.webp" },
 
-  // Compass kiosk — the self-order journey, in order
-  { from: "kiosk (1).png", to: "compass-pos/kiosk-01-welcome.webp" },
-  { from: "kiosk (5).png", to: "compass-pos/kiosk-02-dine-in-or-take-away.webp" },
-  { from: "kiosk (11).png", to: "compass-pos/kiosk-03-menu.webp" },
-  { from: "kiosk (8).png", to: "compass-pos/kiosk-04-category.webp" },
-  { from: "kiosk (4).png", to: "compass-pos/kiosk-05-pizza-configurator.webp" },
-  { from: "kiosk (7).png", to: "compass-pos/kiosk-06-burger-configurator.webp" },
-  { from: "kiosk 2.png", to: "compass-pos/kiosk-07-order-review.webp" },
-  { from: "PAYMNET OPTIONS.png", to: "compass-pos/kiosk-08-payment-methods.webp" },
-  { from: "kiosk (3).png", to: "compass-pos/kiosk-09-card-terminal.webp" },
-  { from: "kiosk (9).png", to: "compass-pos/kiosk-10-name.webp" },
-  { from: "kiosk (10).png", to: "compass-pos/kiosk-11-phone.webp" },
-  { from: "kiosk (6).png", to: "compass-pos/kiosk-12-receipt.webp" },
+  // Compass Kiosk, its own product: the self-order journey, in order
+  { from: "kiosk (1).png", to: "compass-kiosk/01-welcome.webp" },
+  { from: "kiosk (5).png", to: "compass-kiosk/02-dine-in-or-take-away.webp" },
+  { from: "kiosk (11).png", to: "compass-kiosk/03-menu.webp" },
+  { from: "kiosk (8).png", to: "compass-kiosk/04-category.webp" },
+  { from: "kiosk (4).png", to: "compass-kiosk/05-pizza-configurator.webp" },
+  { from: "kiosk (7).png", to: "compass-kiosk/06-burger-configurator.webp" },
+  { from: "kiosk 2.png", to: "compass-kiosk/07-order-review.webp" },
+  { from: "PAYMNET OPTIONS.png", to: "compass-kiosk/08-payment-methods.webp" },
+  { from: "kiosk (3).png", to: "compass-kiosk/09-card-terminal.webp" },
+  { from: "kiosk (9).png", to: "compass-kiosk/10-name.webp" },
+  { from: "kiosk (10).png", to: "compass-kiosk/11-phone.webp" },
+  { from: "kiosk (6).png", to: "compass-kiosk/12-receipt.webp" },
 
   // AML Watcher: section bands measured against a ruler preview of the 1920x7224 board.
   {
@@ -193,7 +193,8 @@ const COVER = { w: 1600, h: 1000 } as const; // 16:10, the same ratio as the car
 type Cover = { slug: string; front: string; back?: string };
 
 const COVERS: Cover[] = [
-  { slug: "compass-pos", front: "kiosk-01-welcome.webp", back: "pos-home-modules.webp" },
+  { slug: "compass-pos", front: "pos-home-modules.webp", back: "kds-board.webp" },
+  { slug: "compass-kiosk", front: "01-welcome.webp", back: "05-pizza-configurator.webp" },
   { slug: "aml-watcher", front: "main-page.webp", back: "linked-entities.webp" },
   { slug: "kompete", front: "lobby.webp", back: "career-stats.webp" },
   { slug: "open-omaha", front: "showdown.webp", back: "cards-dealt.webp" },

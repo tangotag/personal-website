@@ -18,7 +18,7 @@
     "test:e2e": "node scripts/lighthouse.mts --build-only && playwright test",
     "lhci": "node scripts/lighthouse.mts --build",
     "db:migrate": "node scripts/db-migrate.mts",
-    "assets": "node scripts/build-mintavibe.mts && node scripts/build-assets.mts && node scripts/build-wireframes.mts",
+    "assets": "node scripts/build-mintavibe.mts && node scripts/build-assets.mts && node scripts/build-wireframes.mts && node scripts/build-compass.mts",
     "audit:dom": "node scripts/dom-audit.mts"
   },
   "dependencies": {
