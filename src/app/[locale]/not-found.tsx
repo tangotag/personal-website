@@ -11,7 +11,7 @@ export default function NotFound() {
       <Section>
         <Container>
           <p className="text-eyebrow text-fg-muted">
-            <span className="text-accent">404</span>
+            <span className="text-accent-strong">404</span>
           </p>
           <h1 className="mt-4 max-w-3xl text-h1">{t("title")}</h1>
           <p className="mt-5 max-w-xl text-lead text-fg-muted">{t("description")}</p>

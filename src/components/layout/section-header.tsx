@@ -29,7 +29,7 @@ export function SectionHeader({
     >
       <div className="max-w-3xl">
         <p className="text-eyebrow text-fg-muted">
-          {number ? <span className="text-accent">{number} / </span> : null}
+          {number ? <span className="text-accent-strong">{number} / </span> : null}
           {eyebrow}
         </p>
         <Heading className={cn("mt-4", Heading === "h1" ? "text-h1" : "text-h2")}>{title}</Heading>

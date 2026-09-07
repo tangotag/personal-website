@@ -32,7 +32,7 @@ export function Field({ label, hint, error, required, className, children }: Fie
       <label htmlFor={id} className="text-sm font-medium text-fg">
         {label}
         {required ? (
-          <span aria-hidden className="ml-1 text-accent">
+          <span aria-hidden className="ml-1 text-accent-strong">
             *
           </span>
         ) : null}

@@ -2,31 +2,44 @@
   Design tokens — source of truth is docs/07-design-system.md.
   Light values live on :root; dark overrides on [data-theme="dark"] (set by next-themes)
   with a prefers-color-scheme fallback for the pre-hydration paint.
+
+  Palette: acid lime + deep evergreen, sampled from the reference UI board (2026-09-07).
+  Light = off-white paper, evergreen ink, lime highlights. Dark = evergreen ground, same lime.
+
+  ACCENT CONTRACT — read before using an accent token:
+    --accent         lime. FILLED SURFACES ONLY (buttons, chips, bars, dots) with --accent-fg on
+                     top. It is a near-white in luminance, so lime text or lime hairlines on the
+                     light theme are invisible (1.1:1). Never use it for text, borders or icons.
+    --accent-strong  the text- and line-safe accent: evergreen on light, lime on dark. Use it for
+                     text-accent, border-accent, icons, rules and focus rings.
+    --accent-fg      ink that sits on --accent.
+    --accent-soft    pale accent tint for chips and the hero highlight sweep; pair with
+                     --accent-strong text.
 */
 
 :root {
   color-scheme: light;
 
-  --bg: #f7f4ee;
+  --bg: #f2f2ed;
   --surface: #ffffff;
-  --surface-2: #efebe3;
-  --border: rgba(20, 20, 23, 0.1);
-  --border-strong: rgba(20, 20, 23, 0.22);
-  --fg: #141417;
-  --fg-muted: rgba(20, 20, 23, 0.64);
-  --fg-faint: rgba(20, 20, 23, 0.5); /* ≥ 18px text only — fails AA at small sizes */
-  --accent: #c93415; /* 4.8:1 on --bg, so 12px eyebrow numerals pass AA */
-  --accent-hover: #a82a10;
-  --accent-fg: #ffffff;
-  --accent-soft: rgba(201, 52, 21, 0.1);
-  --accent-strong: #a82a10; /* text on --accent-soft tints (5.4:1) */
+  --surface-2: #e7e9e1;
+  --border: rgba(14, 42, 35, 0.12);
+  --border-strong: rgba(14, 42, 35, 0.24);
+  --fg: #0e2a23; /* 13.6:1 on --bg */
+  --fg-muted: rgba(14, 42, 35, 0.68); /* 6.1:1 */
+  --fg-faint: rgba(14, 42, 35, 0.55); /* 4.1:1 — passes AA at body size */
+  --accent: #ddf23a; /* fills only, see the accent contract above */
+  --accent-hover: #cbe322;
+  --accent-fg: #0e2a23; /* 12.2:1 on --accent */
+  --accent-soft: rgba(221, 242, 58, 0.28);
+  --accent-strong: #0b6e51; /* 5.6:1 on --bg, 5.4:1 on --accent-soft */
   --success: #1b9e6b;
   --danger: #c62828;
-  --focus: #c93415;
+  --focus: #0b6e51;
 
-  --glow: 0 0 0 1px var(--accent), 0 24px 64px -24px rgba(201, 52, 21, 0.35);
-  --shadow-1: 0 1px 2px rgba(20, 20, 23, 0.06), 0 8px 24px -12px rgba(20, 20, 23, 0.12);
-  --shadow-2: 0 2px 4px rgba(20, 20, 23, 0.08), 0 24px 48px -16px rgba(20, 20, 23, 0.18);
+  --glow: 0 0 0 1px var(--accent-strong), 0 24px 64px -24px rgba(11, 110, 81, 0.28);
+  --shadow-1: 0 1px 2px rgba(14, 42, 35, 0.06), 0 8px 24px -12px rgba(14, 42, 35, 0.14);
+  --shadow-2: 0 2px 4px rgba(14, 42, 35, 0.08), 0 24px 48px -16px rgba(14, 42, 35, 0.2);
 
   --section-y: clamp(4rem, 10vw, 9rem);
   --header-h: 3.5rem;
@@ -35,24 +48,24 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --bg: #0b0b0d;
-  --surface: #141417;
-  --surface-2: #1c1c21;
-  --border: rgba(244, 241, 234, 0.09);
-  --border-strong: rgba(244, 241, 234, 0.2);
-  --fg: #f4f1ea;
-  --fg-muted: rgba(244, 241, 234, 0.64);
-  --fg-faint: rgba(244, 241, 234, 0.48);
-  --accent: #ff5a3c;
-  --accent-hover: #ff7a5c;
-  --accent-fg: #0b0b0d;
-  --accent-soft: rgba(255, 90, 60, 0.14);
-  --accent-strong: #ff7a5c;
+  --bg: #071c17;
+  --surface: #0e2a23;
+  --surface-2: #143a31;
+  --border: rgba(241, 245, 238, 0.1);
+  --border-strong: rgba(241, 245, 238, 0.22);
+  --fg: #f1f5ee; /* 16.0:1 on --bg */
+  --fg-muted: rgba(241, 245, 238, 0.66); /* 7.5:1 */
+  --fg-faint: rgba(241, 245, 238, 0.5); /* 4.8:1 */
+  --accent: #ddf23a;
+  --accent-hover: #e9fa5f;
+  --accent-fg: #071c17;
+  --accent-soft: rgba(221, 242, 58, 0.16);
+  --accent-strong: #ddf23a; /* 14.2:1 on --bg — lime is the text accent on dark */
   --success: #3ddc97;
   --danger: #ff6b6b;
-  --focus: #ff5a3c;
+  --focus: #ddf23a;
 
-  --glow: 0 0 0 1px var(--accent), 0 24px 64px -24px rgba(255, 90, 60, 0.45);
+  --glow: 0 0 0 1px var(--accent-strong), 0 24px 64px -24px rgba(221, 242, 58, 0.4);
   --shadow-1: none;
   --shadow-2: none;
 }
@@ -61,24 +74,24 @@
   :root:not([data-theme="light"]) {
     color-scheme: dark;
 
-    --bg: #0b0b0d;
-    --surface: #141417;
-    --surface-2: #1c1c21;
-    --border: rgba(244, 241, 234, 0.09);
-    --border-strong: rgba(244, 241, 234, 0.2);
-    --fg: #f4f1ea;
-    --fg-muted: rgba(244, 241, 234, 0.64);
-    --fg-faint: rgba(244, 241, 234, 0.48);
-    --accent: #ff5a3c;
-    --accent-hover: #ff7a5c;
-    --accent-fg: #0b0b0d;
-    --accent-soft: rgba(255, 90, 60, 0.14);
-    --accent-strong: #ff7a5c;
+    --bg: #071c17;
+    --surface: #0e2a23;
+    --surface-2: #143a31;
+    --border: rgba(241, 245, 238, 0.1);
+    --border-strong: rgba(241, 245, 238, 0.22);
+    --fg: #f1f5ee;
+    --fg-muted: rgba(241, 245, 238, 0.66);
+    --fg-faint: rgba(241, 245, 238, 0.5);
+    --accent: #ddf23a;
+    --accent-hover: #e9fa5f;
+    --accent-fg: #071c17;
+    --accent-soft: rgba(221, 242, 58, 0.16);
+    --accent-strong: #ddf23a;
     --success: #3ddc97;
     --danger: #ff6b6b;
-    --focus: #ff5a3c;
+    --focus: #ddf23a;
 
-    --glow: 0 0 0 1px var(--accent), 0 24px 64px -24px rgba(255, 90, 60, 0.45);
+    --glow: 0 0 0 1px var(--accent-strong), 0 24px 64px -24px rgba(221, 242, 58, 0.4);
     --shadow-1: none;
     --shadow-2: none;
   }
@@ -104,7 +117,7 @@
   --color-danger: var(--danger);
   --color-focus: var(--focus);
   --color-white: #ffffff;
-  --color-black: #0b0b0d;
+  --color-black: #071c17;
   --color-transparent: transparent;
   --color-current: currentColor;
 

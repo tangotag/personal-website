@@ -11,7 +11,7 @@ function Card({ entry, label, dir }: { entry: WorkEntry; label: string; dir: "pr
   return (
     <Link
       href={`/work/${entry.slug}`}
-      className={`group flex flex-col gap-3 rounded-md border border-border bg-surface p-6 transition-[border-color,box-shadow] duration-300 ease-out hover:border-accent hover:shadow-glow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${dir === "next" ? "md:items-end md:text-right" : ""}`}
+      className={`group flex flex-col gap-3 rounded-md border border-border bg-surface p-6 transition-[border-color,box-shadow] duration-300 ease-out hover:border-accent-strong hover:shadow-glow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${dir === "next" ? "md:items-end md:text-right" : ""}`}
     >
       <p className="inline-flex items-center gap-2 text-eyebrow text-fg-muted">
         {dir === "prev" ? <Icon aria-hidden className="size-3.5" /> : null}

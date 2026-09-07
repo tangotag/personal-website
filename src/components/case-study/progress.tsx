@@ -34,7 +34,11 @@ export function ReadingProgress() {
       aria-hidden
       className="pointer-events-none fixed inset-x-0 top-(--header-h) z-30 h-0.5 bg-transparent"
     >
-      <div ref={ref} className="h-full origin-left bg-accent" style={{ transform: "scaleX(0)" }} />
+      <div
+        ref={ref}
+        className="h-full origin-left bg-accent-strong"
+        style={{ transform: "scaleX(0)" }}
+      />
     </div>
   );
 }

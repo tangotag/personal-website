@@ -47,10 +47,10 @@ export function Compare({
         </div>
         <div
           aria-hidden
-          className="absolute inset-y-0 w-0.5 bg-accent"
+          className="absolute inset-y-0 w-0.5 bg-accent-strong"
           style={{ left: `calc(${pos}% - 1px)` }}
         >
-          <span className="absolute top-1/2 left-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-accent bg-bg font-mono text-[0.625rem] text-accent shadow-soft">
+          <span className="absolute top-1/2 left-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-accent-strong bg-bg font-mono text-[0.625rem] text-accent-strong shadow-soft">
             ⇆
           </span>
         </div>

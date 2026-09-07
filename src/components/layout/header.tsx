@@ -84,7 +84,7 @@ export function Header() {
                         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus",
                         active ? "text-fg" : "text-fg-muted hover:text-fg",
                         // Accent dot under the active label.
-                        "after:absolute after:bottom-1 after:left-1/2 after:size-1 after:-translate-x-1/2 after:rounded-full after:bg-accent after:opacity-0 after:transition-opacity",
+                        "after:absolute after:bottom-1 after:left-1/2 after:size-1 after:-translate-x-1/2 after:rounded-full after:bg-accent-strong after:opacity-0 after:transition-opacity",
                         active && "after:opacity-100",
                       )}
                     >

@@ -92,7 +92,9 @@ export function MobileMenu({ open, onClose }: Props) {
                     active ? "text-fg" : "text-fg-muted hover:text-fg",
                   )}
                 >
-                  <span className="font-mono text-xs tracking-[0.12em] text-accent">0{i + 1}</span>
+                  <span className="font-mono text-xs tracking-[0.12em] text-accent-strong">
+                    0{i + 1}
+                  </span>
                   {t(item.key)}
                 </Link>
               </li>

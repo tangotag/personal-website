@@ -54,7 +54,7 @@ export async function Testimonials({ locale }: { locale: string }) {
                 {item.project ? (
                   <Link
                     href={`/work/${item.project}`}
-                    className="text-sm font-medium text-accent underline-offset-4 hover:underline"
+                    className="text-sm font-medium text-accent-strong underline-offset-4 hover:underline"
                   >
                     {t("viewProject")} ↗
                   </Link>

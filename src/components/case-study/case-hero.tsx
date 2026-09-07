@@ -52,7 +52,7 @@ export async function CaseHero({ entry }: Props) {
       <Container className="mt-10 grid gap-10 md:mt-14 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <p className="text-eyebrow text-fg-muted">
-            <span className="text-accent">{entry.client}</span> · {entry.timeline}
+            <span className="text-accent-strong">{entry.client}</span> · {entry.timeline}
           </p>
           <h1 className="mt-4 text-h1">{entry.title}</h1>
           <p className="mt-5 max-w-2xl text-lead text-fg-muted">{entry.hook}</p>

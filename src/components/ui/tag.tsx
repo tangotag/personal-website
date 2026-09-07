@@ -8,7 +8,7 @@ export function tagStyles(selected?: boolean, className?: string) {
   return cn(
     base,
     selected
-      ? "border-accent/40 bg-accent-soft text-accent-strong"
+      ? "border-accent-strong/40 bg-accent-soft text-accent-strong"
       : "border-border bg-transparent text-fg-muted",
     className,
   );
@@ -38,7 +38,7 @@ export function ChipButton({
         tagStyles(pressed, className),
         "h-11 px-4 transition-colors duration-150 hover:border-fg hover:text-fg",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus",
-        pressed && "hover:border-accent hover:text-accent-strong",
+        pressed && "hover:border-accent-strong hover:text-accent-strong",
       )}
     />
   );

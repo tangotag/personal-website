@@ -21,12 +21,12 @@ export async function TwoPaths() {
             <RevealItem key={key} i={i}>
               <Link
                 href={href}
-                className="group flex items-end justify-between gap-6 rounded-md border border-border bg-surface p-6 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:border-accent hover:shadow-glow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus motion-safe:hover:-translate-y-0.5 md:p-8"
+                className="group flex items-end justify-between gap-6 rounded-md border border-border bg-surface p-6 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:border-accent-strong hover:shadow-glow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus motion-safe:hover:-translate-y-0.5 md:p-8"
               >
                 <div>
                   <p className="text-h3">{t(`${key}.title`)}</p>
                   <p className="mt-2 max-w-md text-fg-muted">{t(`${key}.text`)}</p>
-                  <p className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent">
+                  <p className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent-strong">
                     {t(`${key}.cta`)}
                     <ArrowRight
                       aria-hidden

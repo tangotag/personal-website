@@ -82,7 +82,7 @@ export async function Footer() {
             <li>
               <a
                 href={site.resumePath}
-                className="text-fg-muted underline decoration-fg/40 underline-offset-[0.2em] transition-colors hover:text-accent hover:decoration-accent"
+                className="text-fg-muted underline decoration-fg/40 underline-offset-[0.2em] transition-colors hover:text-accent-strong hover:decoration-accent-strong"
               >
                 {tc("downloadResume")}
               </a>

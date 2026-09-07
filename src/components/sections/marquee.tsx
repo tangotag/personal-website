@@ -19,7 +19,7 @@ export async function Marquee() {
         {track.map((item, i) => (
           <li key={i} className="flex items-center gap-10">
             {item}
-            <span className="text-accent">·</span>
+            <span className="text-accent-strong">·</span>
           </li>
         ))}
       </ul>

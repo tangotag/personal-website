@@ -30,7 +30,7 @@ export function Callout({
         className,
       )}
     >
-      <p className="flex items-center gap-2 text-eyebrow text-accent">
+      <p className="flex items-center gap-2 text-eyebrow text-accent-strong">
         <Icon aria-hidden className="size-4" />
         {title ?? label}
       </p>

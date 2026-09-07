@@ -30,7 +30,7 @@ export async function SoundFamiliar() {
               key={i}
               className="group grid gap-4 py-7 transition-colors duration-200 md:grid-cols-12 md:gap-8 md:py-8"
             >
-              <p className="font-mono text-xs text-accent md:col-span-1">0{i + 1}</p>
+              <p className="font-mono text-xs text-accent-strong md:col-span-1">0{i + 1}</p>
               <p className="text-h3 md:col-span-5">“{item.pain}”</p>
               <p className="text-fg-muted transition-colors duration-200 group-hover:text-fg md:col-span-6">
                 {item.answer}

@@ -12,8 +12,8 @@
 | **Brand personality** | *Engineer's rigor, gamer's delight.* Precise grid and hairlines; one loud accent used like a highlighter, not paint; motion that feels like good game UI — snappy, physical, never slow. |
 | **Light/dark** | Dark-first (designed first, default for `prefers-color-scheme: dark`), light theme designed as a warm paper counterpart — not an inversion. Toggle in header; persisted; no flash. |
 | **Typography** | Display: **Bricolage Grotesque** (variable, `opsz` 96 at large sizes → tight, characterful, not Montserrat). Body: **Inter** (variable). Metadata/eyebrows: **JetBrains Mono**. All self-hosted via `next/font/google`. |
-| **Colour philosophy** | Near-black ink + warm off-white paper; coral-orange accent; a single green reserved for "available". No gradients, no glass. Accent appears in ≤ 5% of any viewport. |
-| **Accent system** | `coral-500 #FF5A3C` on dark (6.3:1 vs ink) · `coral-600 #C93415` on light (4.8:1 vs paper — D63A1F measured 4.26:1 and failed AA for 12px numerals). Hover lightens on dark, darkens on light. Soft tint at 14% alpha for backgrounds. |
+| **Colour philosophy** | Acid lime + deep evergreen, sampled from the reference UI board (2026-09-07). Light = off-white paper, evergreen ink, lime highlights. Dark = evergreen ground, same lime. No gradients, no glass. Accent appears in ≤ 5% of any viewport. |
+| **Accent system** | Two tokens, one accent. `--accent` = `lime #DDF23A` in BOTH themes, for FILLED surfaces only (buttons, chips, bars, dots) with `--accent-fg` ink on top at 12.2:1. Lime is a near-white in luminance, so lime text or hairlines on the light theme measure 1.1:1 and are invisible: everything text-, icon- or line-shaped uses `--accent-strong` instead (`#0B6E51` evergreen on light at 5.6:1, the lime itself on dark at 14.2:1). Soft tint at 28% (light) / 16% (dark) alpha for chips and the hero sweep. |
 | **Grid** | 12 columns · content max 1280px · bleed max 1440px · gutters 24px (16px < md) · page margins 20 / 40 / 80px. |
 | **Spacing** | 4px base. Section padding fluid `clamp(4rem, 10vw, 9rem)`. |
 | **Borders** | 1px hairlines at low alpha (never solid grey). Accent border only on hover/focus. |
@@ -33,21 +33,22 @@
 ### Colour
 | Token | Dark | Light | Use |
 |---|---|---|---|
-| `--bg` | `#0B0B0D` | `#F7F4EE` | page |
-| `--surface` | `#141417` | `#FFFFFF` | cards, header (blurred at 80%) |
-| `--surface-2` | `#1C1C21` | `#EFEBE3` | media frame bg, inputs |
-| `--border` | `rgba(244,241,234,.09)` | `rgba(20,20,23,.10)` | hairlines |
-| `--border-strong` | `rgba(244,241,234,.20)` | `rgba(20,20,23,.22)` | inputs focus base |
-| `--fg` | `#F4F1EA` | `#141417` | text |
-| `--fg-muted` | `rgba(244,241,234,.64)` | `rgba(20,20,23,.64)` | secondary text (≥ 4.5:1) |
-| `--fg-faint` | `rgba(244,241,234,.40)` | `rgba(20,20,23,.42)` | metadata, only ≥ 18px or with icons |
-| `--accent` | `#FF5A3C` | `#C93415` (was D63A1F; 4.8:1 on paper) | links, chips, highlights |
-| `--accent-hover` | `#FF7A5C` | `#A82A10` | hover |
-| `--accent-fg` | `#0B0B0D` | `#FFFFFF` | text on accent buttons |
-| `--accent-soft` | `rgba(255,90,60,.14)` | `rgba(214,58,31,.10)` | tints, selected chips |
+| `--bg` | `#071C17` | `#F2F2ED` | page |
+| `--surface` | `#0E2A23` | `#FFFFFF` | cards, header (blurred at 80%) |
+| `--surface-2` | `#143A31` | `#E7E9E1` | media frame bg, inputs |
+| `--border` | `rgba(241,245,238,.10)` | `rgba(14,42,35,.12)` | hairlines |
+| `--border-strong` | `rgba(241,245,238,.22)` | `rgba(14,42,35,.24)` | inputs focus base |
+| `--fg` | `#F1F5EE` (16.0:1) | `#0E2A23` (13.6:1) | text |
+| `--fg-muted` | `rgba(241,245,238,.66)` (7.5:1) | `rgba(14,42,35,.68)` (6.1:1) | secondary text |
+| `--fg-faint` | `rgba(241,245,238,.50)` (4.8:1) | `rgba(14,42,35,.55)` (4.1:1) | metadata; now passes AA at body size |
+| `--accent` | `#DDF23A` | `#DDF23A` | **fills only**: buttons, chips, bars, dots |
+| `--accent-hover` | `#E9FA5F` | `#CBE322` | hover on filled accent |
+| `--accent-fg` | `#071C17` | `#0E2A23` | ink on `--accent` (12.2:1) |
+| `--accent-soft` | `rgba(221,242,58,.16)` | `rgba(221,242,58,.28)` | tints, selected chips, hero sweep |
+| `--accent-strong` | `#DDF23A` (14.2:1) | `#0B6E51` (5.6:1) | **text, icons, hairlines, rules** |
 | `--success` | `#3DDC97` | `#1B9E6B` | availability dot |
 | `--danger` | `#FF6B6B` | `#C62828` | form errors |
-| `--focus` | `#FF5A3C` | `#C93415` | 2px ring + 2px offset |
+| `--focus` | `#DDF23A` | `#0B6E51` | 2px ring + 2px offset |
 
 ### Typography
 | Token | Value | Notes |

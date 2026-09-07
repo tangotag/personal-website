@@ -56,7 +56,7 @@ export function ProjectCard({
     <Link
       href={`/work/${entry.slug}`}
       className={cn(
-        "group flex flex-col gap-5 rounded-lg border border-border bg-surface p-3 transition-[border-color,box-shadow] duration-300 ease-out hover:border-accent hover:shadow-glow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus",
+        "group flex flex-col gap-5 rounded-lg border border-border bg-surface p-3 transition-[border-color,box-shadow] duration-300 ease-out hover:border-accent-strong hover:shadow-glow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus",
         isHero && "lg:grid lg:grid-cols-12 lg:gap-8",
         className,
       )}
@@ -98,7 +98,7 @@ export function ProjectCard({
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
-        <p className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-fg group-hover:text-accent">
+        <p className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-fg group-hover:text-accent-strong">
           {readLabel}
           <ArrowUpRight
             aria-hidden

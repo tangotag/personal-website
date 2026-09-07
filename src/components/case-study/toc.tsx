@@ -47,7 +47,7 @@ export function Toc({ headings, label }: Props) {
             onClick={() => setOpen(false)}
             className={cn(
               "block rounded-xs py-1 font-mono text-xs leading-snug transition-colors",
-              active === h.id ? "text-accent" : "text-fg-muted hover:text-fg",
+              active === h.id ? "text-accent-strong" : "text-fg-muted hover:text-fg",
             )}
           >
             {h.text}

@@ -32,8 +32,8 @@ export async function Process() {
               i={i}
               className="relative flex flex-col gap-3 border-t border-border pt-5"
             >
-              <span aria-hidden className="absolute -top-px left-0 h-px w-10 bg-accent" />
-              <p className="font-mono text-xs text-accent">0{i + 1}</p>
+              <span aria-hidden className="absolute -top-px left-0 h-px w-10 bg-accent-strong" />
+              <p className="font-mono text-xs text-accent-strong">0{i + 1}</p>
               <h3 className="text-h3">{step.title}</h3>
               <p className="text-fg-muted">{step.text}</p>
               <p className="mt-auto text-sm text-fg">{step.gets}</p>

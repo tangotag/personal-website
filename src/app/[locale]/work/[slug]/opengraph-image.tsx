@@ -46,8 +46,8 @@ export default async function Image({
         flexDirection: "column",
         justifyContent: "space-between",
         padding: 64,
-        background: "#0b0b0d",
-        color: "#f4f1ea",
+        background: "#071c17",
+        color: "#f1f5ee",
         fontFamily: font ? "Bricolage" : "sans-serif",
       }}
     >
@@ -63,7 +63,7 @@ export default async function Image({
         <span>
           {site.shortName} · {site.name}
         </span>
-        <span style={{ color: "#ff5a3c" }}>{client}</span>
+        <span style={{ color: "#ddf23a" }}>{client}</span>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
         <div
@@ -79,7 +79,7 @@ export default async function Image({
         </div>
         {result ? (
           <div style={{ display: "flex", gap: 12, alignItems: "center", fontSize: 26 }}>
-            <span style={{ color: "#ff5a3c", fontWeight: 800 }}>{result.value}</span>
+            <span style={{ color: "#ddf23a", fontWeight: 800 }}>{result.value}</span>
             <span style={{ opacity: 0.75 }}>{result.label}</span>
           </div>
         ) : null}

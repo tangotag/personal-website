@@ -33,13 +33,13 @@ export async function ServicesTeaser({ locale }: { locale: string }) {
             <RevealItem as="li" key={s.slug} i={i}>
               <Link
                 href={`/services#${s.slug}`}
-                className="group flex h-full flex-col gap-4 rounded-md border border-border bg-bg p-6 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:border-accent hover:shadow-glow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus motion-safe:hover:-translate-y-0.5"
+                className="group flex h-full flex-col gap-4 rounded-md border border-border bg-bg p-6 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:border-accent-strong hover:shadow-glow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus motion-safe:hover:-translate-y-0.5"
               >
                 <div className="flex items-start justify-between gap-4">
                   <h3 className="text-h3">{pick(s.title, locale)}</h3>
                   <ArrowUpRight
                     aria-hidden
-                    className="mt-1 size-5 shrink-0 text-fg-muted transition-[color,transform] duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
+                    className="mt-1 size-5 shrink-0 text-fg-muted transition-[color,transform] duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent-strong"
                   />
                 </div>
                 <p className="text-fg-muted">{pick(s.scope, locale)}</p>

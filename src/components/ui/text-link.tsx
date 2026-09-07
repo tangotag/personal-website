@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 
 const styles =
   "group/link inline-flex items-center gap-1 text-fg underline decoration-fg/40 decoration-1 underline-offset-[0.2em] " +
-  "transition-colors duration-150 hover:text-accent hover:decoration-accent " +
+  "transition-colors duration-150 hover:text-accent-strong hover:decoration-accent-strong " +
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus rounded-xs";
 
 type Internal = Omit<ComponentProps<typeof Link>, "className" | "children"> & {
