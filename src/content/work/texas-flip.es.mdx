@@ -1,0 +1,204 @@
+---
+slug: texas-flip
+title: "Texas Flip: dos manos por asiento, una mesa legible"
+hook: "El título hermano de Open Omaha, donde cada jugador sostiene dos manos a la vez."
+template: standard
+tier: secondary
+client: "Fifty Cats"
+role: "Diseñador UI/UX Senior (contrato remoto)"
+timeline: "2022 – 2023"
+platforms: ["Web", "Escritorio", "Tablet"]
+industry: ["Casino y juego social"]
+tags: ["UX de juego", "Flujo de apuestas", "Densidad de información", "Sistema de diseño"]
+filters: ["games"]
+results:
+  - { value: "2", label: "manos por asiento, valoradas por separado" }
+  - { value: "10", label: "posiciones de apuesta en una mesa" }
+cover: "/work/texas-flip/cover.webp"
+coverAlt: "La mesa de Texas Flip sobre un fondo verde profundo: fieltro azul pidiendo apostar por las posiciones de volteo de las cartas superiores de cada mano, y detrás la pantalla de apuestas por mano."
+featuredOrder: 6
+---
+
+{/* Traducción del caso en inglés. Mismo contrato con Fifty Cats que Open Omaha. */}
+
+<TLDR
+  items={[
+    "Una mesa de cinco asientos donde cada asiento juega dos manos, así que una pantalla que ya sostenía cuatro decisiones de dinero pasó a sostener diez posiciones de apuesta.",
+    "Mantuve la secuencia de Open Omaha y cambié solo lo que exigía la segunda mano: la pareja es una unidad visual hasta el momento en que las dos manos necesitan respuestas distintas.",
+    "La mecánica que da nombre al juego, apostar al volteo de las cartas superiores, se explica valorándola contra una apuesta que el jugador ya hizo.",
+  ]}
+/>
+
+## Resumen
+
+Texas Flip es el segundo título de casino que diseñé para Fifty Cats, construido sobre el mismo
+marco de mesa que [Open Omaha](/work/open-omaha) pero con una mecánica que duplica la densidad de la
+pantalla. Cada asiento sostiene dos manos, y el jugador puede apostar a voltear la posición de la
+carta superior de cada una.
+
+| | |
+|---|---|
+| **Herramientas** | Figma, Adobe Illustrator, Adobe Photoshop |
+| **Metodología** | Auditoría de reutilización frente al título hermano, mapa de flujos, estructura de baja fidelidad, revisión con prototipo, QA de diseño |
+| **Superficies** | Mesa, apuestas de bono, apuesta de volteo, decisión por mano |
+
+## El problema
+
+Duplicar las manos no duplica la dificultad, la eleva al cuadrado. Cinco asientos por dos manos son
+diez posiciones, cada una con ante, ciega y una posible subida, en una mesa cuya geometría no puede
+crecer. De ahí salen dos fallos. Que un jugador apueste sin querer solo una de sus dos manos, o que
+la pantalla se vuelva tan densa que nadie apueste nada.
+
+## El objetivo
+
+Sostener la segunda mano sin añadir una segunda curva de aprendizaje, y hacer que la apuesta de
+volteo, que es la razón de ser del título, se entienda a primera vista.
+
+## Mi rol
+
+UI y UX del título, trabajando desde el marco que había construido para Open Omaha: flujo, layout de
+mesa, el modelo de estado por mano, diseño visual y QA de diseño. Los sistemas de fichas, cartas y
+tipografía se trasladaron del título hermano de forma deliberada.
+
+<Callout kind="constraint">
+  Un jugador que llega desde Open Omaha debe reconocer la mesa de inmediato. Todo lo que podía seguir
+  igual tenía que seguir igual, para gastar el presupuesto de novedad entero en la segunda mano.
+</Callout>
+
+## Entender a los jugadores
+
+### Resumen de investigación
+
+El público es el del título hermano. Eso es una ventaja y una trampa. Ya conocen el ritmo de
+apuestas, así que el riesgo no es enseñarles la secuencia, es que una mesa de aspecto familiar se
+comporte distinto y lo descubran después de apostar.
+
+### El recorrido
+
+Ante en las dos manos, apuestas de bono opcionales, la apuesta de volteo y después una decisión por
+mano cuando llegan las cartas comunitarias. La pareja de manos viaja junta hasta el último paso,
+donde debe separarse.
+
+### Auditoría competitiva
+
+Las mesas multimano suelen resolver la densidad encogiéndolo todo. Eso falla en tablet. La
+alternativa, que es la que se lanzó, es tratar la pareja como un solo objeto el mayor tiempo
+posible y separarla solo cuando las dos manos necesitan de verdad respuestas distintas.
+
+## Arquitectura e ideación
+
+### Arquitectura de la información
+
+Cuatro pasadas sobre la misma mesa, cada una pidiendo exactamente una clase de apuesta. La línea de
+instrucción en la parte superior del fieltro cambia con la pasada, y es el único sitio donde se
+enuncia la pregunta actual.
+
+### Sistema de diseño
+
+El fieltro azul distingue el título de su hermano rojo de un vistazo mientras cada componente por
+debajo permanece compartido: las mismas denominaciones de ficha, la misma doble lectura de apuesta y
+saldo, las mismas formas de control. Mano 1 y Mano 2 se etiquetan con texto bajo cada asiento, nunca
+se distinguen solo por posición.
+
+## Empezar a diseñar
+
+### Estructura de baja fidelidad
+
+Los wireframes existen para resolver una pregunta: ¿cuándo deja la pareja de ser una sola unidad?
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/texas-flip/wireframe-1-ante.webp",
+      alt: "Wireframe de baja fidelidad del paso de ante en Texas Flip: zona de crupier arriba, cinco bloques de asiento con una pareja etiquetada mano 1 y mano 2, un raíl de denominaciones abajo a la izquierda y controles automáticos abajo a la derecha.",
+      caption: "01 Ante. La pareja es una unidad. Estructura reconstruida para este caso de estudio.",
+    },
+    {
+      src: "/work/texas-flip/wireframe-2-bonus.webp",
+      alt: "Wireframe del paso de bono: cinco asientos etiquetados para el bono de tres y cuatro cartas, con controles de bono automático y aceptar debajo.",
+      caption: "02 Apuestas de bono, con automáticos para habituales.",
+    },
+    {
+      src: "/work/texas-flip/wireframe-3-flip.webp",
+      alt: "Wireframe de la apuesta de volteo: dos asientos muestran sus cartas superiores perfiladas y una línea de ayuda abajo a la izquierda indica que la apuesta de volteo equivale al ante.",
+      caption: "03 La apuesta de volteo, valorada contra el ante.",
+    },
+    {
+      src: "/work/texas-flip/wireframe-4-hand-bets.webp",
+      alt: "Wireframe del paso por mano: cartas comunitarias arriba, cinco asientos divididos en mano 1 y mano 2, con controles de pasar y 3x del ante.",
+      caption: "04 La pareja por fin se separa.",
+    },
+  ]}
+/>
+
+### Qué cambió con los tests
+
+La apuesta de volteo necesitaba una frase, no un tooltip. Enunciar su precio como comparación con
+una apuesta que ya está sobre la mesa, en lugar de como una cifra, fue el cambio que hizo que la
+gente la tomara.
+
+## Pantallas finales
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/texas-flip/ante.webp",
+      alt: "Pantalla de ante de Texas Flip. Mesa de fieltro azul con zona de crupier arriba, cinco asientos con posiciones de mano 1 y mano 2, la instrucción de fijar los valores de ante y entrada, un raíl de denominaciones y controles automáticos.",
+      caption: "Ante. Las dos manos toman la apuesta juntas.",
+    },
+    {
+      src: "/work/texas-flip/bonus-bets.webp",
+      alt: "Pantalla de bonos de Texas Flip con la instrucción de colocar apuestas para el bono de cuatro y tres cartas, fichas colocadas en varios asientos y controles de bono automático y aceptar al pie.",
+      caption: "Apuestas de bono, con automáticos para quien siempre las toma.",
+    },
+    {
+      src: "/work/texas-flip/flip-bet.webp",
+      alt: "Pantalla de apuesta de volteo de Texas Flip. La instrucción pide colocar apuestas para voltear las posiciones de las cartas superiores de cada mano, dos asientos muestran sus cartas superiores perfiladas con una ficha dorada debajo y una línea de ayuda indica que la apuesta de volteo equivale al ante.",
+      caption: "La mecánica del título, explicada en una línea al borde del fieltro.",
+    },
+    {
+      src: "/work/texas-flip/hand-bets.webp",
+      alt: "Pantalla de apuestas por mano de Texas Flip con la instrucción de apostar por cada mano de cada asiento, fichas de ante y ciega en cada posición y controles de pasar y 3x del ante abajo a la derecha.",
+      caption: "Ahora las manos se valoran por separado.",
+    },
+  ]}
+/>
+
+<Figure
+  src="/work/texas-flip/community-cards.webp"
+  alt="Mesa de Texas Flip con dos zonas de cartas comunitarias resaltadas arriba en azul brillante, asientos con sus fichas de ante y ciega, y un control turbo abajo a la derecha."
+  caption="Dos zonas comunitarias, iluminadas solo mientras se reparte en ellas."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+<Callout kind="decision">
+  Trata la pareja de manos como un solo objeto hasta que el juego necesite de verdad dos. Cada paso
+  que puede responderse una vez para ambas manos se responde una vez, y eso es lo que evita que diez
+  posiciones de apuesta se lean como diez decisiones.
+</Callout>
+
+## Accesibilidad
+
+Diez posiciones en una mesa hacen del tamaño de objetivo la restricción que manda. Cada zona de
+ficha y cada control superan 48 por 48 píxeles independientes de dispositivo en el layout de tablet,
+y las posiciones de mano contiguas se separan por más del ancho de un objetivo, para que un toque
+errado caiga en fieltro vacío y no en la mano equivocada. Mano 1 y Mano 2 llevan etiqueta de texto.
+Los totales se muestran como cifras en dos campos separados y no como una sola que el jugador tenga
+que descomponer.
+
+## Impacto y reflexión
+
+<Results>
+  <Metric display="2" label="manos por asiento, valoradas por separado" />
+  <Metric display="10" label="posiciones de apuesta en una mesa" />
+</Results>
+
+Diseñar un título hermano me enseñó más sobre sistemas que diseñar el primero. El valor estuvo casi
+todo en lo que me negué a cambiar. Un marco compartido hizo que el esfuerzo de diseño entero fuera a
+lo único realmente nuevo, y que un jugador que vuelve pueda sentarse y leer la mesa en segundos.

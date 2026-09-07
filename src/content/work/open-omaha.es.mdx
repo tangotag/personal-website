@@ -1,0 +1,228 @@
+---
+slug: open-omaha
+title: "Open Omaha: rediseño de una mesa de póker web para convertir"
+hook: "Rediseño completo de UI y UX de un título de casino de seis cifras, construido alrededor de una sola mano."
+template: standard
+tier: featured
+client: "Fifty Cats"
+role: "Diseñador UI/UX Senior (contrato remoto)"
+timeline: "2022 – 2023"
+platforms: ["Web", "Escritorio", "Tablet"]
+industry: ["Casino y juego social"]
+tags: ["UX de juego", "Conversión", "Flujo de apuestas", "Sistema de diseño"]
+filters: ["games"]
+results:
+  - { value: "+40%", label: "conversión tras el rediseño", status: "confirm" }
+  - { value: "Seis cifras", label: "título por ingresos" }
+  - { value: "5", label: "asientos, un único estado de mesa" }
+cover: "/work/open-omaha/cover.webp"
+coverAlt: "La pantalla de showdown de Open Omaha sobre un fondo verde profundo: una mesa de fieltro rojo con la mano del crupier nombrada como doble pareja arriba a la izquierda, cinco asientos con su mano etiquetada, y detrás la pantalla del reparto."
+featuredOrder: 2
+---
+
+{/* Traducción del caso en inglés. La cifra del +40% sigue marcada como `confirm`. */}
+
+<TLDR
+  items={[
+    "Una mesa de Omaha de cinco asientos donde las decisiones de dinero, ante, ciega, dos apuestas laterales y un multiplicador de subida, ocurren en secuencia sin perder al jugador.",
+    "Reconstruí la mesa sobre una regla: pedir una decisión cada vez y no mostrar nunca un control que el jugador todavía no puede usar.",
+    "En el showdown cada mano se nombra con palabras, así el jugador aprende la variante mientras juega en lugar de antes.",
+  ]}
+/>
+
+## Resumen
+
+Open Omaha es un título de póker para navegador de Fifty Cats, jugado en una mesa de cinco asientos
+contra la casa. La dificultad no es el póker. Es que una sola mano pide dinero al jugador cuatro
+veces distintas, y cada petición debe entenderse en un par de segundos por alguien que quizá sea
+nuevo en la variante.
+
+| | |
+|---|---|
+| **Herramientas** | Figma, Adobe Illustrator, Adobe Photoshop |
+| **Metodología** | Auditoría heurística, revisión competitiva, flujos de baja fidelidad, test con prototipo, QA de diseño sobre el build |
+| **Superficies** | Mesa, ajustes, tamaño de ficha, tabla de pagos, historial, cajero |
+
+## El problema
+
+La secuencia de apuestas era el producto. Ante, ciega, bono de tres cartas, bono de cuatro cartas y
+después una subida valorada como múltiplo del ante. Presentado todo a la vez se lee como un muro de
+controles, y un jugador que no entiende una apuesta no la hace.
+
+Debajo había un segundo problema. Omaha es menos familiar que el Hold'em, y un jugador que no puede
+saber si ha ganado es un jugador que se va.
+
+## El objetivo
+
+Aumentar la proporción de jugadores sentados que completan una mano entera y colocan al menos una
+apuesta opcional, y hacer legible el resultado de cada mano sin abrir las reglas.
+
+## Mi rol
+
+UI y UX de principio a fin como diseñador senior contratado: auditoría heurística de la mesa
+existente, la secuencia de apuestas, la interfaz, el sistema de iconos y fichas, y QA de diseño
+contra el juego construido. No escribí la lógica de evaluación de manos ni fijé las tablas de pago.
+
+<Callout kind="constraint">
+  Geometría de mesa fija. Cinco asientos y una posición de crupier no se pueden mover, así que toda
+  mejora tenía que venir de la secuencia, el etiquetado y el estado, no de un nuevo layout.
+</Callout>
+
+## Entender a los jugadores
+
+### Resumen de investigación
+
+En la misma mesa se sientan dos grupos. Jugadores que conocen Omaha y quieren velocidad, y jugadores
+que llegan de un título más simple y aprenden sobre la marcha. Al primero lo pierde la fricción, al
+segundo la confusión. Un diseño que sirve solo a uno pierde al otro.
+
+### El recorrido, mano a mano
+
+Entrar, poner ante y ciega, decidir los bonos opcionales, recibir cartas, juzgar la mano, subir o
+pasar, ver el resultado. Siete momentos, de los cuales cuatro piden dinero.
+
+### Auditoría competitiva
+
+Los títulos de mesa de los estudios grandes se apoyan en la animación para sostener el momento. Eso
+no entraba en este presupuesto, así que el diferenciador tenía que ser la claridad: enunciar el
+precio de cada apuesta en la moneda que ya está sobre la mesa, y nombrar cada mano con palabras.
+
+## Arquitectura e ideación
+
+### Arquitectura de la información
+
+La mesa es toda la aplicación. Lo demás, ajustes, tamaño de ficha, tabla de pagos, historial y
+cajero, cuelga de un único raíl izquierdo dentro de un modal, para que el jugador nunca abandone el
+fieltro.
+
+<Figure
+  src="/work/open-omaha/settings.webp"
+  alt="Modal de ajustes de Open Omaha con un raíl izquierdo que lista inicio, reglas del juego, tabla de pagos, tamaño de ficha, ajustes, historial y cajero, además de paneles de sonido, otros ajustes como animaciones de carta, pantalla completa, información de apuesta, turbo y medidor de fuerza de mano, y una elección de color de baraja."
+  caption="Un raíl, siete destinos. La mesa sigue visible detrás del modal para que nadie pierda su asiento."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+### Sistema de diseño
+
+Un fieltro rojo con un único dorado cálido para todo lo interactivo, más tres colores de estado que
+nunca aparecen solos: verde para una victoria, rojo para una pérdida o un abandono, azul para la
+casa. Las denominaciones de ficha llevan color y número impreso, porque el color por sí solo no es
+una forma segura de comunicar valor. La tipografía se compone a tamaños que sobreviven a una tablet
+sostenida a un brazo de distancia.
+
+## Empezar a diseñar
+
+### Estructura de baja fidelidad
+
+La secuencia se resolvió en wireframes planos antes de dibujar el fieltro, para que la discusión
+fuera sobre el orden y no sobre la decoración.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/open-omaha/wireframe-1-buy-in.webp",
+      alt: "Wireframe de baja fidelidad de la entrada a Open Omaha: zona de crupier vacía, cinco bloques de asiento con la etiqueta tocar para entrar, un raíl de denominaciones abajo a la izquierda, controles de entrada y juego automáticos abajo a la derecha y una barra de estado al pie.",
+      caption: "01 Entrada. Estructura reconstruida para este caso de estudio.",
+    },
+    {
+      src: "/work/open-omaha/wireframe-2-side-bets.webp",
+      alt: "Wireframe del paso de apuestas laterales: rejilla de bonos de tres y cuatro cartas a la izquierda, zona de crupier centrada, cinco asientos con ante y ciega, y un botón de repartir debajo.",
+      caption: "02 Apuestas laterales, fuera del camino del reparto.",
+    },
+    {
+      src: "/work/open-omaha/wireframe-3-decision.webp",
+      alt: "Wireframe del paso de decisión: resultados de bono a la izquierda, cartas comunitarias centradas, cinco asientos con el segundo marcado como activo, un botón de pasar abajo a la izquierda y botones multiplicadores 3x y 4x abajo a la derecha.",
+      caption: "03 Decisión, un asiento cada vez.",
+    },
+    {
+      src: "/work/open-omaha/wireframe-4-showdown.webp",
+      alt: "Wireframe del showdown: la mano del crupier nombrada arriba a la izquierda, cartas comunitarias centradas, un aviso de pago a la derecha, una fila de manos nombradas sobre cada uno de los cinco asientos y un control turbo.",
+      caption: "04 Showdown, cada mano nombrada.",
+    },
+  ]}
+/>
+
+### Qué cambió con los tests
+
+Dos cosas salieron de las rondas con prototipo y se quedaron. Las rejillas de bono se movieron fuera
+del centro de la mesa, porque los jugadores las activaban sin querer camino del botón de repartir. Y
+los multiplicadores de subida dejaron de aparecer hasta que se preguntaba realmente a ese asiento, lo
+que eliminó una duda persistente sobre si el jugador ya había actuado.
+
+## Pantallas finales
+
+La secuencia, tal como se lanzó. Cada paso añade exactamente un tipo de decisión.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/open-omaha/buy-in.webp",
+      alt: "Pantalla de entrada de Open Omaha. Mesa de fieltro rojo con cinco posiciones de asiento vacías marcadas con un botón más, la instrucción de fijar el importe de entrada, un raíl de denominaciones de ficha abajo a la izquierda y controles de entrada automática, juego automático y 2x abajo a la derecha.",
+      caption: "Entrada. Los asientos vacíos invitan a tocar y nada más está disponible todavía.",
+    },
+    {
+      src: "/work/open-omaha/side-bets.webp",
+      alt: "Pantalla de apuestas laterales de Open Omaha con la rejilla de pagos de bonos de tres y cuatro cartas a la izquierda, la instrucción de fijar las apuestas de bono, posiciones de asiento con botones más y controles de entrada, bono automático, revertir, reiniciar y repartir al pie.",
+      caption: "Apuestas opcionales, con su tabla de pagos al lado.",
+    },
+    {
+      src: "/work/open-omaha/cards-dealt.webp",
+      alt: "Open Omaha tras el reparto: cinco cartas comunitarias boca arriba en la posición del crupier y cuatro cartas privadas en cada uno de los cinco asientos, con fichas de ante y ciega delante de cada asiento.",
+      caption: "El reparto. Ante y ciega siguen visibles delante de cada asiento.",
+    },
+    {
+      src: "/work/open-omaha/bonus-win.webp",
+      alt: "Aviso de resultado de bono en Open Omaha que indica bono de cuatro cartas, asiento dos, gana 0,90, la pareja paga por dos, mostrado sobre el asiento al que corresponde.",
+      caption: "Los bonos se resuelven donde se hizo la apuesta.",
+    },
+    {
+      src: "/work/open-omaha/bet-decision.webp",
+      alt: "Paso de decisión de Open Omaha con un botón de pasar abajo a la izquierda y botones 3x y 4x del ante abajo a la derecha, con el asiento activo resaltado.",
+      caption: "La subida se valora como múltiplo del ante que el jugador ya puso.",
+    },
+    {
+      src: "/work/open-omaha/showdown.webp",
+      alt: "Showdown de Open Omaha. La mano del crupier aparece etiquetada como doble pareja con su kicker arriba a la izquierda, y cada uno de los cinco asientos lleva impreso el nombre de su mano sobre las cartas: pareja, full, doble pareja, doble pareja y full.",
+      caption: "Showdown. Cada mano se nombra con palabras, crupier incluido.",
+    },
+  ]}
+/>
+
+<Callout kind="decision">
+  Nombra la mano, no obligues al jugador a leer las cartas. Un nombre impreso sobre cada asiento
+  convierte un problema de reglas en un problema de lectura, y enseña la variante mientras se juega.
+</Callout>
+
+<Figure
+  src="/work/open-omaha/coin-size.webp"
+  alt="Modal de tamaño de ficha de Open Omaha con denominaciones de 0,1 a 1000 en una rejilla de botones, y el raíl izquierdo con inicio, reglas, tabla de pagos, tamaño de ficha, ajustes, historial y cajero."
+  caption="Tamaño de ficha. Una rejilla de doce pasos en lugar de un deslizador, porque una apuesta se elige, no se ajusta."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+## Accesibilidad
+
+Cada control del fieltro supera un objetivo de 48 por 48 píxeles independientes de dispositivo, algo
+que importa en el layout de tablet donde un toque errado cuesta dinero real. El estado nunca es solo
+color: una victoria lleva importe impreso, un abandono lleva la palabra y las fichas llevan su
+denominación como texto. Los nombres de mano son palabras y no iconos, que es también lo que hace la
+mesa utilizable para una persona con daltonismo al leer palos rojos y negros.
+
+## Impacto y reflexión
+
+<Results>
+  <Metric display="+40%" label="conversión tras el rediseño" />
+  <Metric display="5" label="asientos, un único estado de mesa" />
+</Results>
+
+La lección se generalizó más allá del casino. Cuando un producto pide varias decisiones seguidas, el
+problema de diseño es la secuencia, no el layout. Pregunta una vez, valora la petición en algo que la
+persona ya ha comprometido, y di el resultado con palabras.

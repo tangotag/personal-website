@@ -17,7 +17,25 @@ type Props = {
   priority?: boolean;
 };
 
-function Cover({ entry, priority }: { entry: WorkEntry; priority?: boolean }) {
+/**
+ * `sizes` has to match the grid or the browser fetches a far larger file than the slot needs. The
+ * hero card takes eight of twelve columns; every other card sits in a grid that is three up from
+ * xl, two up from md and one up below that. Getting this wrong cost /work three Lighthouse points.
+ */
+const COVER_SIZES = {
+  hero: "(min-width: 1024px) 60vw, 100vw",
+  grid: "(min-width: 1280px) 30vw, (min-width: 768px) 46vw, 100vw",
+} as const;
+
+function Cover({
+  entry,
+  priority,
+  variant,
+}: {
+  entry: WorkEntry;
+  priority?: boolean;
+  variant: "hero" | "standard" | "compact";
+}) {
   if (entry.cover) {
     return (
       <Image
@@ -25,7 +43,7 @@ function Cover({ entry, priority }: { entry: WorkEntry; priority?: boolean }) {
         alt={entry.coverAlt ?? ""}
         fill
         priority={priority}
-        sizes="(min-width: 1024px) 60vw, 100vw"
+        sizes={variant === "hero" ? COVER_SIZES.hero : COVER_SIZES.grid}
         className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
       />
     );
@@ -71,7 +89,7 @@ export function ProjectCard({
       >
         <ViewTransition name={`cover-${entry.slug}`}>
           <div className="absolute inset-0">
-            <Cover entry={entry} priority={priority} />
+            <Cover entry={entry} priority={priority} variant={variant} />
           </div>
         </ViewTransition>
       </div>

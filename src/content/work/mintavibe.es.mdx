@@ -1,0 +1,245 @@
+---
+slug: mintavibe
+title: "Mintavibe: convertir la atención en una moneda que se gasta"
+hook: "Una app de recompensas donde ver, jugar y comprar ganan la misma moneda."
+template: full
+tier: featured
+client: "Mintavibe"
+role: "Diseñador de Producto / UI-UX (freelance)"
+timeline: "Freelance"
+platforms: ["iOS", "Android"]
+industry: ["Entretenimiento", "Recompensas y comercio"]
+tags: ["App móvil", "Economía de recompensas", "Onboarding", "Sistema de diseño"]
+filters: ["mobile"]
+results:
+  - { value: "1", label: "moneda para juegos, vídeo, social y compras" }
+  - { value: "5", label: "fases de proceso, con prototipo probado antes del lanzamiento" }
+  - { value: "2", label: "perfiles principales que guían la arquitectura" }
+cover: "/work/mintavibe/cover.webp"
+coverAlt: "La app Mintavibe sobre un fondo verde profundo: varias pantallas de teléfono con la portada de marca, una pantalla de ganancia de monedas y una pantalla de evento con celebridades, y detrás las pantallas de perfil y recompensas."
+featuredOrder: 3
+---
+
+{/* Traducción del caso en inglés. El periodo del encargo sigue pendiente de confirmar (docs/11). */}
+
+<TLDR
+  items={[
+    "Una app pide a la gente ver vídeo, jugar, participar socialmente y comprar, y les paga con una sola moneda, las monedas Mintavibe, por las cuatro cosas.",
+    "El problema de diseño no es ninguna de esas funciones. Es que quien llega por un directo con una celebridad tiene que poder encontrar la tienda, y al revés.",
+    "Dos perfiles, un card sorting y una sola arquitectura de información evitaron que un producto cuatro en uno se convirtiera en cuatro apps disfrazadas.",
+  ]}
+/>
+
+## Resumen
+
+Mintavibe es una plataforma móvil de recompensas. Los usuarios ganan monedas jugando, viendo vídeos,
+compartiendo contenido y comprando, y después las gastan en vales, descuentos y acceso a eventos con
+celebridades de Bollywood, incluidos programas de entrevistas y encuentros informales.
+
+| | |
+|---|---|
+| **Herramientas** | Figma, Adobe Illustrator, Adobe Photoshop |
+| **Metodología** | Proceso de cinco fases: investigación, ideación, problema y solución, prototipo, feedback y tests |
+| **Entregables** | Perfiles, mapas de empatía, card sorting, arquitectura de información, wireframes, pantallas de alta fidelidad, sistema de diseño |
+
+<Figure
+  src="/work/mintavibe/overview.webp"
+  alt="Panel de resumen del proyecto Mintavibe, una tarjeta oscura titulada resumen del proyecto con una descripción de la app como aplicación móvil que recompensa con monedas Mintavibe por jugar, ver vídeos, compartir contenido, comprar y ganar vales, junto a un teléfono con la portada de marca."
+  caption="La premisa: una moneda que se gana de cuatro formas y se gasta en acceso, no solo en descuentos."
+  kind="plain"
+  aspect="16/10"
+  wide
+/>
+
+## El problema
+
+Una app de recompensas que abarca entretenimiento, juego, social y comercio no tiene pantalla de
+inicio natural. Cada función quiere ser la puerta de entrada, y cada una atrae a una persona
+distinta. Sin resolverlo, la app se convierte en un menú de cosas inconexas y la moneda que debería
+unirlas se lee como un truco.
+
+Encima se apoya el problema de negocio. Las monedas solo funcionan como mecánica si el usuario puede
+ver, en cualquier momento, cuántas tiene y cuánto valen en algo que realmente quiere.
+
+## El objetivo
+
+Dar a los cuatro tipos de actividad una arquitectura compartida y una única lectura de saldo, y
+llevar a un usuario nuevo desde la instalación hasta su primera moneda ganada sin tutorial.
+
+## Mi rol
+
+Diseño de producto de principio a fin: síntesis de investigación, perfiles y mapas de empatía, card
+sorting, la arquitectura de información, los wireframes, toda la interfaz de alta fidelidad, la marca
+y el sistema de iconos, y el prototipo usado en los tests.
+
+<Figure
+  src="/work/mintavibe/design-process.webp"
+  alt="Diagrama del proceso de diseño de Mintavibe con cinco fases en bloques de color etiquetados ideación e investigación, problema y solución, y feedback y pruebas, junto a un párrafo que explica que usuarios reales probaron el prototipo y su feedback dio forma a la app lanzada."
+  caption="Cinco fases. La app se lanzó solo después de incorporar el feedback del prototipo."
+  kind="plain"
+  aspect="16/10"
+  wide
+/>
+
+## Entender al usuario
+
+### Perfiles
+
+Dos personas, deliberadamente distantes. Rahul, profesional de marketing en la ciudad, que viene por
+el contenido de celebridades y los juegos. Sonal, dueña de un negocio en las afueras, que viene por
+los descuentos y los vales. Cada perfil incluye objetivos, necesidades, puntos de dolor,
+psicografía y patrones de comportamiento, y los dos conjuntos se contradicen de forma útil.
+
+<Figure
+  src="/work/mintavibe/personas.webp"
+  alt="Dos perfiles de usuario de Mintavibe presentados como fichas. Cada uno muestra fotografía, edad, ocupación, ubicación y clase, y después psicografía, objetivos y necesidades, puntos de dolor y patrones de comportamiento puntuados en entretenimiento, compras, interacción social y ofertas personalizadas."
+  caption="Rahul viene por las celebridades. Sonal viene por los vales. Los dos tienen que sentirse atendidos en la primera pantalla."
+  kind="plain"
+  aspect="16/10"
+  wide
+/>
+
+### Mapas de empatía
+
+Los mapas separan cada perfil en lo que hace y lo que piensa. Las líneas más útiles fueron las
+frustraciones: recompensas difíciles de canjear y miedo a perderse eventos exclusivos. Las dos se
+convirtieron en requisitos de interfaz y no en tareas del backlog.
+
+<Figure
+  src="/work/mintavibe/empathy-map.webp"
+  alt="Dos mapas de empatía de Mintavibe, cada uno dividiendo un perfil en cuadrantes de hace y piensa, con conductas como revisar la app con frecuencia buscando vídeos y juegos nuevos, y pensamientos como esperar que la app le ayude a conocer a sus celebridades favoritas o encontrar las recompensas difíciles de canjear."
+  caption="Fricción al canjear y miedo a perderse algo, llevados directamente del mapa a los requisitos."
+  kind="plain"
+  aspect="16/10"
+  wide
+/>
+
+## Arquitectura e ideación
+
+### Card sorting
+
+Las funciones se ordenaron en siete grupos: onboarding, entretenimiento, compras y recompensas,
+social y comunidad, gestión de cuenta, ajustes y soporte, y puntos y ventajas. Ese ejercicio es lo
+que convirtió una lista de funciones en un producto navegable.
+
+<Figure
+  src="/work/mintavibe/card-sorting.webp"
+  alt="Resultado del card sorting de Mintavibe: siete columnas etiquetadas onboarding, entretenimiento, compras y recompensas, social y comunidad, gestión de cuenta, ajustes y soporte, y puntos y ventajas, cada una con las funciones agrupadas debajo."
+  caption="Siete grupos. Puntos y ventajas tuvo columna propia en lugar de esconderse en los ajustes de cuenta."
+  kind="plain"
+  aspect="16/10"
+  wide
+/>
+
+### Arquitectura de la información
+
+Un flujo desde la portada y el onboarding hasta un punto de decisión, registrarse o entrar, y después
+una pantalla de inicio que se ramifica en jugar y ganar, ver y ganar, referir y ganar, compras,
+tienda y ajustes de perfil. Cada vía de ganancia está a un nivel del inicio, que es la expresión
+estructural de la idea de moneda única.
+
+<Figure
+  src="/work/mintavibe/information-architecture.webp"
+  alt="Diagrama de arquitectura de información de Mintavibe. Un árbol que empieza en portada y onboarding, se bifurca en una decisión de si ya tienes cuenta hacia registro o acceso, y después en una pantalla de inicio que lleva a jugar y ganar, ver y ganar, referir y ganar, compras, tienda y ajustes de perfil, cada una con sus subpantallas."
+  caption="Todas las formas de ganar están un nivel por debajo del inicio, así ninguna actividad manda sobre otra."
+  kind="plain"
+  aspect="16/10"
+  wide
+/>
+
+## Empezar a diseñar
+
+### Wireframes
+
+Primero pantallas planas, para fijar la posición del saldo de monedas antes de que llegara nada de
+la marca. El saldo ocupa el mismo lugar en todas las pantallas, que es lo que permite consultarlo
+sin navegar.
+
+<Figure
+  src="/work/mintavibe/wireframes.webp"
+  alt="Una fila de seis pantallas de wireframe de baja fidelidad de Mintavibe sobre fondo violeta, con los layouts de onboarding, acceso, formulario y confirmación como bloques grises y texto de relleno."
+  caption="Baja fidelidad, en secuencia. El saldo de monedas mantiene una sola posición."
+  kind="phone"
+  aspect="16/10"
+  wide
+/>
+
+### Sistema de diseño
+
+Metropolis para todo, con un fondo casi negro, un dorado cálido para la moneda y todo lo que se gana,
+y un violeta reservado a lo social. El dorado es el único color que significa valor, y por eso un
+saldo de monedas es legible en cualquier parte de la app.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/mintavibe/typography.webp",
+      alt: "Muestra tipográfica de Mintavibe con la familia Metropolis en varios pesos, una letra A grande, el alfabeto completo en mayúsculas y minúsculas y los números, sobre fondo oscuro.",
+      caption: "Metropolis, una sola familia en todo el producto.",
+    },
+    {
+      src: "/work/mintavibe/brand.webp",
+      alt: "Hoja de marca de Mintavibe con una paleta de casi negro, dorado, gris oscuro, violeta y rojo con sus valores hexadecimales, una fila de tratamientos de moneda en dorado y una rejilla de exploraciones del logotipo en varias combinaciones de color.",
+      caption: "Paleta, tratamientos de moneda y la exploración de logotipo detrás de la marca final.",
+    },
+  ]}
+/>
+
+## Pantallas finales
+
+<Figure
+  src="/work/mintavibe/app-preview.webp"
+  alt="Cinco pantallas de Mintavibe sobre un degradado cálido: la portada de marca, una pantalla de onboarding sobre ganar monedas viendo contenido de entretenimiento, una pantalla de evento con celebridades y dos pantallas ilustradas que explican jugar para ganar puntos y canjear puntos por descuentos."
+  caption="El onboarding enuncia el trato en tres pantallas: ver, jugar, canjear."
+  kind="phone"
+  aspect="16/10"
+  wide
+/>
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/mintavibe/screens.webp",
+      alt: "Una rejilla de pantallas de producción de Mintavibe con una promoción de juego de críquet, un feed de vídeo, una pantalla de deporte en directo, una pantalla de recompensa de monedas con valoración por estrellas y pantallas de compra con vales de marcas de retail.",
+      caption: "Las cuatro vías de ganancia, todas con el mismo componente de saldo.",
+    },
+    {
+      src: "/work/mintavibe/screens-detail.webp",
+      alt: "Pantallas de perfil y recompensas de Mintavibe sobre un degradado cálido, con ajustes de perfil, una pantalla de oportunidad de ganar mil puntos con valoración por estrellas, listas de mis puntos y notificaciones, y una pantalla de referir y ganar con código de invitación.",
+      caption: "Perfil, historial de puntos y referidos. Ganar y gastar comparten un solo libro de cuentas.",
+    },
+  ]}
+/>
+
+<Callout kind="decision">
+  Una moneda, un componente de saldo, una posición en pantalla. En cuanto una app de recompensas
+  muestra un número distinto en un sitio distinto, la moneda deja de parecer dinero y empieza a
+  parecer una puntuación.
+</Callout>
+
+## Accesibilidad
+
+La tipografía se compone con una interlínea de 1,4 y un espaciado de letra ligeramente abierto, que
+es lo que hace legible una lista densa de recompensas en un teléfono a un brazo de distancia. Los
+objetivos táctiles de los flujos de ganancia superan 48 por 48 píxeles independientes de dispositivo,
+porque son pantallas que la gente toca de forma repetida y rápida. Los valores de moneda siempre se
+muestran como cifras junto al símbolo y nunca solo con el símbolo, y el dorado sobre el fondo casi
+negro aporta el contraste sin depender del tono, lo que mantiene el saldo legible para una persona
+con daltonismo.
+
+## Impacto y reflexión
+
+<Results>
+  <Metric display="1" label="moneda para juegos, vídeo, social y compras" />
+  <Metric display="5" label="fases de proceso, con prototipo probado antes del lanzamiento" />
+  <Metric display="7" label="grupos de funciones salidos del card sorting" />
+</Results>
+
+Una app polivalente no necesita una pantalla de inicio ingeniosa, necesita una moneda que valga lo
+mismo en todas partes. En cuanto la moneda significó una sola cosa en cuatro actividades muy
+distintas, la arquitectura dejó de ser una negociación entre funciones y se convirtió en un árbol
+sencillo.
