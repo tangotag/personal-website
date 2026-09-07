@@ -18,7 +18,7 @@
     "test:e2e": "node scripts/lighthouse.mts --build-only && playwright test",
     "lhci": "node scripts/lighthouse.mts --build",
     "db:migrate": "node scripts/db-migrate.mts",
-    "assets": "node scripts/build-assets.mts",
+    "assets": "node scripts/build-assets.mts && node scripts/build-wireframes.mts",
     "audit:dom": "node scripts/dom-audit.mts"
   },
   "dependencies": {
@@ -57,6 +57,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
     "lighthouse": "^13.4.1",
+    "pdfjs-dist": "^6.3.289",
     "pg": "^8.23.0",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",

@@ -1,24 +1,226 @@
 ---
 slug: open-omaha
-title: "Open Omaha: redesigning a web poker game for conversion"
-hook: "A full UI/UX redesign that lifted conversion 40% on a six-figure title."
+title: "Open Omaha: redesigning a web poker table for conversion"
+hook: "A full UI and UX redesign of a six-figure casino title, built around one hand of poker."
 template: standard
 tier: featured
 client: "Fifty Cats"
 role: "Senior UI/UX Designer (remote contract)"
 timeline: "2022 – 2023"
-platforms: ["Web"]
+platforms: ["Web", "Desktop", "Tablet"]
 industry: ["Casino & social gaming"]
-tags: ["Game UX", "Conversion", "Onboarding", "Cashier flow"]
+tags: ["Game UX", "Conversion", "Betting flow", "Design system"]
 filters: ["games"]
 results:
   - { value: "+40%", label: "conversion after redesign", status: "confirm" }
   - { value: "Six-figure", label: "revenue title" }
+  - { value: "5", label: "seats, one shared table state" }
+cover: "/work/open-omaha/cover.webp"
+coverAlt: "The Open Omaha showdown screen on a deep green ground, a red felt poker table with the dealer's two pair named at the top left, five seats each showing a labelled hand, and the deal screen behind it."
 featuredOrder: 2
 ---
 
-{/* Phase 7: narrative per docs/06 (standard template). Confirm the +40% window and platform facts. */}
+{/* Phase 7: the +40% figure is carried from the CV and stays tagged `confirm` until Raheel verifies the measurement window. Everything else here is read from the shipped screens. */}
 
-Players were dropping between the lobby and their first hand, and the deposit flow was buried.
-I rebuilt the lobby-to-table funnel and the cashier flow, then validated the changes with usability
-testing before launch.
+<TLDR
+  items={[
+    "A five-seat Omaha table where the money decisions, ante, blind, two bonus side bets and a raise multiplier, all had to happen in sequence without losing the player.",
+    "I rebuilt the table around one rule: ask for one decision at a time, and never show a control the player cannot use yet.",
+    "Hands are named in words at showdown, so a player learns the game while playing it rather than before.",
+  ]}
+/>
+
+## Overview
+
+Open Omaha is a browser poker title for Fifty Cats, played at a five-seat table against the house.
+Its difficulty is not the poker. It is that a single hand asks a player for money four separate
+times, and each request has to be understood in a couple of seconds by someone who may be new to
+the variant.
+
+|                 |                                                                                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| **Tools**       | Figma, Adobe Illustrator, Adobe Photoshop                                                               |
+| **Methodology** | Heuristic audit, competitive review, low-fidelity flows, prototype testing, design QA on the live build |
+| **Surfaces**    | Table, settings, coin size, pay table, history, cashier                                                 |
+
+## The problem
+
+The betting sequence was the product. Ante, blind, a three-card bonus, a four-card bonus, then a
+raise decision priced as a multiple of the ante. Presented all at once it reads as a wall of
+controls, and a player who does not understand a bet does not place it.
+
+There was a second problem underneath. Omaha is less familiar than Hold'em, and a player who cannot
+tell whether they have won is a player who leaves.
+
+## The goal
+
+Raise the share of seated players who complete a full hand and place at least one optional bet, and
+make the outcome of every hand legible without a rules page.
+
+## My role
+
+End-to-end UI and UX as the contract senior designer: heuristic audit of the existing table, the
+betting sequence, the interface, the icon and chip system, and design QA against the built game. I
+did not write the hand-evaluation logic or set the pay tables.
+
+<Callout kind="constraint">
+  Fixed table geometry. Five seats and a dealer position cannot move, so every improvement had to
+  come from sequencing, labelling and state, not from a new layout.
+</Callout>
+
+## Understanding the players
+
+### Research summary
+
+Two groups sit at the same table. Players who know Omaha and want speed, and players who arrived
+from a simpler title and are learning as they go. The first group is lost by friction, the second by
+confusion. A design that only serves one loses the other.
+
+### The journey, one hand at a time
+
+Buy in, place the ante and blind, decide on the optional bonuses, receive cards, judge the hand,
+raise or check, see the result. Seven moments, of which four ask for money.
+
+### Competitive audit
+
+Table titles from the larger studios lean on animation to carry the moment. That was not available
+at this budget, so the differentiator had to be clarity: state the price of every bet in the
+currency already on the table, and name every hand in words.
+
+## Architecture and ideation
+
+### Information architecture
+
+The table is the whole application. Everything else, settings, coin size, pay table, history and the
+cashier, hangs off a single left rail inside a modal, so the player never leaves the felt.
+
+<Figure
+  src="/work/open-omaha/settings.webp"
+  alt="Open Omaha settings modal with a left rail listing Home, Game Rules, Pay Table, Coin Size, Settings, History and Cashier, and panels for sound settings, other settings including card animations, loading screen info, full screen, bet info, turbo and hand strength meter, and a card deck colour choice."
+  caption="One rail, seven destinations. The table stays visible behind the modal so nobody loses their seat."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+### Design system
+
+A red felt ground with a single warm gold for anything interactive, plus three status colours that
+never appear alone: green for a win, red for a loss or a fold, blue for the house. Chip
+denominations carry both a colour and a printed number, because colour alone is not a safe way to
+convey value. Type is set at sizes that survive a tablet held at arm's length.
+
+## Starting the design
+
+### Low-fidelity structure
+
+The sequence was worked out in flat wireframes before any felt was drawn, so the argument was about
+order rather than decoration.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/open-omaha/wireframe-1-buy-in.webp",
+      alt: "Low-fidelity wireframe of the Open Omaha buy-in screen: an empty dealer area, five empty seat blocks each labelled tap to buy in, a denomination rail at the lower left, auto buy-in and auto play controls at the lower right, and a status bar across the bottom.",
+      caption: "01 Buy-in. Structure reconstructed for this case study.",
+    },
+    {
+      src: "/work/open-omaha/wireframe-2-side-bets.webp",
+      alt: "Low-fidelity wireframe of the side-bet step: a three and four card bonus grid on the left, the dealer area centred, five seats showing ante and blind, and a deal cards button below.",
+      caption: "02 Side bets, off the deal path.",
+    },
+    {
+      src: "/work/open-omaha/wireframe-3-decision.webp",
+      alt: "Low-fidelity wireframe of the decision step: bonus results on the left, community cards centred, five seats with the second marked active, a check button at the lower left and 3x and 4x multiplier buttons at the lower right.",
+      caption: "03 Decision, one seat at a time.",
+    },
+    {
+      src: "/work/open-omaha/wireframe-4-showdown.webp",
+      alt: "Low-fidelity wireframe of the showdown: the dealer hand named at the top left, community cards centred, a payout callout on the right, a row of named hands above each of the five seats, and a turbo control.",
+      caption: "04 Showdown, every hand named.",
+    },
+  ]}
+/>
+
+### What testing changed
+
+Two things came out of prototype rounds and stayed. The bonus grids moved off the centre of the
+table, because players were placing them by accident on the way to the deal button. And the raise
+multipliers stopped appearing until the seat was actually being asked, which removed a persistent
+question about whether the player had already acted.
+
+## Final screens
+
+The sequence, as shipped. Each step adds exactly one kind of decision.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/open-omaha/buy-in.webp",
+      alt: "Open Omaha buy-in screen. A red felt table with five empty seat positions each marked with a plus button, an instruction reading please set your buy-in amount, a chip denomination rail at the lower left and auto buy-in, auto play all and 2x controls at the lower right.",
+      caption: "Buy-in. Empty seats invite a tap and nothing else is reachable yet.",
+    },
+    {
+      src: "/work/open-omaha/side-bets.webp",
+      alt: "Open Omaha side-bet screen with a three and four card bonus payout grid on the left, an instruction to set bets for the three and four card bonus, seat positions with plus buttons, and buy-in, auto 4 card, auto 3 card, revert, reset and deal cards controls along the bottom.",
+      caption: "Optional bets, with their payout table beside them.",
+    },
+    {
+      src: "/work/open-omaha/cards-dealt.webp",
+      alt: "Open Omaha after the deal: five community cards face up at the dealer position and four hole cards at each of the five seats, with ante and blind chips in front of every seat.",
+      caption: "The deal. Ante and blind stay visible in front of each seat.",
+    },
+    {
+      src: "/work/open-omaha/bonus-win.webp",
+      alt: "Open Omaha bonus result callout reading four card bonus, seat two, win 0.90, pair pays times two, shown above the seat it belongs to.",
+      caption: "Bonus results resolve where the bet was placed.",
+    },
+    {
+      src: "/work/open-omaha/bet-decision.webp",
+      alt: "Open Omaha decision step showing a check button at the lower left and 3x and 4x bet ante buttons at the lower right, with the active seat highlighted.",
+      caption: "The raise is priced as a multiple of the ante the player already staked.",
+    },
+    {
+      src: "/work/open-omaha/showdown.webp",
+      alt: "Open Omaha showdown. The dealer's hand is labelled two pair with its kicker at the top left, and each of the five seats carries a printed hand name above its cards reading pair, full house, two pair, two pair and full house.",
+      caption: "Showdown. Every hand is named in words, dealer included.",
+    },
+  ]}
+/>
+
+<Callout kind="decision">
+  Name the hand, do not make the player read the cards. A printed hand name above every seat turns a
+  rules problem into a reading problem, and it teaches the variant while the player is playing it.
+</Callout>
+
+<Figure
+  src="/work/open-omaha/coin-size.webp"
+  alt="Open Omaha coin size modal offering denominations from 0.1 to 1000 as a grid of buttons, with the left rail showing Home, Game Rules, Pay Table, Coin Size, Settings, History and Cashier."
+  caption="Coin size. A twelve-step grid rather than a slider, because a stake is chosen, not tuned."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+## Accessibility
+
+Every control on the felt clears a 48 by 48 device-independent pixel target, which matters on the
+tablet layout where a mis-tap costs real money. Status is never colour alone: a win carries a
+printed amount, a fold carries the word, and chips carry their denomination as text. Hand names are
+words rather than icons, which is also what makes the table usable for a colourblind player reading
+red and green suits.
+
+## Impact and reflection
+
+<Results>
+  <Metric display="+40%" label="conversion after redesign" />
+  <Metric display="5" label="seats, one shared table state" />
+</Results>
+
+The lesson generalised past casino work. When a product asks for a decision several times in a row,
+the design problem is sequencing, not layout. Ask once, price the ask in something the person has
+already committed, and say the outcome in words.

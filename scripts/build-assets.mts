@@ -4,7 +4,7 @@
  * Images/ holds the raw design exports (large PNG/PDF, kept for archive); only the generated .webp
  * under public/ are served to visitors. Idempotent: re-running overwrites. Run with `npm run assets`.
  */
-import { mkdirSync, existsSync, readdirSync } from "node:fs";
+import { mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import sharp, { type OverlayOptions } from "sharp";
 
@@ -160,6 +160,100 @@ const JOBS: Job[] = [
     trim: true,
     band: { top: 6415, height: 796 },
   },
+  // Open Omaha: pages rendered from the source PDF with scripts/pdf-pages.mts. Each page is a
+  // letterboxed screen, so trim removes the white page margin around it.
+  { from: "open-omaha/page-01.png", to: "open-omaha/buy-in.webp", trim: true },
+  { from: "open-omaha/page-02.png", to: "open-omaha/side-bets.webp", trim: true },
+  { from: "open-omaha/page-05.png", to: "open-omaha/chips-placed.webp", trim: true },
+  { from: "open-omaha/page-06.png", to: "open-omaha/cards-dealt.webp", trim: true },
+  { from: "open-omaha/page-07.png", to: "open-omaha/bonus-win.webp", trim: true },
+  { from: "open-omaha/page-09.png", to: "open-omaha/bet-decision.webp", trim: true },
+  { from: "open-omaha/page-14.png", to: "open-omaha/showdown.webp", trim: true },
+  { from: "open-omaha/page-15.png", to: "open-omaha/payout.webp", trim: true },
+  { from: "open-omaha/page-16.png", to: "open-omaha/settings.webp", trim: true },
+  { from: "open-omaha/page-17.png", to: "open-omaha/coin-size.webp", trim: true },
+
+  // Texas Flip, the sister title. Same rendering path.
+  { from: "texas-flip/page-01.png", to: "texas-flip/ante.webp", trim: true },
+  { from: "texas-flip/page-02.png", to: "texas-flip/bonus-bets.webp", trim: true },
+  { from: "texas-flip/page-03.png", to: "texas-flip/flip-bet.webp", trim: true },
+  { from: "texas-flip/page-04.png", to: "texas-flip/hand-bets.webp", trim: true },
+  { from: "texas-flip/page-05.png", to: "texas-flip/community-cards.webp", trim: true },
+
+  // Mintavibe: a full UX board, 1920x21083. Bands read off a ruler preview; the Behance page
+  // furniture below y 18000 is deliberately excluded.
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/overview.webp",
+    band: { top: 1520, height: 700 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/design-process.webp",
+    band: { top: 2300, height: 760 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/personas.webp",
+    band: { top: 3328, height: 2350 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/empathy-map.webp",
+    band: { top: 5872, height: 570 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/card-sorting.webp",
+    band: { top: 6442, height: 480 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/information-architecture.webp",
+    band: { top: 6922, height: 1447 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/app-preview.webp",
+    band: { top: 8522, height: 1420 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/wireframes.webp",
+    band: { top: 10110, height: 700 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/typography.webp",
+    band: { top: 10810, height: 400 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/brand.webp",
+    band: { top: 11422, height: 1900 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/screens.webp",
+    band: { top: 13370, height: 2360 },
+    trim: true,
+  },
+  {
+    from: "Mintavibe.png",
+    to: "mintavibe/screens-detail.webp",
+    band: { top: 15963, height: 1260 },
+    trim: true,
+  },
 ];
 
 /**
@@ -178,22 +272,29 @@ const COVERS: Cover[] = [
   { slug: "compass-pos", front: "kiosk-01-welcome.webp", back: "pos-home-modules.webp" },
   { slug: "aml-watcher", front: "main-page.webp", back: "linked-entities.webp" },
   { slug: "game-ui", front: "legacy-lobby.webp", back: "legacy-career-stats.webp" },
+  { slug: "open-omaha", front: "showdown.webp", back: "cards-dealt.webp" },
+  { slug: "texas-flip", front: "flip-bet.webp", back: "hand-bets.webp" },
+  { slug: "mintavibe", front: "app-preview.webp", back: "screens-detail.webp" },
 ];
 
-/** Rounds an image's corners and returns raw RGBA at the requested width. */
-async function panel(file: string, width: number, radius: number) {
-  const base = sharp(file).resize({ width });
-  const { width: w = width, height: h = width } = await base.metadata();
-  const scaled = await base.png().toBuffer();
-  const { height: sh = Math.round((h * width) / w) } = await sharp(scaled).metadata();
+/**
+ * Scales an image to fit inside a box and rounds its corners. Fitting inside rather than forcing a
+ * width is what lets a portrait app screen and a landscape POS screen share one cover layout.
+ */
+async function panel(file: string, maxW: number, maxH: number, radius: number) {
+  const scaled = await sharp(file)
+    .resize({ width: maxW, height: maxH, fit: "inside", withoutEnlargement: false })
+    .png()
+    .toBuffer();
+  const { width = maxW, height = maxH } = await sharp(scaled).metadata();
   const mask = Buffer.from(
-    `<svg width="${width}" height="${sh}"><rect width="${width}" height="${sh}" rx="${radius}" ry="${radius}" fill="#fff"/></svg>`,
+    `<svg width="${width}" height="${height}"><rect width="${width}" height="${height}" rx="${radius}" ry="${radius}" fill="#fff"/></svg>`,
   );
   const rounded = await sharp(scaled)
     .composite([{ input: mask, blend: "dest-in" }])
     .png()
     .toBuffer();
-  return { buf: rounded, width, height: sh };
+  return { buf: rounded, width, height };
 }
 
 async function buildCovers() {
@@ -227,8 +328,8 @@ async function buildCovers() {
     const layers: OverlayOptions[] = [];
 
     if (cover.back && existsSync(join(dir, cover.back))) {
-      const back = await panel(join(dir, cover.back), 760, 14);
-      const left = COVER.w - 760 - 40;
+      const back = await panel(join(dir, cover.back), 720, 470, 14);
+      const left = COVER.w - back.width - 40;
       const top = 46;
       // Dimmed so it reads as depth rather than competing with the front screen.
       const dimmed = await sharp(back.buf)
@@ -245,7 +346,7 @@ async function buildCovers() {
       layers.push({ input: dimmed, left, top });
     }
 
-    const front = await panel(frontPath, 1160, 18);
+    const front = await panel(frontPath, 1120, 760, 18);
     const left = 86;
     const top = Math.round((COVER.h - front.height) / 2) + 40;
 
@@ -284,12 +385,11 @@ async function main() {
     console.error(`No Images/ directory at ${SRC}. Nothing to build.`);
     process.exit(2);
   }
-  const available = new Set(readdirSync(SRC));
   let built = 0;
   let missing = 0;
 
   for (const job of JOBS) {
-    if (!available.has(job.from)) {
+    if (!existsSync(join(SRC, job.from))) {
       console.warn(`⚠ missing source: ${job.from}`);
       missing++;
       continue;

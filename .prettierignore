@@ -3,4 +3,6 @@ node_modules
 package-lock.json
 public
 *.md
+# Prettier rewrites multi-line {/* ... */} MDX comments into invalid {/_ ... _/} emphasis.
+*.mdx
 messages/*.d.json.ts

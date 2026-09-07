@@ -1,0 +1,200 @@
+---
+slug: texas-flip
+title: "Texas Flip: two hands per seat, one readable table"
+hook: "The sister title to Open Omaha, where every player holds two hands at once."
+template: standard
+tier: secondary
+client: "Fifty Cats"
+role: "Senior UI/UX Designer (remote contract)"
+timeline: "2022 – 2023"
+platforms: ["Web", "Desktop", "Tablet"]
+industry: ["Casino & social gaming"]
+tags: ["Game UX", "Betting flow", "Information density", "Design system"]
+filters: ["games"]
+results:
+  - { value: "2", label: "hands per seat, priced separately" }
+  - { value: "10", label: "betting positions on one table" }
+cover: "/work/texas-flip/cover.webp"
+coverAlt: "The Texas Flip table on a deep green ground, a blue felt table asking players to bet on flip positions of the top cards of each hand, with the per-hand betting screen behind it."
+featuredOrder: 6
+---
+
+{/* Phase 7: same Fifty Cats contract as Open Omaha. Timeline confirmed from the CV; the specific launch date is still open (docs/11). */}
+
+<TLDR
+  items={[
+    "A five-seat table where each seat plays two hands, so a screen that already held four money decisions now had to hold ten betting positions.",
+    "I kept Open Omaha's sequencing and changed only what the second hand required: the pair is one visual unit until the moment the two hands need different answers.",
+    "The title mechanic, a bet on flipping the top cards, is explained by pricing it against a stake the player already made.",
+  ]}
+/>
+
+## Overview
+
+Texas Flip is the second casino title I designed for Fifty Cats, built on the same table framework
+as [Open Omaha](/work/open-omaha) but with a mechanic that doubles the density of the screen. Every
+seat holds two hands, and the player may bet on flipping the position of the top card in each.
+
+|                 |                                                                                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| **Tools**       | Figma, Adobe Illustrator, Adobe Photoshop                                                               |
+| **Methodology** | Reuse audit against the sister title, flow mapping, low-fidelity structure, prototype review, design QA |
+| **Surfaces**    | Table, bonus bets, flip bet, per-hand decision                                                          |
+
+## The problem
+
+Doubling the hands does not double the difficulty, it squares it. Five seats times two hands is ten
+positions, each with an ante, a blind and a potential raise, on a table whose geometry cannot grow.
+Two failure modes follow. A player stakes only one of their two hands by accident, or the screen
+becomes so dense that nobody stakes anything.
+
+## The goal
+
+Carry the second hand without adding a second learning curve, and make the flip bet, which is the
+reason the title exists, understandable at first sight.
+
+## My role
+
+UI and UX for the title, working from the framework I had built for Open Omaha: flow, table layout,
+the per-hand state model, visual design and design QA. Shared chip, card and typographic systems
+came across from the sister title deliberately.
+
+<Callout kind="constraint">
+  A player arriving from Open Omaha should recognise the table immediately. Anything that could stay
+  the same had to stay the same, so the novelty budget could be spent entirely on the second hand.
+</Callout>
+
+## Understanding the players
+
+### Research summary
+
+The audience is the sister title's audience. That is an advantage and a trap. They already know the
+betting rhythm, so the risk is not teaching them the sequence, it is that a familiar-looking table
+behaves differently and they discover it after staking.
+
+### The journey
+
+Ante across both hands, optional bonus bets, the flip bet, then a per-hand decision once the
+community cards land. The pair of hands travels together until the last step, where it must split.
+
+### Competitive audit
+
+Multi-hand tables usually solve density by shrinking everything. That fails on tablet. The
+alternative, which is what shipped, is to treat the pair as one object for as long as possible and
+only separate it at the moment the two hands genuinely need different answers.
+
+## Architecture and ideation
+
+### Information architecture
+
+Four passes over the same table, each asking for exactly one class of bet. The instruction line at
+the top of the felt changes with the pass, and it is the only place the current question is stated.
+
+### Design system
+
+Blue felt distinguishes the title from its red sibling at a glance while every component underneath
+stays shared: the same chip denominations, the same dual total display of bet and balance, the same
+control shapes. Hand 1 and Hand 2 are labelled in text under every seat, never distinguished by
+position alone.
+
+## Starting the design
+
+### Low-fidelity structure
+
+The wireframes exist to settle one question: when does the pair stop being a single unit?
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/texas-flip/wireframe-1-ante.webp",
+      alt: "Low-fidelity wireframe of the Texas Flip ante step: a dealer area at the top, five seat blocks each containing a labelled hand 1 and hand 2 pair, a denomination rail at the lower left and auto all and auto ante controls at the lower right.",
+      caption: "01 Ante. The pair is one unit. Structure reconstructed for this case study.",
+    },
+    {
+      src: "/work/texas-flip/wireframe-2-bonus.webp",
+      alt: "Low-fidelity wireframe of the bonus step: five seats labelled for three and four card bonus, with auto three card, auto four card and ok controls beneath.",
+      caption: "02 Bonus bets, with auto controls for regulars.",
+    },
+    {
+      src: "/work/texas-flip/wireframe-3-flip.webp",
+      alt: "Low-fidelity wireframe of the flip bet: two seats show their top cards outlined, and a hint line at the lower left reads flip bet is equal to ante.",
+      caption: "03 The flip bet, priced against the ante.",
+    },
+    {
+      src: "/work/texas-flip/wireframe-4-hand-bets.webp",
+      alt: "Low-fidelity wireframe of the per-hand step: community cards at the top, five seats each split into hand 1 and hand 2, with check and 3x bet ante controls.",
+      caption: "04 The pair finally splits.",
+    },
+  ]}
+/>
+
+### What testing changed
+
+The flip bet needed a sentence, not a tooltip. Stating its price as a comparison to a stake already
+on the table, rather than as a number, was the change that made people take it.
+
+## Final screens
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/texas-flip/ante.webp",
+      alt: "Texas Flip ante screen. A blue felt table with a dealer area at the top, five seats each showing a hand 1 and hand 2 position, an instruction reading place your ante and buy-in values, a chip denomination rail and auto all and auto ante controls.",
+      caption: "Ante. Both hands take the stake together.",
+    },
+    {
+      src: "/work/texas-flip/bonus-bets.webp",
+      alt: "Texas Flip bonus screen with the instruction to place bets for the four card bonus and three card bonus, chips placed at several seats, and auto 3 card, auto 4 card and ok controls along the bottom.",
+      caption: "Bonus bets, with auto controls for players who always take them.",
+    },
+    {
+      src: "/work/texas-flip/flip-bet.webp",
+      alt: "Texas Flip flip-bet screen. The instruction reads place your bets to flip positions of top cards of each hands, two seats show their top cards outlined with a gold chip beneath, and a hint line at the lower left reads flip bet is equal to ante.",
+      caption: "The title mechanic, explained in one line at the edge of the felt.",
+    },
+    {
+      src: "/work/texas-flip/hand-bets.webp",
+      alt: "Texas Flip per-hand betting screen with the instruction to place bets for each hand of each seat, ante and blind chips at each hand position, and check and 3x bet ante controls at the lower right.",
+      caption: "Now the hands are priced apart.",
+    },
+  ]}
+/>
+
+<Figure
+  src="/work/texas-flip/community-cards.webp"
+  alt="Texas Flip table with two community card areas highlighted at the top in bright blue, seats showing their ante and blind chips, and a turbo control at the lower right."
+  caption="Two community areas, lit only while they are being dealt into."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+<Callout kind="decision">
+  Treat the pair of hands as one object until the game genuinely needs two. Every step that can be
+  answered once for both hands is answered once, which is what keeps ten betting positions from
+  reading as ten decisions.
+</Callout>
+
+## Accessibility
+
+Ten positions on one table makes target size the binding constraint. Every chip drop zone and
+control clears 48 by 48 device-independent pixels on the tablet layout, and adjacent hand positions
+are separated by more than a target's width so a mis-tap lands on empty felt rather than the wrong
+hand. Hand 1 and Hand 2 are labelled in text. Totals are shown as numbers in two separate fields
+rather than as one figure the player has to decompose.
+
+## Impact and reflection
+
+<Results>
+  <Metric display="2" label="hands per seat, priced separately" />
+  <Metric display="10" label="betting positions on one table" />
+</Results>
+
+Designing a sister title taught me more about systems than designing the first one. The value was
+almost entirely in what I refused to change. A shared framework meant the whole design effort went
+into the one thing that was actually new, and a returning player could sit down and read the table
+in seconds.

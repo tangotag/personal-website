@@ -197,8 +197,7 @@
         "fintech-pos": "Fintech & POS",
         "saas": "SaaS",
         "mobile": "Mobile",
-        "games": "Games",
-        "web-brand": "Web & Brand"
+        "games": "Games"
       },
       "filterLabel": "Filter work",
       "count": "{count, plural, =1 {1 project} other {# projects}}",
