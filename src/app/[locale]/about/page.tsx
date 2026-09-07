@@ -106,7 +106,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
               ))}
             </div>
             <div className="mt-8">
-              <Button variant="secondary" external href={site.resumePath}>
+              <Button variant="secondary" external download href={site.resumePath}>
                 {t("resume.cta")}
               </Button>
             </div>
@@ -191,7 +191,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
               <p className="text-h3">{t("resume.title")}</p>
               <p className="mt-2 text-fg-muted">{t("resume.text")}</p>
               <div className="mt-5">
-                <Button external href={site.resumePath} arrow>
+                <Button external download href={site.resumePath} arrow>
                   {t("resume.cta")}
                 </Button>
               </div>

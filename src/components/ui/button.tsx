@@ -79,8 +79,15 @@ export function Button(props: ButtonProps) {
 
   if ("external" in props && props.external) {
     const { variant: _v, size: _s, arrow: _a, loading: _l, external: _e, ...rest } = props;
+    // A download link stays in the current tab; only true external links open a new one.
+    const isDownload = rest.download !== undefined;
     return (
-      <a {...rest} className={classes} target="_blank" rel="noreferrer noopener">
+      <a
+        {...rest}
+        className={classes}
+        target={isDownload ? undefined : "_blank"}
+        rel={isDownload ? undefined : "noreferrer noopener"}
+      >
         {content}
       </a>
     );

@@ -17,6 +17,25 @@ const nextConfig: NextConfig = {
     deviceSizes: [390, 640, 768, 1024, 1280, 1536, 1920],
   },
   // Cache Components stay off: the site is fully static via generateStaticParams.
+
+  /**
+   * The resume downloads rather than opening in the browser's PDF viewer, even when the URL is
+   * hit directly. The `download` attribute on the links is the client-side half of this; the
+   * header covers the case where someone pastes or shares the file URL.
+   */
+  async headers() {
+    return [
+      {
+        source: "/Raheel-Ahmad-Qureshi-Senior-Product-Designer.pdf",
+        headers: [
+          {
+            key: "Content-Disposition",
+            value: 'attachment; filename="Raheel-Ahmad-Qureshi-Senior-Product-Designer.pdf"',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

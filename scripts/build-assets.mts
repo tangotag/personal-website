@@ -103,60 +103,59 @@ const JOBS: Job[] = [
     band: { top: 6240, height: 984 },
   },
 
-  // Legacy Battle Royal, for the Game UI collection: nine screens on a 1446x7305 board, evenly
-  // spaced. The boundaries come from
+  // KOMPETE: nine screens on a 1446x7305 board, evenly spaced. The boundaries come from
   // autocorrelating row brightness, which found a 795.6px period at phase 51.
   {
     from: "Legacy Kompete .png",
-    to: "game-ui/legacy-lobby.webp",
+    to: "kompete/lobby.webp",
     trim: true,
     band: { top: 78, height: 768 },
   },
   {
     from: "Legacy Kompete .png",
-    to: "game-ui/legacy-customizer.webp",
+    to: "kompete/customizer.webp",
     trim: true,
     band: { top: 846, height: 796 },
   },
   {
     from: "Legacy Kompete .png",
-    to: "game-ui/legacy-face-morph.webp",
+    to: "kompete/face-morph.webp",
     trim: true,
     band: { top: 1642, height: 795 },
   },
   {
     from: "Legacy Kompete .png",
-    to: "game-ui/legacy-attributes.webp",
+    to: "kompete/attributes.webp",
     trim: true,
     band: { top: 2437, height: 796 },
   },
   {
     from: "Legacy Kompete .png",
-    to: "game-ui/legacy-season-pass.webp",
+    to: "kompete/season-pass.webp",
     trim: true,
     band: { top: 3233, height: 796 },
   },
   {
     from: "Legacy Kompete .png",
-    to: "game-ui/legacy-currency.webp",
+    to: "kompete/currency.webp",
     trim: true,
     band: { top: 4029, height: 795 },
   },
   {
     from: "Legacy Kompete .png",
-    to: "game-ui/legacy-item-shop.webp",
+    to: "kompete/item-shop.webp",
     trim: true,
     band: { top: 4824, height: 796 },
   },
   {
     from: "Legacy Kompete .png",
-    to: "game-ui/legacy-career-stats.webp",
+    to: "kompete/career-stats.webp",
     trim: true,
     band: { top: 5620, height: 795 },
   },
   {
     from: "Legacy Kompete .png",
-    to: "game-ui/legacy-settings.webp",
+    to: "kompete/settings.webp",
     trim: true,
     band: { top: 6415, height: 796 },
   },
@@ -179,81 +178,6 @@ const JOBS: Job[] = [
   { from: "texas-flip/page-03.png", to: "texas-flip/flip-bet.webp", trim: true },
   { from: "texas-flip/page-04.png", to: "texas-flip/hand-bets.webp", trim: true },
   { from: "texas-flip/page-05.png", to: "texas-flip/community-cards.webp", trim: true },
-
-  // Mintavibe: a full UX board, 1920x21083. Bands read off a ruler preview; the Behance page
-  // furniture below y 18000 is deliberately excluded.
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/overview.webp",
-    band: { top: 1520, height: 700 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/design-process.webp",
-    band: { top: 2300, height: 760 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/personas.webp",
-    band: { top: 3328, height: 2350 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/empathy-map.webp",
-    band: { top: 5872, height: 570 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/card-sorting.webp",
-    band: { top: 6442, height: 480 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/information-architecture.webp",
-    band: { top: 6922, height: 1447 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/app-preview.webp",
-    band: { top: 8522, height: 1420 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/wireframes.webp",
-    band: { top: 10110, height: 700 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/typography.webp",
-    band: { top: 10810, height: 400 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/brand.webp",
-    band: { top: 11422, height: 1900 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/screens.webp",
-    band: { top: 13370, height: 2360 },
-    trim: true,
-  },
-  {
-    from: "Mintavibe.png",
-    to: "mintavibe/screens-detail.webp",
-    band: { top: 15963, height: 1260 },
-    trim: true,
-  },
 ];
 
 /**
@@ -271,10 +195,10 @@ type Cover = { slug: string; front: string; back?: string };
 const COVERS: Cover[] = [
   { slug: "compass-pos", front: "kiosk-01-welcome.webp", back: "pos-home-modules.webp" },
   { slug: "aml-watcher", front: "main-page.webp", back: "linked-entities.webp" },
-  { slug: "game-ui", front: "legacy-lobby.webp", back: "legacy-career-stats.webp" },
+  { slug: "kompete", front: "lobby.webp", back: "career-stats.webp" },
   { slug: "open-omaha", front: "showdown.webp", back: "cards-dealt.webp" },
   { slug: "texas-flip", front: "flip-bet.webp", back: "hand-bets.webp" },
-  { slug: "mintavibe", front: "app-preview.webp", back: "screens-detail.webp" },
+  { slug: "mintavibe", front: "mockup-1-home.webp", back: "mockup-3-redeem.webp" },
 ];
 
 /**

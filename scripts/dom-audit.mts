@@ -23,7 +23,7 @@ const ROUTES = [
   "/work",
   "/work/compass-pos",
   "/work/aml-watcher",
-  "/work/game-ui",
+  "/work/kompete",
   "/work/open-omaha",
   "/work/texas-flip",
   "/work/mintavibe",

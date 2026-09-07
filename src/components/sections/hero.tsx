@@ -53,7 +53,7 @@ export async function Hero() {
             <Button href="/contact" size="lg" arrow>
               {tc("startProject")}
             </Button>
-            <Button variant="secondary" size="lg" external href={site.resumePath}>
+            <Button variant="secondary" size="lg" external download href={site.resumePath}>
               {tc("downloadResume")}
             </Button>
           </FadeUp>

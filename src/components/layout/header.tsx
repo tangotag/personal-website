@@ -13,20 +13,21 @@ import { site } from "@/data/site";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
-/** `scrolled` past the hero top; `hidden` after a decisive downward scroll, reset on any upward scroll. */
+/**
+ * True once the page has scrolled past the hero top, which is when the header takes its background,
+ * blur and hairline.
+ *
+ * The header deliberately never hides. It used to slide away on a downward scroll while the
+ * case-study reading bar stayed pinned at top: var(--header-h), so the accent line was left
+ * floating over the content with nothing above it and read as a rule cutting the page in half.
+ */
 function useHeaderState() {
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    let last = window.scrollY;
     let ticking = false;
     const update = () => {
-      const y = window.scrollY;
-      setScrolled(y > 80);
-      if (y <= 240 || y < last) setHidden(false);
-      else if (y - last > 8) setHidden(true);
-      last = y;
+      setScrolled(window.scrollY > 80);
       ticking = false;
     };
     const onScroll = () => {
@@ -39,13 +40,13 @@ function useHeaderState() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return { scrolled, hidden };
+  return { scrolled };
 }
 
 export function Header() {
   const t = useTranslations("nav");
   const pathname = usePathname();
-  const { scrolled, hidden } = useHeaderState();
+  const { scrolled } = useHeaderState();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -56,7 +57,6 @@ export function Header() {
           scrolled
             ? "border-b border-border bg-surface/80 backdrop-blur-md"
             : "border-b border-transparent bg-transparent",
-          hidden && !menuOpen && "motion-safe:-translate-y-full",
         )}
       >
         <div className="container-content flex h-full items-center justify-between gap-4">

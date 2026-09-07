@@ -39,13 +39,18 @@ describe("content loader", () => {
     const dev = await loadWith("development");
     const devEntry = dev.getWork("compass-pos", "en");
     expect(devEntry?.results.some((r) => r.status === "confirm")).toBe(true);
-    expect(dev.getWork("kompete", "en")).not.toBeNull(); // draft visible in dev
 
     const prod = await loadWith("production");
     const prodEntry = prod.getWork("compass-pos", "en");
     expect(prodEntry?.results.some((r) => r.status === "confirm")).toBe(false);
-    expect(prod.getWork("kompete", "en")).toBeNull(); // draft hidden in production
     expect(prod.getAllWork("en").some((e) => e.draft)).toBe(false);
+
+    // Whatever drafts the catalogue holds are readable in development and absent from production.
+    // Asserting over the set rather than one slug keeps this true as entries are published.
+    for (const draft of dev.getAllWork("en").filter((e) => e.draft)) {
+      expect(dev.getWork(draft.slug, "en")).not.toBeNull();
+      expect(prod.getWork(draft.slug, "en")).toBeNull();
+    }
   });
 
   it("wraps prev/next around the listing", async () => {

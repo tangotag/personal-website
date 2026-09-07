@@ -13,9 +13,9 @@ Placeholders in the code are tagged `[CONFIRM]` (a number I drafted) or `[NEEDED
 | 4 | Compass hardware photos | `public/work/compass-pos/hardware-*.jpg` | Terminal + kiosk photos for the device frames (`kind="pos"` / `"kiosk"`) |
 | 5 | Open Omaha cover + screens | `public/work/open-omaha/` | Lobby, table, cashier — before/after pairs if you have them (the `<Compare>` component) |
 | 6 | AML Watcher cover + screens | `public/work/aml-watcher/` | Alert queue, case timeline, reporting |
-| 7 | KOMPETE cover + screens | `public/work/kompete/` | HUD, lobby, store — draft stays hidden until facts arrive |
+| 7 | KOMPETE naming check | — | The screens carry a `LEGACY` wordmark. Confirm that is the same title, or supply the KOMPETE captures |
 | 8 | Mintavibe, TurnkeyTix, RPA, EXAT Homes covers | `public/work/<slug>/cover.jpg` | Can be exported from your Behance boards |
-| 9 | Game UI collection | `public/work/game-ui-collection/` | 3 covers + 4–6 captures each (Legacy Battle Royal, Taxa's Hold'em, Roulette) |
+| 9 | Taxa's Hold'em · Roulette | `public/work/` | Captures for the two Fifty Cats titles that still have none |
 | 10 | Client logos (optional) | `public/logos/*.svg` | Only with permission; otherwise text logos stay |
 
 Every image needs one line of alt text — I'll draft them from your captions.

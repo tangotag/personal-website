@@ -55,7 +55,7 @@ src/
     case-study/  CaseHero Meta TLDR TOC Progress Figure Compare Gallery Lightbox DeviceFrame Metric NextProject mdx-components.tsx
     motion/      Reveal SplitReveal CountUp Parallax Cursor (flagged)
   content/
-    work/        compass-pos.en.mdx  open-omaha.en.mdx  …  game-ui-collection.en.mdx
+    work/        compass-pos.en.mdx  open-omaha.en.mdx  …  kompete.en.mdx
     testimonials.json  services.json  experience.json  faq.json
   data/          site.ts (name, email, socials, availability, calendar URL)  nav.ts
   hooks/         useReducedMotion useScrollDirection useCopy useLocalTime

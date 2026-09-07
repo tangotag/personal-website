@@ -13,20 +13,20 @@ tags: ["Mobile app", "Rewards economy", "Onboarding", "Design system"]
 filters: ["mobile"]
 results:
   - { value: "1", label: "coin across games, video, social and shopping" }
-  - { value: "5", label: "phase process, prototype tested before launch" }
+  - { value: "7", label: "feature groups from card sorting" }
   - { value: "2", label: "primary personas driving the architecture" }
 cover: "/work/mintavibe/cover.webp"
-coverAlt: "The Mintavibe app on a deep green ground, a set of phone screens showing the brand splash, a coin-earning screen and a celebrity event screen, with the profile and rewards screens behind them."
-featuredOrder: 3
+coverAlt: "Two Mintavibe screens on a deep green ground: a home screen with a gold coin balance and four earning tiles, and behind it the redeem screen showing voucher costs in coins."
+featuredOrder: 4
 ---
 
-{/* Phase 7: the engagement window for this project is still open (docs/11). Everything else is read from the case-study board Raheel supplied. */}
+{/* Figures here are drawn by scripts/build-mintavibe.mts rather than sliced from the source board: the board carried its own section headings, so every image repeated the heading above it. Engagement window still open (docs/11). */}
 
 <TLDR
   items={[
     "One app asks people to watch video, play games, engage socially and shop, and pays them in a single currency, Mintavibe coins, for all four.",
     "The design problem is not any one of those features. It is that a person who arrives for a celebrity live show must be able to find the shop, and vice versa.",
-    "Two personas, card sorting and one flat information architecture kept a four-in-one product from becoming four apps in a trench coat.",
+    "Two personas, a card sort into seven groups and one flat architecture kept a four-in-one product from becoming four apps in a trench coat.",
   ]}
 />
 
@@ -36,20 +36,11 @@ Mintavibe is a mobile rewards platform. Users earn coins by playing games, watch
 content and shopping, then spend them on vouchers, discounts and access to events with Bollywood
 celebrities, including talk shows and coffee sessions.
 
-|                  |                                                                                                                  |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **Tools**        | Figma, Adobe Illustrator, Adobe Photoshop                                                                        |
-| **Methodology**  | Five-phase process: research, ideation, problem and solution, prototype, feedback and testing                    |
+| | |
+|---|---|
+| **Tools** | Figma, Adobe Illustrator, Adobe Photoshop |
+| **Methodology** | Five-phase process: research, ideation, problem and solution, prototype, feedback and testing |
 | **Deliverables** | Personas, empathy maps, card sorting, information architecture, wireframes, high-fidelity screens, design system |
-
-<Figure
-  src="/work/mintavibe/overview.webp"
-  alt="The Mintavibe project overview panel, a dark card headed Project Overview with a description of the app as a mobile application that rewards users with Mintavibe coins for playing games, watching videos, sharing content, shopping and winning vouchers, beside a phone showing the brand splash screen."
-  caption="The premise: one currency earned four ways, spent on access rather than only on discounts."
-  kind="plain"
-  aspect="16/10"
-  wide
-/>
 
 ## The problem
 
@@ -70,16 +61,8 @@ user from install to their first earned coin without a tutorial.
 
 End-to-end product design: user research synthesis, personas and empathy maps, card sorting, the
 information architecture, wireframes, the full high-fidelity interface, the brand and icon system,
-and the prototype used for testing.
-
-<Figure
-  src="/work/mintavibe/design-process.webp"
-  alt="The Mintavibe design process diagram, showing five phases as coloured blocks labelled ideation and research, problem and solution, and feedback and testing, beside a paragraph explaining that real users tested the prototype and their feedback shaped the launched app."
-  caption="Five phases. The app launched only after prototype feedback had been folded back in."
-  kind="plain"
-  aspect="16/10"
-  wide
-/>
+and the prototype used for testing. The work ran through five phases, and the app launched only
+after prototype feedback had been folded back in.
 
 ## Understanding the user
 
@@ -87,45 +70,34 @@ and the prototype used for testing.
 
 Two people, deliberately far apart. Rahul, a marketing professional in a city, who is here for
 celebrity content and games. Sonal, a business owner in a suburb, who is here for discounts and
-vouchers. Each persona carries goals, needs, pain points, psychographics and behaviour patterns,
-and the two sets disagree in useful ways.
+vouchers. Each persona carries goals, needs, pain points, psychographics and behaviour patterns, and
+the two sets disagree in useful ways. Rahul rates entertainment and social interaction highest,
+Sonal rates shopping and personalised offers.
 
-<Figure
-  src="/work/mintavibe/personas.webp"
-  alt="Two Mintavibe user personas laid out as cards. Each shows a photograph, age, job, location and class, then psychographics, goals and needs, pain points, and behaviour patterns scored across entertainment, shopping, social interaction and personalised offers."
-  caption="Rahul comes for the celebrities. Sonal comes for the vouchers. Both have to feel served on the first screen."
-  kind="plain"
-  aspect="16/10"
-  wide
-/>
+That disagreement is the reason the home screen gives four earning paths equal weight instead of
+promoting one. Any ranking would have served one persona and demoted the other.
 
 ### Empathy maps
 
 The maps split each persona into what they do and what they think. The most useful lines were the
-frustrations: rewards that are hard to redeem, and a fear of missing exclusive events. Both became
-interface requirements rather than backlog items.
+frustrations, and both became interface requirements rather than backlog items.
 
-<Figure
-  src="/work/mintavibe/empathy-map.webp"
-  alt="Two Mintavibe empathy maps, each dividing a persona into does and thinks quadrants, listing behaviours such as regularly checking the app for new videos and games, and thoughts such as hoping the app will help them meet favourite celebrities and finding rewards hard to redeem."
-  caption="Redemption friction and fear of missing out, taken straight from the maps into the requirements."
-  kind="plain"
-  aspect="16/10"
-  wide
-/>
+Rewards that are hard to redeem became the rule that a voucher always shows its cost against the
+balance held. Fear of missing an exclusive event became a countdown on the screen rather than a
+notification that arrives too late to act on.
 
 ## Architecture and ideation
 
 ### Card sorting
 
-The features were sorted into seven groups: onboarding, entertainment, shopping and rewards, social
-and community, account management, settings and support, and points and perks. That exercise is what
-turned a feature list into a navigable product.
+The features sorted into seven groups. The result that changed the product was points and perks
+refusing to sit inside account management: people treated their balance as something they owned, not
+as a setting, so it got its own place in the architecture.
 
 <Figure
   src="/work/mintavibe/card-sorting.webp"
-  alt="The Mintavibe card sorting result, seven labelled columns headed onboarding, entertainment, shopping and rewards, social and community, account management, settings and support, and points and perks, each listing the features grouped beneath it."
-  caption="Seven groups. Points and perks got its own column rather than hiding inside account settings."
+  alt="A card sorting diagram with seven labelled columns headed onboarding, entertainment, shopping, social, account, settings, and points and perks, each listing the features grouped beneath it, with the points and perks column highlighted in green."
+  caption="Seven groups, redrawn from the sort. Points and perks earned its own column."
   kind="plain"
   aspect="16/10"
   wide
@@ -134,13 +106,12 @@ turned a feature list into a navigable product.
 ### Information architecture
 
 One flow from splash through onboarding to a decision point, sign up or log in, then a home screen
-that branches into play and earn, watch and earn, refer and earn, shopping, shop and profile
-settings. Every earning path is one level from home, which is the structural expression of the
-single-currency idea.
+that branches into the four earning paths plus shop and profile. Every earning path sits one level
+below home, which is the structural expression of the single-currency idea.
 
 <Figure
   src="/work/mintavibe/information-architecture.webp"
-  alt="The Mintavibe information architecture diagram. A tree beginning at splash and onboarding, branching at a have an account decision into sign up or log in, then into a home screen that leads to play and earn, watch and earn, refer and earn, shopping, shop and profile settings, each with its own sub-screens."
+  alt="An information architecture tree beginning at splash and onboarding, branching at a sign up or log in decision into a highlighted home node, which leads to play and earn, watch and earn, refer and earn, shop and profile, each with three sub-screens beneath it."
   caption="Every way to earn sits one level below home, so no activity outranks another."
   kind="plain"
   aspect="16/10"
@@ -152,65 +123,67 @@ single-currency idea.
 ### Wireframes
 
 Flat screens first, to fix the position of the coin balance before any of the brand arrived. The
-balance sits in the same place on every screen, which is what lets a user check it without
-navigating.
+balance holds the same place on every screen, which is what lets a user check it without navigating.
 
-<Figure
-  src="/work/mintavibe/wireframes.webp"
-  alt="A row of six Mintavibe low-fidelity wireframe screens on a purple ground, showing the onboarding, sign-in, form and confirmation layouts as grey blocks and placeholder text."
-  caption="Low fidelity, in sequence. The coin balance holds one position throughout."
-  kind="phone"
-  aspect="16/10"
+<Gallery
+  cols={2}
   wide
+  items={[
+    {
+      src: "/work/mintavibe/wireframe-1-onboarding.webp",
+      alt: "Low-fidelity wireframe of the Mintavibe onboarding screen: a circular illustration slot, a headline and two lines of body text, a page indicator, a full-width continue button and a skip link, with four numbered annotations beside the phone.",
+      caption: "01 Onboarding. Structure reconstructed for this case study.",
+    },
+    {
+      src: "/work/mintavibe/wireframe-2-home.webp",
+      alt: "Low-fidelity wireframe of the home screen: a balance pill at the top left, a featured game banner, four equally sized earning tiles for play, watch, shop and refer, an earn history block and a tab bar.",
+      caption: "02 Home. Four earning paths, equal weight.",
+    },
+    {
+      src: "/work/mintavibe/wireframe-3-earn.webp",
+      alt: "Low-fidelity wireframe of an earning screen: a balance pill, a content block, a title, a reward pill reading plus fifty coins, body text, a related content block and a claim button.",
+      caption: "03 Earning. The amount is stated before the activity starts.",
+    },
+    {
+      src: "/work/mintavibe/wireframe-4-redeem.webp",
+      alt: "Low-fidelity wireframe of the redeem screen: a balance pill, a search field, three category chips and a two by two grid of voucher cards above a tab bar.",
+      caption: "04 Redeeming. Cost sits on the card, next to the brand.",
+    },
+  ]}
 />
 
 ### Design system
 
 Metropolis for everything, with a near-black ground, a warm gold for the currency and anything
 earned, and a violet reserved for social features. Gold is the only colour that means value, which
-is why a coin balance is legible anywhere in the app.
-
-<Gallery
-  cols={2}
-  wide
-  items={[
-    {
-      src: "/work/mintavibe/typography.webp",
-      alt: "The Mintavibe typography specimen, showing the Metropolis typeface in several weights with a large letter A a, a full uppercase and lowercase alphabet and numerals, on a dark ground.",
-      caption: "Metropolis, one family across the product.",
-    },
-    {
-      src: "/work/mintavibe/brand.webp",
-      alt: "The Mintavibe brand sheet showing a colour palette of near-black, gold, dark grey, violet and red swatches with hex values, a row of coin options in gold, and a grid of app logo explorations in several colourways.",
-      caption: "Palette, coin treatments and the logo exploration behind the final mark.",
-    },
-  ]}
-/>
+is why a coin balance is legible anywhere in the app. Type is set on a 1.4 line height with slightly
+open letter spacing, which is what makes a dense rewards list readable on a phone.
 
 ## Final screens
 
-<Figure
-  src="/work/mintavibe/app-preview.webp"
-  alt="Five Mintavibe phone screens on a warm gradient: the brand splash, an onboarding screen about earning coins by watching entertainment content, a celebrity event screen, and two illustrated screens explaining playing games to earn points and redeeming points for discounts."
-  caption="Onboarding states the deal in three screens: watch, play, redeem."
-  kind="phone"
-  aspect="16/10"
-  wide
-/>
-
 <Gallery
   cols={2}
   wide
   items={[
     {
-      src: "/work/mintavibe/screens.webp",
-      alt: "A grid of Mintavibe production screens including a cricket game promotion, a video feed, a live sports screen, a coin reward screen with a star rating, and shopping screens showing vouchers from retail brands.",
-      caption: "The four earning paths, all carrying the same balance component.",
+      src: "/work/mintavibe/mockup-1-home.webp",
+      alt: "Mintavibe home screen on a dark ground: a gold coin balance pill, a featured cricket banner, four earning tiles with the refer tile in violet, a recent earnings row and a tab bar, beside four annotations and the four-colour palette.",
+      caption: "Home. Gold marks value, violet marks social, nothing else is coloured.",
     },
     {
-      src: "/work/mintavibe/screens-detail.webp",
-      alt: "Mintavibe profile and rewards screens on a warm gradient, showing profile settings, a chance to earn a thousand points screen with a star rating, my points and notification lists, and a refer and earn screen with a referral code.",
-      caption: "Profile, points history and referral. Earning and spending share one ledger.",
+      src: "/work/mintavibe/mockup-2-wallet.webp",
+      alt: "Mintavibe wallet screen showing a large gold balance of 1,240, earn more and redeem buttons, and a history list mixing three credits with one debit, beside annotations and the palette.",
+      caption: "Wallet. Credits and debits in one ledger, so the balance reads as money.",
+    },
+    {
+      src: "/work/mintavibe/mockup-3-redeem.webp",
+      alt: "Mintavibe redeem screen with a balance pill, a search field, category chips and a grid of voucher cards priced in coins, the most expensive one dimmed with a note reading 760 more.",
+      caption: "Redeem. The voucher out of reach is shown, with the shortfall named.",
+    },
+    {
+      src: "/work/mintavibe/mockup-4-refer.webp",
+      alt: "Mintavibe refer screen with a violet banner reading refer and earn 150, a large referral code, a share invite button and a list of invited people showing joined and pending states.",
+      caption: "Refer. The one screen where violet leads, because it is the one social screen.",
     },
   ]}
 />
@@ -223,19 +196,18 @@ is why a coin balance is legible anywhere in the app.
 
 ## Accessibility
 
-Type is set on a 1.4 line height with slightly open letter spacing, which is what makes a dense
-rewards list readable on a phone at arm's length. Touch targets in the earning flows clear 48 by 48
-device-independent pixels, since these are screens people tap repeatedly and quickly. Coin values
-are always shown as numerals beside the coin mark rather than by the mark alone, and the gold
-against the near-black ground carries the contrast without relying on hue, which keeps the balance
-legible for a colourblind user.
+Touch targets in the earning flows clear 48 by 48 device-independent pixels, since these are screens
+people tap repeatedly and quickly. Coin values are always shown as numerals beside the coin mark
+rather than by the mark alone, and gold against the near-black ground carries the contrast without
+relying on hue, which keeps the balance legible for a colourblind user. In the wallet a credit and a
+debit differ by sign and by wording, not only by colour.
 
 ## Impact and reflection
 
 <Results>
   <Metric display="1" label="coin across games, video, social and shopping" />
-  <Metric display="5" label="phase process, prototype tested before launch" />
   <Metric display="7" label="feature groups from card sorting" />
+  <Metric display="5" label="phase process, prototype tested before launch" />
 </Results>
 
 A multi-purpose app does not need a clever home screen, it needs a currency that is worth the same

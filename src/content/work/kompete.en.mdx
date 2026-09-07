@@ -1,22 +1,231 @@
 ---
 slug: kompete
 title: "KOMPETE: UI/UX for a cross-platform multiplayer shooter"
-hook: "One interface for controller, keyboard and touch, designed to the studio's business model."
-template: standard
+hook: "One front end for a battle royale: lobby, identity, economy and progression."
+template: full
 tier: featured
-client: "KOMPETE (via Upwork)"
-role: "Product / UI-UX Designer (freelance)"
-timeline: "TBC"
-platforms: ["PC", "Mobile"]
+client: "KOMPETE"
+role: "Product / UI-UX Designer"
+timeline: "2021 – 2022"
+platforms: ["PC", "Console", "Mobile"]
 industry: ["Games"]
-tags: ["Game UX", "HUD", "Cross-platform", "Monetisation"]
-filters: ["games", "mobile"]
-results: []
+tags: ["Game UX", "HUD", "Economy", "Progression", "Design system"]
+filters: ["games"]
+results:
+  - { value: "9", label: "front-end screens on one chrome" }
+  - { value: "3", label: "input methods, one component set" }
+  - { value: "1", label: "accent colour carrying every state" }
+cover: "/work/kompete/cover.webp"
+coverAlt: "The KOMPETE lobby on a deep green ground, three armoured characters standing in a line above Battle Royal and Find Match buttons with a friends list to the right, and the career stats screen behind it."
 featuredOrder: 3
-draft: true
 ---
 
-{/* Draft until platforms, timeline and scope are confirmed (docs/05 §3.3). */}
+{/* Phase 7: the captures carry a LEGACY wordmark from the build they came from. Raheel to confirm whether that is the same title or a separate brand (docs/11). */}
 
-Menus, lobbies, HUD, progression and store for a PUBG-style cross-platform title. One component
-system that adapts to controller, keyboard/mouse and touch without three separate designs.
+<TLDR
+  items={[
+    "A battle royale is judged in the seconds before a match, so the front end has to say what you own, what you can do next and what it costs, without ever standing between the player and the play button.",
+    "Nine screens share one chrome, one navigation bar and a single acid green that means available or selected and nothing else.",
+    "The same component set has to work under a controller, a mouse and a thumb, so nothing is smaller than a stick-driven cursor can comfortably land on.",
+  ]}
+/>
+
+## Overview
+
+KOMPETE is a cross-platform multiplayer shooter. My scope was everything around the match: the
+lobby a player returns to, the identity pipeline that makes their character theirs, the three
+storefronts that sell three different kinds of thing, career progression and the settings nobody
+should have to think about.
+
+| | |
+|---|---|
+| **Tools** | Figma, Adobe Illustrator, Adobe Photoshop |
+| **Methodology** | Competitive teardown, flow mapping, component system, prototype review, design QA against the build |
+| **Surfaces** | Lobby, locker, shop, bazaar, career, leaderboards, drops, settings |
+
+## The problem
+
+Free-to-play shooters live or die on the loop between matches. That loop is where a player checks
+what they earned, decides whether to spend, and starts again. Every studio knows this, which is why
+the same loop is usually buried under a storefront that shouts.
+
+Three specific difficulties made this one harder than most.
+
+Cross-platform means the same layout must be driven by a controller stick, a mouse and a
+touchscreen. Layouts that assume a cursor fail on a stick; layouts that assume a thumb waste a
+monitor.
+
+A shooter's front end is dense by nature. Currency, tickets, rank, friends, invites and match state
+all want to be visible at once.
+
+And three storefronts sell three unrelated things. Coins are bought with money, a season pass is
+bought with time, an item is bought with coins. Presenting them identically teaches the player
+nothing.
+
+## The goal
+
+Get a returning player from launch to a match in one decision, and make every price legible in the
+unit the player is actually spending.
+
+## My role
+
+Product and interface design for the front end: competitive teardown, flow mapping, the screen
+inventory, the component system, the visual design across all nine screens, and design QA against
+the build. I did not design the in-match HUD weapon art or the character models.
+
+<Callout kind="constraint">
+  One chrome, three inputs. Anything that only worked with a precise cursor was out, which ruled
+  out hover-only affordances, small close targets and dense right-click menus.
+</Callout>
+
+## Understanding the players
+
+### Research summary
+
+Two behaviours dominate. The returning player, who opens the game to play and treats everything
+else as an obstacle. And the browsing player, who opens it to see what is new, spends time in the
+locker and the bazaar, and may not play at all that session. The front end has to serve the first
+without hiding the second.
+
+### The journey between matches
+
+Land in the lobby, read what changed, check the squad, maybe adjust the character or spend, then
+queue. The only step that is mandatory is the last one, so the play button is the only element that
+never moves.
+
+### Competitive audit
+
+The genre leaders put the store on the front door and the match behind a tab. That converts, and it
+also trains players to close the game. The alternative taken here keeps the match in the primary
+position and gives the stores real estate through the persistent top navigation instead.
+
+## Architecture and ideation
+
+### Information architecture
+
+Seven destinations across one persistent bar: lobby, locker, shop, bazaar, career, leaders and
+drops. The bar never changes position or contents, so a player learns it once. Identity, currency
+and settings sit at the right end, in the same place on every screen.
+
+<Figure
+  src="/work/kompete/lobby.webp"
+  alt="The KOMPETE lobby. A top navigation bar with Lobby, Locker, Shop, Bazaar, Career, Leaders and Drops, three armoured characters standing in a line on a dark backdrop, a Change Game Mode label above Battle Royal and Find Match buttons at the lower left, and a friends list on the right grouped into online, off-line, away and in-match."
+  caption="The lobby. Play is one button at the lower left, the squad is permanently visible on the right, and everything else waits in the bar."
+  kind="desktop"
+  aspect="16/10"
+  wide
+/>
+
+### Design system
+
+A dark chrome with a single acid green accent. Green means available or selected, never decoration,
+which is what lets a player scan a dense screen at a glance. Every state that green carries is also
+carried by a label or a position, so the screens survive a colourblind player and a washed-out
+display. Panels are built from one card component with three densities, and the persistent bar is a
+single component reused across all nine screens.
+
+## The character pipeline
+
+Three screens of increasing depth, so a player who wants to jump straight into a match never has to
+see the second or third. Presets first, then facial morphing, then a points budget across
+attributes.
+
+<Gallery
+  cols={3}
+  wide
+  items={[
+    {
+      src: "/work/kompete/customizer.webp",
+      alt: "The identity customizer storage screen with a gender selector offering male, female and non-binary, a grid of preset slots with one outlined in green, preset controls for saved, purchased and create new on the left, and the character model standing on a plinth to the right.",
+      caption: "Presets. The shallow end, and where most players stop.",
+    },
+    {
+      src: "/work/kompete/face-morph.webp",
+      alt: "The identity customizer face morph screen with a list of facial regions on the left including procerus, brow drop, eye orbital, nose and jaw, sliders for height, length and size in the centre, and the character model to the right updating as values change.",
+      caption: "Face morph. Region first, then three sliders, never a wall of them.",
+    },
+    {
+      src: "/work/kompete/attributes.webp",
+      alt: "The DNA screen showing physical attributes for height, weight and muscle beside speed, acceleration and strength, and a skill attributes section headed you have one hundred points, with play making and finishing sliders.",
+      caption: "A points budget. Spending here costs something, so it is the deepest screen.",
+    },
+  ]}
+/>
+
+<Callout kind="decision">
+  Depth is opt-in. Each customisation screen is a destination in its own right rather than a step in
+  a wizard, so the player who wants a preset and a match is never walked through morphology sliders
+  to get there.
+</Callout>
+
+## The economy
+
+Three storefronts, three units of account. Each one states its price in the unit the player is
+actually spending, which is the whole reason they are not one screen with three tabs.
+
+<Gallery
+  cols={3}
+  wide
+  items={[
+    {
+      src: "/work/kompete/currency.webp",
+      alt: "The Voolah currency screen offering four coin bundles of 1,000, 2,800, 5,000 and 13,500 coins, each illustrated with a growing stack of gold coins and priced at $9.97, $16.76, $27 and $67, with a Buy Now button under each.",
+      caption: "Coins, priced in money. The stack grows with the bundle.",
+    },
+    {
+      src: "/work/kompete/season-pass.webp",
+      alt: "The season pass screen headed Ticket 00, Season 00, with a warning that the season ends in thirty days, three large card slots with the middle one selected, Buy Now and Gift buttons below, and a rarity and category panel on the right.",
+      caption: "The pass, priced in time. The countdown is the price tag.",
+    },
+    {
+      src: "/work/kompete/item-shop.webp",
+      alt: "The bazaar screen with a search field, category filters for outfits, gloves, wraps, emotes and winners, and a grid of item cards each showing a name and a coin price, with one card outlined in green.",
+      caption: "Items, priced in coins. Rarity is a labelled band, never colour alone.",
+    },
+  ]}
+/>
+
+## Progression and settings
+
+Career stats are the reason a player comes back, so they get the same weight and the same layout
+grammar as the store rather than being tucked into a profile menu. Settings reuse the game's own
+controls instead of inventing an options dialect.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/kompete/career-stats.webp",
+      alt: "The career stats screen with physical attribute bars, an all stats section covering time played, damage, assists, headshots, wins and favourite weapon, and a last ten games table listing result, time and score.",
+      caption: "Career. Last ten games sits beside lifetime totals, because recent form is what a player checks.",
+    },
+    {
+      src: "/work/kompete/settings.webp",
+      alt: "The settings screen with tabs for display, audio, general, games, bindings and tutorials, display settings for screen mode, resolution, v-sync, motion blur and brightness, quality settings offering low, medium, high and ultra, and revert and apply buttons.",
+      caption: "Settings. Revert sits beside apply, so experimenting is safe.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+Cross-platform is an accessibility requirement before it is a technical one. Every target is sized
+for a controller stick rather than a mouse, which puts them well past 48 by 48 device-independent
+pixels on the touch build. Selection is shown by an outline and a position in the navigation bar,
+not by the accent colour alone, so the interface still reads without hue. Quality settings expose
+motion blur as its own control, which matters to players who get motion sick, and the settings
+screen is reachable from the persistent bar on every screen rather than only from the lobby.
+
+## Impact and reflection
+
+<Results>
+  <Metric display="9" label="front-end screens on one chrome" />
+  <Metric display="3" label="input methods, one component set" />
+  <Metric display="1" label="accent colour carrying every state" />
+</Results>
+
+The lesson that transferred straight into product work: a storefront is clearer when it states its
+price in the unit the buyer is spending. Coins in money, a pass in time, an item in coins. The same
+is true of a subscription page, a usage meter or a checkout, and it is why the three stores here
+never became one screen with three tabs.
