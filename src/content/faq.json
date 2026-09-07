@@ -99,113 +99,113 @@
     }
   },
   {
-    "page": "home",
     "q": {
       "en": "Who is Raheel Ahmad Qureshi?",
       "es": "¿Quién es Raheel Ahmad Qureshi?"
     },
     "a": {
-      "en": "Raheel Ahmad Qureshi is a Senior Product Designer with 9+ years of experience designing digital products across fintech, restaurant POS and self-service kiosks, enterprise SaaS and games. He holds a B.S. in Software Engineering and a Google UX Design Professional Certificate, works remotely worldwide, and is available for full-time roles and freelance projects.",
-      "es": "Raheel Ahmad Qureshi es Diseñador de Producto Senior con más de 9 años de experiencia diseñando productos digitales en fintech, POS y kioscos de autoservicio para restaurantes, SaaS empresarial y videojuegos. Tiene un grado en Ingeniería de Software y el Certificado Profesional de Diseño UX de Google, trabaja en remoto en todo el mundo y está disponible para empleo a tiempo completo y proyectos freelance."
-    }
+      "en": "Raheel Ahmad Qureshi is a Senior Product Designer with 9+ years designing digital products across fintech, restaurant point of sale, self-service kiosks, enterprise SaaS and games. He is currently Senior Product Designer at Cygnus Payments, where he designs the Compass POS terminal and the Compass Kiosk. He holds a B.S. in Software Engineering and a Google UX Design Professional Certificate, works remotely worldwide, and is available for full-time roles and freelance projects.",
+      "es": "Raheel Ahmad Qureshi es Diseñador de Producto Senior con más de 9 años diseñando productos digitales en fintech, punto de venta para restaurantes, quioscos de autoservicio, SaaS empresarial y videojuegos. Actualmente es Diseñador de Producto Senior en Cygnus Payments, donde diseña el terminal Compass POS y el Compass Kiosk. Tiene una licenciatura en Ingeniería de Software y el Certificado Profesional de Diseño UX de Google, trabaja en remoto en todo el mundo y está disponible para puestos a tiempo completo y proyectos freelance."
+    },
+    "page": "home"
   },
   {
-    "page": "home",
     "q": {
       "en": "What does a senior product designer actually do?",
       "es": "¿Qué hace realmente un diseñador de producto senior?"
     },
     "a": {
-      "en": "A senior product designer owns a product's experience end to end: discovery and user research, information architecture and flows, UI design and prototyping, a design system, and the handoff and QA with developers. In my case that spans POS terminals and kiosks, compliance dashboards, mobile apps and game interfaces, plus the business outcomes behind them, such as +40% conversion or 25% less development time.",
-      "es": "Un diseñador de producto senior se encarga de la experiencia de un producto de principio a fin: descubrimiento e investigación de usuarios, arquitectura de información y flujos, diseño de UI y prototipado, un sistema de diseño, y la entrega y el QA con los desarrolladores. En mi caso abarca terminales POS y kioscos, paneles de cumplimiento, apps móviles e interfaces de videojuegos, y los resultados de negocio detrás: +40 % de conversión o un 25 % menos de tiempo de desarrollo."
-    }
+      "en": "A senior product designer owns a product's experience end to end: discovery and user research, information architecture and flows, interface design and prototyping, a design system, then handoff and quality assurance with developers. In my case that spans POS terminals, self-service kiosks, compliance dashboards, mobile apps and game front ends, along with the outcomes behind them, such as a 40% lift in conversion on Open Omaha and a quarter less development time on AML Watcher.",
+      "es": "Un diseñador de producto senior es responsable de la experiencia de principio a fin: descubrimiento e investigación con usuarios, arquitectura de la información y flujos, diseño de interfaz y prototipado, un sistema de diseño, y después la entrega y el control de calidad con desarrollo. En mi caso abarca terminales POS, quioscos de autoservicio, paneles de cumplimiento, apps móviles y front ends de videojuegos, junto con los resultados detrás: un 40% más de conversión en Open Omaha y una cuarta parte menos de tiempo de desarrollo en AML Watcher."
+    },
+    "page": "home"
   },
   {
-    "page": "home",
     "q": {
       "en": "Which industries do you design for?",
       "es": "¿Para qué sectores diseñas?"
     },
     "a": {
-      "en": "Fintech and payments (restaurant POS, self-service kiosks, kitchen display systems, back-office admin), enterprise SaaS (anti-money-laundering screening, RPA tooling, data-dense dashboards), consumer mobile apps (lifestyle, PropTech, event ticketing) and games (casino, poker, roulette, multiplayer PC and cross-platform titles).",
-      "es": "Fintech y pagos (POS para restaurantes, kioscos de autoservicio, pantallas de cocina, administración back-office), SaaS empresarial (screening antilavado de dinero, herramientas de RPA, paneles densos en datos), apps móviles de consumo (estilo de vida, PropTech, venta de entradas) y videojuegos (casino, póker, ruleta, títulos multijugador para PC y multiplataforma)."
-    }
+      "en": "Four. Fintech and payments, including restaurant point of sale, self-service kiosks, kitchen display systems and back-office admin at Cygnus Payments. Enterprise SaaS, including anti-money-laundering screening and robotic process automation tooling at 360SynergyTech. Consumer mobile, including the Mintavibe rewards and celebrity-access app. And games, from casino titles at Fifty Cats to the KOMPETE cross-platform shooter front end.",
+      "es": "Cuatro. Fintech y pagos, incluyendo punto de venta para restaurantes, quioscos de autoservicio, sistemas de pantalla de cocina y portal administrativo en Cygnus Payments. SaaS empresarial, incluyendo screening antiblanqueo y herramientas de automatización robótica en 360SynergyTech. Móvil de consumo, incluyendo la app de recompensas y acceso a celebridades Mintavibe. Y videojuegos, desde los títulos de casino de Fifty Cats hasta el front end del shooter multiplataforma KOMPETE."
+    },
+    "page": "home"
   },
   {
-    "page": "home",
     "q": {
-      "en": "Can you design a POS system or self-service kiosk?",
-      "es": "¿Puedes diseñar un sistema POS o un kiosco de autoservicio?"
+      "en": "Can you design a POS system or a self-service kiosk?",
+      "es": "¿Puedes diseñar un sistema POS o un quiosco de autoservicio?"
     },
     "a": {
-      "en": "Yes, it is my current specialty. As Senior Product Designer at Cygnus Payments I design the Compass POS ecosystem: ordering, payments with dual pricing, offline mode, kitchen display, employee time, AI reporting, self-service kiosks and the admin portal, all on one design system across five hardware surfaces.",
-      "es": "Sí; es mi especialidad actual. Como Diseñador de Producto Senior en Cygnus Payments diseño el ecosistema Compass POS: pedidos, pagos con doble precio, modo sin conexión, pantalla de cocina, control horario, reportes con IA, kioscos de autoservicio y el portal de administración, todo sobre un solo sistema de diseño en cinco superficies de hardware."
-    }
+      "en": "Yes, it is my current specialty, and I treat them as two products rather than one. Compass POS is the counter terminal: ordering, dual pricing, tipping and splitting, offline mode, the kitchen display and the customer-facing display. Compass Kiosk is the self-service journey, twelve screens from attract to printed receipt. They share one design system across the hardware, which is why a merchant learns one product instead of two.",
+      "es": "Sí, es mi especialidad actual, y los trato como dos productos y no como uno. Compass POS es el terminal de mostrador: pedidos, doble precio, propinas y división de cuenta, modo sin conexión, pantalla de cocina y pantalla de cara al cliente. Compass Kiosk es el recorrido de autoservicio, doce pantallas desde la pantalla de bienvenida hasta el recibo impreso. Comparten un sistema de diseño en todo el hardware, y por eso el comercio aprende un producto en lugar de dos."
+    },
+    "page": "home"
   },
   {
-    "page": "home",
     "q": {
       "en": "Do you design game UI and UX?",
-      "es": "¿Diseñas UI y UX para videojuegos?"
+      "es": "¿Diseñas UI y UX de videojuegos?"
     },
     "a": {
-      "en": "Yes. I led the gaming department's UI/UX at Argon Tech, designed two launched casino games at Fifty Cats, where the Open Omaha redesign lifted conversion by 40%, and designed HUDs, lobbies, stores and progression for KOMPETE, a cross-platform multiplayer shooter. Game design documents, economy screens and platform-adaptive components are part of the work.",
-      "es": "Sí. Lideré la UI/UX del departamento de videojuegos en Argon Tech, diseñé dos juegos de casino lanzados en Fifty Cats (el rediseño de Open Omaha aumentó la conversión un 40 %) y diseñé HUD, lobbies, tiendas y progresión para KOMPETE, un shooter multijugador multiplataforma. Los documentos de diseño de juego, las pantallas de economía y los componentes adaptables a plataforma forman parte del trabajo."
-    }
+      "en": "Yes, and it is where I started. I led the gaming department's UI and UX at Argon Tech, then designed two launched casino titles at Fifty Cats: Open Omaha, whose redesign lifted conversion by 40%, and its sister title Texas Flip. For KOMPETE, a cross-platform multiplayer shooter, I designed the whole front end: lobby, identity pipeline, three storefronts, progression and settings. Game design documents, economy screens and platform-adaptive components are part of the work.",
+      "es": "Sí, y es donde empecé. Dirigí la UI y UX del departamento de videojuegos en Argon Tech y después diseñé dos títulos de casino lanzados en Fifty Cats: Open Omaha, cuyo rediseño subió la conversión un 40%, y su título hermano Texas Flip. Para KOMPETE, un shooter multijugador multiplataforma, diseñé todo el front end: lobby, pipeline de identidad, tres tiendas, progresión y ajustes. Los documentos de diseño de juego, las pantallas de economía y los componentes adaptables a plataforma forman parte del trabajo."
+    },
+    "page": "home"
   },
   {
-    "page": "home",
     "q": {
       "en": "How do you hand designs off to developers?",
-      "es": "¿Cómo entregas los diseños a los desarrolladores?"
+      "es": "¿Cómo entregas los diseños a desarrollo?"
     },
     "a": {
-      "en": "As dev-ready specs: Figma component libraries with tokens, redlines, state matrices (including offline and error states) and design QA on the real build. With a software-engineering background I write the handoff the way engineers read it. On my last enterprise team that cut development time by 25%, roughly $5,000 per project.",
-      "es": "Como especificaciones listas para programar: librerías de componentes en Figma con tokens, redlines, matrices de estados (incluidos los de sin conexión y error) y QA de diseño sobre la versión real. Con formación en ingeniería de software escribo la entrega tal como la leen los ingenieros; en mi último equipo empresarial eso redujo el tiempo de desarrollo un 25 %, unos 5 000 $ por proyecto."
-    }
+      "en": "As specifications a developer can build from without guessing: component libraries with design tokens, redlines, and state matrices that cover the empty, loading, error, offline and partial-data cases most handoffs leave out. Then design quality assurance against the real build rather than the mockup. With a software engineering background I write the handoff the way engineers read it. On my last enterprise team that cut development time by 25%, roughly $5,000 per project.",
+      "es": "Como especificaciones a partir de las cuales un desarrollador puede construir sin adivinar: bibliotecas de componentes con tokens de diseño, redlines y matrices de estado que cubren los casos vacío, de carga, de error, sin conexión y de datos parciales que la mayoría de entregas omite. Después, control de calidad de diseño contra el build real y no contra la maqueta. Con formación en ingeniería de software escribo la entrega como la leen los desarrolladores. En mi último equipo eso redujo el tiempo de desarrollo un 25%, unos 5.000 dólares por proyecto."
+    },
+    "page": "home"
   },
   {
-    "page": "home",
     "q": {
       "en": "What is your design process?",
       "es": "¿Cuál es tu proceso de diseño?"
     },
     "a": {
-      "en": "Four steps: Discover (goals, users, constraints, existing data), Define (flows, information architecture, wireframes and a clickable prototype), Design (UI, design system, motion) and Deliver (handoff, design QA and iteration with your developers). Each step ends with something you can react to, and research is AI-assisted where it speeds up synthesis without replacing real users.",
-      "es": "Cuatro pasos: Descubrir (objetivos, usuarios, restricciones, datos existentes), Definir (flujos, arquitectura de información, wireframes y un prototipo navegable), Diseñar (UI, sistema de diseño, movimiento) y Entregar (entrega, QA de diseño e iteración con tus desarrolladores). Cada paso termina con algo a lo que puedes reaccionar, y la investigación se apoya en IA cuando acelera la síntesis sin sustituir a usuarios reales."
-    }
+      "en": "Four steps, each ending in something you can react to. Discover: goals, users, constraints and whatever data already exists. Define: flows, information architecture, wireframes and low-fidelity screens. Design: the interface, the design system and motion. Deliver: handoff, design quality assurance and iteration with your developers. Research is AI-assisted where that speeds up synthesis, never as a replacement for talking to real users.",
+      "es": "Cuatro pasos, y cada uno termina en algo sobre lo que puedes opinar. Descubrir: objetivos, usuarios, restricciones y los datos que ya existan. Definir: flujos, arquitectura de la información, wireframes y pantallas de baja fidelidad. Diseñar: la interfaz, el sistema de diseño y el movimiento. Entregar: handoff, control de calidad de diseño e iteración con tus desarrolladores. La investigación se apoya en IA donde acelera la síntesis, nunca como sustituto de hablar con usuarios reales."
+    },
+    "page": "home"
   },
   {
-    "page": "home",
     "q": {
       "en": "Are you available for full-time roles or freelance work?",
-      "es": "¿Estás disponible para empleo a tiempo completo o trabajo freelance?"
+      "es": "¿Estás disponible para puestos a tiempo completo o trabajo freelance?"
     },
     "a": {
-      "en": "Both. I am open to senior, lead or staff product-design roles at fintech, POS/hospitality tech, SaaS and game companies, and to fixed-scope freelance projects or retainers for founders, product teams and agencies. Remote worldwide, with US and European working-hour overlap.",
-      "es": "Ambas. Estoy abierto a roles senior, lead o staff de diseño de producto en empresas de fintech, tecnología para hostelería/POS, SaaS y videojuegos, y a proyectos freelance de alcance fijo o retainers para fundadores, equipos de producto y agencias. En remoto en todo el mundo, con solape horario con EE. UU. y Europa."
-    }
+      "en": "Both, right now. I am open to senior, lead or staff product design roles at fintech, point of sale and hospitality technology, SaaS and games companies, and to fixed-scope freelance projects or monthly retainers for founders, product teams and agencies. I work remotely worldwide with overlap for United States and European hours, and I reply to enquiries within 24 hours on working days.",
+      "es": "Ambos, ahora mismo. Estoy abierto a puestos de diseño de producto senior, lead o staff en empresas de fintech, punto de venta y tecnología para hostelería, SaaS y videojuegos, y a proyectos freelance de alcance cerrado o retainers mensuales para fundadores, equipos de producto y agencias. Trabajo en remoto en todo el mundo con solapamiento con horarios de Estados Unidos y Europa, y respondo en menos de 24 horas en días laborables."
+    },
+    "page": "home"
   },
   {
-    "page": "home",
     "q": {
       "en": "Which tools do you use?",
-      "es": "¿Qué herramientas usas?"
+      "es": "¿Qué herramientas utilizas?"
     },
     "a": {
-      "en": "Figma for design, prototyping and component libraries; accessibility standards (WCAG) baked into the system; AI-assisted research and synthesis tools; and design QA against staging builds. Deliverables are tool-agnostic: your developers get tokens, specs and documented components.",
-      "es": "Figma para diseño, prototipado y librerías de componentes; estándares de accesibilidad (WCAG) integrados en el sistema; herramientas de investigación y síntesis asistidas por IA; y QA de diseño sobre entornos de staging. Los entregables no dependen de la herramienta: tus desarrolladores reciben tokens, especificaciones y componentes documentados."
-    }
+      "en": "Figma for design, prototyping and component libraries, with Adobe Illustrator and Photoshop for illustration and asset work. Accessibility standards are built into the system rather than checked at the end, and I run design quality assurance against staging builds. Deliverables are tool-agnostic: your developers receive tokens, specifications and documented components, not a file they need my licence to open.",
+      "es": "Figma para diseño, prototipado y bibliotecas de componentes, con Adobe Illustrator y Photoshop para ilustración y producción de recursos. Los estándares de accesibilidad van integrados en el sistema en lugar de revisarse al final, y hago control de calidad de diseño contra los builds de staging. Los entregables son independientes de la herramienta: tus desarrolladores reciben tokens, especificaciones y componentes documentados, no un archivo que necesite mi licencia para abrirse."
+    },
+    "page": "home"
   },
   {
-    "page": "home",
     "q": {
       "en": "How much does product design cost and how do we start?",
       "es": "¿Cuánto cuesta el diseño de producto y cómo empezamos?"
     },
     "a": {
-      "en": "Projects are quoted, not priced from a list. Scope, timeline and price come in a written proposal after a free 30-minute call. Send a few lines through the contact form or request a quote on the services page; I reply within 24 hours on working days.",
-      "es": "Los proyectos se presupuestan; no hay lista de precios. Alcance, plazo y precio llegan en una propuesta escrita tras una llamada gratuita de 30 minutos. Envía unas líneas por el formulario de contacto o pide presupuesto en la página de servicios; respondo en menos de 24 horas en días laborables."
-    }
+      "en": "Projects are quoted, never priced from a list, because scope is what moves the number. You get scope, timeline and price in a written proposal after a free 30-minute call. Send a few lines through the contact form or request a quote from the services page, and I reply within 24 hours on working days.",
+      "es": "Los proyectos se cotizan, nunca se sacan de una lista de precios, porque el alcance es lo que mueve la cifra. Recibes alcance, plazo y precio en una propuesta escrita después de una llamada gratuita de 30 minutos. Envía unas líneas por el formulario de contacto o pide presupuesto desde la página de servicios, y respondo en menos de 24 horas en días laborables."
+    },
+    "page": "home"
   }
 ]
