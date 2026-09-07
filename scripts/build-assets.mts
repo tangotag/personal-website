@@ -197,7 +197,11 @@ const COVERS: Cover[] = [
   // rail with the menu beside it. The customer display sits behind, so the part that peeks out is
   // the photograph of someone paying rather than the empty half of the kitchen board.
   { slug: "compass-pos", front: "pos-menu-grid.webp", back: "customer-display-tip.webp" },
-  { slug: "compass-kiosk", front: "01-welcome.webp", back: "05-pizza-configurator.webp" },
+  // The item configurator leads: it is the screen that carries the argument, a required choice
+  // asked first and labelled, optional fillings priced individually, and a total that moves as you
+  // touch them. The menu grid sits behind for its food photography. The welcome screen filled half
+  // its panel with empty white and said nothing about the design.
+  { slug: "compass-kiosk", front: "05-pizza-configurator.webp", back: "03-menu.webp" },
   { slug: "aml-watcher", front: "main-page.webp", back: "linked-entities.webp" },
   { slug: "kompete", front: "lobby.webp", back: "career-stats.webp" },
   { slug: "open-omaha", front: "showdown.webp", back: "cards-dealt.webp" },
