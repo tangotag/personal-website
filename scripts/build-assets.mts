@@ -198,7 +198,6 @@ const COVERS: Cover[] = [
   { slug: "kompete", front: "lobby.webp", back: "career-stats.webp" },
   { slug: "open-omaha", front: "showdown.webp", back: "cards-dealt.webp" },
   { slug: "texas-flip", front: "flip-bet.webp", back: "hand-bets.webp" },
-  { slug: "mintavibe", front: "mockup-1-home.webp", back: "mockup-3-redeem.webp" },
 ];
 
 /**

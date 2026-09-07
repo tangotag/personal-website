@@ -1,7 +1,7 @@
 ---
 slug: mintavibe
-title: "Mintavibe: convertir la atención en una moneda que se gasta"
-hook: "Una app de recompensas donde ver, jugar y comprar ganan la misma moneda."
+title: "Mintavibe: una economía de atención que se gasta en una celebridad"
+hook: "Ver, jugar, ganar puntos MV y gastarlos en acceso a la gente que sigues."
 template: full
 tier: featured
 client: "Mintavibe"
@@ -9,95 +9,121 @@ role: "Diseñador de Producto / UI-UX (freelance)"
 timeline: "Freelance"
 platforms: ["iOS", "Android"]
 industry: ["Entretenimiento", "Recompensas y comercio"]
-tags: ["App móvil", "Economía de recompensas", "Onboarding", "Sistema de diseño"]
+tags: ["App móvil", "Economía de recompensas", "Niveles de fan", "Sistema de diseño"]
 filters: ["mobile"]
 results:
-  - { value: "1", label: "moneda para juegos, vídeo, social y compras" }
+  - { value: "4", label: "pestañas, una sola moneda en todas" }
+  - { value: "3.000", label: "puntos MV sobre un pedido de 7.000, visibles en la factura" }
   - { value: "7", label: "grupos de funciones salidos del card sorting" }
-  - { value: "2", label: "perfiles principales que guían la arquitectura" }
 cover: "/work/mintavibe/cover.webp"
-coverAlt: "Dos pantallas de Mintavibe sobre un fondo verde profundo: una pantalla de inicio con el saldo de monedas en dorado y cuatro accesos para ganar, y detrás la pantalla de canje con los vales valorados en monedas."
+coverAlt: "Tres pantallas de Mintavibe sobre un fondo verde profundo: la lista de vídeos de ver y ganar, el perfil de la celebridad Arjun Rampal con sus niveles de fan, y la pantalla de jugar y ganar."
 featuredOrder: 4
 ---
 
-{/* Traducción del caso en inglés. Las figuras se dibujan con scripts/build-mintavibe.mts. */}
+{/* Traducción del caso en inglés. Wireframes, baja fidelidad y diagramas los dibuja scripts/build-mintavibe.mts; las pantallas finales son el producto real. */}
 
 <TLDR
   items={[
-    "Una app pide a la gente ver vídeo, jugar, participar socialmente y comprar, y les paga con una sola moneda, las monedas Mintavibe, por las cuatro cosas.",
-    "El problema de diseño no es ninguna de esas funciones. Es que quien llega por un directo con una celebridad tiene que poder encontrar la tienda, y al revés.",
-    "Dos perfiles, un card sorting en siete grupos y una sola arquitectura plana evitaron que un producto cuatro en uno se convirtiera en cuatro apps disfrazadas.",
+    "Mintavibe paga a la gente con puntos MV por ver vídeo, jugar y referir amigos, y después les deja gastarlos en coleccionables y tiempo con celebridades de Bollywood.",
+    "Todo el producto depende de una pregunta que el usuario se hace constantemente: cuánto vale un punto. La respuesta está en la factura, donde puntos y dinero aparecen uno al lado del otro.",
+    "Cuatro pestañas, una sola moneda y un sistema de niveles de fan que convierte un saldo en estatus y no en una puntuación.",
   ]}
 />
 
 ## Resumen
 
-Mintavibe es una plataforma móvil de recompensas. Los usuarios ganan monedas jugando, viendo vídeos,
-compartiendo contenido y comprando, y después las gastan en vales, descuentos y acceso a eventos con
-celebridades de Bollywood, incluidos programas de entrevistas y encuentros informales.
+Mintavibe es una plataforma móvil de recompensas construida alrededor del acceso a celebridades. Los
+usuarios ganan puntos MV viendo contenido, jugando y refiriendo amigos, y los canjean por
+coleccionables de fan: una guitarra firmada, una excursión, una sesión en directo, un café con el
+artista, un vale.
+
+La pantalla de carga enuncia el producto entero en tres líneas: jugar, conocer celebridades, ganar
+recompensas. Todo lo que viene después tiene que mantener esa promesa legible.
 
 | | |
 |---|---|
 | **Herramientas** | Figma, Adobe Illustrator, Adobe Photoshop |
-| **Metodología** | Proceso de cinco fases: investigación, ideación, problema y solución, prototipo, feedback y tests |
-| **Entregables** | Perfiles, mapas de empatía, card sorting, arquitectura de información, wireframes, pantallas de alta fidelidad, sistema de diseño |
+| **Metodología** | Cinco fases: investigación, ideación, problema y solución, prototipo, feedback y tests |
+| **Entregables** | Perfiles, mapas de empatía, card sorting, arquitectura de información, wireframes, pantallas de baja fidelidad, UI de alta fidelidad, sistema de diseño |
+| **Superficies** | Inicio, ver y ganar, jugar y ganar, canjear, perfil de celebridad, factura, ajustes de perfil |
 
-## El problema
+## Descubrimiento y definición del problema
 
-Una app de recompensas que abarca entretenimiento, juego, social y comercio no tiene pantalla de
-inicio natural. Cada función quiere ser la puerta de entrada, y cada una atrae a una persona
-distinta. Sin resolverlo, la app se convierte en un menú de cosas inconexas y la moneda que debería
-unirlas se lee como un truco.
+### El problema
 
-Encima se apoya el problema de negocio. Las monedas solo funcionan como mecánica si el usuario puede
-ver, en cualquier momento, cuántas tiene y cuánto valen en algo que realmente quiere.
+Una moneda de recompensa solo es real si el usuario puede responder tres preguntas sin salir de la
+pantalla en la que está. Cuántos puntos tengo. Cuánto ha pagado esta acción. Qué compran esos puntos.
 
-## El objetivo
+La mayoría de apps de recompensas responden la primera y esquivan las otras dos. Los puntos se
+acumulan en algún lugar del perfil, las actividades no dicen lo que pagan hasta después, y el canje
+vive en un mundo aparte con sus propios precios. La moneda se lee entonces como un truco de
+fidelización, y el uso cae detrás.
 
-Dar a los cuatro tipos de actividad una arquitectura compartida y una única lectura de saldo, y
-llevar a un usuario nuevo desde la instalación hasta su primera moneda ganada sin tutorial.
+Mintavibe tenía un segundo problema encima. Abarca cuatro actividades sin relación, vídeo, juegos,
+social y compras, y cada una quiere ser la puerta de entrada. Sin resolverlo, la app se convierte en
+un menú de cosas que solo comparten un inicio de sesión.
 
-## Mi rol
+### El objetivo
+
+Hacer visible el valor de un punto en cada paso, y dar a las cuatro vías de ganancia una sola
+arquitectura para que ninguna actividad mande sobre otra.
+
+### Mi rol y responsabilidades
 
 Diseño de producto de principio a fin: síntesis de investigación, perfiles y mapas de empatía, card
-sorting, la arquitectura de información, los wireframes, toda la interfaz de alta fidelidad, la marca
-y el sistema de iconos, y el prototipo usado en los tests. El trabajo pasó por cinco fases y la app
-se lanzó solo después de incorporar el feedback del prototipo.
+sorting, la arquitectura de información, wireframes y pantallas de baja fidelidad, toda la interfaz
+de alta fidelidad, la marca y el sistema de iconos, y el prototipo usado en los tests. La app se
+lanzó después de incorporar el feedback del prototipo.
+
+<Callout kind="constraint">
+  Un saldo que aparece en sitios distintos con formatos distintos deja de ser dinero y se convierte
+  en una puntuación. Un componente, una posición, todas las pantallas.
+</Callout>
 
 ## Entender al usuario
 
+### Resumen de investigación
+
+Dominan dos comportamientos. Quien llega por una celebridad concreta y trata el ganar puntos como el
+precio de la entrada. Y quien llega a pasar el rato, gana sin objetivo y descubre la parte de
+celebridades más tarde. Al primero le hace falta ver la recompensa desde la pantalla de ganancia. Al
+segundo, una razón para que le importe un saldo que no se propuso construir.
+
 ### Perfiles
 
-Dos personas, deliberadamente distantes. Rahul, profesional de marketing en la ciudad, que viene por
-el contenido de celebridades y los juegos. Sonal, dueña de un negocio en las afueras, que viene por
-los descuentos y los vales. Cada perfil incluye objetivos, necesidades, puntos de dolor, psicografía
-y patrones de comportamiento, y los dos conjuntos se contradicen de forma útil. Rahul puntúa más alto
-el entretenimiento y la interacción social, Sonal las compras y las ofertas personalizadas.
+Rahul, profesional de marketing en la ciudad, aquí por el contenido de celebridades y los juegos.
+Sonal, dueña de un negocio en las afueras, aquí por los descuentos y los vales. Sus puntuaciones se
+contradicen: Rahul valora más el entretenimiento y la interacción social, Sonal las compras y las
+ofertas personalizadas.
 
-Esa contradicción es la razón de que la pantalla de inicio dé el mismo peso a las cuatro vías de
-ganancia en lugar de promocionar una. Cualquier jerarquía habría servido a un perfil y degradado al
-otro.
+Esa contradicción es la razón de que las cuatro vías de ganancia tengan el mismo peso en la barra de
+pestañas. Cualquier jerarquía habría servido a un perfil y degradado al otro.
 
-### Mapas de empatía
+### Mapa del recorrido
 
-Los mapas separan cada perfil en lo que hace y lo que piensa. Las líneas más útiles fueron las
-frustraciones, y las dos se convirtieron en requisitos de interfaz y no en tareas del backlog.
+Instalar, ver la promesa en la pantalla de carga, registrarse, llegar al inicio, ganar algo pequeño,
+ver moverse el saldo, encontrar una celebridad por la que merezca la pena ahorrar, seguir ganando,
+canjear, leer la factura. La factura es el final del recorrido y el momento en que la moneda queda
+demostrada.
 
-Las recompensas difíciles de canjear se convirtieron en la regla de que un vale siempre muestra su
-coste frente al saldo disponible. El miedo a perderse un evento exclusivo se convirtió en una cuenta
-atrás en pantalla, y no en una notificación que llega tarde para actuar.
+### Auditoría competitiva
+
+Las apps de recompensas de este sector suelen enterrar el saldo en el perfil y presentar el canje
+como un catálogo de tarjetas regalo. Es eficiente y olvidable. Aquí el diferenciador es que la
+recompensa es una persona, no un producto, así que el perfil de la celebridad tenía que ser un
+destino de primer nivel y no una categoría dentro de una tienda.
 
 ## Arquitectura e ideación
 
 ### Card sorting
 
 Las funciones se ordenaron en siete grupos. El resultado que cambió el producto fue que puntos y
-ventajas se negó a vivir dentro de la gestión de cuenta: la gente trata su saldo como algo que posee,
-no como un ajuste, así que obtuvo su propio sitio en la arquitectura.
+ventajas se negó a vivir dentro de la gestión de cuenta. La gente trata el saldo como algo que posee,
+no como un ajuste, así que obtuvo su propio sitio.
 
 <Figure
   src="/work/mintavibe/card-sorting.webp"
-  alt="Diagrama de card sorting con siete columnas etiquetadas onboarding, entretenimiento, compras, social, cuenta, ajustes y puntos y ventajas, cada una con las funciones agrupadas debajo, con la columna de puntos y ventajas resaltada en verde."
+  alt="Diagrama de card sorting con siete columnas etiquetadas onboarding, entretenimiento, jugar, canjear, cuenta, soporte y puntos y ventajas, cada una con tres funciones debajo, con la columna de puntos y ventajas resaltada en verde."
   caption="Siete grupos, redibujados a partir del sorting. Puntos y ventajas se ganó su propia columna."
   kind="plain"
   aspect="16/10"
@@ -106,114 +132,173 @@ no como un ajuste, así que obtuvo su propio sitio en la arquitectura.
 
 ### Arquitectura de la información
 
-Un flujo desde la portada y el onboarding hasta un punto de decisión, registrarse o entrar, y después
-una pantalla de inicio que se ramifica en las cuatro vías de ganancia más tienda y perfil. Cada vía
-está a un nivel del inicio, que es la expresión estructural de la idea de moneda única.
+Cuatro pestañas. Ver y ganar, jugar y ganar, canjear, y el destino de celebridad que da sentido a las
+otras tres, con el perfil sosteniendo el saldo y el bucle de referidos.
 
 <Figure
   src="/work/mintavibe/information-architecture.webp"
-  alt="Árbol de arquitectura de información que empieza en portada y onboarding, se bifurca en una decisión de registro o acceso hacia un nodo de inicio resaltado, y de ahí a jugar y ganar, ver y ganar, referir y ganar, tienda y perfil, cada uno con tres subpantallas."
+  alt="Árbol de arquitectura de información que empieza en la pantalla de carga y el onboarding, se bifurca en una decisión de registro o acceso hacia un nodo de inicio resaltado, y de ahí a ver y ganar, jugar y ganar, canjear, celebridad y perfil, cada uno con tres subpantallas."
   caption="Todas las formas de ganar están un nivel por debajo del inicio, así ninguna actividad manda sobre otra."
   kind="plain"
   aspect="16/10"
   wide
 />
 
+### Sistema de diseño
+
+Un fondo casi negro, un dorado cálido y un rojo de acento. El dorado es el único color que significa
+valor: el saldo, un total de puntos, una insignia de nivel, una acción principal. El rojo se reserva
+a lo destructivo o a salir, por eso cerrar sesión es el único control rojo en una pantalla llena de
+dorados. Todos los valores de puntos se componen con el mismo componente, así que una cifra en una
+fila de vídeo y una cifra en una factura se ven como lo mismo.
+
 ## Empezar a diseñar
 
 ### Wireframes
 
-Primero pantallas planas, para fijar la posición del saldo de monedas antes de que llegara nada de la
-marca. El saldo ocupa el mismo lugar en todas las pantallas, que es lo que permite consultarlo sin
-navegar.
+Primero la estructura, sin texto y sin marca, para decidir dónde vive el saldo y cómo se ata una
+recompensa a una actividad.
 
 <Gallery
   cols={2}
   wide
   items={[
     {
-      src: "/work/mintavibe/wireframe-1-onboarding.webp",
-      alt: "Wireframe de baja fidelidad del onboarding de Mintavibe: un hueco circular para ilustración, un titular y dos líneas de texto, un indicador de página, un botón continuar a todo el ancho y un enlace para omitir, con cuatro anotaciones numeradas al lado.",
-      caption: "01 Onboarding. Estructura reconstruida para este caso de estudio.",
+      src: "/work/mintavibe/wireframe-1-watch.webp",
+      alt: "Wireframe de la pantalla de ver y ganar: cabecera con píldora de saldo, banner promocional, etiqueta de sección y cuatro filas de vídeo con miniatura, título, línea de datos y bloque de recompensa, sobre una barra de pestañas, con cuatro anotaciones numeradas al lado.",
+      caption: "01 Ver y ganar. Estructura reconstruida para este caso de estudio.",
     },
     {
-      src: "/work/mintavibe/wireframe-2-home.webp",
-      alt: "Wireframe de la pantalla de inicio: una píldora de saldo arriba a la izquierda, un banner de juego destacado, cuatro accesos del mismo tamaño para jugar, ver, comprar y referir, un bloque de historial y una barra de pestañas.",
-      caption: "02 Inicio. Cuatro vías de ganancia, con el mismo peso.",
+      src: "/work/mintavibe/wireframe-2-play.webp",
+      alt: "Wireframe de jugar y ganar: banner de juego destacado, etiqueta de sección y tres filas de juego con icono, título, línea de valoración y bloque de puntos, sobre una barra de pestañas.",
+      caption: "02 Jugar y ganar. Un juego promocionado y después una lista ordenada.",
     },
     {
-      src: "/work/mintavibe/wireframe-3-earn.webp",
-      alt: "Wireframe de una pantalla de ganancia: píldora de saldo, bloque de contenido, título, una píldora de recompensa que indica más cincuenta monedas, texto, un bloque de contenido relacionado y un botón de reclamar.",
-      caption: "03 Ganar. El importe se enuncia antes de empezar la actividad.",
+      src: "/work/mintavibe/wireframe-3-celebrity.webp",
+      alt: "Wireframe del perfil de celebridad: tarjeta de biografía, fila de cinco avatares circulares de fans, tres tarjetas de beneficio, cuatro chips de filtro y una tarjeta de nivel, sobre una barra de pestañas.",
+      caption: "03 Celebridad. Biografía, fans, beneficios y niveles.",
     },
     {
       src: "/work/mintavibe/wireframe-4-redeem.webp",
-      alt: "Wireframe de la pantalla de canje: píldora de saldo, campo de búsqueda, tres chips de categoría y una rejilla de dos por dos de tarjetas de vale sobre una barra de pestañas.",
-      caption: "04 Canjear. El coste va en la tarjeta, junto a la marca.",
+      alt: "Wireframe de la pantalla de coleccionable y factura: tarjeta de nivel, cabecera de beneficios, rejilla de seis celdas, cabecera de factura y filas apiladas con número de pedido, total, puntos usados e importe pagado.",
+      caption: "04 Canjear. La factura es parte de la pantalla, no un correo de recibo.",
     },
   ]}
 />
 
-### Sistema de diseño
+### Baja fidelidad
 
-Metropolis para todo, con un fondo casi negro, un dorado cálido para la moneda y todo lo que se gana,
-y un violeta reservado a lo social. El dorado es el único color que significa valor, y por eso un
-saldo es legible en cualquier parte de la app. La tipografía se compone con interlínea 1,4 y un
-espaciado ligeramente abierto, que es lo que hace legible una lista densa de recompensas.
-
-## Pantallas finales
+Las mismas cuatro pantallas con texto y cifras reales, todavía en escala de grises. Aquí se resolvió
+la jerarquía: la píldora de recompensa tenía que ganarle la atención al título del vídeo, y el
+desglose de la factura tenía que sobrevivir a una lectura rápida.
 
 <Gallery
   cols={2}
   wide
   items={[
     {
-      src: "/work/mintavibe/mockup-1-home.webp",
-      alt: "Pantalla de inicio de Mintavibe sobre fondo oscuro: píldora de saldo en dorado, banner destacado de críquet, cuatro accesos con el de referir en violeta, una fila de ganancias recientes y una barra de pestañas, junto a cuatro anotaciones y la paleta de cuatro colores.",
-      caption: "Inicio. El dorado marca valor, el violeta marca social, nada más lleva color.",
+      src: "/work/mintavibe/lofi-1-watch.webp",
+      alt: "Pantalla de baja fidelidad de ver y ganar con texto real: cabecera Mintavibe con saldo MV 100, banner de contenido y cuatro filas de vídeo que indican ganar 1000, 500, 50 y 1500 MV.",
+      caption: "Importes reales, porque los valores distintos son contenido que la vista compara.",
     },
     {
-      src: "/work/mintavibe/mockup-2-wallet.webp",
-      alt: "Pantalla de cartera de Mintavibe con un saldo grande de 1.240 en dorado, botones de ganar más y canjear, y una lista de historial que mezcla tres ingresos con un gasto, junto a las anotaciones y la paleta.",
-      caption: "Cartera. Ingresos y gastos en un solo libro, para que el saldo se lea como dinero.",
+      src: "/work/mintavibe/lofi-2-play.webp",
+      alt: "Pantalla de baja fidelidad de jugar y ganar con banner de juego del día y tres filas llamadas Super Sixes, Top Goals y Cricket 3D, cada una con valoración y puntos ganados.",
+      caption: "Los puntos ganados van en la fila, junto a la valoración.",
     },
     {
-      src: "/work/mintavibe/mockup-3-redeem.webp",
-      alt: "Pantalla de canje de Mintavibe con píldora de saldo, campo de búsqueda, chips de categoría y una rejilla de vales valorados en monedas, con el más caro atenuado y una nota que indica que faltan 760.",
-      caption: "Canje. El vale fuera de alcance se muestra, con la diferencia enunciada.",
+      src: "/work/mintavibe/lofi-3-celebrity.webp",
+      alt: "Perfil de celebridad de baja fidelidad con bloque de biografía, fila de cinco fans, tres tarjetas de beneficio etiquetadas playlist, excursión y guitarra, cuatro chips y una tarjeta de nivel Brigadier.",
+      caption: "Los niveles tienen nombre, así un saldo se convierte en rango y no en cifra.",
     },
     {
-      src: "/work/mintavibe/mockup-4-refer.webp",
-      alt: "Pantalla de referidos de Mintavibe con un banner violeta que ofrece 150 por referir, un código de invitación grande, un botón para compartir y una lista de invitados con estados de aceptado y pendiente.",
-      caption: "Referidos. La única pantalla donde manda el violeta, porque es la única social.",
+      src: "/work/mintavibe/lofi-4-redeem.webp",
+      alt: "Pantalla de coleccionable de baja fidelidad con tarjeta de nivel Brigadier, rejilla de beneficios y un bloque de factura con número de pedido 2146461414, total 7000, puntos usados 3000 y pagado 4000.",
+      caption: "El desglose de la factura, resuelto antes de que llegara la marca.",
+    },
+  ]}
+/>
+
+### Qué cambió con los tests
+
+Dos cosas. La recompensa pasó de estar por debajo de la fila de vídeo a estar en la propia fila,
+porque la gente abría los vídeos solo para averiguar cuánto pagaban. Y la factura dejó de ser un
+correo de confirmación: mostrar puntos y dinero uno al lado del otro en pantalla fue la respuesta más
+clara a cuánto vale un punto.
+
+## Refinamiento y pantallas finales
+
+El producto lanzado. Cuatro pestañas, un componente de saldo y un destino de celebridad que hace que
+merezca la pena ganar.
+
+<Gallery
+  cols={3}
+  wide
+  aspect="350/707"
+  items={[
+    {
+      src: "/work/mintavibe/final-1-splash.webp",
+      alt: "Pantalla de carga de Mintavibe sobre fondo negro: el logotipo dorado sobre tres líneas con estrella que indican jugar, conocer celebridades y ganar recompensas, con una moneda dorada y una etiqueta de carga abajo.",
+      caption: "Carga. El producto entero en tres líneas.",
+    },
+    {
+      src: "/work/mintavibe/final-2-watch.webp",
+      alt: "Pantalla de ver y ganar: banner naranja que invita a ver contenido y recibir recompensas, y una lista de filas de vídeo con miniatura, título, duración, likes, icono de compartir y una píldora dorada que indica ganar hasta 1000, 500, 50 o 1500 puntos MV, sobre una barra de cuatro pestañas.",
+      caption: "Ver y ganar. Cada fila enuncia su pago antes de abrirse.",
+    },
+    {
+      src: "/work/mintavibe/final-3-play.webp",
+      alt: "Pantalla de jugar y ganar con banner de juego del día que invita a jugar al críquet, y filas de juego para Super Sixes, Top Goals y Cricket 3D con valoración por estrellas, número de jugadores, tiempo jugado, puntos ganados y última fecha de juego.",
+      caption: "Jugar y ganar. La última partida y los puntos van en cada fila.",
+    },
+    {
+      src: "/work/mintavibe/final-4-celebrity.webp",
+      alt: "Perfil de la celebridad Arjun Rampal: tarjeta roja de biografía con fecha y lugar de nacimiento y altura, fila de los cinco mejores fans sobre peanas doradas, tres tarjetas de beneficios del club, chips de coleccionables, imágenes, vídeos y eventos, y una tarjeta de nivel Brigadier sobre otra de nivel Colonel.",
+      caption: "La celebridad. Biografía, ranking de fans y después los niveles que abre un saldo.",
+    },
+    {
+      src: "/work/mintavibe/final-5-collectable.webp",
+      alt: "Pantalla de detalle del coleccionable: tarjeta de nivel Brigadier con siete iconos de beneficio, rejilla de beneficios de fan con playlist de Spotify, acceso a Discord, un vale de 5000 rupias, una sesión en directo, un té con el artista, una guitarra firmada y una excursión, y una factura con número de pedido 2146461414, fecha 12 de marzo de 2023, pago con tarjeta, total 7000, puntos MV usados 3000 y pagado 4000.",
+      caption: "La factura. Puntos y dinero uno al lado del otro, que es todo el argumento.",
+    },
+    {
+      src: "/work/mintavibe/final-6-profile.webp",
+      alt: "Pantalla de ajustes de perfil con avatar, el nombre Tangotag y un correo, una fila de mis puntos MV con 5500, y filas de mis compras, valóranos, notificaciones, preguntas frecuentes, sobre nosotros y desactivar cuenta, con un banner dorado de referir y ganar fijado abajo sobre los enlaces de privacidad y términos de uso.",
+      caption: "Perfil. El saldo va primero y referir y ganar queda fijado donde no se puede ignorar.",
     },
   ]}
 />
 
 <Callout kind="decision">
-  Una moneda, un componente de saldo, una posición en pantalla. En cuanto una app de recompensas
-  muestra un número distinto en un sitio distinto, la moneda deja de parecer dinero y empieza a
-  parecer una puntuación.
+  Pon el tipo de cambio en el recibo. Mostrar 3.000 puntos MV frente a un total de 7.000 y un pago en
+  efectivo de 4.000 hace más por la confianza en la moneda que cualquier texto sobre lo mucho que
+  recompensa la app.
 </Callout>
 
-## Accesibilidad
+## Impacto, accesibilidad y reflexión
 
-Los objetivos táctiles de los flujos de ganancia superan 48 por 48 píxeles independientes de
-dispositivo, porque son pantallas que la gente toca de forma repetida y rápida. Los valores de moneda
-siempre se muestran como cifras junto al símbolo y nunca solo con el símbolo, y el dorado sobre el
-fondo casi negro aporta el contraste sin depender del tono, lo que mantiene el saldo legible para una
-persona con daltonismo. En la cartera, un ingreso y un gasto se distinguen por signo y por texto, no
-solo por color.
+### Accesibilidad
 
-## Impacto y reflexión
+Cada fila de los flujos de ganancia supera 48 por 48 píxeles independientes de dispositivo, porque
+son pantallas que la gente toca rápido y muchas veces. Los valores de puntos siempre son cifras junto
+al símbolo MV y nunca el símbolo solo, y el dorado sobre el fondo casi negro aporta el contraste sin
+depender del tono, así que el saldo sobrevive a una lectura con daltonismo. Los niveles llevan
+nombre, Brigadier y Colonel, en lugar de bandas de color. Cerrar sesión es el único control rojo en
+pantalla, de modo que lo destructivo nunca se confunde con lo dorado. La factura enuncia cada cifra
+con su propia etiqueta y no depende de la posición en la columna.
+
+### Impacto y aprendizajes
 
 <Results>
-  <Metric display="1" label="moneda para juegos, vídeo, social y compras" />
+  <Metric display="4" label="pestañas, una sola moneda en todas" />
+  <Metric display="3.000" label="puntos MV sobre un pedido de 7.000, visibles en la factura" />
   <Metric display="7" label="grupos de funciones salidos del card sorting" />
-  <Metric display="5" label="fases de proceso, con prototipo probado antes del lanzamiento" />
 </Results>
 
 Una app polivalente no necesita una pantalla de inicio ingeniosa, necesita una moneda que valga lo
-mismo en todas partes. En cuanto la moneda significó una sola cosa en cuatro actividades muy
-distintas, la arquitectura dejó de ser una negociación entre funciones y se convirtió en un árbol
+mismo en todas partes y que lo diga. En cuanto cada fila de ganancia llevó su pago y cada canje llevó
+su desglose, la arquitectura dejó de ser una negociación entre funciones y se convirtió en un árbol
 sencillo.
+
+La siguiente versión pondría un objetivo al saldo: elegir el coleccionable para el que estás
+ahorrando y que cada pantalla de ganancia muestre cuánto te acerca esa acción.

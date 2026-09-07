@@ -1,7 +1,7 @@
 ---
 slug: mintavibe
-title: "Mintavibe: turning attention into a currency people spend"
-hook: "A rewards app where watching, playing and shopping all earn the same coin."
+title: "Mintavibe: an attention economy you can spend on a celebrity"
+hook: "Watch, play, earn MV points, then spend them on access to the people you follow."
 template: full
 tier: featured
 client: "Mintavibe"
@@ -9,94 +9,117 @@ role: "Product / UI-UX Designer (freelance)"
 timeline: "Freelance"
 platforms: ["iOS", "Android"]
 industry: ["Entertainment", "Rewards & commerce"]
-tags: ["Mobile app", "Rewards economy", "Onboarding", "Design system"]
+tags: ["Mobile app", "Rewards economy", "Fan tiers", "Design system"]
 filters: ["mobile"]
 results:
-  - { value: "1", label: "coin across games, video, social and shopping" }
+  - { value: "4", label: "tabs, one currency across all of them" }
+  - { value: "3,000", label: "MV points off a 7,000 order, shown on the invoice" }
   - { value: "7", label: "feature groups from card sorting" }
-  - { value: "2", label: "primary personas driving the architecture" }
 cover: "/work/mintavibe/cover.webp"
-coverAlt: "Two Mintavibe screens on a deep green ground: a home screen with a gold coin balance and four earning tiles, and behind it the redeem screen showing voucher costs in coins."
+coverAlt: "Three Mintavibe screens on a deep green ground: the watch and earn video list, the Arjun Rampal celebrity profile with fan tiers, and the play and earn games screen."
 featuredOrder: 4
 ---
 
-{/* Figures here are drawn by scripts/build-mintavibe.mts rather than sliced from the source board: the board carried its own section headings, so every image repeated the heading above it. Engagement window still open (docs/11). */}
+{/* Wireframes, low-fidelity sheets and the two diagrams are drawn by scripts/build-mintavibe.mts. The final screens are the shipped product, supplied by Raheel. Engagement window still open (docs/11). */}
 
 <TLDR
   items={[
-    "One app asks people to watch video, play games, engage socially and shop, and pays them in a single currency, Mintavibe coins, for all four.",
-    "The design problem is not any one of those features. It is that a person who arrives for a celebrity live show must be able to find the shop, and vice versa.",
-    "Two personas, a card sort into seven groups and one flat architecture kept a four-in-one product from becoming four apps in a trench coat.",
+    "Mintavibe pays people in MV points for watching video, playing games and referring friends, then lets them spend those points on collectables and time with Bollywood celebrities.",
+    "The whole product hangs on one question a user asks constantly: what is a point actually worth? The answer is put on the invoice, where points and cash are shown side by side.",
+    "Four tabs, one currency, and a fan tier system that turns a balance into status rather than a score.",
   ]}
 />
 
 ## Overview
 
-Mintavibe is a mobile rewards platform. Users earn coins by playing games, watching videos, sharing
-content and shopping, then spend them on vouchers, discounts and access to events with Bollywood
-celebrities, including talk shows and coffee sessions.
+Mintavibe is a mobile rewards platform built around celebrity access. Users earn MV points by
+watching content, playing games and referring friends, then redeem them against fan collectables:
+a signed guitar, an excursion, a live session, coffee with the artist, a voucher.
+
+The splash screen states the whole product in three words: play games, meet celebrities, earn
+rewards. Everything after that has to keep that promise legible.
 
 | | |
 |---|---|
 | **Tools** | Figma, Adobe Illustrator, Adobe Photoshop |
-| **Methodology** | Five-phase process: research, ideation, problem and solution, prototype, feedback and testing |
-| **Deliverables** | Personas, empathy maps, card sorting, information architecture, wireframes, high-fidelity screens, design system |
+| **Methodology** | Five phases: research, ideation, problem and solution, prototype, feedback and testing |
+| **Deliverables** | Personas, empathy maps, card sorting, information architecture, wireframes, low-fidelity screens, high-fidelity UI, design system |
+| **Surfaces** | Home, watch and earn, play and earn, redeem, celebrity profile, invoice, profile settings |
 
-## The problem
+## Discovery and problem definition
 
-A rewards app that spans entertainment, gaming, social and commerce has no natural home screen.
-Each feature wants to be the front door, and every one of them pulls a different person. Left
-unresolved, the app becomes a menu of unrelated things and the currency that is supposed to connect
-them reads as a gimmick.
+### The problem
 
-The business problem sits directly on top of it. Coins only work as a mechanic if a user can see, at
-any moment, how many they hold and what those coins are worth in something they actually want.
+A rewards currency is only real if a user can answer three questions without leaving the screen
+they are on. How many points do I have. What did this action pay. What will those points buy.
 
-## The goal
+Most rewards apps answer the first and dodge the other two. Points accrue somewhere in a profile
+tab, activities do not say what they pay until afterwards, and redemption is a separate world with
+its own prices. The currency then reads as a loyalty gimmick, and engagement follows.
 
-Give the four activity types one shared architecture and one shared currency display, and get a new
-user from install to their first earned coin without a tutorial.
+Mintavibe had a second problem on top. It spans four unrelated activities, video, games, social
+and shopping, and each one wants to be the front door. Left unresolved, the app becomes a menu of
+things that happen to share a login.
 
-## My role
+### The goal
 
-End-to-end product design: user research synthesis, personas and empathy maps, card sorting, the
-information architecture, wireframes, the full high-fidelity interface, the brand and icon system,
-and the prototype used for testing. The work ran through five phases, and the app launched only
-after prototype feedback had been folded back in.
+Make the value of a point visible at every step, and give the four earning paths one architecture
+so no activity outranks another.
+
+### My role and responsibilities
+
+End-to-end product design: research synthesis, personas and empathy maps, card sorting, the
+information architecture, wireframes and low-fidelity screens, the full high-fidelity interface,
+the brand and icon system, and the prototype used in testing. The app launched after prototype
+feedback had been folded back in.
+
+<Callout kind="constraint">
+  A points balance that appears in different places with different formatting stops being money and
+  becomes a score. One component, one position, every screen.
+</Callout>
 
 ## Understanding the user
 
+### Research summary
+
+Two behaviours dominate. People who arrive for a specific celebrity and treat earning as the price
+of admission. And people who arrive to pass time, earn without a target, and discover the celebrity
+side later. The first group needs the reward to be visible from the earning screen. The second
+needs a reason to care about a balance they did not set out to build.
+
 ### Personas
 
-Two people, deliberately far apart. Rahul, a marketing professional in a city, who is here for
-celebrity content and games. Sonal, a business owner in a suburb, who is here for discounts and
-vouchers. Each persona carries goals, needs, pain points, psychographics and behaviour patterns, and
-the two sets disagree in useful ways. Rahul rates entertainment and social interaction highest,
-Sonal rates shopping and personalised offers.
+Rahul, a marketing professional in a city, here for celebrity content and games. Sonal, a business
+owner in a suburb, here for discounts and vouchers. Their scores disagree: Rahul rates
+entertainment and social interaction highest, Sonal rates shopping and personalised offers.
 
-That disagreement is the reason the home screen gives four earning paths equal weight instead of
-promoting one. Any ranking would have served one persona and demoted the other.
+That disagreement is why the four earning paths carry equal weight in the tab bar. Any ranking
+would have served one persona and demoted the other.
 
-### Empathy maps
+### Journey mapping
 
-The maps split each persona into what they do and what they think. The most useful lines were the
-frustrations, and both became interface requirements rather than backlog items.
+Install, see the promise on the splash, sign up, land on home, earn something small, see the
+balance move, find a celebrity worth saving for, keep earning, redeem, read the invoice. The
+invoice is the end of the journey and the moment the currency is proved.
 
-Rewards that are hard to redeem became the rule that a voucher always shows its cost against the
-balance held. Fear of missing an exclusive event became a countdown on the screen rather than a
-notification that arrives too late to act on.
+### Competitive audit
+
+Rewards apps in this space usually bury the balance in a profile tab and present redemption as a
+catalogue of gift cards. That is efficient and forgettable. The differentiator here is that the
+reward is a person, not a product, so the celebrity profile had to be a first-class destination
+rather than a category inside a shop.
 
 ## Architecture and ideation
 
 ### Card sorting
 
-The features sorted into seven groups. The result that changed the product was points and perks
-refusing to sit inside account management: people treated their balance as something they owned, not
-as a setting, so it got its own place in the architecture.
+Features sorted into seven groups. The result that changed the product was points and perks
+refusing to sit inside account management. People treat a balance as something they own, not as a
+setting, so it got its own place.
 
 <Figure
   src="/work/mintavibe/card-sorting.webp"
-  alt="A card sorting diagram with seven labelled columns headed onboarding, entertainment, shopping, social, account, settings, and points and perks, each listing the features grouped beneath it, with the points and perks column highlighted in green."
+  alt="A card sorting diagram with seven labelled columns headed onboarding, entertainment, play, redeem, account, support, and points and perks, each listing three features beneath it, with the points and perks column highlighted in green."
   caption="Seven groups, redrawn from the sort. Points and perks earned its own column."
   kind="plain"
   aspect="16/10"
@@ -105,111 +128,171 @@ as a setting, so it got its own place in the architecture.
 
 ### Information architecture
 
-One flow from splash through onboarding to a decision point, sign up or log in, then a home screen
-that branches into the four earning paths plus shop and profile. Every earning path sits one level
-below home, which is the structural expression of the single-currency idea.
+Four tabs. Watch and earn, play and earn, redeem, and the celebrity destination that gives the
+other three a purpose, with profile carrying the balance and the referral loop.
 
 <Figure
   src="/work/mintavibe/information-architecture.webp"
-  alt="An information architecture tree beginning at splash and onboarding, branching at a sign up or log in decision into a highlighted home node, which leads to play and earn, watch and earn, refer and earn, shop and profile, each with three sub-screens beneath it."
+  alt="An information architecture tree beginning at splash and onboarding, branching at a sign up or log in decision into a highlighted home node, which leads to watch and earn, play and earn, redeem, celebrity and profile, each with three sub-screens beneath it."
   caption="Every way to earn sits one level below home, so no activity outranks another."
   kind="plain"
   aspect="16/10"
   wide
 />
 
+### Design system
+
+A near-black ground, one warm gold, one accent red. Gold is the only colour that means value: the
+balance, a point total, a tier badge, a primary action. Red is reserved for destructive or exit
+actions, which is why log out is the only red control on a screen full of gold ones. Every point
+value is rendered by the same component, so a number in a video row and a number on an invoice are
+visibly the same kind of thing.
+
 ## Starting the design
 
 ### Wireframes
 
-Flat screens first, to fix the position of the coin balance before any of the brand arrived. The
-balance holds the same place on every screen, which is what lets a user check it without navigating.
+Structure first, with no copy and no brand, to settle where the balance lives and how a reward is
+attached to an activity.
 
 <Gallery
   cols={2}
   wide
   items={[
     {
-      src: "/work/mintavibe/wireframe-1-onboarding.webp",
-      alt: "Low-fidelity wireframe of the Mintavibe onboarding screen: a circular illustration slot, a headline and two lines of body text, a page indicator, a full-width continue button and a skip link, with four numbered annotations beside the phone.",
-      caption: "01 Onboarding. Structure reconstructed for this case study.",
+      src: "/work/mintavibe/wireframe-1-watch.webp",
+      alt: "Wireframe of the watch and earn screen: app chrome with a balance pill, a promo banner, a section label, and four video rows each with a thumbnail, title, meta line and reward block, above a tab bar. Four numbered annotations sit beside the phone.",
+      caption: "01 Watch and earn. Structure reconstructed for this case study.",
     },
     {
-      src: "/work/mintavibe/wireframe-2-home.webp",
-      alt: "Low-fidelity wireframe of the home screen: a balance pill at the top left, a featured game banner, four equally sized earning tiles for play, watch, shop and refer, an earn history block and a tab bar.",
-      caption: "02 Home. Four earning paths, equal weight.",
+      src: "/work/mintavibe/wireframe-2-play.webp",
+      alt: "Wireframe of the play and earn screen: a featured game banner, a section label, and three game rows each with an icon, title, rating line and points block, above a tab bar.",
+      caption: "02 Play and earn. One promoted game, then a ranked list.",
     },
     {
-      src: "/work/mintavibe/wireframe-3-earn.webp",
-      alt: "Low-fidelity wireframe of an earning screen: a balance pill, a content block, a title, a reward pill reading plus fifty coins, body text, a related content block and a claim button.",
-      caption: "03 Earning. The amount is stated before the activity starts.",
+      src: "/work/mintavibe/wireframe-3-celebrity.webp",
+      alt: "Wireframe of the celebrity profile: a bio card, a row of five circular fan avatars, three benefit cards, four filter chips and a tier card, above a tab bar.",
+      caption: "03 Celebrity. Bio, fans, benefits, tiers.",
     },
     {
       src: "/work/mintavibe/wireframe-4-redeem.webp",
-      alt: "Low-fidelity wireframe of the redeem screen: a balance pill, a search field, three category chips and a two by two grid of voucher cards above a tab bar.",
-      caption: "04 Redeeming. Cost sits on the card, next to the brand.",
+      alt: "Wireframe of the collectable and invoice screen: a tier card, a benefits section header, a six-cell benefit grid, an invoice section header and stacked rows for order number, total, points used and amount paid.",
+      caption: "04 Redeem. The invoice is part of the screen, not a receipt email.",
     },
   ]}
 />
 
-### Design system
+### Low fidelity
 
-Metropolis for everything, with a near-black ground, a warm gold for the currency and anything
-earned, and a violet reserved for social features. Gold is the only colour that means value, which
-is why a coin balance is legible anywhere in the app. Type is set on a 1.4 line height with slightly
-open letter spacing, which is what makes a dense rewards list readable on a phone.
-
-## Final screens
+The same four screens with real copy and real numbers, still greyscale. This is where hierarchy was
+settled: the reward pill had to beat the video title for attention, and the invoice split had to
+survive being read at a glance.
 
 <Gallery
   cols={2}
   wide
   items={[
     {
-      src: "/work/mintavibe/mockup-1-home.webp",
-      alt: "Mintavibe home screen on a dark ground: a gold coin balance pill, a featured cricket banner, four earning tiles with the refer tile in violet, a recent earnings row and a tab bar, beside four annotations and the four-colour palette.",
-      caption: "Home. Gold marks value, violet marks social, nothing else is coloured.",
+      src: "/work/mintavibe/lofi-1-watch.webp",
+      alt: "Low-fidelity watch and earn screen with real copy: a Mintavibe chrome with an MV 100 balance, a watch content banner, and four video rows reading earn 1000, 500, 50 and 1500 MV.",
+      caption: "Real amounts, because varied values are content the eye compares.",
     },
     {
-      src: "/work/mintavibe/mockup-2-wallet.webp",
-      alt: "Mintavibe wallet screen showing a large gold balance of 1,240, earn more and redeem buttons, and a history list mixing three credits with one debit, beside annotations and the palette.",
-      caption: "Wallet. Credits and debits in one ledger, so the balance reads as money.",
+      src: "/work/mintavibe/lofi-2-play.webp",
+      alt: "Low-fidelity play and earn screen with a game of the day banner and three game rows named Super Sixes, Top Goals and Cricket 3D, each showing a rating and points earned.",
+      caption: "Points earned belongs on the row, next to the rating.",
     },
     {
-      src: "/work/mintavibe/mockup-3-redeem.webp",
-      alt: "Mintavibe redeem screen with a balance pill, a search field, category chips and a grid of voucher cards priced in coins, the most expensive one dimmed with a note reading 760 more.",
-      caption: "Redeem. The voucher out of reach is shown, with the shortfall named.",
+      src: "/work/mintavibe/lofi-3-celebrity.webp",
+      alt: "Low-fidelity celebrity profile with a bio block, top five fans row, three club benefit cards labelled playlist, excursion and guitar, four chips and a Brigadier tier card.",
+      caption: "Tiers are named, so a balance becomes a rank rather than a number.",
     },
     {
-      src: "/work/mintavibe/mockup-4-refer.webp",
-      alt: "Mintavibe refer screen with a violet banner reading refer and earn 150, a large referral code, a share invite button and a list of invited people showing joined and pending states.",
-      caption: "Refer. The one screen where violet leads, because it is the one social screen.",
+      src: "/work/mintavibe/lofi-4-redeem.webp",
+      alt: "Low-fidelity collectable screen with a Brigadier tier card, a fan collectables benefits grid, and an invoice block showing order number 2146461414, total 7000, points used 3000 and paid 4000.",
+      caption: "The invoice split, laid out before any brand arrived.",
+    },
+  ]}
+/>
+
+### What testing changed
+
+Two things. The reward moved from below the fold of a video row to the row itself, because people
+were opening videos to find out what they paid. And the invoice stopped being a confirmation email:
+showing points and cash side by side on screen was the single clearest answer to what a point is
+worth.
+
+## Refinement and final screens
+
+The shipped product. Four tabs, one balance component, and a celebrity destination that makes the
+earning worth doing.
+
+<Gallery
+  cols={3}
+  wide
+  aspect="350/707"
+  items={[
+    {
+      src: "/work/mintavibe/final-1-splash.webp",
+      alt: "The Mintavibe splash screen on a black ground: the gold Mintavibe wordmark above three starred lines reading play games, meet celebrities and earn rewards, with a gold coin mark and a loading label at the bottom.",
+      caption: "Splash. The whole product in three lines.",
+    },
+    {
+      src: "/work/mintavibe/final-2-watch.webp",
+      alt: "The watch and earn screen: an orange banner reading get your popcorn ready, watch amazing content and get rewarded, then a list of video rows each with a thumbnail, title, duration, like count, share icon and a gold pill reading earn up to 1000, 500, 50 or 1500 MV points, above a four-tab bar.",
+      caption: "Watch and earn. Every row states its payout before it is opened.",
+    },
+    {
+      src: "/work/mintavibe/final-3-play.webp",
+      alt: "The play and earn screen with a game of the day banner reading play and win Cricket with a play now button, then game rows for Super Sixes, Top Goals and Cricket 3D showing star ratings, player counts, play time, points earned and last played dates.",
+      caption: "Play and earn. Last played and points earned sit on every row.",
+    },
+    {
+      src: "/work/mintavibe/final-4-celebrity.webp",
+      alt: "The Arjun Rampal celebrity profile: a red bio card with birth date, birthplace and height and a read more link, a top five fans row of avatars on gold plinths, three celebrity club benefit cards, filter chips for collectables, images, videos and events, and a Brigadier tier card above a Colonel one.",
+      caption: "The celebrity. Bio, a fan leaderboard, then the tiers a balance unlocks.",
+    },
+    {
+      src: "/work/mintavibe/final-5-collectable.webp",
+      alt: "The collectable detail screen: a Brigadier tier card with seven benefit icons, a fan collectables benefits grid of seven cards including a Spotify playlist, Discord access, a voucher worth 5000 rupees, a live session, tea with the artist, a signed guitar and an excursion, then an invoice showing order number 2146461414, order date 12 March 2023, credit card payment, total 7000, MV points used 3000 and net paid 4000.",
+      caption: "The invoice. Points and cash side by side, which is the whole argument.",
+    },
+    {
+      src: "/work/mintavibe/final-6-profile.webp",
+      alt: "The profile settings screen showing an avatar, the name Tangotag and an email address, a My MV points row reading 5500, then rows for my purchases, rate us, notifications, FAQ, about us and disable account, with a gold refer and earn banner pinned at the bottom above privacy policy and terms of use links.",
+      caption: "Profile. The balance leads, and refer and earn is pinned where it cannot be missed.",
     },
   ]}
 />
 
 <Callout kind="decision">
-  One currency, one balance component, one position on screen. The moment a rewards app shows a
-  different number in a different place, the coin stops feeling like money and starts feeling like a
-  score.
+  Put the exchange rate on the receipt. Showing 3,000 MV points against a 7,000 total and a 4,000
+  cash balance does more for trust in the currency than any amount of copy about how rewarding the
+  app is.
 </Callout>
 
-## Accessibility
+## Impact, accessibility and reflection
 
-Touch targets in the earning flows clear 48 by 48 device-independent pixels, since these are screens
-people tap repeatedly and quickly. Coin values are always shown as numerals beside the coin mark
-rather than by the mark alone, and gold against the near-black ground carries the contrast without
-relying on hue, which keeps the balance legible for a colourblind user. In the wallet a credit and a
-debit differ by sign and by wording, not only by colour.
+### Accessibility
 
-## Impact and reflection
+Every row target in the earning flows clears 48 by 48 device-independent pixels, because these are
+screens people tap quickly and repeatedly. Point values are always numerals beside the MV mark, not
+the mark alone, and gold on near-black carries the contrast without depending on hue, so the balance
+survives a colourblind reader. Tier names are words, Brigadier and Colonel, rather than colour
+bands. Log out is the one red control on screen, so destructive actions are never confused with
+gold ones. The invoice states each figure with its own label rather than relying on column position.
+
+### Impact and takeaways
 
 <Results>
-  <Metric display="1" label="coin across games, video, social and shopping" />
+  <Metric display="4" label="tabs, one currency across all of them" />
+  <Metric display="3,000" label="MV points off a 7,000 order, shown on the invoice" />
   <Metric display="7" label="feature groups from card sorting" />
-  <Metric display="5" label="phase process, prototype tested before launch" />
 </Results>
 
 A multi-purpose app does not need a clever home screen, it needs a currency that is worth the same
-everywhere. Once the coin meant one thing across four very different activities, the architecture
-stopped being a negotiation between features and became a simple tree.
+everywhere and says so. Once every earning row carried its payout and every redemption carried its
+split, the architecture stopped being a negotiation between features and became a simple tree.
+
+The next version would put a target on the balance: pick the collectable you are saving for, and let
+every earning screen show how much closer that action gets you.
