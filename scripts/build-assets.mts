@@ -16,9 +16,19 @@ const OUT = join(ROOT, "public", "work");
 const MAX_WIDTH = 2000;
 const QUALITY = 80;
 
-type Job = { from: string; to: string };
+type Job = {
+  from: string;
+  to: string;
+  /** Exact output width. Omit to keep the source width, capped at MAX_WIDTH. */
+  width?: number;
+  /** Crop to this ratio (width / height) before resizing, e.g. 1.6 for 16:10 covers. */
+  ratio?: number;
+};
 
 const JOBS: Job[] = [
+  // Listing and OG cover. 1600x1000 is the 16:10 slot on the /work cards.
+  { from: "kiosk (1).png", to: "compass-pos/cover.webp", width: 1600, ratio: 1.6 },
+
   // Compass POS — terminal, customer display and kitchen
   { from: "Compass POS (3).png", to: "compass-pos/pos-home-modules.webp" },
   { from: "Compass POS (6).png", to: "compass-pos/pos-menu-grid.webp" },
@@ -62,13 +72,25 @@ async function main() {
     }
     const dest = join(OUT, job.to);
     mkdirSync(dirname(dest), { recursive: true });
-    const img = sharp(join(SRC, job.from));
+    let img = sharp(join(SRC, job.from));
     const meta = await img.metadata();
-    const resized =
-      (meta.width ?? 0) > MAX_WIDTH
-        ? img.resize({ width: MAX_WIDTH, withoutEnlargement: true })
-        : img;
-    const info = await resized.webp({ quality: QUALITY, effort: 5 }).toFile(dest);
+
+    if (job.ratio && meta.width && meta.height) {
+      // Centre-crop to the target ratio so covers never letterbox.
+      const wanted = Math.round(Math.min(meta.width, meta.height * job.ratio));
+      const height = Math.round(wanted / job.ratio);
+      img = img.extract({
+        left: Math.round((meta.width - wanted) / 2),
+        top: Math.round((meta.height - height) / 2),
+        width: wanted,
+        height,
+      });
+    }
+
+    const target = job.width ?? (meta.width && meta.width > MAX_WIDTH ? MAX_WIDTH : undefined);
+    if (target) img = img.resize({ width: target, withoutEnlargement: true });
+
+    const info = await img.webp({ quality: QUALITY, effort: 5 }).toFile(dest);
     console.log(`→ ${job.to}  ${info.width}x${info.height}  ${(info.size / 1024).toFixed(0)} KB`);
     built++;
   }

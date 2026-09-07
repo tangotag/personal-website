@@ -33,7 +33,11 @@ export function MediaFrame({
   ...props
 }: Props) {
   return (
-    <figure {...props} className={cn("my-8 first:mt-0", wide && "md:-mx-16 lg:-mx-32", className)}>
+    // Between md and lg the case-study article is full width, so the right-hand bleed has only the
+    // container's 4vw padding to spend before it forces a horizontal scrollbar. 1.5rem fits at
+    // 768px; the larger bleed waits for lg, where the article sits in a grid column and the extra
+    // width lands in the gutter beside it.
+    <figure {...props} className={cn("my-8 first:mt-0", wide && "md:-mx-6 lg:-mx-32", className)}>
       <div
         data-frame={kind}
         className={cn(
