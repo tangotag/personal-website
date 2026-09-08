@@ -37,58 +37,68 @@ export async function Footer() {
             <StatusPill className="self-start">{tc("available")}</StatusPill>
           </div>
 
-          <Column title={t("navigate")}>
-            {navItems.map((item) => (
-              <li key={item.key}>
-                <Link href={item.href} className="text-fg-muted transition-colors hover:text-fg">
-                  {tn(item.key)}
-                </Link>
-              </li>
-            ))}
-          </Column>
+          {/*
+            On mobile the three link columns sit side by side — Navigate against a Work/Connect
+            stack — instead of running down the page as one 11-item list. Both wrappers become
+            `display: contents` from md up, so the outer grid still lays out four columns and the
+            desktop footer is unchanged.
+          */}
+          <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:contents">
+            <Column title={t("navigate")}>
+              {navItems.map((item) => (
+                <li key={item.key}>
+                  <Link href={item.href} className="text-fg-muted transition-colors hover:text-fg">
+                    {tn(item.key)}
+                  </Link>
+                </li>
+              ))}
+            </Column>
 
-          <Column title={t("work")}>
-            {/* Case-study links are generated from content in Phase 6. */}
-            <li>
-              <Link href="/work" className="text-fg-muted transition-colors hover:text-fg">
-                {tc("seeAll")}
-              </Link>
-            </li>
-          </Column>
+            <div className="flex flex-col gap-10 md:contents">
+              <Column title={t("work")}>
+                {/* Case-study links are generated from content in Phase 6. */}
+                <li>
+                  <Link href="/work" className="text-fg-muted transition-colors hover:text-fg">
+                    {tc("seeAll")}
+                  </Link>
+                </li>
+              </Column>
 
-          <Column title={t("connect")}>
-            <li>
-              <TextLink external href={`mailto:${site.email}`} className="text-fg-muted">
-                {t("email")}
-              </TextLink>
-            </li>
-            <li>
-              <TextLink external href={site.social.linkedin} className="text-fg-muted">
-                LinkedIn
-              </TextLink>
-            </li>
-            <li>
-              <TextLink external href={site.social.behance} className="text-fg-muted">
-                Behance
-              </TextLink>
-            </li>
-            {site.social.upwork ? (
-              <li>
-                <TextLink external href={site.social.upwork} className="text-fg-muted">
-                  Upwork
-                </TextLink>
-              </li>
-            ) : null}
-            <li>
-              <a
-                href={site.resumePath}
-                download
-                className="text-fg-muted underline decoration-fg/40 underline-offset-[0.2em] transition-colors hover:text-accent-strong hover:decoration-accent-strong"
-              >
-                {tc("downloadResume")}
-              </a>
-            </li>
-          </Column>
+              <Column title={t("connect")}>
+                <li>
+                  <TextLink external href={`mailto:${site.email}`} className="text-fg-muted">
+                    {t("email")}
+                  </TextLink>
+                </li>
+                <li>
+                  <TextLink external href={site.social.linkedin} className="text-fg-muted">
+                    LinkedIn
+                  </TextLink>
+                </li>
+                <li>
+                  <TextLink external href={site.social.behance} className="text-fg-muted">
+                    Behance
+                  </TextLink>
+                </li>
+                {site.social.upwork ? (
+                  <li>
+                    <TextLink external href={site.social.upwork} className="text-fg-muted">
+                      Upwork
+                    </TextLink>
+                  </li>
+                ) : null}
+                <li>
+                  <a
+                    href={site.resumePath}
+                    download
+                    className="text-fg-muted underline decoration-fg/40 underline-offset-[0.2em] transition-colors hover:text-accent-strong hover:decoration-accent-strong"
+                  >
+                    {tc("downloadResume")}
+                  </a>
+                </li>
+              </Column>
+            </div>
+          </div>
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-border pt-6 text-xs text-fg-muted md:flex-row md:items-center md:justify-between">
