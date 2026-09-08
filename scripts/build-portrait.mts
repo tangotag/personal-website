@@ -154,28 +154,31 @@ async function main() {
   const subject = await cutout();
   console.log(`  cutout ${subject.width}×${subject.height} from the 896×1200 source`);
 
-  // Scale to the frame height less a little headroom, and sit the shoulders on the bottom edge:
-  // the shirt is already cropped in the source, so a flush bottom reads as intentional framing.
-  const scale = (H * 0.96) / subject.height;
-  const sw = Math.round(subject.width * scale);
-  const sh = Math.round(subject.height * scale);
-  const portrait = await sharp({
-    create: { width: W, height: H, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } },
-  })
-    .composite([
-      {
-        input: await sharp(subject.buffer).resize(sw, sh).png().toBuffer(),
-        left: Math.round((W - sw) / 2),
-        top: H - sh,
-      },
-    ])
+  // The subject is 896×1132 (0.79) and the frame is 4:5, so fitting it by height left a 30px
+  // strip of frame surface down each side. Trimming the handful of shirt rows that stand between
+  // the subject and 4:5 makes it fill corner to corner — those rows sit on the bottom edge, where
+  // the source is already cropped, and the shoulders hold their full width for 400 rows above.
+  const frameH = Math.round(subject.width / (W / H));
+  const framed =
+    frameH < subject.height
+      ? await sharp(subject.buffer)
+          .extract({ left: 0, top: 0, width: subject.width, height: frameH })
+          .png()
+          .toBuffer()
+      : subject.buffer;
+  console.log(
+    `  framed  ${subject.width}×${frameH} (${subject.height - frameH} shirt rows off the bottom)`,
+  );
+
+  const portrait = await sharp(framed)
+    .resize(W, H)
     .webp({ quality: 90, alphaQuality: 100 })
     .toFile(join(OUT, "portrait.webp"));
   console.log(`  portrait.webp ${W}×${H} · ${(portrait.size / 1024).toFixed(0)}KB`);
 
   // Social card: the portrait filling the right edge, the name and role on the left.
   const cardH = OG_H;
-  const cardW = Math.round((subject.width / subject.height) * cardH);
+  const cardW = Math.round((subject.width / frameH) * cardH);
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_W}" height="${OG_H}">
   <rect width="${OG_W}" height="${OG_H}" fill="${INK}"/>
   <rect x="72" y="150" width="64" height="6" fill="${LIME}"/>
@@ -189,7 +192,7 @@ async function main() {
   const og = await sharp(Buffer.from(svg))
     .composite([
       {
-        input: await sharp(subject.buffer).resize(cardW, cardH).png().toBuffer(),
+        input: await sharp(framed).resize(cardW, cardH).png().toBuffer(),
         left: OG_W - cardW - 56,
         top: OG_H - cardH,
       },
