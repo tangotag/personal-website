@@ -12,7 +12,8 @@
                      light theme are invisible (1.1:1). Never use it for text, borders or icons.
     --accent-strong  the text- and line-safe accent: evergreen on light, lime on dark. Use it for
                      text-accent, border-accent, icons, rules and focus rings.
-    --accent-fg      ink that sits on --accent.
+    --accent-fg      ink that sits on --accent. Deliberately the SAME value in both themes, so a
+                     lime button's label never shifts colour when the theme is toggled (15.7:1).
     --accent-soft    pale accent tint for chips and the hero highlight sweep; pair with
                      --accent-strong text.
 */
@@ -30,7 +31,7 @@
   --fg-faint: rgba(14, 42, 35, 0.55); /* 4.1:1 — passes AA at body size */
   --accent: #ddf23a; /* fills only, see the accent contract above */
   --accent-hover: #cbe322;
-  --accent-fg: #0e2a23; /* 12.2:1 on --accent */
+  --accent-fg: #071c17; /* 15.7:1 on --accent — same ink in dark, see the contract above */
   --accent-soft: rgba(221, 242, 58, 0.28);
   --accent-strong: #0b6e51; /* 5.6:1 on --bg, 5.4:1 on --accent-soft */
   --success: #1b9e6b;
@@ -58,7 +59,7 @@
   --fg-faint: rgba(241, 245, 238, 0.5); /* 4.8:1 */
   --accent: #ddf23a;
   --accent-hover: #e9fa5f;
-  --accent-fg: #071c17;
+  --accent-fg: #071c17; /* identical to light — the CTA label does not change with the theme */
   --accent-soft: rgba(221, 242, 58, 0.16);
   --accent-strong: #ddf23a; /* 14.2:1 on --bg — lime is the text accent on dark */
   --success: #3ddc97;
