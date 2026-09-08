@@ -59,6 +59,16 @@
   }
 }
 
+/* The ink on every lime fill (CTA labels, their arrows, the skip link).
+   Unlayered, so it sits above Tailwind's utilities layer, and carries a literal fallback:
+   if `--accent-fg` ever fails to resolve — a stale stylesheet, an extension rewriting custom
+   properties, a browser that drops the tokens block — `color` would otherwise fall back to
+   inherited body text, which is near-white in dark mode and would leave the label unreadable
+   on lime. The fallback is the same value the token holds in both themes. */
+.text-accent-fg {
+  color: var(--accent-fg, #071c17);
+}
+
 /* Fluid type scale — docs/07-design-system.md §2 Typography */
 @utility text-display {
   font-family: var(--font-display);
