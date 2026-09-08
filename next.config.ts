@@ -11,6 +11,13 @@ const withNextIntl = createNextIntlPlugin({
 
 const nextConfig: NextConfig = {
   typedRoutes: true,
+  experimental: {
+    // The stylesheet is one 12 KB Tailwind chunk and it was blocking first render for ~450ms on
+    // slow 4G. Inlining it into <head> removes the round trip; the trade-off the Next docs name —
+    // returning visitors losing a cached stylesheet — is the wrong side of the bargain for a
+    // portfolio, where almost every visit is a first visit.
+    inlineCss: true,
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     // Case-study covers are 1600×1000; add sizes as needed.

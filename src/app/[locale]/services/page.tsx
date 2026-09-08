@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { alternatesFor } from "@/lib/seo";
+import { addressFor } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { ContactForm } from "@/components/forms/contact-form";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -11,7 +12,7 @@ import { Faq } from "@/components/ui/faq";
 import { Tag } from "@/components/ui/tag";
 import { site } from "@/data/site";
 import { getFaq, getServices } from "@/lib/data";
-import { jsonLdString } from "@/lib/json-ld";
+import { jsonLdString, siteGraph, PERSON_ID } from "@/lib/json-ld";
 import { pick } from "@/types/content";
 
 const IS_PROD = process.env.NODE_ENV === "production";
@@ -21,10 +22,12 @@ export async function generateMetadata({
 }: Omit<PageProps<"/[locale]/services">, "searchParams">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.services" });
+  const { alternates, canonicalUrl } = addressFor("/services", locale);
   return {
     title: t("title"),
     description: t("description"),
-    alternates: alternatesFor("/services", locale),
+    alternates,
+    openGraph: { url: canonicalUrl, title: t("title"), description: t("description") },
   };
 }
 
@@ -42,40 +45,53 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
   const next = t.raw("quote.next.items") as string[];
   const pageUrl = `${site.url}${locale === "es" ? "/es" : ""}/services`;
 
-  // ProfessionalService + one Service per offering (required by the brief) + FAQPage.
-  const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": `${site.url}#business`,
-      name: `${site.name} · ${site.role}`,
-      url: pageUrl,
-      email: site.email,
-      areaServed: "Worldwide",
-      availableLanguage: ["en", "es"],
-      founder: { "@type": "Person", name: site.name, url: site.url, jobTitle: site.role },
-      makesOffer: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: pick(s.title, locale),
-          serviceType: s.serviceType,
-          description: pick(s.scope, locale),
-          provider: { "@type": "Person", name: site.name },
-          url: `${pageUrl}#${s.slug}`,
-        },
-      })),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faq.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    },
+  const tn = await getTranslations("nav");
+  const tm = await getTranslations("meta");
+  const crumbs = [
+    { name: tn("home"), path: "/" },
+    { name: tn("services"), path: "/services" },
   ];
+
+  // ProfessionalService + one Service per offering (required by the brief) + FAQPage.
+  const jsonLd = siteGraph({
+    locale,
+    path: "/services",
+    title: t("title"),
+    description: t("description"),
+    siteName: tm("siteName"),
+    crumbs,
+    extra: [
+      {
+        "@type": "ProfessionalService",
+        "@id": `${site.url}#business`,
+        name: `${site.name} · ${site.role}`,
+        url: pageUrl,
+        email: site.email,
+        areaServed: "Worldwide",
+        availableLanguage: ["en", "es"],
+        founder: { "@id": PERSON_ID },
+        makesOffer: services.map((s) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: pick(s.title, locale),
+            serviceType: s.serviceType,
+            description: pick(s.scope, locale),
+            provider: { "@id": PERSON_ID },
+            url: `${pageUrl}#${s.slug}`,
+          },
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+    ],
+  });
 
   return (
     <main id="main" className="flex-1">
@@ -86,6 +102,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
 
       <Section>
         <Container>
+          <Breadcrumbs crumbs={crumbs} className="mb-8" />
           <SectionHeader
             as="h1"
             number="02"

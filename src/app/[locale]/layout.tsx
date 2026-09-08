@@ -11,7 +11,7 @@ import { SkipLink } from "@/components/layout/skip-link";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { site } from "@/data/site";
 import { routing } from "@/i18n/routing";
-import { alternatesFor } from "@/lib/seo";
+import { addressFor } from "@/lib/seo";
 import "../globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -63,6 +63,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
   const bing = process.env.NEXT_PUBLIC_BING_VERIFICATION;
+  const { alternates, canonicalUrl } = addressFor("/", locale);
 
   return {
     metadataBase: new URL(site.url),
@@ -78,12 +79,13 @@ export async function generateMetadata({
       type: "website",
       siteName: t("siteName"),
       locale: locale === "es" ? "es_ES" : "en_US",
+      url: canonicalUrl,
       // Case studies generate their own card; every other route falls back to this one.
       images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `${site.name} · ${site.role}` }],
     },
     twitter: { card: "summary_large_image", images: [OG_IMAGE] },
     robots: { index: true, follow: true },
-    alternates: alternatesFor("/", locale),
+    alternates,
     verification: bing ? { other: { "msvalidate.01": bing } } : undefined,
   };
 }

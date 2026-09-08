@@ -70,7 +70,7 @@ export async function Hero() {
                 alt={site.name}
                 fill
                 priority
-                sizes="(min-width: 1024px) 33vw, 100vw"
+                sizes="(min-width: 420px) 384px, 100vw"
                 className="object-cover"
               />
             ) : (

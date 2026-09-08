@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useCallback, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import { Button } from "@/components/ui/button";
 
 export type Consent = "granted" | "denied" | "unset";
@@ -42,19 +42,42 @@ export function useConsent() {
 }
 
 /**
+ * Waits for the page to finish loading and then for an idle moment. The bar is not part of the
+ * first view, and painting it during load made it Lighthouse's LCP element on 2026-09-08 — 2.4s
+ * of render delay on a metric that should belong to the headline. Nothing is set before the
+ * visitor chooses, so arriving a beat later costs no compliance.
+ */
+function useSettled() {
+  const [settled, setSettled] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    const idle = () => {
+      const schedule =
+        window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 200));
+      schedule(() => {
+        if (!cancelled) setSettled(true);
+      });
+    };
+    if (document.readyState === "complete") idle();
+    else window.addEventListener("load", idle, { once: true });
+    return () => {
+      cancelled = true;
+      window.removeEventListener("load", idle);
+    };
+  }, []);
+  return settled;
+}
+
+/**
  * One-line consent bar. Cloudflare's cookieless beacon always loads; GA4 only after "Allow".
  * Renders nothing until hydration so the server HTML never flashes the bar for returning visitors.
  */
 export function ConsentBar() {
   const t = useTranslations("consent");
   const [consent, setConsent] = useConsent();
-  const hydrated = useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false,
-  );
+  const settled = useSettled();
 
-  if (!hydrated || consent !== "unset" || !process.env.NEXT_PUBLIC_GA_ID) return null;
+  if (!settled || consent !== "unset" || !process.env.NEXT_PUBLIC_GA_ID) return null;
 
   return (
     <div

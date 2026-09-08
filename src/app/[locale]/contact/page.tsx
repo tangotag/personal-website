@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { alternatesFor } from "@/lib/seo";
+import { addressFor } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { ContactForm } from "@/components/forms/contact-form";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -11,7 +12,7 @@ import { Faq } from "@/components/ui/faq";
 import { StatusPill } from "@/components/ui/status-pill";
 import { TextLink } from "@/components/ui/text-link";
 import { site } from "@/data/site";
-import { jsonLdString } from "@/lib/json-ld";
+import { jsonLdString, siteGraph, PERSON_ID } from "@/lib/json-ld";
 import { getFaq } from "@/lib/data";
 import { pick } from "@/types/content";
 
@@ -20,10 +21,12 @@ export async function generateMetadata({
 }: Omit<PageProps<"/[locale]/contact">, "searchParams">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.contact" });
+  const { alternates, canonicalUrl } = addressFor("/contact", locale);
   return {
     title: t("title"),
     description: t("description"),
-    alternates: alternatesFor("/contact", locale),
+    alternates,
+    openGraph: { url: canonicalUrl, title: t("title"), description: t("description") },
   };
 }
 
@@ -43,20 +46,33 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
   const tc = await getTranslations("common");
   const faq = getFaq("contact").map((f) => ({ q: pick(f.q, locale), a: pick(f.a, locale) }));
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    name: t("title"),
-    url: `${site.url}${locale === "es" ? "/es" : ""}/contact`,
-    mainEntity: {
-      "@type": "Person",
-      name: site.name,
-      email: site.email,
-      jobTitle: site.role,
-      url: site.url,
-      sameAs: [site.social.linkedin, site.social.behance].filter(Boolean),
-    },
-  };
+  const tn = await getTranslations("nav");
+  const tm = await getTranslations("meta");
+  const crumbs = [
+    { name: tn("home"), path: "/" },
+    { name: tn("contact"), path: "/contact" },
+  ];
+
+  const jsonLd = siteGraph({
+    locale,
+    path: "/contact",
+    title: t("title"),
+    description: t("description"),
+    siteName: tm("siteName"),
+    crumbs,
+    pageType: "ContactPage",
+    pageProps: { mainEntity: { "@id": PERSON_ID } },
+    extra: [
+      {
+        "@type": "FAQPage",
+        mainEntity: faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+    ],
+  });
 
   return (
     <main id="main" className="flex-1">
@@ -66,6 +82,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
       />
       <Section>
         <Container>
+          <Breadcrumbs crumbs={crumbs} className="mb-8" />
           <StatusPill>{tc("available")}</StatusPill>
           <SectionHeader
             as="h1"

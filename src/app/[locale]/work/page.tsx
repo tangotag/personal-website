@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { alternatesFor } from "@/lib/seo";
+import { addressFor } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
@@ -10,16 +11,19 @@ import { WorkGrid, type GridItem } from "@/components/portfolio/work-grid";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { Button } from "@/components/ui/button";
 import { getAllWork } from "@/lib/content";
+import { jsonLdString, siteGraph } from "@/lib/json-ld";
 
 export async function generateMetadata({
   params,
 }: Omit<PageProps<"/[locale]/work">, "searchParams">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.work" });
+  const { alternates, canonicalUrl } = addressFor("/work", locale);
   return {
     title: t("title"),
     description: t("description"),
-    alternates: alternatesFor("/work", locale),
+    alternates,
+    openGraph: { url: canonicalUrl, title: t("title"), description: t("description") },
   };
 }
 
@@ -28,6 +32,21 @@ export default async function WorkPage({ params }: PageProps<"/[locale]/work">) 
   setRequestLocale(locale);
   const t = await getTranslations("pages.work");
   const tc = await getTranslations("common");
+  const tn = await getTranslations("nav");
+  const tm = await getTranslations("meta");
+
+  const crumbs = [
+    { name: tn("home"), path: "/" },
+    { name: tn("work"), path: "/work" },
+  ];
+  const jsonLd = siteGraph({
+    locale,
+    path: "/work",
+    title: t("title"),
+    description: t("description"),
+    siteName: tm("siteName"),
+    crumbs,
+  });
 
   // Cards render on the server; the client grid only filters and animates them.
   const items: GridItem[] = getAllWork(locale).map((entry, i) => ({
@@ -48,8 +67,13 @@ export default async function WorkPage({ params }: PageProps<"/[locale]/work">) 
 
   return (
     <main id="main" className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
+      />
       <Section>
         <Container>
+          <Breadcrumbs crumbs={crumbs} className="mb-8" />
           <SectionHeader as="h1" number="01" eyebrow={t("title")} title={t("description")} />
           <div className="mt-12">
             <Suspense fallback={null}>

@@ -3,7 +3,8 @@ import { join } from "node:path";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { alternatesFor } from "@/lib/seo";
+import { addressFor } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
@@ -13,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/ui/tag";
 import { site } from "@/data/site";
 import { getExperience } from "@/lib/data";
-import { jsonLdString } from "@/lib/json-ld";
+import { jsonLdString, siteGraph, PERSON_ID } from "@/lib/json-ld";
 
 const PORTRAIT = "/images/portrait.webp";
 const hasPortrait = existsSync(join(process.cwd(), "public", PORTRAIT));
@@ -23,10 +24,12 @@ export async function generateMetadata({
 }: Omit<PageProps<"/[locale]/about">, "searchParams">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.about" });
+  const { alternates, canonicalUrl } = addressFor("/about", locale);
   return {
     title: t("title"),
     description: t("description"),
-    alternates: alternatesFor("/about", locale),
+    alternates,
+    openGraph: { url: canonicalUrl, title: t("title"), description: t("description") },
   };
 }
 
@@ -45,21 +48,32 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
   const certs = t.raw("awards.certs") as string[];
   const experience = getExperience();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: site.name,
-    jobTitle: site.role,
-    url: site.url,
-    email: site.email,
-    image: hasPortrait ? `${site.url}${PORTRAIT}` : undefined,
-    sameAs: [site.social.linkedin, site.social.behance, site.social.upwork].filter(Boolean),
-    worksFor: { "@type": "Organization", name: experience[0]?.company },
-    alumniOf: { "@type": "CollegeOrUniversity", name: t("education.school") },
-    award: awards.map((a) => `${a.title} · ${a.org}, ${a.year}`),
-    hasCredential: certs.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })),
-    knowsAbout: groups.flatMap((g) => g.items),
-  };
+  const tn = await getTranslations("nav");
+  const tm = await getTranslations("meta");
+  const crumbs = [
+    { name: tn("home"), path: "/" },
+    { name: tn("about"), path: "/about" },
+  ];
+
+  const jsonLd = siteGraph({
+    locale,
+    path: "/about",
+    title: t("title"),
+    description: t("description"),
+    siteName: tm("siteName"),
+    crumbs,
+    ...(hasPortrait ? { image: PORTRAIT } : {}),
+    pageType: "ProfilePage",
+    pageProps: { mainEntity: { "@id": PERSON_ID } },
+    // The canonical Person node carries the biography; the About page is where it is fullest.
+    person: {
+      worksFor: { "@type": "Organization", name: experience[0]?.company },
+      alumniOf: { "@type": "CollegeOrUniversity", name: t("education.school") },
+      award: awards.map((a) => `${a.title} · ${a.org}, ${a.year}`),
+      hasCredential: certs.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })),
+      knowsAbout: groups.flatMap((g) => g.items),
+    },
+  });
 
   return (
     <main id="main" className="flex-1">
@@ -69,6 +83,9 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
       />
 
       <Section>
+        <Container>
+          <Breadcrumbs crumbs={crumbs} className="mb-8" />
+        </Container>
         <Container className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-lg border border-border bg-surface-2 lg:mx-0">
@@ -78,7 +95,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
                   alt={site.name}
                   fill
                   priority
-                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  sizes="(min-width: 420px) 384px, 100vw"
                   className="object-cover"
                 />
               ) : (
