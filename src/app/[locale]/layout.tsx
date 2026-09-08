@@ -38,6 +38,9 @@ const jetbrains = JetBrains_Mono({
   display: "optional",
 });
 
+/** Default social card: the portrait over the evergreen ground, built by scripts/build-portrait.mts. */
+const OG_IMAGE = "/images/og-default.jpg";
+
 /** Only the namespaces client islands read — keeps the serialized RSC payload small. */
 const CLIENT_NAMESPACES = ["nav", "common", "consent", "forms", "pages"] as const;
 
@@ -75,8 +78,10 @@ export async function generateMetadata({
       type: "website",
       siteName: t("siteName"),
       locale: locale === "es" ? "es_ES" : "en_US",
+      // Case studies generate their own card; every other route falls back to this one.
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `${site.name} · ${site.role}` }],
     },
-    twitter: { card: "summary_large_image" },
+    twitter: { card: "summary_large_image", images: [OG_IMAGE] },
     robots: { index: true, follow: true },
     alternates: alternatesFor("/", locale),
     verification: bing ? { other: { "msvalidate.01": bing } } : undefined,

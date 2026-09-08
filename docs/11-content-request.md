@@ -7,7 +7,7 @@ Placeholders in the code are tagged `[CONFIRM]` (a number I drafted) or `[NEEDED
 
 | # | Asset | Path | Spec |
 |---|---|---|---|
-| 1 | Portrait | `public/images/portrait.jpg` | ≥ 1600 px on the long side, 4:5 crop works best, neutral background |
+| 1 | ~~Portrait~~ **delivered 2026-09-08** | `Images/RAQ portrait.jpg` → `public/images/portrait.webp` | Supplied as an illustration on a white ground; `scripts/build-portrait.mts` keys the ground out and frames it 4:5, so the frame surface shows through in both themes |
 | 2 | Compass POS cover | `public/work/compass-pos/cover.jpg` | 1600 × 1000, the terminal or kiosk in context |
 | 3 | Compass screens | `public/work/compass-pos/01.jpg … 12.jpg` | Order screen, modifiers, payment/tipping, offline banner, KDS, kiosk attract/order/pay, Bridge admin (live sales, AI reports, employee time) |
 | 4 | Compass hardware photos | `public/work/compass-pos/hardware-*.jpg` | Terminal + kiosk photos for the device frames (`kind="pos"` / `"kiosk"`) |

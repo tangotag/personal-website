@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { StatusPill } from "@/components/ui/status-pill";
 import { site } from "@/data/site";
 
-const PORTRAIT = "/images/portrait.jpg";
+const PORTRAIT = "/images/portrait.webp";
 const hasPortrait = existsSync(join(process.cwd(), "public", PORTRAIT));
 
 /**
@@ -74,7 +74,7 @@ export async function Hero() {
                 className="object-cover"
               />
             ) : (
-              // Placeholder until the photo lands in public/images/portrait.jpg
+              // Placeholder until the portrait lands in public/images (see scripts/build-portrait.mts)
               <div className="flex size-full flex-col items-center justify-center gap-3 bg-[repeating-linear-gradient(-45deg,var(--border)_0_10px,transparent_10px_22px)]">
                 <span className="font-display text-6xl font-bold tracking-tight text-fg/80">
                   {site.shortName}

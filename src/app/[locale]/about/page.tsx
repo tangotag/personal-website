@@ -15,7 +15,7 @@ import { site } from "@/data/site";
 import { getExperience } from "@/lib/data";
 import { jsonLdString } from "@/lib/json-ld";
 
-const PORTRAIT = "/images/portrait.jpg";
+const PORTRAIT = "/images/portrait.webp";
 const hasPortrait = existsSync(join(process.cwd(), "public", PORTRAIT));
 
 export async function generateMetadata({

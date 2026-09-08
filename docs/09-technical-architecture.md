@@ -63,7 +63,7 @@ src/
   types/         work.ts (zod schema + inferred types) content.ts
   styles/        globals.css tokens.css (Tailwind @theme) typography.css
 messages/        en.json  es.json
-public/          resume.pdf  work/<slug>/{cover.jpg,loop.mp4,loop.webm,01.jpg…}  images/portrait.jpg  logos/
+public/          resume.pdf  work/<slug>/{cover.jpg,loop.mp4,loop.webm,01.jpg…}  images/{portrait.webp,og-default.jpg}  logos/
 scripts/         validate-content.ts  blur.ts  check-links.ts
 tests/           unit/  e2e/
 ```
