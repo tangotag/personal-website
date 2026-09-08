@@ -195,6 +195,26 @@ body:has(dialog[open]) {
   animation: fade-up 600ms var(--ease-out) both;
   animation-delay: var(--reveal-delay, 0ms);
 }
+
+/**
+ * The above-the-fold variant: rises into place without fading, so it is painted at full opacity
+ * from the first frame. Chrome never reconsiders an element for LCP once it has painted it at
+ * opacity 0, so a fading hero permanently disqualifies the headline and the portrait and hands
+ * LCP to whatever else happens to paint — here the consent bar, at 3.7s. Everything below the
+ * fold keeps `.fade-up`, where the same rule costs nothing.
+ */
+.rise-up {
+  animation: rise-up 600ms var(--ease-out) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+@keyframes rise-up {
+  from {
+    translate: 0 16px;
+  }
+  to {
+    translate: 0 0;
+  }
+}
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -245,7 +265,8 @@ body:has(dialog[open]) {
   .line-reveal {
     animation: fade-up 200ms both;
   }
-  .fade-up {
+  .fade-up,
+  .rise-up {
     animation-duration: 200ms;
   }
   .parallax {

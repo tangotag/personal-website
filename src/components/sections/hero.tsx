@@ -37,19 +37,23 @@ export async function Hero() {
     <section className="section-y pt-10 md:pt-14 lg:pt-16">
       <Container className="grid gap-12 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-8">
-          <FadeUp delayMs={0}>
+          <FadeUp rise delayMs={0}>
             <StatusPill>{tc("available")}</StatusPill>
             <p className="mt-6 text-eyebrow text-fg-muted">{t("eyebrow")}</p>
           </FadeUp>
-          <FadeUp delayMs={120}>
+          <FadeUp rise delayMs={120}>
             <h1 className="mt-5 max-w-[20ch] text-display">
               <Highlighted text={t("title")} highlight={t("highlight")} />
             </h1>
           </FadeUp>
-          <FadeUp delayMs={320}>
+          <FadeUp rise delayMs={320}>
             <p className="mt-8 max-w-2xl text-lead text-fg-muted">{t("lead")}</p>
           </FadeUp>
-          <FadeUp delayMs={420} className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <FadeUp
+            rise
+            delayMs={420}
+            className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
+          >
             <Button href="/contact" size="lg" arrow>
               {tc("startProject")}
             </Button>
@@ -57,12 +61,12 @@ export async function Hero() {
               {tc("downloadResume")}
             </Button>
           </FadeUp>
-          <FadeUp delayMs={520}>
+          <FadeUp rise delayMs={520}>
             <p className="mt-4 font-mono text-xs text-fg-muted">{t("replyTime")}</p>
           </FadeUp>
         </div>
 
-        <FadeUp delayMs={200} className="lg:col-span-4">
+        <FadeUp rise delayMs={200} className="lg:col-span-4">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-lg border border-border bg-surface-2 lg:ml-auto">
             {hasPortrait ? (
               <Image

@@ -31,19 +31,27 @@ export function SplitReveal({
   );
 }
 
-/** Fades content in after the headline lines have landed (lead paragraph, buttons). */
+/**
+ * Fades content in after the headline lines have landed (lead paragraph, buttons).
+ *
+ * `rise` swaps the fade for a translate-only entrance. Use it for anything above the fold: an
+ * element first painted at opacity 0 is never reconsidered as an LCP candidate, so a fading hero
+ * gives the metric away to whatever paints later (globals.css `.rise-up`).
+ */
 export function FadeUp({
   children,
   delayMs = 300,
   className = "",
+  rise = false,
 }: {
   children: ReactNode;
   delayMs?: number;
   className?: string;
+  rise?: boolean;
 }) {
   return (
     <div
-      className={`fade-up ${className}`}
+      className={`${rise ? "rise-up" : "fade-up"} ${className}`}
       style={{ "--reveal-delay": `${delayMs}ms` } as CSSProperties}
     >
       {children}
