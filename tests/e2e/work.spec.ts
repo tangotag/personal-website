@@ -44,21 +44,24 @@ test.describe("work listing", () => {
     await expect(page).not.toHaveURL(/f=/);
   });
 
-  test("mobile app cards open a dialog of screens instead of a detail page", async ({ page }) => {
+  test("mobile app designs sits in the grid, under Mobile, and opens its own page", async ({
+    page,
+  }) => {
     await page.goto("/work");
-    const section = page.locator("section", { has: page.getByText("Mobile App Design") });
-    const cards = section.locator("ul > li > button");
-    await expect(cards).toHaveCount(4);
-    // Concept work, not case studies: a card is a button, never a link to a write-up.
-    await expect(section.locator("a")).toHaveCount(0);
+    const card = page.locator("main ul li a[href='/work/mobile-app-designs']");
+    await expect(card).toBeVisible();
 
-    await cards.first().click();
-    const dialog = page.locator("dialog[open]");
-    await expect(dialog).toBeVisible();
-    await expect(dialog.getByRole("heading", { name: "Cinema booking" })).toBeVisible();
-    await expect(dialog.locator("figure img")).toHaveCount(3);
+    // It is a mobile entry, so it filters alongside Mintavibe rather than standing apart.
+    await page.getByRole("button", { name: "Mobile", exact: true }).click();
+    await expect(page).toHaveURL(/\?f=mobile$/);
+    await expect(card).toBeVisible();
+    await expect(page.locator("main ul li a[href='/work/mintavibe']")).toBeVisible();
 
-    await page.keyboard.press("Escape");
-    await expect(dialog).toBeHidden();
+    await card.click();
+    await expect(page).toHaveURL(/\/work\/mobile-app-designs$/);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Mobile App Designs");
+    // Every screen of every app is on the page; there is no second click to reach them.
+    await expect(page.locator("article figure img")).toHaveCount(14);
+    await expect(page.getByRole("heading", { name: "Cinema booking" })).toBeVisible();
   });
 });

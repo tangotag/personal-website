@@ -63,7 +63,7 @@ export function GET() {
     "",
     "## Mobile app design",
     "",
-    `Concept apps shown as screens on ${site.url}/work rather than written up as case studies: no client, no metrics, no process.`,
+    `Concept apps, listed at ${site.url}/work/mobile-app-designs. No client, no metrics and no process — the screens are the whole of it.`,
     "",
   );
   for (const app of apps) {

@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import type { ComponentProps, ReactNode } from "react";
+import { AppShowcase } from "@/components/case-study/app-showcase";
 import { Compare } from "@/components/case-study/compare";
 import { Figure } from "@/components/case-study/figure";
 import { Gallery } from "@/components/case-study/gallery";
@@ -123,6 +124,7 @@ export const mdxComponents: MDXComponents = {
   // Case-study vocabulary (docs/06 §4)
   Section: CaseSection,
   TLDR,
+  AppShowcase,
   Figure,
   Gallery,
   Compare,

@@ -67,9 +67,6 @@ export const mobileAppSchema = z.object({
   name: z.string().min(1),
   tags: z.array(z.string().min(1)).min(1).max(4),
   summary: localizedSchema,
-  /** Card cover, composed from three of the app's screens by scripts/build-supplied.mts. */
-  cover: z.string().startsWith("/"),
-  coverAlt: localizedSchema,
   screens: z
     .array(
       z.object({

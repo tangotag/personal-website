@@ -9,7 +9,7 @@
     },
     "screens": [
       {
-        "src": "/mobile-apps/cinema-1-now-showing.webp",
+        "src": "/work/mobile-app-designs/cinema-1-now-showing.webp",
         "label": {
           "en": "Now showing",
           "es": "En cartelera"
@@ -20,7 +20,7 @@
         }
       },
       {
-        "src": "/mobile-apps/cinema-2-seats.webp",
+        "src": "/work/mobile-app-designs/cinema-2-seats.webp",
         "label": {
           "en": "Seat selection",
           "es": "Selección de asiento"
@@ -31,7 +31,7 @@
         }
       },
       {
-        "src": "/mobile-apps/cinema-3-ticket.webp",
+        "src": "/work/mobile-app-designs/cinema-3-ticket.webp",
         "label": {
           "en": "Ticket",
           "es": "Entrada"
@@ -41,12 +41,7 @@
           "es": "Pantalla de entrada: una tarjeta sobre el arte de la película con título, fecha y hora, sala, fila y asientos, y un código QR, con puntos de paginación debajo para una segunda entrada."
         }
       }
-    ],
-    "cover": "/mobile-apps/cinema-cover.webp",
-    "coverAlt": {
-      "en": "Three screens from the cinema app on a dark green ground: the seat map, the film page with its key art, and the issued ticket.",
-      "es": "Tres pantallas de la app de cine sobre fondo verde oscuro: el mapa de asientos, la ficha de la película con su arte y la entrada emitida."
-    }
+    ]
   },
   {
     "slug": "coffee",
@@ -58,7 +53,7 @@
     },
     "screens": [
       {
-        "src": "/mobile-apps/coffee-1-welcome.webp",
+        "src": "/work/mobile-app-designs/coffee-1-welcome.webp",
         "label": {
           "en": "Welcome",
           "es": "Bienvenida"
@@ -69,7 +64,7 @@
         }
       },
       {
-        "src": "/mobile-apps/coffee-2-order.webp",
+        "src": "/work/mobile-app-designs/coffee-2-order.webp",
         "label": {
           "en": "Menu",
           "es": "Carta"
@@ -80,7 +75,7 @@
         }
       },
       {
-        "src": "/mobile-apps/coffee-3-product.webp",
+        "src": "/work/mobile-app-designs/coffee-3-product.webp",
         "label": {
           "en": "Product",
           "es": "Producto"
@@ -91,7 +86,7 @@
         }
       },
       {
-        "src": "/mobile-apps/coffee-4-checkout.webp",
+        "src": "/work/mobile-app-designs/coffee-4-checkout.webp",
         "label": {
           "en": "Checkout",
           "es": "Pago"
@@ -101,12 +96,7 @@
           "es": "Pantalla de pago: pestañas de entrega y para llevar, dos direcciones editables, el pedido con su bebida y personalizaciones, una tarjeta guardada como método de pago, una fila de cupón, los gastos de envío y un panel de importes con precio, envío y total sobre el botón de pagar."
         }
       }
-    ],
-    "cover": "/mobile-apps/coffee-cover.webp",
-    "coverAlt": {
-      "en": "Three screens from the Brewtopia coffee app on a dark green ground: the drinks menu, the illustrated welcome screen, and a product page for a cappuccino.",
-      "es": "Tres pantallas de la app de café Brewtopia sobre fondo verde oscuro: la carta de bebidas, la bienvenida ilustrada y la ficha de un capuchino."
-    }
+    ]
   },
   {
     "slug": "furniture",
@@ -118,7 +108,7 @@
     },
     "screens": [
       {
-        "src": "/mobile-apps/furniture-1-welcome.webp",
+        "src": "/work/mobile-app-designs/furniture-1-welcome.webp",
         "label": {
           "en": "Welcome",
           "es": "Bienvenida"
@@ -129,7 +119,7 @@
         }
       },
       {
-        "src": "/mobile-apps/furniture-2-catalogue.webp",
+        "src": "/work/mobile-app-designs/furniture-2-catalogue.webp",
         "label": {
           "en": "Catalogue",
           "es": "Catálogo"
@@ -140,7 +130,7 @@
         }
       },
       {
-        "src": "/mobile-apps/furniture-3-product.webp",
+        "src": "/work/mobile-app-designs/furniture-3-product.webp",
         "label": {
           "en": "Product",
           "es": "Producto"
@@ -150,12 +140,7 @@
           "es": "Ficha de producto: un sillón azul sobre fondo plano con indicador de paginación, nombre y precio, una descripción, una fila de tipo con espuma, oficina, giratoria y orejera, y un botón de añadir al carrito."
         }
       }
-    ],
-    "cover": "/mobile-apps/furniture-cover.webp",
-    "coverAlt": {
-      "en": "Three screens from the furniture app on a dark green ground: the photographic welcome screen, a product page for a blue armchair, and the catalogue grid.",
-      "es": "Tres pantallas de la app de muebles sobre fondo verde oscuro: la bienvenida fotográfica, la ficha de un sillón azul y la cuadrícula del catálogo."
-    }
+    ]
   },
   {
     "slug": "rent-a-car",
@@ -167,7 +152,7 @@
     },
     "screens": [
       {
-        "src": "/mobile-apps/rent-a-car-1-welcome.webp",
+        "src": "/work/mobile-app-designs/rent-a-car-1-welcome.webp",
         "label": {
           "en": "Welcome",
           "es": "Bienvenida"
@@ -178,7 +163,7 @@
         }
       },
       {
-        "src": "/mobile-apps/rent-a-car-2-browse.webp",
+        "src": "/work/mobile-app-designs/rent-a-car-2-browse.webp",
         "label": {
           "en": "Browse",
           "es": "Explorar"
@@ -189,7 +174,7 @@
         }
       },
       {
-        "src": "/mobile-apps/rent-a-car-3-details.webp",
+        "src": "/work/mobile-app-designs/rent-a-car-3-details.webp",
         "label": {
           "en": "Details",
           "es": "Detalle"
@@ -200,7 +185,7 @@
         }
       },
       {
-        "src": "/mobile-apps/rent-a-car-4-payment.webp",
+        "src": "/work/mobile-app-designs/rent-a-car-4-payment.webp",
         "label": {
           "en": "Payment",
           "es": "Pago"
@@ -210,11 +195,6 @@
           "es": "Pantalla de pago: la ilustración de una tarjeta con el titular, el número enmascarado y la caducidad, una fila de métodos aceptados, campos de número, nombre, código de seguridad y caducidad, un interruptor para guardar la tarjeta y un botón de reservar."
         }
       }
-    ],
-    "cover": "/mobile-apps/rent-a-car-cover.webp",
-    "coverAlt": {
-      "en": "Three screens from the car rental app on a dark green ground: the browse grid, the welcome screen over a car, and the details page for a sports car.",
-      "es": "Tres pantallas de la app de alquiler de coches sobre fondo verde oscuro: la cuadrícula de búsqueda, la bienvenida sobre un coche y la ficha de un deportivo."
-    }
+    ]
   }
 ]

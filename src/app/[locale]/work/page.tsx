@@ -9,7 +9,6 @@ import { SectionHeader } from "@/components/layout/section-header";
 import { ProjectCard } from "@/components/portfolio/project-card";
 import { WorkGrid, type GridItem } from "@/components/portfolio/work-grid";
 import { ContactCta } from "@/components/sections/contact-cta";
-import { MobileApps } from "@/components/sections/mobile-apps";
 import { Button } from "@/components/ui/button";
 import { getAllWork } from "@/lib/content";
 import { jsonLdString, siteGraph } from "@/lib/json-ld";
@@ -58,7 +57,8 @@ export default async function WorkPage({ params }: PageProps<"/[locale]/work">) 
       <ProjectCard
         entry={entry}
         variant={entry.tier === "hero" ? "hero" : "standard"}
-        readLabel={tc("readCase")}
+        // A collection is not a case study, so it does not invite you to read one.
+        readLabel={entry.tier === "collection" ? tc("viewDesigns") : tc("readCase")}
         headingLevel="h2"
         priority={i === 0}
         className="h-full"
@@ -83,8 +83,6 @@ export default async function WorkPage({ params }: PageProps<"/[locale]/work">) 
           </div>
         </Container>
       </Section>
-
-      <MobileApps locale={locale} />
 
       <Section tight className="border-y border-border bg-surface">
         <Container className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">

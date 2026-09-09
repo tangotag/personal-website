@@ -16,7 +16,8 @@ import sharp, { type OverlayOptions } from "sharp";
 const IMAGES = join(process.cwd(), "Images");
 const APPS = join(process.cwd(), "Mobile apps");
 const WORK = join(process.cwd(), "public", "work");
-const APPS_OUT = join(process.cwd(), "public", "mobile-apps");
+/** Mobile App Designs is a work entry like any other, so its assets live with the rest. */
+const APPS_OUT = join(WORK, "mobile-app-designs");
 
 /** Source file → output name, in the order each case study walks through them. */
 const WIREFRAMES: Record<string, [string, string][]> = {
@@ -81,20 +82,16 @@ const APP_SCREENS: Record<string, [string, string][]> = {
 };
 
 /**
- * Card covers for the Mobile App Design grid: three phones on the evergreen ground, the same
- * treatment the case-study covers get in build-assets.mts, so the two grids read as one page.
- * Order is [left, centre, right] — the centre phone is tallest and sits on top.
+ * The card cover: one screen from each of the four apps, overlapping across the evergreen ground
+ * with a lime glow — the same treatment build-assets.mts gives the case-study covers, so the entry
+ * sits in the work grid without looking like a different kind of thing.
  */
-const APP_COVERS: Record<string, [string, string, string]> = {
-  cinema: ["cinema-2-seats.webp", "cinema-1-now-showing.webp", "cinema-3-ticket.webp"],
-  coffee: ["coffee-2-order.webp", "coffee-1-welcome.webp", "coffee-3-product.webp"],
-  furniture: ["furniture-1-welcome.webp", "furniture-3-product.webp", "furniture-2-catalogue.webp"],
-  "rent-a-car": [
-    "rent-a-car-2-browse.webp",
-    "rent-a-car-1-welcome.webp",
-    "rent-a-car-3-details.webp",
-  ],
-};
+const COVER_SCREENS = [
+  "cinema-1-now-showing.webp",
+  "coffee-1-welcome.webp",
+  "furniture-3-product.webp",
+  "rent-a-car-3-details.webp",
+];
 
 const COVER_W = 1600;
 const COVER_H = 1000; // 16:10, the ratio every card slot reserves
@@ -117,7 +114,7 @@ async function phone(file: string, height: number, radius: number) {
   return { buf: rounded, width, height: h };
 }
 
-async function buildAppCover(slug: string, order: [string, string, string]) {
+async function buildCover() {
   const bg = Buffer.from(
     `<svg width="${COVER_W}" height="${COVER_H}" xmlns="http://www.w3.org/2000/svg">
        <defs>
@@ -134,15 +131,17 @@ async function buildAppCover(slug: string, order: [string, string, string]) {
      </svg>`,
   );
 
-  const plan = [
-    { file: order[0], h: 620, cx: 470, cy: 545 },
-    { file: order[2], h: 620, cx: 1130, cy: 545 },
-    { file: order[1], h: 760, cx: 800, cy: 525 },
-  ];
+  // Four phones stepped across the frame, the outer pair shorter so the eye lands in the middle.
+  const plan = COVER_SCREENS.map((file, i) => ({
+    file,
+    h: i === 0 || i === 3 ? 600 : 690,
+    cx: 340 + i * 307,
+    cy: 520,
+  }));
 
   const layers: OverlayOptions[] = [];
   for (const item of plan) {
-    const p = await phone(join(APPS_OUT, item.file), item.h, 26);
+    const p = await phone(join(APPS_OUT, item.file), item.h, 24);
     layers.push({
       input: p.buf,
       left: Math.round(item.cx - p.width / 2),
@@ -153,9 +152,9 @@ async function buildAppCover(slug: string, order: [string, string, string]) {
   const info = await sharp(bg)
     .composite(layers)
     .webp({ quality: 84, effort: 5 })
-    .toFile(join(APPS_OUT, `${slug}-cover.webp`));
+    .toFile(join(APPS_OUT, "cover.webp"));
   console.log(
-    `★ mobile-apps/${slug}-cover.webp  ${info.width}x${info.height}  ${(info.size / 1024).toFixed(0)} KB`,
+    `★ mobile-app-designs/cover.webp  ${info.width}x${info.height}  ${(info.size / 1024).toFixed(0)} KB`,
   );
 }
 
@@ -186,11 +185,11 @@ for (const [slug, files] of Object.entries(WIREFRAMES)) {
 mkdirSync(APPS_OUT, { recursive: true });
 for (const files of Object.values(APP_SCREENS)) {
   for (const [from, to] of files) {
-    await convert(join(APPS, from), join(APPS_OUT, to), `mobile-apps/${to}`);
+    await convert(join(APPS, from), join(APPS_OUT, to), `mobile-app-designs/${to}`);
   }
 }
 
-for (const [slug, order] of Object.entries(APP_COVERS)) await buildAppCover(slug, order);
+await buildCover();
 
 console.log(`\n✔ ${made} supplied asset(s) converted${missing ? `, ${missing} missing` : ""}.`);
 if (missing) process.exitCode = 1;

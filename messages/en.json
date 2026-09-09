@@ -40,7 +40,8 @@
       "en": "English",
       "es": "Spanish"
     },
-    "email": "Email"
+    "email": "Email",
+    "viewDesigns": "View the designs"
   },
   "marquee": {
     "items": [
@@ -204,16 +205,7 @@
       "empty": "Nothing here yet. Try another filter.",
       "ctaTitle": "Don’t see your industry?",
       "ctaText": "I’ve probably designed something adjacent. Tell me what you’re building.",
-      "cta": "Tell me what you’re building",
-      "mobileApps": {
-        "eyebrow": "Mobile App Design",
-        "title": "Four apps, designed screen by screen.",
-        "lead": "Concept work rather than case studies: no client, no metrics, no process to walk through. The interface is the whole of the argument, so here it is at full size.",
-        "cardEyebrow": "Concept · Mobile app",
-        "view": "View screens",
-        "close": "Close",
-        "screens": "{count, plural, =1 {1 screen} other {# screens}}"
-      }
+      "cta": "Tell me what you’re building"
     },
     "services": {
       "title": "Services",
@@ -358,13 +350,7 @@
           },
           {
             "title": "Craft",
-            "items": [
-              "UI design",
-              "Prototyping",
-              "Motion",
-              "Design systems",
-              "Accessibility"
-            ]
+            "items": ["UI design", "Prototyping", "Motion", "Design systems", "Accessibility"]
           },
           {
             "title": "Leadership",
@@ -378,11 +364,7 @@
           },
           {
             "title": "Tools",
-            "items": [
-              "Figma",
-              "Figma component libraries",
-              "Design QA"
-            ]
+            "items": ["Figma", "Figma component libraries", "Design QA"]
           }
         ]
       },
@@ -406,9 +388,7 @@
             "year": "2020"
           }
         ],
-        "certs": [
-          "Google UX Design Professional Certificate"
-        ]
+        "certs": ["Google UX Design Professional Certificate"]
       },
       "education": {
         "title": "Education",
