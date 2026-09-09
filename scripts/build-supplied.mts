@@ -11,7 +11,7 @@
  */
 import { existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
-import sharp from "sharp";
+import sharp, { type OverlayOptions } from "sharp";
 
 const IMAGES = join(process.cwd(), "Images");
 const APPS = join(process.cwd(), "Mobile apps");
@@ -80,6 +80,85 @@ const APP_SCREENS: Record<string, [string, string][]> = {
   ],
 };
 
+/**
+ * Card covers for the Mobile App Design grid: three phones on the evergreen ground, the same
+ * treatment the case-study covers get in build-assets.mts, so the two grids read as one page.
+ * Order is [left, centre, right] — the centre phone is tallest and sits on top.
+ */
+const APP_COVERS: Record<string, [string, string, string]> = {
+  cinema: ["cinema-2-seats.webp", "cinema-1-now-showing.webp", "cinema-3-ticket.webp"],
+  coffee: ["coffee-2-order.webp", "coffee-1-welcome.webp", "coffee-3-product.webp"],
+  furniture: ["furniture-1-welcome.webp", "furniture-3-product.webp", "furniture-2-catalogue.webp"],
+  "rent-a-car": [
+    "rent-a-car-2-browse.webp",
+    "rent-a-car-1-welcome.webp",
+    "rent-a-car-3-details.webp",
+  ],
+};
+
+const COVER_W = 1600;
+const COVER_H = 1000; // 16:10, the ratio every card slot reserves
+
+/** A screen scaled to a height and given rounded corners, so it reads as a device not a rectangle. */
+async function phone(file: string, height: number, radius: number) {
+  const buf = await sharp(file).resize({ height }).png().toBuffer();
+  const { width = 0, height: h = 0 } = await sharp(buf).metadata();
+  const rounded = await sharp(buf)
+    .composite([
+      {
+        input: Buffer.from(
+          `<svg width="${width}" height="${h}"><rect width="${width}" height="${h}" rx="${radius}" ry="${radius}" fill="#fff"/></svg>`,
+        ),
+        blend: "dest-in",
+      },
+    ])
+    .png()
+    .toBuffer();
+  return { buf: rounded, width, height: h };
+}
+
+async function buildAppCover(slug: string, order: [string, string, string]) {
+  const bg = Buffer.from(
+    `<svg width="${COVER_W}" height="${COVER_H}" xmlns="http://www.w3.org/2000/svg">
+       <defs>
+         <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+           <stop offset="0%" stop-color="#0E2A23"/><stop offset="100%" stop-color="#061713"/>
+         </linearGradient>
+         <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+           <stop offset="0%" stop-color="#DDF23A" stop-opacity="0.38"/>
+           <stop offset="100%" stop-color="#DDF23A" stop-opacity="0"/>
+         </radialGradient>
+       </defs>
+       <rect width="${COVER_W}" height="${COVER_H}" fill="url(#g)"/>
+       <ellipse cx="${COVER_W * 0.5}" cy="${COVER_H * 0.22}" rx="${COVER_W * 0.46}" ry="${COVER_H * 0.5}" fill="url(#glow)"/>
+     </svg>`,
+  );
+
+  const plan = [
+    { file: order[0], h: 620, cx: 470, cy: 545 },
+    { file: order[2], h: 620, cx: 1130, cy: 545 },
+    { file: order[1], h: 760, cx: 800, cy: 525 },
+  ];
+
+  const layers: OverlayOptions[] = [];
+  for (const item of plan) {
+    const p = await phone(join(APPS_OUT, item.file), item.h, 26);
+    layers.push({
+      input: p.buf,
+      left: Math.round(item.cx - p.width / 2),
+      top: Math.round(item.cy - p.height / 2),
+    });
+  }
+
+  const info = await sharp(bg)
+    .composite(layers)
+    .webp({ quality: 84, effort: 5 })
+    .toFile(join(APPS_OUT, `${slug}-cover.webp`));
+  console.log(
+    `★ mobile-apps/${slug}-cover.webp  ${info.width}x${info.height}  ${(info.size / 1024).toFixed(0)} KB`,
+  );
+}
+
 let made = 0;
 let missing = 0;
 
@@ -110,6 +189,8 @@ for (const files of Object.values(APP_SCREENS)) {
     await convert(join(APPS, from), join(APPS_OUT, to), `mobile-apps/${to}`);
   }
 }
+
+for (const [slug, order] of Object.entries(APP_COVERS)) await buildAppCover(slug, order);
 
 console.log(`\n✔ ${made} supplied asset(s) converted${missing ? `, ${missing} missing` : ""}.`);
 if (missing) process.exitCode = 1;

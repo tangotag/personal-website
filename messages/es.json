@@ -208,7 +208,11 @@
       "mobileApps": {
         "eyebrow": "Diseño de apps móviles",
         "title": "Cuatro apps, diseñadas pantalla a pantalla.",
-        "lead": "Trabajo conceptual, no casos de estudio: sin cliente, sin métricas y sin proceso que recorrer. La interfaz es todo el argumento, así que aquí está a tamaño completo."
+        "lead": "Trabajo conceptual, no casos de estudio: sin cliente, sin métricas y sin proceso que recorrer. La interfaz es todo el argumento, así que aquí está a tamaño completo.",
+        "cardEyebrow": "Concepto · App móvil",
+        "view": "Ver pantallas",
+        "close": "Cerrar",
+        "screens": "{count, plural, =1 {1 pantalla} other {# pantallas}}"
       }
     },
     "services": {
@@ -374,7 +378,11 @@
           },
           {
             "title": "Herramientas",
-            "items": ["Figma", "Librerías de componentes en Figma", "QA de diseño"]
+            "items": [
+              "Figma",
+              "Librerías de componentes en Figma",
+              "QA de diseño"
+            ]
           }
         ]
       },
@@ -398,7 +406,9 @@
             "year": "2020"
           }
         ],
-        "certs": ["Certificado profesional de Diseño UX de Google"]
+        "certs": [
+          "Certificado profesional de Diseño UX de Google"
+        ]
       },
       "education": {
         "title": "Formación",

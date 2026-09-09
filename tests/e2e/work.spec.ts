@@ -25,7 +25,10 @@ test.describe("work listing", () => {
 
   test("unknown filter falls back to all", async ({ page }) => {
     await page.goto("/work?f=nope");
-    await expect(page.getByRole("button", { name: "All" })).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByRole("button", { name: "All", exact: true })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
   });
 
   test("chips update the URL and the grid", async ({ page }) => {
@@ -37,16 +40,25 @@ test.describe("work listing", () => {
       "true",
     );
     await expect(page.locator("main ul li a[href='/work/compass-pos']")).toBeVisible();
-    await page.getByRole("button", { name: "All" }).click();
+    await page.getByRole("button", { name: "All", exact: true }).click();
     await expect(page).not.toHaveURL(/f=/);
   });
 
-  test("mobile app design lists every app and screen, and links nowhere", async ({ page }) => {
+  test("mobile app cards open a dialog of screens instead of a detail page", async ({ page }) => {
     await page.goto("/work");
     const section = page.locator("section", { has: page.getByText("Mobile App Design") });
-    await expect(section.getByRole("heading", { level: 3 })).toHaveCount(4);
-    // Concept work, not case studies: the screens are figures, never links to a detail page.
-    await expect(section.locator("figure img")).toHaveCount(14);
+    const cards = section.locator("ul > li > button");
+    await expect(cards).toHaveCount(4);
+    // Concept work, not case studies: a card is a button, never a link to a write-up.
     await expect(section.locator("a")).toHaveCount(0);
+
+    await cards.first().click();
+    const dialog = page.locator("dialog[open]");
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByRole("heading", { name: "Cinema booking" })).toBeVisible();
+    await expect(dialog.locator("figure img")).toHaveCount(3);
+
+    await page.keyboard.press("Escape");
+    await expect(dialog).toBeHidden();
   });
 });
