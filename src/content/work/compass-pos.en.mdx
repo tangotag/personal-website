@@ -21,7 +21,7 @@ featuredOrder: 1
 externalUrl: "https://cygnuspay.com/cpos"
 ---
 
-{/* Compass Kiosk is a separate product and a separate case study. Shipped screens appear only under the final-design section; wireframes and low-fidelity sheets are drawn by scripts/build-compass.mts. The under-30-minute onboarding figure stays tagged `confirm` until Raheel verifies it. */}
+{/* Compass Kiosk is a separate product and a separate case study. Shipped screens appear only under the final-design section; the wireframes are Raheel's own, converted by scripts/build-supplied.mts. The under-30-minute onboarding figure stays tagged `confirm` until Raheel verifies it. */}
 
 <TLDR
   items={[
@@ -97,20 +97,6 @@ Toast, Square and Clover set the expectation. Matching them feature for feature 
 this price point, so the differentiators are dual pricing done properly, offline resilience, and a
 single design language across surfaces that competitors treat as separate products.
 
-## Architecture and ideation
-
-### Information architecture
-
-Twelve modules at the top level, no submenus. Role decides what renders, so a cashier never sees day
-closing or staff reports. Everything a shift needs is one tap from home.
-
-### Design system
-
-Shared tokens across terminal, kitchen display and customer display. A large-touch component set
-sized for gloves rather than fingertips. Explicit states for offline and queued sync, so a dropped
-connection is a visible condition rather than a silent failure. Status is never colour alone: the
-kitchen board ages tickets by colour and by a running timer.
-
 ## Starting the design
 
 ### Wireframes
@@ -122,57 +108,24 @@ Structure before decoration, so the argument was about order rather than colour.
   wide
   items={[
     {
-      src: "/work/compass-pos/wireframe-1-home.webp",
-      alt: "Wireframe of the POS shift home screen: a brand mark and user label across the top, a grid of twelve unlabelled module tiles, a wider tile centred below them and a status bar along the bottom, with four numbered annotations beside the terminal.",
-      caption: "01 Shift home. Structure reconstructed for this case study.",
+      src: "/work/compass-pos/wireframe-1-sign-in.webp",
+      alt: "Hand-drawn wireframe of the Compass POS sign-in screen: a promotional panel on the left with a placeholder image and the line get everything you want, and on the right the Cygnus Payments mark above a type your PIN field of four dots and a numeric keypad with backspace and confirm keys.",
+      caption: "01 Sign-in. A PIN rather than a password, because the terminal changes hands every shift.",
     },
     {
-      src: "/work/compass-pos/wireframe-2-order.webp",
-      alt: "Wireframe of the ordering screen: an order ticket down the left rail with line items, total and pay button, a search field and filter chips along the top, a row of category tiles and a grid of eight item tiles.",
-      caption: "02 Order and menu. The ticket takes the left rail.",
+      src: "/work/compass-pos/wireframe-2-home.webp",
+      alt: "Hand-drawn wireframe of the shift home screen: the Cygnus Payments mark at the top left, a greeting reading hi Jhon admin at the top right, twelve module tiles labelled dine in, to go, delivery, pick up, menu, orders, reservation, tables, messages, settings, recall and day closing, a staff report tile centred below them, and brightness, network and sync icons in the corner.",
+      caption: "02 Shift home. Twelve modules, no submenus, and the role decides which ones render.",
     },
     {
-      src: "/work/compass-pos/wireframe-3-modifiers.webp",
-      alt: "Wireframe of the modifier screen: the order ticket on the left, a required condiments sheet with six option blocks in the centre, a rail of three optional groups on the right, and cancel and done buttons.",
-      caption: "03 Modifiers. Required blocks the ticket, optional sits in a rail.",
+      src: "/work/compass-pos/wireframe-3-payment.webp",
+      alt: "Hand-drawn wireframe of the payment screen: an order ticket down the left listing a double bacon burger combo and a Hawaiian pizza with separate card and cash columns, subtotal, tax and two totals; a centre panel with a card amount, a cash amount, an add tip control, exact, round up and cash buttons and a grid splitting the bill two to ten ways; and a payment method rail on the right.",
+      caption: "03 Payment. Both prices sit on the ticket from the first line, and the split grid does the arithmetic.",
     },
     {
-      src: "/work/compass-pos/wireframe-4-payment.webp",
-      alt: "Wireframe of the payment screen: the order ticket on the left, card and cash amount blocks with a tip control, three rounding options, a three by three grid of split options and a split modes bar.",
-      caption: "04 Payment. Card and cash side by side, split grid below.",
-    },
-  ]}
-/>
-
-### Low fidelity
-
-The same four screens with real copy, real prices and real module names, still greyscale. This is
-where the hierarchy was settled: the ticket total had to stay readable while the modifier sheet was
-open, and the split grid had to be scannable without reading every cell.
-
-<Gallery
-  cols={2}
-  wide
-  items={[
-    {
-      src: "/work/compass-pos/lofi-1-home.webp",
-      alt: "Low-fidelity shift home with real module names: dine in, to go, delivery, pick up, menu, orders, reservation, tables, messages, settings, recall and day closing, with a staff report tile below.",
-      caption: "Twelve named modules, and the role decides which ones render.",
-    },
-    {
-      src: "/work/compass-pos/lofi-2-order.webp",
-      alt: "Low-fidelity ordering screen with a ticket listing a double bacon burger with mustard and large fries and a Hawaiian pizza, a total of 20.82 card and 20.21 cash, category chips and named item tiles.",
-      caption: "Two totals on the ticket from the start, because dual pricing is disclosed.",
-    },
-    {
-      src: "/work/compass-pos/lofi-3-modifiers.webp",
-      alt: "Low-fidelity modifier screen with a condiments sheet marked required listing mustard, mayo, ketchup, onion, pickles and hot sauce, and an optional rail of add-ons, sides and drinks.",
-      caption: "Required is a word on the sheet, never a colour.",
-    },
-    {
-      src: "/work/compass-pos/lofi-4-payment.webp",
-      alt: "Low-fidelity payment screen showing a card amount of 40 dollars, a cash amount of 30, an add tip control, exact, round up and cash options, a grid of split by two through ten, and a split modes bar.",
-      caption: "The split grid does the arithmetic so nobody does it at the counter.",
+      src: "/work/compass-pos/wireframe-4-kitchen.webp",
+      alt: "Hand-drawn wireframe of the kitchen display system: four order tickets side by side, each with an order number, a running timer, a to go or dine in label, line items with their modifiers, a note line and a complete button, with a recall control in the top right.",
+      caption: "04 Kitchen display. A ticket ages by timer as well as by position.",
     },
   ]}
 />

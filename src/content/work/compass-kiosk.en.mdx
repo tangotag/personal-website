@@ -21,7 +21,7 @@ featuredOrder: 2
 externalUrl: "https://cygnuspay.com/cpos"
 ---
 
-{/* The self-service half of the Compass ecosystem; the counter half is /work/compass-pos. Shipped screens appear only under the final-design section. Wireframes and low-fidelity sheets are drawn by scripts/build-compass.mts. */}
+{/* The self-service half of the Compass ecosystem; the counter half is /work/compass-pos. Shipped screens appear only under the final-design section. The wireframes are Raheel's own, converted by scripts/build-supplied.mts. */}
 
 <TLDR
   items={[
@@ -95,21 +95,6 @@ Most quick-service kiosks front-load: they ask for loyalty sign-in, upsell befor
 complete, and hide the running total. Each of those adds a decision at the moment a first-timer is
 least able to take one. The approach here defers everything that is not the order.
 
-## Architecture and ideation
-
-### Information architecture
-
-A linear journey with one branch, dine in or take away, taken once at the start. Categories are a
-grid rather than a menu, and the running order total is visible from the moment there is something
-in it.
-
-### Design system
-
-The same tokens, components and type scale as the counter terminal, at kiosk scale. Photography does
-the work that labels do on the terminal, because a first-time customer recognises a burger faster
-than they read one. A persistent bottom bar carries language and a help number, so the two things a
-stuck person needs are never more than a glance away.
-
 ## Starting the design
 
 ### Wireframes
@@ -121,57 +106,24 @@ Structure first, to settle what each screen is allowed to ask for.
   wide
   items={[
     {
-      src: "/work/compass-kiosk/wireframe-1-attract.webp",
-      alt: "Wireframe of the kiosk attract screen: a brand block, a headline, a row of seven category icons, one large pill-shaped call to action in the lower left, a hero image block on the right, and a language and help bar across the bottom.",
-      caption: "01 Attract. One target, placed low enough to reach. Structure reconstructed for this case study.",
+      src: "/work/compass-kiosk/wireframe-1-menu.webp",
+      alt: "Hand-drawn wireframe of the kiosk menu: a take away and dine in toggle at the top left, a view order button showing the basket count and total at the top right, eleven category tiles labelled pizza, burger, wings, salad, sandwich, deserts, taco, wraps, fries, drinks and sauces, an English and Spanish language switch at the bottom left and a help telephone number at the bottom right.",
+      caption: "01 Menu. Categories first, and the language switch stays on screen throughout.",
     },
     {
-      src: "/work/compass-kiosk/wireframe-2-menu.webp",
-      alt: "Wireframe of the menu screen: a mode toggle at the top left, a title, a view order block at the top right, and a grid of eleven category tiles above the language and help bar.",
-      caption: "02 Menu. Categories as a grid, order total always visible.",
+      src: "/work/compass-kiosk/wireframe-2-configurator.webp",
+      alt: "Hand-drawn wireframe of the item configurator: a product image, name, calorie count and price on the left above a condiments list, a quantity stepper, a running total and cancel and add to bag buttons; on the right a pizza size group marked required, a fillings list marked optional with checkboxes and steppers, and a drinks carousel with size options.",
+      caption: "02 Configurator. Required and optional are labelled in words, never by colour alone.",
     },
     {
-      src: "/work/compass-kiosk/wireframe-3-configure.webp",
-      alt: "Wireframe of the item configurator: an image block and name and description on the left, a required size row of three options, an optional fillings list of four stepper rows, and cancel, add to bag and total controls along the bottom.",
-      caption: "03 Configure. Required first, optional after, total live.",
+      src: "/work/compass-kiosk/wireframe-3-order.webp",
+      alt: "Hand-drawn wireframe of the order review screen: two line items each with a thumbnail, its modifiers, a customise link, a quantity stepper and a delete control; a you may also like carousel of four suggestions below; and an order summary panel on the right with subtotal, tax, discount and total above back to menu and continue to payment buttons.",
+      caption: "03 Review. Everything is still editable at the point where the queue is watching.",
     },
     {
-      src: "/work/compass-kiosk/wireframe-4-review.webp",
-      alt: "Wireframe of the review screen: two editable order rows on the left, an upsell row of four tiles beneath them, a summary panel on the right, and back to menu and continue buttons.",
-      caption: "04 Review. Editable to the last moment, summary pinned beside it.",
-    },
-  ]}
-/>
-
-### Low fidelity
-
-The same four screens with real copy and real prices, still greyscale. The decisions settled here
-were the position of the running total, the wording of the required marker, and the fact that the
-upsell sits below the order rather than inside it.
-
-<Gallery
-  cols={2}
-  wide
-  items={[
-    {
-      src: "/work/compass-kiosk/lofi-1-attract.webp",
-      alt: "Low-fidelity attract screen reading welcome with a tap to start button, a row of category icons, a food photography block and a bar reading choose language, English, Spanish and a help number.",
-      caption: "One instruction, one target, and help on a bar that never moves.",
-    },
-    {
-      src: "/work/compass-kiosk/lofi-2-menu.webp",
-      alt: "Low-fidelity menu screen with a take away and dine in toggle, an our menu title, a view order control showing three items, and named category tiles for pizza, burger, wings, salad, sandwich, deserts, taco, wraps, fries, drinks and sauces.",
-      caption: "Eleven categories, and the order total updates on every add.",
-    },
-    {
-      src: "/work/compass-kiosk/lofi-3-configure.webp",
-      alt: "Low-fidelity configurator with a pizza priced at 9.50, a select size row marked required offering small, medium and large, an optional fillings list with per-item prices and steppers, and cancel, add to bag and total controls.",
-      caption: "Required is a word beside the group heading, never a colour.",
-    },
-    {
-      src: "/work/compass-kiosk/lofi-4-review.webp",
-      alt: "Low-fidelity review screen listing a pepperoni pizza and a sandwich with quantity steppers, a you may also like row, and a summary panel showing subtotal, tax, discount and total.",
-      caption: "Subtotal, tax and discount stay separate, never one merged figure.",
+      src: "/work/compass-kiosk/wireframe-4-payment.webp",
+      alt: "Hand-drawn wireframe of the payment screen: a pay now heading, a line reading choose your preferred payment method, three tap to continue tiles for cash counter, gift card and credit or debit card, and an order summary rail on the right with subtotal, tax, discount and total above back to cart and cancel order buttons.",
+      caption: "04 Payment. Three ways to pay, and the total stays beside them.",
     },
   ]}
 />

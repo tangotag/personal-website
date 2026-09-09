@@ -2,14 +2,17 @@ import "server-only";
 import experienceJson from "@/content/experience.json";
 import servicesJson from "@/content/services.json";
 import faqJson from "@/content/faq.json";
+import mobileAppsJson from "@/content/mobile-apps.json";
 import testimonialsJson from "@/content/testimonials.json";
 import {
   experiencesSchema,
   faqsSchema,
+  mobileAppsSchema,
   servicesSchema,
   testimonialsSchema,
   type Experience,
   type Faq,
+  type MobileApp,
   type Service,
   type Testimonial,
 } from "@/types/content";
@@ -51,6 +54,10 @@ export function getExperience(): Experience[] {
 export function getTestimonials(): Testimonial[] {
   const all = parse("testimonials", testimonialsSchema, testimonialsJson);
   return IS_PROD ? all.filter((t) => t.published) : all;
+}
+
+export function getMobileApps(): MobileApp[] {
+  return parse("mobile-apps", mobileAppsSchema, mobileAppsJson);
 }
 
 export function getFaq(page: Faq["page"]): Faq[] {

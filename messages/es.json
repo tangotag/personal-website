@@ -204,7 +204,12 @@
       "empty": "Aún no hay nada aquí; prueba otro filtro.",
       "ctaTitle": "¿No ves tu sector?",
       "ctaText": "Seguramente he diseñado algo parecido. Cuéntame qué estás construyendo.",
-      "cta": "Cuéntame qué estás construyendo"
+      "cta": "Cuéntame qué estás construyendo",
+      "mobileApps": {
+        "eyebrow": "Diseño de apps móviles",
+        "title": "Cuatro apps, diseñadas pantalla a pantalla.",
+        "lead": "Trabajo conceptual, no casos de estudio: sin cliente, sin métricas y sin proceso que recorrer. La interfaz es todo el argumento, así que aquí está a tamaño completo."
+      }
     },
     "services": {
       "title": "Servicios",

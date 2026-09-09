@@ -87,34 +87,9 @@ Los títulos de mesa de los estudios grandes se apoyan en la animación para sos
 no entraba en este presupuesto, así que el diferenciador tenía que ser la claridad: enunciar el
 precio de cada apuesta en la moneda que ya está sobre la mesa, y nombrar cada mano con palabras.
 
-## Arquitectura e ideación
-
-### Arquitectura de la información
-
-La mesa es toda la aplicación. Lo demás, ajustes, tamaño de ficha, tabla de pagos, historial y
-cajero, cuelga de un único raíl izquierdo dentro de un modal, para que el jugador nunca abandone el
-fieltro.
-
-<Figure
-  src="/work/open-omaha/settings.webp"
-  alt="Modal de ajustes de Open Omaha con un raíl izquierdo que lista inicio, reglas del juego, tabla de pagos, tamaño de ficha, ajustes, historial y cajero, además de paneles de sonido, otros ajustes como animaciones de carta, pantalla completa, información de apuesta, turbo y medidor de fuerza de mano, y una elección de color de baraja."
-  caption="Un raíl, siete destinos. La mesa sigue visible detrás del modal para que nadie pierda su asiento."
-  kind="desktop"
-  aspect="16/10"
-  wide
-/>
-
-### Sistema de diseño
-
-Un fieltro rojo con un único dorado cálido para todo lo interactivo, más tres colores de estado que
-nunca aparecen solos: verde para una victoria, rojo para una pérdida o un abandono, azul para la
-casa. Las denominaciones de ficha llevan color y número impreso, porque el color por sí solo no es
-una forma segura de comunicar valor. La tipografía se compone a tamaños que sobreviven a una tablet
-sostenida a un brazo de distancia.
-
 ## Empezar a diseñar
 
-### Estructura de baja fidelidad
+### Wireframes
 
 La secuencia se resolvió en wireframes planos antes de dibujar el fieltro, para que la discusión
 fuera sobre el orden y no sobre la decoración.
@@ -125,23 +100,23 @@ fuera sobre el orden y no sobre la decoración.
   items={[
     {
       src: "/work/open-omaha/wireframe-1-buy-in.webp",
-      alt: "Wireframe de baja fidelidad de la entrada a Open Omaha: zona de crupier vacía, cinco bloques de asiento con la etiqueta tocar para entrar, un raíl de denominaciones abajo a la izquierda, controles de entrada y juego automáticos abajo a la derecha y una barra de estado al pie.",
-      caption: "01 Entrada. Estructura reconstruida para este caso de estudio.",
+      alt: "Wireframe de la mesa de Open Omaha antes de una mano: la marca del crupier arriba, la zona de cartas comunitarias vacía, cinco asientos con un control de más para sentarse, el segundo asiento resaltado con fichas de ante y ciega, una barra de denominaciones abajo a la izquierda y los controles de compra y juego abajo a la derecha.",
+      caption: "01 Compra. Un asiento vacío hace una pregunta cada vez.",
     },
     {
-      src: "/work/open-omaha/wireframe-2-side-bets.webp",
-      alt: "Wireframe del paso de apuestas laterales: rejilla de bonos de tres y cuatro cartas a la izquierda, zona de crupier centrada, cinco asientos con ante y ciega, y un botón de repartir debajo.",
-      caption: "02 Apuestas laterales, fuera del camino del reparto.",
+      src: "/work/open-omaha/wireframe-2-ante-blind.webp",
+      alt: "Wireframe del paso de apuesta de ante y ciega, marcado como opción cuatro A: la zona de cartas comunitarias arriba, el total apostado, cinco asientos con una fila de cuatro cartas y los importes de ante y ciega debajo, un botón de compra en el primer asiento y botones de apuesta en el resto, y un control de confirmación abajo a la derecha.",
+      caption: "02 Ante y ciega. La apuesta es una confirmación, no una secuencia.",
     },
     {
       src: "/work/open-omaha/wireframe-3-decision.webp",
-      alt: "Wireframe del paso de decisión: resultados de bono a la izquierda, cartas comunitarias centradas, cinco asientos con el segundo marcado como activo, un botón de pasar abajo a la izquierda y botones multiplicadores 3x y 4x abajo a la derecha.",
-      caption: "03 Decisión, un asiento cada vez.",
+      alt: "Wireframe del paso de decisión: la tabla de pagos a la izquierda con cuotas de tres a cuatro hasta tres a veinte, las cartas del crupier boca abajo, los totales apostado y ganado, la zona comunitaria vacía, cinco asientos con el segundo marcado como activo, y botones de pasar y de multiplicador por tres y por cuatro abajo.",
+      caption: "03 Decisión. Los multiplicadores solo aparecen cuando se pregunta al asiento.",
     },
     {
       src: "/work/open-omaha/wireframe-4-showdown.webp",
-      alt: "Wireframe del showdown: la mano del crupier nombrada arriba a la izquierda, cartas comunitarias centradas, un aviso de pago a la derecha, una fila de manos nombradas sobre cada uno de los cinco asientos y un control turbo.",
-      caption: "04 Showdown, cada mano nombrada.",
+      alt: "Wireframe del showdown: la tabla de pagos a la izquierda, las cartas del crupier boca arriba en la ronda final, los totales apostado y ganado, las cartas comunitarias repartidas con las ganadoras remarcadas, una etiqueta con el nombre de la mano, cinco asientos con sus cartas boca arriba y la línea la mejor mano gana y reparto del bote.",
+      caption: "04 Showdown. Cada mano lleva su nombre, así nadie tiene que leer la mesa.",
     },
   ]}
 />

@@ -74,7 +74,9 @@ Balance on home: 2 fintech/SaaS + 2 games? No — **1 hero (fintech) + 3 feature
 - **Metrics:** players/downloads at launch, store conversion, session length `[NEEDED]`; if none, present as a *craft* case (no fake metrics).
 - **Portfolio value:** scale and complexity of game UX; cross-platform is a strong systems story.
 
-### 3.4 AML Watcher — 360SynergyTech · Featured
+### 3.4 AML Watcher — 360SynergyTech · ~~Featured~~ WITHDRAWN 2026-09-09
+
+> Raheel removed this case study from the site. The section below is kept as the record of what was planned; the work itself still counts as experience and is named on /about, but there is no /work/aml-watcher page and no assets for it.
 - **Title:** AML Watcher — an anti-money-laundering screening platform
 - **Short:** Data-dense compliance SaaS: screening, alerts, case management and reporting for analysts under regulatory pressure.
 - **Role:** Senior Product Designer · **Timeline:** `[CONFIRM]` · **Platform:** web SaaS · **Industry:** RegTech / fintech

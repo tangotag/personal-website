@@ -20,7 +20,7 @@ coverAlt: "Tres pantallas de Mintavibe sobre un fondo verde profundo: la lista d
 featuredOrder: 4
 ---
 
-{/* Traducción del caso en inglés. Wireframes, baja fidelidad y diagramas los dibuja scripts/build-mintavibe.mts; las pantallas finales son el producto real. */}
+{/* Traducción del caso en inglés. Los wireframes son los originales de Raheel, convertidos por scripts/build-supplied.mts; las pantallas finales son el producto real. */}
 
 <TLDR
   items={[
@@ -113,45 +113,6 @@ como un catálogo de tarjetas regalo. Es eficiente y olvidable. Aquí el diferen
 recompensa es una persona, no un producto, así que el perfil de la celebridad tenía que ser un
 destino de primer nivel y no una categoría dentro de una tienda.
 
-## Arquitectura e ideación
-
-### Card sorting
-
-Las funciones se ordenaron en siete grupos. El resultado que cambió el producto fue que puntos y
-ventajas se negó a vivir dentro de la gestión de cuenta. La gente trata el saldo como algo que posee,
-no como un ajuste, así que obtuvo su propio sitio.
-
-<Figure
-  src="/work/mintavibe/card-sorting.webp"
-  alt="Diagrama de card sorting con siete columnas etiquetadas onboarding, entretenimiento, jugar, canjear, cuenta, soporte y puntos y ventajas, cada una con tres funciones debajo, con la columna de puntos y ventajas resaltada en verde."
-  caption="Siete grupos, redibujados a partir del sorting. Puntos y ventajas se ganó su propia columna."
-  kind="plain"
-  aspect="16/10"
-  wide
-/>
-
-### Arquitectura de la información
-
-Cuatro pestañas. Ver y ganar, jugar y ganar, canjear, y el destino de celebridad que da sentido a las
-otras tres, con el perfil sosteniendo el saldo y el bucle de referidos.
-
-<Figure
-  src="/work/mintavibe/information-architecture.webp"
-  alt="Árbol de arquitectura de información que empieza en la pantalla de carga y el onboarding, se bifurca en una decisión de registro o acceso hacia un nodo de inicio resaltado, y de ahí a ver y ganar, jugar y ganar, canjear, celebridad y perfil, cada uno con tres subpantallas."
-  caption="Todas las formas de ganar están un nivel por debajo del inicio, así ninguna actividad manda sobre otra."
-  kind="plain"
-  aspect="16/10"
-  wide
-/>
-
-### Sistema de diseño
-
-Un fondo casi negro, un dorado cálido y un rojo de acento. El dorado es el único color que significa
-valor: el saldo, un total de puntos, una insignia de nivel, una acción principal. El rojo se reserva
-a lo destructivo o a salir, por eso cerrar sesión es el único control rojo en una pantalla llena de
-dorados. Todos los valores de puntos se componen con el mismo componente, así que una cifra en una
-fila de vídeo y una cifra en una factura se ven como lo mismo.
-
 ## Empezar a diseñar
 
 ### Wireframes
@@ -160,61 +121,34 @@ Primero la estructura, sin texto y sin marca, para decidir dónde vive el saldo 
 recompensa a una actividad.
 
 <Gallery
-  cols={2}
+  cols={3}
+  aspect="1/2"
   wide
   items={[
     {
-      src: "/work/mintavibe/wireframe-1-watch.webp",
-      alt: "Wireframe de la pantalla de ver y ganar: cabecera con píldora de saldo, banner promocional, etiqueta de sección y cuatro filas de vídeo con miniatura, título, línea de datos y bloque de recompensa, sobre una barra de pestañas, con cuatro anotaciones numeradas al lado.",
-      caption: "01 Ver y ganar. Estructura reconstruida para este caso de estudio.",
+      src: "/work/mintavibe/wireframe-1-celebrity.webp",
+      alt: "Wireframe móvil a mano de la página de un club de celebridad: la cabecera de Mintavibe con el saldo de puntos y el control de salida, una miniatura de tira de película junto a una biografía con enlace de leer más, una fila de los cinco mejores fans, una cuadrícula de beneficios del club y un control segmentado entre coleccionables, imágenes, vídeos y eventos sobre dos paneles de iconos.",
+      caption: "01 Club de celebridad. El motivo para volver está sobre el pliegue.",
     },
     {
-      src: "/work/mintavibe/wireframe-2-play.webp",
-      alt: "Wireframe de jugar y ganar: banner de juego destacado, etiqueta de sección y tres filas de juego con icono, título, línea de valoración y bloque de puntos, sobre una barra de pestañas.",
-      caption: "02 Jugar y ganar. Un juego promocionado y después una lista ordenada.",
+      src: "/work/mintavibe/wireframe-2-watch.webp",
+      alt: "Wireframe móvil a mano de la lista de ver y ganar: un banner con un botón de ver ahora y después cinco filas de vídeo, cada una con miniatura, duración, los puntos que se pueden ganar y un control de compartir, sobre una barra de cuatro pestañas.",
+      caption: "02 Ver y ganar. Cada fila dice la recompensa antes del toque.",
     },
     {
-      src: "/work/mintavibe/wireframe-3-celebrity.webp",
-      alt: "Wireframe del perfil de celebridad: tarjeta de biografía, fila de cinco avatares circulares de fans, tres tarjetas de beneficio, cuatro chips de filtro y una tarjeta de nivel, sobre una barra de pestañas.",
-      caption: "03 Celebridad. Biografía, fans, beneficios y niveles.",
+      src: "/work/mintavibe/wireframe-3-play.webp",
+      alt: "Wireframe móvil a mano de la pantalla de jugar y ganar: una cinta de juego del día sobre un panel de jugar y ganar con ilustración y botón, y después una lista de más juegos donde cada entrada muestra la valoración, la última partida, el número de jugadores, el tiempo jugado, los puntos ganados y los me gusta.",
+      caption: "03 Jugar y ganar. El progreso se indica por juego, no agrupado.",
     },
     {
-      src: "/work/mintavibe/wireframe-4-redeem.webp",
-      alt: "Wireframe de la pantalla de coleccionable y factura: tarjeta de nivel, cabecera de beneficios, rejilla de seis celdas, cabecera de factura y filas apiladas con número de pedido, total, puntos usados e importe pagado.",
-      caption: "04 Canjear. La factura es parte de la pantalla, no un correo de recibo.",
-    },
-  ]}
-/>
-
-### Baja fidelidad
-
-Las mismas cuatro pantallas con texto y cifras reales, todavía en escala de grises. Aquí se resolvió
-la jerarquía: la píldora de recompensa tenía que ganarle la atención al título del vídeo, y el
-desglose de la factura tenía que sobrevivir a una lectura rápida.
-
-<Gallery
-  cols={2}
-  wide
-  items={[
-    {
-      src: "/work/mintavibe/lofi-1-watch.webp",
-      alt: "Pantalla de baja fidelidad de ver y ganar con texto real: cabecera Mintavibe con saldo MV 100, banner de contenido y cuatro filas de vídeo que indican ganar 1000, 500, 50 y 1500 MV.",
-      caption: "Importes reales, porque los valores distintos son contenido que la vista compara.",
+      src: "/work/mintavibe/wireframe-4-collectables.webp",
+      alt: "Wireframe móvil a mano de la página de coleccionables: una tarjeta de la celebridad arriba, una cuadrícula de beneficios con una lista de Spotify, una invitación a Discord, una sesión en directo, un té con el artista y una excursión, y debajo una factura con el número y la fecha del pedido, el método de pago, el total, los puntos usados y el importe neto pagado.",
+      caption: "04 Coleccionables. La factura separa los puntos del dinero.",
     },
     {
-      src: "/work/mintavibe/lofi-2-play.webp",
-      alt: "Pantalla de baja fidelidad de jugar y ganar con banner de juego del día y tres filas llamadas Super Sixes, Top Goals y Cricket 3D, cada una con valoración y puntos ganados.",
-      caption: "Los puntos ganados van en la fila, junto a la valoración.",
-    },
-    {
-      src: "/work/mintavibe/lofi-3-celebrity.webp",
-      alt: "Perfil de celebridad de baja fidelidad con bloque de biografía, fila de cinco fans, tres tarjetas de beneficio etiquetadas playlist, excursión y guitarra, cuatro chips y una tarjeta de nivel Brigadier.",
-      caption: "Los niveles tienen nombre, así un saldo se convierte en rango y no en cifra.",
-    },
-    {
-      src: "/work/mintavibe/lofi-4-redeem.webp",
-      alt: "Pantalla de coleccionable de baja fidelidad con tarjeta de nivel Brigadier, rejilla de beneficios y un bloque de factura con número de pedido 2146461414, total 7000, puntos usados 3000 y pagado 4000.",
-      caption: "El desglose de la factura, resuelto antes de que llegara la marca.",
+      src: "/work/mintavibe/wireframe-5-profile.webp",
+      alt: "Wireframe móvil a mano de los ajustes de perfil: avatar, nombre de usuario y correo arriba, y después filas para mis puntos con el saldo, mis compras, valorar la app, notificaciones, preguntas frecuentes, sobre nosotros, desactivar la cuenta e invitar y ganar, con enlaces de privacidad y términos al pie.",
+      caption: "05 Perfil. El saldo de puntos es una fila, no una pantalla que haya que buscar.",
     },
   ]}
 />

@@ -58,6 +58,29 @@ export const testimonialSchema = z.object({
 export const testimonialsSchema = z.array(testimonialSchema);
 export type Testimonial = z.infer<typeof testimonialSchema>;
 
+/**
+ * Mobile App Design: concept apps shown as screens rather than written up as case studies. They
+ * carry no client, no metrics and no process — the work on show is the interface itself.
+ */
+export const mobileAppSchema = z.object({
+  slug: z.string().regex(/^[a-z0-9-]+$/),
+  name: z.string().min(1),
+  tags: z.array(z.string().min(1)).min(1).max(4),
+  summary: localizedSchema,
+  screens: z
+    .array(
+      z.object({
+        /** Path under /public. */
+        src: z.string().startsWith("/"),
+        label: localizedSchema,
+        alt: localizedSchema,
+      }),
+    )
+    .min(1),
+});
+export const mobileAppsSchema = z.array(mobileAppSchema).min(1);
+export type MobileApp = z.infer<typeof mobileAppSchema>;
+
 export const faqSchema = z.object({
   page: z.enum(["home", "services", "contact"]),
   q: localizedSchema,

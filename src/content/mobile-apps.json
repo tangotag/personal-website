@@ -1,0 +1,158 @@
+[
+  {
+    "slug": "cinema",
+    "name": "Cinema booking",
+    "tags": ["iOS", "Booking", "Seat map"],
+    "summary": {
+      "en": "Pick a film, pick a seat, keep the ticket. The seat map carries the work: taken, held and selected have to be legible at arm's length and never by colour alone.",
+      "es": "Elegir película, elegir asiento y guardar la entrada. El mapa de asientos es lo que carga el peso: ocupado, reservado y elegido tienen que leerse a un brazo de distancia y nunca solo por color."
+    },
+    "screens": [
+      {
+        "src": "/mobile-apps/cinema-1-now-showing.webp",
+        "label": { "en": "Now showing", "es": "En cartelera" },
+        "alt": {
+          "en": "Cinema app film page: a search field at the top, full-bleed key art, the running time and genres, a now showing label with an age rating and a review score, a buy ticket button, and a row of other posters below.",
+          "es": "Ficha de película: buscador arriba, arte a sangre, duración y géneros, etiqueta de en cartelera con clasificación por edad y puntuación, botón de comprar entrada y una fila de otros carteles debajo."
+        }
+      },
+      {
+        "src": "/mobile-apps/cinema-2-seats.webp",
+        "label": { "en": "Seat selection", "es": "Selección de asiento" },
+        "alt": {
+          "en": "Seat selection screen: a week of dates across the top, four showtimes with their starting prices, the cinema name with 2D and 3D options, a curved screen marker above the seat grid, a legend for selected, reserved and available, and a seat count with the total and a book now button.",
+          "es": "Pantalla de selección de asiento: una semana de fechas arriba, cuatro sesiones con su precio desde, el nombre del cine con opciones 2D y 3D, la curva de la pantalla sobre la cuadrícula de asientos, una leyenda de elegido, reservado y libre, y el número de asientos con el total y el botón de reservar."
+        }
+      },
+      {
+        "src": "/mobile-apps/cinema-3-ticket.webp",
+        "label": { "en": "Ticket", "es": "Entrada" },
+        "alt": {
+          "en": "My ticket screen: a ticket card over the film's artwork showing the title, date and time, hall, row and seat numbers, and a QR code, with paging dots below for a second ticket.",
+          "es": "Pantalla de entrada: una tarjeta sobre el arte de la película con título, fecha y hora, sala, fila y asientos, y un código QR, con puntos de paginación debajo para una segunda entrada."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "coffee",
+    "name": "Brewtopia coffee ordering",
+    "tags": ["iOS", "Ordering", "Checkout"],
+    "summary": {
+      "en": "A coffee order in four screens. Size, roast and milk all carry a price, so the running total moves while you choose rather than arriving as a surprise at the end.",
+      "es": "Un pedido de café en cuatro pantallas. El tamaño, el tueste y la leche tienen precio, así que el total se mueve mientras eliges en vez de aparecer como sorpresa al final."
+    },
+    "screens": [
+      {
+        "src": "/mobile-apps/coffee-1-welcome.webp",
+        "label": { "en": "Welcome", "es": "Bienvenida" },
+        "alt": {
+          "en": "Coffee app welcome screen: a photograph of a café table behind an illustrated pair of takeaway cups, the line it's a great day for coffee, the Brewtopia wordmark, and a swipe to order control at the foot.",
+          "es": "Pantalla de bienvenida: la foto de una mesa de cafetería tras un par de vasos ilustrados, la frase es un gran día para el café, el logotipo Brewtopia y un control de deslizar para pedir al pie."
+        }
+      },
+      {
+        "src": "/mobile-apps/coffee-2-order.webp",
+        "label": { "en": "Menu", "es": "Carta" },
+        "alt": {
+          "en": "Order screen: an all products and favourites toggle, a drinks row with hot coffees and hot teas and a see all link, a food row with hot breakfast and bakery, and a five item tab bar for home, favourites, orders, cart and profile.",
+          "es": "Pantalla de pedido: conmutador entre todos los productos y favoritos, una fila de bebidas con cafés y tés calientes y enlace de ver todo, una fila de comida con desayunos y bollería, y una barra de cinco pestañas."
+        }
+      },
+      {
+        "src": "/mobile-apps/coffee-3-product.webp",
+        "label": { "en": "Product", "es": "Producto" },
+        "alt": {
+          "en": "Product screen: a photograph of a cappuccino with a favourite control, the name and a rating, chips for coffee, chocolate and medium roasted, three cup sizes as radio options, an about paragraph with a read more link, and an add to cart button carrying the price.",
+          "es": "Ficha de producto: foto de un capuchino con control de favorito, nombre y valoración, etiquetas de café, chocolate y tueste medio, tres tamaños de vaso como opciones, un párrafo con enlace de leer más y un botón de añadir al carrito con el precio."
+        }
+      },
+      {
+        "src": "/mobile-apps/coffee-4-checkout.webp",
+        "label": { "en": "Checkout", "es": "Pago" },
+        "alt": {
+          "en": "Checkout screen: delivery and take away tabs, two editable addresses, the order with its drink and customisations, a saved card as the payment method, a voucher row, shipping charges, and an amount panel breaking out price, shipping and total above a pay button.",
+          "es": "Pantalla de pago: pestañas de entrega y para llevar, dos direcciones editables, el pedido con su bebida y personalizaciones, una tarjeta guardada como método de pago, una fila de cupón, los gastos de envío y un panel de importes con precio, envío y total sobre el botón de pagar."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "furniture",
+    "name": "Furniture store",
+    "tags": ["iOS", "Catalogue", "E-commerce"],
+    "summary": {
+      "en": "A small catalogue where the photograph does the selling. Type, price and the add-to-cart control sit in the same place on every product, so browsing never turns into re-learning.",
+      "es": "Un catálogo pequeño donde la fotografía es la que vende. Tipo, precio y el botón de añadir al carrito están en el mismo sitio en cada producto, así navegar no obliga a reaprender."
+    },
+    "screens": [
+      {
+        "src": "/mobile-apps/furniture-1-welcome.webp",
+        "label": { "en": "Welcome", "es": "Bienvenida" },
+        "alt": {
+          "en": "Furniture app welcome screen: a photograph of a sofa in a daylit room, the line best furniture for your home with a promise of quality beneath it, and a book now button.",
+          "es": "Pantalla de bienvenida: la foto de un sofá en una sala con luz natural, la frase los mejores muebles para tu casa con una promesa de calidad debajo y un botón de reservar."
+        }
+      },
+      {
+        "src": "/mobile-apps/furniture-2-catalogue.webp",
+        "label": { "en": "Catalogue", "es": "Catálogo" },
+        "alt": {
+          "en": "Catalogue screen: a search field prefilled with chairs, a result count, and a two column grid of chairs each with a photograph, name, price and a favourite control, above a home, favourites and cart tab bar.",
+          "es": "Pantalla de catálogo: un buscador con sillas escrito, el número de resultados y una cuadrícula de dos columnas con foto, nombre, precio y control de favorito, sobre una barra de inicio, favoritos y carrito."
+        }
+      },
+      {
+        "src": "/mobile-apps/furniture-3-product.webp",
+        "label": { "en": "Product", "es": "Producto" },
+        "alt": {
+          "en": "Product screen: a blue armchair on a plain ground with a paging indicator, the name and price, a description, a select type row offering foam, office, rotating and wing, and an add to cart button.",
+          "es": "Ficha de producto: un sillón azul sobre fondo plano con indicador de paginación, nombre y precio, una descripción, una fila de tipo con espuma, oficina, giratoria y orejera, y un botón de añadir al carrito."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "rent-a-car",
+    "name": "Luxury car rental",
+    "tags": ["iOS", "Marketplace", "Payments"],
+    "summary": {
+      "en": "Renting a car from a phone: browse by brand, read the specification, then pay. The details screen puts seats, transmission, top speed and tank beside the owner's name, because both decide the booking.",
+      "es": "Alquilar un coche desde el móvil: buscar por marca, leer la ficha y pagar. La pantalla de detalle pone plazas, cambio, velocidad máxima y depósito junto al nombre del propietario, porque las dos cosas deciden la reserva."
+    },
+    "screens": [
+      {
+        "src": "/mobile-apps/rent-a-car-1-welcome.webp",
+        "label": { "en": "Welcome", "es": "Bienvenida" },
+        "alt": {
+          "en": "Car rental welcome screen: the front of a dark saloon car filling the frame, the words luxury car rental with a line about renting from your device, and a get started button.",
+          "es": "Pantalla de bienvenida: el frontal de un coche oscuro llenando el encuadre, las palabras alquiler de coches de lujo con una línea sobre alquilar desde el móvil y un botón de empezar."
+        }
+      },
+      {
+        "src": "/mobile-apps/rent-a-car-2-browse.webp",
+        "label": { "en": "Browse", "es": "Explorar" },
+        "alt": {
+          "en": "Browse screen: a location in the header, a search field with a filter control, a row of manufacturer badges, and a two column grid of available cars each with a photograph, model name, daily price and a forward control.",
+          "es": "Pantalla de exploración: la ubicación en la cabecera, un buscador con control de filtros, una fila de marcas y una cuadrícula de dos columnas de coches disponibles con foto, modelo, precio por día y un control de avance."
+        }
+      },
+      {
+        "src": "/mobile-apps/rent-a-car-3-details.webp",
+        "label": { "en": "Details", "es": "Detalle" },
+        "alt": {
+          "en": "Car details screen: a thumbnail rail down the left, the model name over a photograph of an orange sports car, a specifications row for seats, transmission, top speed and tank capacity, the owner's name with call and message controls, a contract period selector and a rent button carrying the total.",
+          "es": "Pantalla de detalle: una tira de miniaturas a la izquierda, el modelo sobre la foto de un deportivo naranja, una fila de características con plazas, cambio, velocidad máxima y depósito, el nombre del propietario con controles de llamada y mensaje, un selector de periodo y un botón de alquilar con el total."
+        }
+      },
+      {
+        "src": "/mobile-apps/rent-a-car-4-payment.webp",
+        "label": { "en": "Payment", "es": "Pago" },
+        "alt": {
+          "en": "Payment screen: a card illustration showing the holder's name, a masked number and an expiry date, a row of accepted payment brands, fields for the card number, full name, security code and expiry, a switch to save the card, and a book now button.",
+          "es": "Pantalla de pago: la ilustración de una tarjeta con el titular, el número enmascarado y la caducidad, una fila de métodos aceptados, campos de número, nombre, código de seguridad y caducidad, un interruptor para guardar la tarjeta y un botón de reservar."
+        }
+      }
+    ]
+  }
+]

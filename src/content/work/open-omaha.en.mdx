@@ -87,32 +87,9 @@ Table titles from the larger studios lean on animation to carry the moment. That
 at this budget, so the differentiator had to be clarity: state the price of every bet in the
 currency already on the table, and name every hand in words.
 
-## Architecture and ideation
-
-### Information architecture
-
-The table is the whole application. Everything else, settings, coin size, pay table, history and the
-cashier, hangs off a single left rail inside a modal, so the player never leaves the felt.
-
-<Figure
-  src="/work/open-omaha/settings.webp"
-  alt="Open Omaha settings modal with a left rail listing Home, Game Rules, Pay Table, Coin Size, Settings, History and Cashier, and panels for sound settings, other settings including card animations, loading screen info, full screen, bet info, turbo and hand strength meter, and a card deck colour choice."
-  caption="One rail, seven destinations. The table stays visible behind the modal so nobody loses their seat."
-  kind="desktop"
-  aspect="16/10"
-  wide
-/>
-
-### Design system
-
-A red felt ground with a single warm gold for anything interactive, plus three status colours that
-never appear alone: green for a win, red for a loss or a fold, blue for the house. Chip
-denominations carry both a colour and a printed number, because colour alone is not a safe way to
-convey value. Type is set at sizes that survive a tablet held at arm's length.
-
 ## Starting the design
 
-### Low-fidelity structure
+### Wireframes
 
 The sequence was worked out in flat wireframes before any felt was drawn, so the argument was about
 order rather than decoration.
@@ -123,23 +100,23 @@ order rather than decoration.
   items={[
     {
       src: "/work/open-omaha/wireframe-1-buy-in.webp",
-      alt: "Low-fidelity wireframe of the Open Omaha buy-in screen: an empty dealer area, five empty seat blocks each labelled tap to buy in, a denomination rail at the lower left, auto buy-in and auto play controls at the lower right, and a status bar across the bottom.",
-      caption: "01 Buy-in. Structure reconstructed for this case study.",
+      alt: "Wireframe of the Open Omaha table before a hand: a dealer marker at the top, an empty community card area, five seats each with a plus control to sit down, the second seat highlighted and carrying ante and blind chips, a denomination rail at the lower left and buy-in and play controls at the lower right.",
+      caption: "01 Buy-in. An empty seat asks one question at a time.",
     },
     {
-      src: "/work/open-omaha/wireframe-2-side-bets.webp",
-      alt: "Low-fidelity wireframe of the side-bet step: a three and four card bonus grid on the left, the dealer area centred, five seats showing ante and blind, and a deal cards button below.",
-      caption: "02 Side bets, off the deal path.",
+      src: "/work/open-omaha/wireframe-2-ante-blind.webp",
+      alt: "Wireframe of the ante and blind wager step, marked option four A: the community card area at the top, a total bet readout, five seats each showing a four card row with ante and blind amounts beneath, a buy-in button on the first seat and ante and blind wager buttons on the rest, and a confirm control at the lower right.",
+      caption: "02 Ante and blind. The wager is one confirmation, not a sequence.",
     },
     {
       src: "/work/open-omaha/wireframe-3-decision.webp",
-      alt: "Low-fidelity wireframe of the decision step: bonus results on the left, community cards centred, five seats with the second marked active, a check button at the lower left and 3x and 4x multiplier buttons at the lower right.",
-      caption: "03 Decision, one seat at a time.",
+      alt: "Wireframe of the decision step: the payout table on the left listing odds from three to four up to three to twenty, the dealer's cards face down, total bet and total win readouts, an empty community area, five seats with the second marked active and holding a four card bet, and check, three times and four times wager buttons along the bottom.",
+      caption: "03 Decision. Multipliers appear only when the seat is actually being asked.",
     },
     {
       src: "/work/open-omaha/wireframe-4-showdown.webp",
-      alt: "Low-fidelity wireframe of the showdown: the dealer hand named at the top left, community cards centred, a payout callout on the right, a row of named hands above each of the five seats, and a turbo control.",
-      caption: "04 Showdown, every hand named.",
+      alt: "Wireframe of the showdown: the payout table on the left, the dealer's cards face up for the final round, total bet and total win readouts, the community cards dealt with the winning ones outlined, a hand name label beneath them, five seats showing their cards face up, and the line best hand wins and pot division.",
+      caption: "04 Showdown. Every hand is named, so nobody has to read the board.",
     },
   ]}
 />

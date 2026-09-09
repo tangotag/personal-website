@@ -83,23 +83,9 @@ Multi-hand tables usually solve density by shrinking everything. That fails on t
 alternative, which is what shipped, is to treat the pair as one object for as long as possible and
 only separate it at the moment the two hands genuinely need different answers.
 
-## Architecture and ideation
-
-### Information architecture
-
-Four passes over the same table, each asking for exactly one class of bet. The instruction line at
-the top of the felt changes with the pass, and it is the only place the current question is stated.
-
-### Design system
-
-Blue felt distinguishes the title from its red sibling at a glance while every component underneath
-stays shared: the same chip denominations, the same dual total display of bet and balance, the same
-control shapes. Hand 1 and Hand 2 are labelled in text under every seat, never distinguished by
-position alone.
-
 ## Starting the design
 
-### Low-fidelity structure
+### Wireframes
 
 The wireframes exist to settle one question: when does the pair stop being a single unit?
 
@@ -108,24 +94,29 @@ The wireframes exist to settle one question: when does the pair stop being a sin
   wide
   items={[
     {
-      src: "/work/texas-flip/wireframe-1-ante.webp",
-      alt: "Low-fidelity wireframe of the Texas Flip ante step: a dealer area at the top, five seat blocks each containing a labelled hand 1 and hand 2 pair, a denomination rail at the lower left and auto all and auto ante controls at the lower right.",
-      caption: "01 Ante. The pair is one unit. Structure reconstructed for this case study.",
+      src: "/work/texas-flip/wireframe-1-table.webp",
+      alt: "Greybox wireframe of the Texas Flip table with no hand in play: the dealer area at the top left, two rows of five community cards, five seat blocks each with an ante and a blind chip position and placeholder lines for the player label, and an action bar along the bottom.",
+      caption: "01 Table. The layout before anything is dealt.",
     },
     {
-      src: "/work/texas-flip/wireframe-2-bonus.webp",
-      alt: "Low-fidelity wireframe of the bonus step: five seats labelled for three and four card bonus, with auto three card, auto four card and ok controls beneath.",
-      caption: "02 Bonus bets, with auto controls for regulars.",
+      src: "/work/texas-flip/wireframe-2-ante-blind.webp",
+      alt: "Wireframe of the ante and blind wager step, marked option four: the community card area, a total bet readout, five seats each showing a four card row with round ante and blind chips beneath, the second seat carrying an amount on each, and a confirm control at the lower right.",
+      caption: "02 Ante and blind. Both chips are placed in one action.",
     },
     {
-      src: "/work/texas-flip/wireframe-3-flip.webp",
-      alt: "Low-fidelity wireframe of the flip bet: two seats show their top cards outlined, and a hint line at the lower left reads flip bet is equal to ante.",
-      caption: "03 The flip bet, priced against the ante.",
+      src: "/work/texas-flip/wireframe-3-dealt.webp",
+      alt: "Greybox wireframe with a hand in play: five seats each holding a four card hand above their ante and blind chips, the dealer area and the two community rows above them, and the action bar unchanged along the bottom.",
+      caption: "03 Dealt. Five hands, one shared board.",
     },
     {
-      src: "/work/texas-flip/wireframe-4-hand-bets.webp",
-      alt: "Low-fidelity wireframe of the per-hand step: community cards at the top, five seats each split into hand 1 and hand 2, with check and 3x bet ante controls.",
-      caption: "04 The pair finally splits.",
+      src: "/work/texas-flip/wireframe-4-turn.webp",
+      alt: "Greybox wireframe showing whose turn it is: the same five seats with two of them ringed in different colours to mark the active player and the next one, and the rest left unmarked.",
+      caption: "04 Turn. Position is shown by outline rather than by moving anything.",
+    },
+    {
+      src: "/work/texas-flip/wireframe-5-bets.webp",
+      alt: "Greybox wireframe of the wagering state: each of the five seats shows a four card hand under a solid bar with a single large chip beside it, marking a bet that has been placed.",
+      caption: "05 Bets placed. One chip per seat, readable at a glance.",
     },
   ]}
 />

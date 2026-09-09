@@ -59,50 +59,6 @@ const JOBS: Job[] = [
   { from: "kiosk (10).png", to: "compass-kiosk/11-phone.webp" },
   { from: "kiosk (6).png", to: "compass-kiosk/12-receipt.webp" },
 
-  // AML Watcher: section bands measured against a ruler preview of the 1920x7224 board.
-  {
-    from: "AML WATCHER.png",
-    to: "aml-watcher/main-page.webp",
-    trim: true,
-    band: { top: 1500, height: 940 },
-  },
-  {
-    from: "AML WATCHER.png",
-    to: "aml-watcher/summary.webp",
-    trim: true,
-    band: { top: 2450, height: 810 },
-  },
-  {
-    from: "AML WATCHER.png",
-    to: "aml-watcher/linked-entities.webp",
-    trim: true,
-    band: { top: 3360, height: 840 },
-  },
-  {
-    from: "AML WATCHER.png",
-    to: "aml-watcher/sanction-details.webp",
-    trim: true,
-    band: { top: 4380, height: 835 },
-  },
-  {
-    from: "AML WATCHER.png",
-    to: "aml-watcher/verifications.webp",
-    trim: true,
-    band: { top: 5225, height: 475 },
-  },
-  {
-    from: "AML WATCHER.png",
-    to: "aml-watcher/sources.webp",
-    trim: true,
-    band: { top: 5705, height: 415 },
-  },
-  {
-    from: "AML WATCHER.png",
-    to: "aml-watcher/style-guide.webp",
-    trim: true,
-    band: { top: 6240, height: 984 },
-  },
-
   // KOMPETE: nine screens on a 1446x7305 board, evenly spaced. The boundaries come from
   // autocorrelating row brightness, which found a 795.6px period at phase 51.
   {
@@ -202,7 +158,6 @@ const COVERS: Cover[] = [
   // touch them. The menu grid sits behind for its food photography. The welcome screen filled half
   // its panel with empty white and said nothing about the design.
   { slug: "compass-kiosk", front: "05-pizza-configurator.webp", back: "03-menu.webp" },
-  { slug: "aml-watcher", front: "main-page.webp", back: "linked-entities.webp" },
   { slug: "kompete", front: "lobby.webp", back: "career-stats.webp" },
   { slug: "open-omaha", front: "showdown.webp", back: "cards-dealt.webp" },
   { slug: "texas-flip", front: "flip-bet.webp", back: "hand-bets.webp" },

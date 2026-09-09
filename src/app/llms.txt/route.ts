@@ -1,6 +1,6 @@
 import { site } from "@/data/site";
 import { getAllWork } from "@/lib/content";
-import { getFaq, getServices } from "@/lib/data";
+import { getFaq, getMobileApps, getServices } from "@/lib/data";
 import { routing } from "@/i18n/routing";
 import { pick } from "@/types/content";
 
@@ -19,6 +19,7 @@ const EN = routing.defaultLocale;
 export function GET() {
   const work = getAllWork(EN);
   const services = getServices();
+  const apps = getMobileApps();
   const faq = getFaq("home");
 
   const lines: string[] = [
@@ -56,6 +57,19 @@ export function GET() {
       if (r.status === "confirm") continue; // unverified numbers never leave the repo
       lines.push(`  - ${r.value} ${r.label}`);
     }
+  }
+
+  lines.push(
+    "",
+    "## Mobile app design",
+    "",
+    `Concept apps shown as screens on ${site.url}/work rather than written up as case studies: no client, no metrics, no process.`,
+    "",
+  );
+  for (const app of apps) {
+    lines.push(
+      `- **${app.name}** (${app.tags.join(", ")}): ${pick(app.summary, EN)} ${app.screens.length} screens.`,
+    );
   }
 
   lines.push("", "## Services", "");

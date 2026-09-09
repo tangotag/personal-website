@@ -36,8 +36,17 @@ test.describe("work listing", () => {
       "aria-pressed",
       "true",
     );
-    await expect(page.locator("main ul li a[href='/work/aml-watcher']")).toBeVisible();
+    await expect(page.locator("main ul li a[href='/work/compass-pos']")).toBeVisible();
     await page.getByRole("button", { name: "All" }).click();
     await expect(page).not.toHaveURL(/f=/);
+  });
+
+  test("mobile app design lists every app and screen, and links nowhere", async ({ page }) => {
+    await page.goto("/work");
+    const section = page.locator("section", { has: page.getByText("Mobile App Design") });
+    await expect(section.getByRole("heading", { level: 3 })).toHaveCount(4);
+    // Concept work, not case studies: the screens are figures, never links to a detail page.
+    await expect(section.locator("figure img")).toHaveCount(14);
+    await expect(section.locator("a")).toHaveCount(0);
   });
 });

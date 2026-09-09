@@ -204,7 +204,12 @@
       "empty": "Nothing here yet. Try another filter.",
       "ctaTitle": "Don’t see your industry?",
       "ctaText": "I’ve probably designed something adjacent. Tell me what you’re building.",
-      "cta": "Tell me what you’re building"
+      "cta": "Tell me what you’re building",
+      "mobileApps": {
+        "eyebrow": "Mobile App Design",
+        "title": "Four apps, designed screen by screen.",
+        "lead": "Concept work rather than case studies: no client, no metrics, no process to walk through. The interface is the whole of the argument, so here it is at full size."
+      }
     },
     "services": {
       "title": "Services",

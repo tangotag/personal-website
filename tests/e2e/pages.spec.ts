@@ -22,12 +22,13 @@ test.describe("services", () => {
     ).toBeVisible();
     await expect(page.locator("details")).toHaveCount(6);
     await expect(page.locator("#quote form")).toBeVisible();
-    // Structured data present and parseable.
+    // Structured data is one @graph per page; the nodes are addressed by type, not by index.
     const ld = await page.locator('script[type="application/ld+json"]').first().textContent();
-    const parsed = JSON.parse(ld!);
-    expect(parsed[0]["@type"]).toBe("ProfessionalService");
-    expect(parsed[0].makesOffer).toHaveLength(7);
-    expect(parsed[1]["@type"]).toBe("FAQPage");
+    const graph = JSON.parse(ld!)["@graph"] as { "@type": string; [k: string]: unknown }[];
+    const node = (type: string) => graph.find((n) => n["@type"] === type);
+    expect(node("ProfessionalService")?.makesOffer).toHaveLength(7);
+    expect(node("FAQPage")).toBeTruthy();
+    expect(node("BreadcrumbList")?.itemListElement).toHaveLength(2);
   });
 
   test("service card links deep-link into the quote form", async ({ page }) => {
@@ -52,7 +53,9 @@ test.describe("about", () => {
     const resume = page.getByRole("link", { name: /Download resume/ }).first();
     await expect(resume).toHaveAttribute("href", /\.pdf$/);
     const ld = await page.locator('script[type="application/ld+json"]').first().textContent();
-    expect(JSON.parse(ld!)["@type"]).toBe("Person");
+    const graph = JSON.parse(ld!)["@graph"] as { "@type": string; [k: string]: unknown }[];
+    expect(graph.find((n) => n["@type"] === "Person")?.name).toBe("Raheel Ahmad Qureshi");
+    expect(graph.find((n) => n["@type"] === "ProfilePage")).toBeTruthy();
   });
 });
 

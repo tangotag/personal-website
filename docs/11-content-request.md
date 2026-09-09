@@ -12,7 +12,7 @@ Placeholders in the code are tagged `[CONFIRM]` (a number I drafted) or `[NEEDED
 | 3 | Compass screens | `public/work/compass-pos/01.jpg … 12.jpg` | Order screen, modifiers, payment/tipping, offline banner, KDS, kiosk attract/order/pay, Bridge admin (live sales, AI reports, employee time) |
 | 4 | Compass hardware photos | `public/work/compass-pos/hardware-*.jpg` | Terminal + kiosk photos for the device frames (`kind="pos"` / `"kiosk"`) |
 | 5 | Open Omaha cover + screens | `public/work/open-omaha/` | Lobby, table, cashier — before/after pairs if you have them (the `<Compare>` component) |
-| 6 | AML Watcher cover + screens | `public/work/aml-watcher/` | Alert queue, case timeline, reporting |
+| 6 | ~~AML Watcher cover + screens~~ | — | **Withdrawn 2026-09-09** — the case study was removed from the site |
 | 7 | KOMPETE naming check | — | The screens carry a `LEGACY` wordmark. Confirm that is the same title, or supply the KOMPETE captures |
 | 8 | Mintavibe, TurnkeyTix, RPA, EXAT Homes covers | `public/work/<slug>/cover.jpg` | Can be exported from your Behance boards |
 | 9 | Taxa's Hold'em · Roulette | `public/work/` | Captures for the two Fifty Cats titles that still have none |
@@ -27,7 +27,7 @@ Every image needs one line of alt text — I'll draft them from your captions.
 | Home numbers, Open Omaha | **+40% conversion** | Confirm the figure, what converted (lobby → first hand? visitor → deposit?), and the measurement window |
 | Compass POS hero | **< 30 min cashier onboarding** | Real figure, or a different metric: merchants live, locations, kiosk share of orders, support-ticket drop |
 | Compass POS | Team: PMs / engineers count · launch date · platforms (Android? Windows? iPad?) · was there research (interviews, site visits, pilots)? | One paragraph is enough |
-| AML Watcher | Timeline (months) · did the −25% dev-time / $5k figure come from this project or RPA? | |
+| ~~AML Watcher~~ | Withdrawn with the case study; the −25% dev-time figure is now attributed to "an enterprise compliance platform" in the home FAQ | |
 | KOMPETE | Studio/client name (can be "confidential"), platforms, timeline, your exact scope, any launch numbers | Without these the case study stays a draft |
 | Services | Typical timelines (6–12 weeks etc.) | Approve or edit the ranges in `src/content/services.json` |
 | About | Tools beyond Figma (Protopie? After Effects? Jira? Unity?) · "Beyond work" 2 sentences (optional) | |

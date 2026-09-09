@@ -20,7 +20,7 @@ coverAlt: "Three Mintavibe screens on a deep green ground: the watch and earn vi
 featuredOrder: 4
 ---
 
-{/* Wireframes, low-fidelity sheets and the two diagrams are drawn by scripts/build-mintavibe.mts. The final screens are the shipped product, supplied by Raheel. Engagement window still open (docs/11). */}
+{/* The wireframes are Raheel's own, converted by scripts/build-supplied.mts; the final screens are the shipped product. Engagement window still open (docs/11). */}
 
 <TLDR
   items={[
@@ -109,45 +109,6 @@ catalogue of gift cards. That is efficient and forgettable. The differentiator h
 reward is a person, not a product, so the celebrity profile had to be a first-class destination
 rather than a category inside a shop.
 
-## Architecture and ideation
-
-### Card sorting
-
-Features sorted into seven groups. The result that changed the product was points and perks
-refusing to sit inside account management. People treat a balance as something they own, not as a
-setting, so it got its own place.
-
-<Figure
-  src="/work/mintavibe/card-sorting.webp"
-  alt="A card sorting diagram with seven labelled columns headed onboarding, entertainment, play, redeem, account, support, and points and perks, each listing three features beneath it, with the points and perks column highlighted in green."
-  caption="Seven groups, redrawn from the sort. Points and perks earned its own column."
-  kind="plain"
-  aspect="16/10"
-  wide
-/>
-
-### Information architecture
-
-Four tabs. Watch and earn, play and earn, redeem, and the celebrity destination that gives the
-other three a purpose, with profile carrying the balance and the referral loop.
-
-<Figure
-  src="/work/mintavibe/information-architecture.webp"
-  alt="An information architecture tree beginning at splash and onboarding, branching at a sign up or log in decision into a highlighted home node, which leads to watch and earn, play and earn, redeem, celebrity and profile, each with three sub-screens beneath it."
-  caption="Every way to earn sits one level below home, so no activity outranks another."
-  kind="plain"
-  aspect="16/10"
-  wide
-/>
-
-### Design system
-
-A near-black ground, one warm gold, one accent red. Gold is the only colour that means value: the
-balance, a point total, a tier badge, a primary action. Red is reserved for destructive or exit
-actions, which is why log out is the only red control on a screen full of gold ones. Every point
-value is rendered by the same component, so a number in a video row and a number on an invoice are
-visibly the same kind of thing.
-
 ## Starting the design
 
 ### Wireframes
@@ -156,61 +117,34 @@ Structure first, with no copy and no brand, to settle where the balance lives an
 attached to an activity.
 
 <Gallery
-  cols={2}
+  cols={3}
+  aspect="1/2"
   wide
   items={[
     {
-      src: "/work/mintavibe/wireframe-1-watch.webp",
-      alt: "Wireframe of the watch and earn screen: app chrome with a balance pill, a promo banner, a section label, and four video rows each with a thumbnail, title, meta line and reward block, above a tab bar. Four numbered annotations sit beside the phone.",
-      caption: "01 Watch and earn. Structure reconstructed for this case study.",
+      src: "/work/mintavibe/wireframe-1-celebrity.webp",
+      alt: "Hand-drawn mobile wireframe of a celebrity club page: the Mintavibe header with a points balance and a logout control, a film strip thumbnail beside a biography with a read more link, a top five fans avatar row, a celebrity club benefits grid, and a segmented control switching between collectables, images, videos and events above two panels of icons.",
+      caption: "01 Celebrity club. The reason to come back sits above the fold.",
     },
     {
-      src: "/work/mintavibe/wireframe-2-play.webp",
-      alt: "Wireframe of the play and earn screen: a featured game banner, a section label, and three game rows each with an icon, title, rating line and points block, above a tab bar.",
-      caption: "02 Play and earn. One promoted game, then a ranked list.",
+      src: "/work/mintavibe/wireframe-2-watch.webp",
+      alt: "Hand-drawn mobile wireframe of the watch and earn list: a banner reading get your popcorn ready with a watch now button, then five video rows each with a thumbnail, a duration, the points that can be earned and a share control, above a four tab bar.",
+      caption: "02 Watch and earn. Every row states the reward before the tap.",
     },
     {
-      src: "/work/mintavibe/wireframe-3-celebrity.webp",
-      alt: "Wireframe of the celebrity profile: a bio card, a row of five circular fan avatars, three benefit cards, four filter chips and a tier card, above a tab bar.",
-      caption: "03 Celebrity. Bio, fans, benefits, tiers.",
+      src: "/work/mintavibe/wireframe-3-play.webp",
+      alt: "Hand-drawn mobile wireframe of the play and earn screen: a game of the day ribbon above a play and win panel with artwork and a play now button, then an explore more games list where each entry shows a rating, when it was last played, the player count, time played, points earned and likes.",
+      caption: "03 Play and earn. Progress is stated per game rather than pooled.",
     },
     {
-      src: "/work/mintavibe/wireframe-4-redeem.webp",
-      alt: "Wireframe of the collectable and invoice screen: a tier card, a benefits section header, a six-cell benefit grid, an invoice section header and stacked rows for order number, total, points used and amount paid.",
-      caption: "04 Redeem. The invoice is part of the screen, not a receipt email.",
-    },
-  ]}
-/>
-
-### Low fidelity
-
-The same four screens with real copy and real numbers, still greyscale. This is where hierarchy was
-settled: the reward pill had to beat the video title for attention, and the invoice split had to
-survive being read at a glance.
-
-<Gallery
-  cols={2}
-  wide
-  items={[
-    {
-      src: "/work/mintavibe/lofi-1-watch.webp",
-      alt: "Low-fidelity watch and earn screen with real copy: a Mintavibe chrome with an MV 100 balance, a watch content banner, and four video rows reading earn 1000, 500, 50 and 1500 MV.",
-      caption: "Real amounts, because varied values are content the eye compares.",
+      src: "/work/mintavibe/wireframe-4-collectables.webp",
+      alt: "Hand-drawn mobile wireframe of a fan collectables page: a celebrity card at the top, a benefits grid listing a Spotify playlist, a Discord invite, a live session, tea with the artist and an excursion, and an invoice panel below showing the order number and date, the payment method, the total, the points used and the net amount paid.",
+      caption: "04 Collectables. The invoice keeps points and cash on separate lines.",
     },
     {
-      src: "/work/mintavibe/lofi-2-play.webp",
-      alt: "Low-fidelity play and earn screen with a game of the day banner and three game rows named Super Sixes, Top Goals and Cricket 3D, each showing a rating and points earned.",
-      caption: "Points earned belongs on the row, next to the rating.",
-    },
-    {
-      src: "/work/mintavibe/lofi-3-celebrity.webp",
-      alt: "Low-fidelity celebrity profile with a bio block, top five fans row, three club benefit cards labelled playlist, excursion and guitar, four chips and a Brigadier tier card.",
-      caption: "Tiers are named, so a balance becomes a rank rather than a number.",
-    },
-    {
-      src: "/work/mintavibe/lofi-4-redeem.webp",
-      alt: "Low-fidelity collectable screen with a Brigadier tier card, a fan collectables benefits grid, and an invoice block showing order number 2146461414, total 7000, points used 3000 and paid 4000.",
-      caption: "The invoice split, laid out before any brand arrived.",
+      src: "/work/mintavibe/wireframe-5-profile.webp",
+      alt: "Hand-drawn mobile wireframe of profile settings: an avatar, username and email at the top, then rows for my points with a balance, my purchases, rate us, notifications, FAQ, about us, disable account and refer and earn, with privacy policy and terms of use links at the foot.",
+      caption: "05 Profile. The points balance is a row, not a screen you have to find.",
     },
   ]}
 />

@@ -85,24 +85,9 @@ Las mesas multimano suelen resolver la densidad encogiéndolo todo. Eso falla en
 alternativa, que es la que se lanzó, es tratar la pareja como un solo objeto el mayor tiempo
 posible y separarla solo cuando las dos manos necesitan de verdad respuestas distintas.
 
-## Arquitectura e ideación
-
-### Arquitectura de la información
-
-Cuatro pasadas sobre la misma mesa, cada una pidiendo exactamente una clase de apuesta. La línea de
-instrucción en la parte superior del fieltro cambia con la pasada, y es el único sitio donde se
-enuncia la pregunta actual.
-
-### Sistema de diseño
-
-El fieltro azul distingue el título de su hermano rojo de un vistazo mientras cada componente por
-debajo permanece compartido: las mismas denominaciones de ficha, la misma doble lectura de apuesta y
-saldo, las mismas formas de control. Mano 1 y Mano 2 se etiquetan con texto bajo cada asiento, nunca
-se distinguen solo por posición.
-
 ## Empezar a diseñar
 
-### Estructura de baja fidelidad
+### Wireframes
 
 Los wireframes existen para resolver una pregunta: ¿cuándo deja la pareja de ser una sola unidad?
 
@@ -111,24 +96,29 @@ Los wireframes existen para resolver una pregunta: ¿cuándo deja la pareja de s
   wide
   items={[
     {
-      src: "/work/texas-flip/wireframe-1-ante.webp",
-      alt: "Wireframe de baja fidelidad del paso de ante en Texas Flip: zona de crupier arriba, cinco bloques de asiento con una pareja etiquetada mano 1 y mano 2, un raíl de denominaciones abajo a la izquierda y controles automáticos abajo a la derecha.",
-      caption: "01 Ante. La pareja es una unidad. Estructura reconstruida para este caso de estudio.",
+      src: "/work/texas-flip/wireframe-1-table.webp",
+      alt: "Wireframe de bloques de la mesa de Texas Flip sin mano en juego: la zona del crupier arriba a la izquierda, dos filas de cinco cartas comunitarias, cinco bloques de asiento con posiciones para las fichas de ante y ciega y líneas de marcador para la etiqueta del jugador, y una barra de acciones abajo.",
+      caption: "01 Mesa. La disposición antes de repartir.",
     },
     {
-      src: "/work/texas-flip/wireframe-2-bonus.webp",
-      alt: "Wireframe del paso de bono: cinco asientos etiquetados para el bono de tres y cuatro cartas, con controles de bono automático y aceptar debajo.",
-      caption: "02 Apuestas de bono, con automáticos para habituales.",
+      src: "/work/texas-flip/wireframe-2-ante-blind.webp",
+      alt: "Wireframe del paso de apuesta de ante y ciega, marcado como opción cuatro: la zona de cartas comunitarias, el total apostado, cinco asientos con una fila de cuatro cartas y fichas redondas de ante y ciega debajo, el segundo asiento con un importe en cada una, y un control de confirmación abajo a la derecha.",
+      caption: "02 Ante y ciega. Las dos fichas se colocan en una sola acción.",
     },
     {
-      src: "/work/texas-flip/wireframe-3-flip.webp",
-      alt: "Wireframe de la apuesta de volteo: dos asientos muestran sus cartas superiores perfiladas y una línea de ayuda abajo a la izquierda indica que la apuesta de volteo equivale al ante.",
-      caption: "03 La apuesta de volteo, valorada contra el ante.",
+      src: "/work/texas-flip/wireframe-3-dealt.webp",
+      alt: "Wireframe de bloques con una mano en juego: cinco asientos con una mano de cuatro cartas sobre sus fichas de ante y ciega, la zona del crupier y las dos filas comunitarias encima, y la barra de acciones sin cambios abajo.",
+      caption: "03 Repartido. Cinco manos, una sola mesa compartida.",
     },
     {
-      src: "/work/texas-flip/wireframe-4-hand-bets.webp",
-      alt: "Wireframe del paso por mano: cartas comunitarias arriba, cinco asientos divididos en mano 1 y mano 2, con controles de pasar y 3x del ante.",
-      caption: "04 La pareja por fin se separa.",
+      src: "/work/texas-flip/wireframe-4-turn.webp",
+      alt: "Wireframe de bloques que muestra el turno: los mismos cinco asientos con dos de ellos rodeados en colores distintos para marcar al jugador activo y al siguiente, y el resto sin marcar.",
+      caption: "04 Turno. La posición se muestra con un contorno, no moviendo nada.",
+    },
+    {
+      src: "/work/texas-flip/wireframe-5-bets.webp",
+      alt: "Wireframe de bloques del estado de apuesta: cada uno de los cinco asientos muestra una mano de cuatro cartas bajo una barra sólida con una ficha grande al lado, marcando una apuesta ya colocada.",
+      caption: "05 Apuestas puestas. Una ficha por asiento, legible de un vistazo.",
     },
   ]}
 />
