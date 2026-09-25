@@ -2,11 +2,11 @@
  * Prepares the portrait for the two frames that hold it (home hero, /about) and for the
  * default social card.
  *
- * The current source is a rendered character portrait that carries its own room behind the
- * subject, so unlike the first supplied file it is used whole — there is no plain ground to key
- * out, and the bokeh and shelves are part of the picture. The only decision left is the crop:
- * both frames reserve 4:5 and the source is 3:4, so 80 rows come off, weighted to the bottom of
- * the sweater to leave the eyes on the upper third.
+ * The current source is a photograph against a plain wall. It is used whole rather than keyed
+ * out: the wall is part of the picture, and a matte cut around real hair against a soft-edged
+ * background looks worse than no matte at all. The only decision left is the crop — both frames
+ * reserve 4:5 and the source is 3:4, so rows come off the empty wall above the head, which is
+ * where the dead space is.
  *
  *   public/images/portrait.webp   1200×1500, the two frames
  *   public/images/og-default.jpg  1200×630 social card for every page without one of its own
@@ -17,7 +17,7 @@ import { mkdirSync } from "node:fs";
 import { join } from "node:path";
 import sharp from "sharp";
 
-const SRC = join(process.cwd(), "Images", "RAQ portrait1.jpg");
+const SRC = join(process.cwd(), "Images", "Profile Pic 2.jpg");
 const OUT = join(process.cwd(), "public", "images");
 
 /** 4:5, the aspect both frames reserve. */
@@ -35,16 +35,14 @@ const LIME = "#DDF23A";
 const MUTED = "#9FB3AB";
 
 /**
- * Crops the source to `aspect`. When height is the excess, two thirds of it comes off the bottom:
- * the subject sits high with the sweater running off the bottom edge, so an even crop would eat
- * headroom the composition needs and drop the eyes below the upper third. When width is the
- * excess it comes off evenly, the face being centred.
+ * Crops the source to `aspect`. When height is the excess it all comes off the top: the frame has
+ * a stretch of empty wall above the head and nothing to spare at the bottom, where the hoodie
+ * lettering runs to the edge. When width is the excess it comes off evenly, the face being centred.
  */
 function crop(width: number, height: number, aspect: number) {
   const wantH = Math.round(width / aspect);
   if (wantH <= height) {
-    const top = Math.round((height - wantH) / 3);
-    return { left: 0, top, width, height: wantH };
+    return { left: 0, top: height - wantH, width, height: wantH };
   }
   const wantW = Math.round(height * aspect);
   return { left: Math.round((width - wantW) / 2), top: 0, width: wantW, height };
