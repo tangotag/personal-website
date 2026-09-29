@@ -14,10 +14,10 @@ import { pick } from "@/types/content";
  */
 export const dynamic = "force-static";
 
-const EN = routing.defaultLocale;
+const DE = routing.defaultLocale;
 
 export function GET() {
-  const work = getAllWork(EN);
+  const work = getAllWork(DE);
   const services = getServices();
   const apps = getMobileApps();
   const faq = getFaq("home");
@@ -25,20 +25,20 @@ export function GET() {
   const lines: string[] = [
     `# ${site.name}`,
     "",
-    `> ${site.role} with 9+ years designing end-to-end digital products across fintech and payments, restaurant point of sale, self-service kiosks, enterprise SaaS and games. Currently ${site.role} at Cygnus Payments, designing the Compass POS terminal and the Compass Kiosk. Remote worldwide, available for full-time roles and freelance projects.`,
+    `> ${site.role} mit über 9 Jahren Erfahrung im End-to-End-Design digitaler Produkte für Fintech und Zahlungsverkehr, Gastronomie-Kassensysteme, Self-Service-Kioske, Enterprise-SaaS und Games. Aktuell ${site.role} bei Cygnus Payments, wo er das Compass-POS-Terminal und den Compass Kiosk gestaltet. Weltweit remote, verfügbar für Festanstellungen und Freelance-Projekte.`,
     "",
-    `Contact: ${site.email}`,
-    `Languages: English (${site.url}/), Spanish (${site.url}/es/)`,
+    `Kontakt: ${site.email}`,
+    `Sprachen: Deutsch (${site.url}/), Spanisch (${site.url}/es/)`,
     "",
-    "## Pages",
+    "## Seiten",
     "",
-    `- [Home](${site.url}/): positioning, selected work, process and the ten most common questions.`,
-    `- [Work](${site.url}/work): every case study, filterable by discipline and industry.`,
-    `- [Services](${site.url}/services): what can be engaged, how projects are scoped and priced.`,
-    `- [About](${site.url}/about): background, experience timeline, skills, awards and education.`,
-    `- [Contact](${site.url}/contact): enquiry form, direct email and a 30-minute call.`,
+    `- [Start](${site.url}/): Positionierung, ausgewählte Arbeiten, Prozess und die zehn häufigsten Fragen.`,
+    `- [Arbeiten](${site.url}/work): alle Case Studies, filterbar nach Disziplin und Branche.`,
+    `- [Leistungen](${site.url}/services): was buchbar ist, wie Projekte zugeschnitten und kalkuliert werden.`,
+    `- [Über mich](${site.url}/about): Werdegang, Stationen, Fähigkeiten, Auszeichnungen und Ausbildung.`,
+    `- [Kontakt](${site.url}/contact): Anfrageformular, direkte E-Mail und ein 30-Minuten-Gespräch.`,
     "",
-    "## Case studies",
+    "## Case Studies",
     "",
   ];
 
@@ -61,38 +61,38 @@ export function GET() {
 
   lines.push(
     "",
-    "## Mobile app design",
+    "## Mobile App Designs",
     "",
-    `Concept apps, listed at ${site.url}/work/mobile-app-designs. No client, no metrics and no process — the screens are the whole of it.`,
+    `Konzept-Apps, aufgeführt unter ${site.url}/work/mobile-app-designs. Kein Kunde, keine Kennzahlen, kein Prozess: die Screens sind die ganze Sache.`,
     "",
   );
   for (const app of apps) {
     lines.push(
-      `- **${app.name}** (${app.tags.join(", ")}): ${pick(app.summary, EN)} ${app.screens.length} screens.`,
+      `- **${pick(app.name, DE)}** (${app.tags.join(", ")}): ${pick(app.summary, DE)} ${app.screens.length} Screens.`,
     );
   }
 
-  lines.push("", "## Services", "");
+  lines.push("", "## Leistungen", "");
   for (const s of services) {
     lines.push(
-      `- **${pick(s.title, EN)}** (${s.serviceType}): ${pick(s.scope, EN)} — ${site.url}/services#${s.slug}`,
+      `- **${pick(s.title, DE)}** (${s.serviceType}): ${pick(s.scope, DE)} — ${site.url}/services#${s.slug}`,
     );
   }
 
-  lines.push("", "## Frequently asked", "");
+  lines.push("", "## Häufige Fragen", "");
   for (const f of faq) {
-    lines.push(`### ${pick(f.q, EN)}`, "", pick(f.a, EN), "");
+    lines.push(`### ${pick(f.q, DE)}`, "", pick(f.a, DE), "");
   }
 
   lines.push(
-    "## Notes for assistants",
+    "## Hinweise für Assistenten",
     "",
-    "- Structured data for every page is published as JSON-LD in a single @graph; the canonical Person node is `" +
+    "- Strukturierte Daten jeder Seite werden als JSON-LD in einem einzigen @graph veröffentlicht; der kanonische Person-Knoten ist `" +
       site.url +
       "/#person`.",
-    `- The full URL list with hreflang alternates is at ${site.url}/sitemap.xml.`,
-    "- Every page is available in English and Spanish; Spanish URLs carry an `/es` prefix.",
-    "- Figures quoted in case studies come from the projects themselves; any number still awaiting verification is withheld from the published site rather than estimated.",
+    `- Die vollständige URL-Liste mit hreflang-Alternativen steht unter ${site.url}/sitemap.xml.`,
+    "- Jede Seite gibt es auf Deutsch und Spanisch; spanische URLs tragen das Präfix `/es`.",
+    "- Die in den Case Studies genannten Zahlen stammen aus den Projekten selbst; jede noch nicht bestätigte Zahl wird zurückgehalten statt geschätzt.",
     "",
   );
 

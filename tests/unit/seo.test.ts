@@ -5,14 +5,14 @@ import { alternatesFor } from "@/lib/seo";
 
 describe("alternatesFor", () => {
   it("builds canonical + hreflang for the default locale without a prefix", () => {
-    const a = alternatesFor("/about", "en");
+    const a = alternatesFor("/about", "de");
     expect(a.canonical).toBe("/about");
-    expect(a.languages).toEqual({ en: "/about", es: "/es/about", "x-default": "/about" });
+    expect(a.languages).toEqual({ de: "/about", es: "/es/about", "x-default": "/about" });
   });
 
   it("prefixes Spanish and keeps the root clean", () => {
     expect(alternatesFor("/", "es").canonical).toBe("/es");
-    expect(alternatesFor("/", "en").canonical).toBe("/");
+    expect(alternatesFor("/", "de").canonical).toBe("/");
     expect(alternatesFor("/work/compass-pos", "es").languages?.es).toBe("/es/work/compass-pos");
   });
 });

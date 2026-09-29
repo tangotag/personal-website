@@ -25,7 +25,7 @@ test.describe("work listing", () => {
 
   test("unknown filter falls back to all", async ({ page }) => {
     await page.goto("/work?f=nope");
-    await expect(page.getByRole("button", { name: "All", exact: true })).toHaveAttribute(
+    await expect(page.getByRole("button", { name: "Alle", exact: true })).toHaveAttribute(
       "aria-pressed",
       "true",
     );
@@ -40,7 +40,7 @@ test.describe("work listing", () => {
       "true",
     );
     await expect(page.locator("main ul li a[href='/work/compass-pos']")).toBeVisible();
-    await page.getByRole("button", { name: "All", exact: true }).click();
+    await page.getByRole("button", { name: "Alle", exact: true }).click();
     await expect(page).not.toHaveURL(/f=/);
   });
 
@@ -62,6 +62,6 @@ test.describe("work listing", () => {
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Mobile App Designs");
     // Every screen of every app is on the page; there is no second click to reach them.
     await expect(page.locator("article figure img")).toHaveCount(14);
-    await expect(page.getByRole("heading", { name: "Cinema booking" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Kinobuchung" })).toBeVisible();
   });
 });

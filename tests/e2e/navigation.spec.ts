@@ -12,9 +12,12 @@ test.describe("header & navigation", () => {
     test.skip(isMobile, "desktop-only nav");
     await page.goto("/");
     const nav = page.getByRole("navigation", { name: "Primary" });
-    await nav.getByRole("link", { name: "Work" }).click();
+    await nav.getByRole("link", { name: "Arbeiten" }).click();
     await expect(page).toHaveURL(/\/work$/);
-    await expect(nav.getByRole("link", { name: "Work" })).toHaveAttribute("aria-current", "page");
+    await expect(nav.getByRole("link", { name: "Arbeiten" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   });
 
@@ -24,13 +27,13 @@ test.describe("header & navigation", () => {
   }) => {
     test.skip(!isMobile, "mobile-only menu");
     await page.goto("/");
-    const open = page.getByRole("button", { name: "Open menu" });
+    const open = page.getByRole("button", { name: "Menü öffnen" });
     await open.focus();
     await page.keyboard.press("Enter");
 
     const dialog = page.locator("dialog#mobile-menu");
     await expect(dialog).toHaveJSProperty("open", true);
-    await expect(page.getByRole("button", { name: "Close menu" })).toBeFocused();
+    await expect(page.getByRole("button", { name: "Menü schließen" })).toBeFocused();
     await expect(page.locator("body")).toHaveCSS("overflow", "hidden");
 
     // Focus stays inside the dialog while tabbing.
@@ -50,7 +53,7 @@ test.describe("header & navigation", () => {
     await page.goto("/");
     const html = page.locator("html");
     await expect(html).toHaveAttribute("data-theme", "light");
-    await page.getByRole("button", { name: /Toggle theme/ }).click();
+    await page.getByRole("button", { name: /Design wechseln/ }).click();
     await expect(html).toHaveAttribute("data-theme", "dark");
     await page.reload();
     await expect(html).toHaveAttribute("data-theme", "dark");
@@ -63,8 +66,8 @@ test.describe("header & navigation", () => {
     // Header and footer both carry a switch; use the header one.
     await page
       .getByRole("banner")
-      .getByRole("group", { name: "Language" })
-      .getByRole("button", { name: "Spanish" })
+      .getByRole("group", { name: "Sprache" })
+      .getByRole("button", { name: "Spanisch" })
       .click();
     await expect(page).toHaveURL(/\/es\/about$/);
     await expect(page.locator("html")).toHaveAttribute("lang", "es");
@@ -74,7 +77,7 @@ test.describe("header & navigation", () => {
   test("skip link jumps to main content", async ({ page }) => {
     await page.goto("/");
     await page.keyboard.press("Tab");
-    const skip = page.getByRole("link", { name: "Skip to content" });
+    const skip = page.getByRole("link", { name: "Zum Inhalt springen" });
     await expect(skip).toBeFocused();
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/#main$/);

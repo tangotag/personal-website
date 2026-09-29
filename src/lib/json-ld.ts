@@ -53,7 +53,7 @@ export function siteGraph({
   extra = [],
 }: GraphInput) {
   const url = absoluteUrl(hrefFor(path, locale));
-  const lang = locale === "es" ? "es-ES" : "en-US";
+  const lang = locale === "es" ? "es-ES" : "de-DE";
   const img = image?.startsWith("http") ? image : image ? absoluteUrl(image) : undefined;
 
   return {

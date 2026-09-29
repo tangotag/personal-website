@@ -4,8 +4,8 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin({
   requestConfig: "./src/i18n/request.ts",
   experimental: {
-    // Generates a type declaration from the English catalog so t("key") is type-checked.
-    createMessagesDeclaration: "./messages/en.json",
+    // Generates a type declaration from the German catalog so t("key") is type-checked.
+    createMessagesDeclaration: "./messages/de.json",
   },
 });
 

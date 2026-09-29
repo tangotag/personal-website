@@ -37,7 +37,7 @@
     },
     "language": {
       "label": "Idioma",
-      "en": "Inglés",
+      "de": "Alemán",
       "es": "Español"
     },
     "email": "Email",
@@ -433,7 +433,7 @@
     "prev": "Proyecto anterior",
     "next": "Siguiente proyecto",
     "minutes": "{count, plural, =1 {1 min de lectura} other {# min de lectura}}",
-    "fallbackNotice": "Este caso de estudio solo está disponible en inglés por ahora.",
+    "fallbackNotice": "Este caso de estudio solo está disponible en alemán por ahora.",
     "backToWork": "Todo el trabajo",
     "meta": {
       "role": "Rol",

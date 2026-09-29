@@ -52,7 +52,7 @@ export async function CaseHero({ entry }: Props) {
       </Container>
 
       <Container className="mt-10 grid gap-10 md:mt-14 lg:grid-cols-12">
-        <div className="lg:col-span-8">
+        <div className="min-w-0 lg:col-span-8">
           <p className="text-eyebrow text-fg-muted">
             <span className="text-accent-strong">{entry.client}</span> · {entry.timeline}
           </p>
@@ -64,10 +64,12 @@ export async function CaseHero({ entry }: Props) {
               {entry.results.map((r) => (
                 <li
                   key={r.label}
-                  className="inline-flex items-center gap-2 rounded-xs bg-accent-soft px-2.5 py-1.5 font-mono text-xs text-accent-strong"
+                  // max-w-full and min-w-0: an inline-flex chip otherwise takes its whole label on
+                  // one line, and a long result label pushed the hero past a 390px viewport.
+                  className="inline-flex max-w-full items-center gap-2 rounded-xs bg-accent-soft px-2.5 py-1.5 font-mono text-xs text-accent-strong"
                 >
                   <span className="font-semibold">{r.value}</span>
-                  <span>{r.label}</span>
+                  <span className="min-w-0 break-words">{r.label}</span>
                   {r.status === "confirm" ? <span className="opacity-70">[CONFIRM]</span> : null}
                 </li>
               ))}
@@ -81,16 +83,19 @@ export async function CaseHero({ entry }: Props) {
           </div>
         </div>
 
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-5 self-start lg:col-span-4 lg:grid-cols-1 lg:border-l lg:border-border lg:pl-8">
+        {/* min-w-0 on the cells is load-bearing: a grid track refuses to shrink below its
+            content's min-content width, so one long word in a value (German compounds do this
+            readily) widened the whole hero to 508px inside a 390px viewport. */}
+        <dl className="grid min-w-0 grid-cols-2 gap-x-6 gap-y-5 self-start lg:col-span-4 lg:grid-cols-1 lg:border-l lg:border-border lg:pl-8">
           {meta.map((m) => (
-            <div key={m.label}>
+            <div key={m.label} className="min-w-0">
               <dt className="font-mono text-[0.6875rem] tracking-[0.1em] text-fg-muted uppercase">
                 {m.label}
               </dt>
-              <dd className="mt-1 text-sm text-fg">{m.value}</dd>
+              <dd className="mt-1 text-sm break-words text-fg">{m.value}</dd>
             </div>
           ))}
-          <div>
+          <div className="min-w-0">
             <dt className="font-mono text-[0.6875rem] tracking-[0.1em] text-fg-muted uppercase">
               {t("meta.readingTime")}
             </dt>

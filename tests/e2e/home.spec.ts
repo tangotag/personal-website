@@ -29,10 +29,10 @@ test.describe("home", () => {
     await page.goto("/");
     const hero = page
       .locator("main")
-      .getByRole("link", { name: /Start a project/ })
+      .getByRole("link", { name: /Projekt starten/ })
       .first();
     await expect(hero).toHaveAttribute("href", "/contact");
-    const resume = page.getByRole("link", { name: /Download resume/ }).first();
+    const resume = page.getByRole("link", { name: /Lebenslauf herunterladen/ }).first();
     await expect(resume).toHaveAttribute(
       "href",
       /Raheel-Ahmad-Qureshi-Senior-Product-Designer\.pdf$/,
@@ -69,7 +69,7 @@ test.describe("home", () => {
       .getByRole("button", { name: /connect@raheelqureshi.com/ });
     await btn.scrollIntoViewIfNeeded();
     await btn.click();
-    await expect(btn).toContainText("Copied");
+    await expect(btn).toContainText("Kopiert");
     const text = await page.evaluate(() => navigator.clipboard.readText());
     expect(text).toBe("connect@raheelqureshi.com");
   });

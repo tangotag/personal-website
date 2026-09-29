@@ -26,7 +26,7 @@ const schema = z.object({
   service: z.string().trim().max(80).optional(),
   budget: z.string().trim().max(40).optional(),
   message: z.string().trim().min(10).max(5000),
-  locale: z.enum(["en", "es"]).default("en"),
+  locale: z.enum(["de", "es"]).default("de"),
   source: z.enum(["contact", "quote"]).default("contact"),
   // Honeypot — must stay empty.
   website: z.string().max(0).optional(),

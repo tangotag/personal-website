@@ -78,7 +78,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       siteName: t("siteName"),
-      locale: locale === "es" ? "es_ES" : "en_US",
+      locale: locale === "es" ? "es_ES" : "de_DE",
       url: canonicalUrl,
       // Case studies generate their own card; every other route falls back to this one.
       images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `${site.name} · ${site.role}` }],

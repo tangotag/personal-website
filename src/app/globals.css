@@ -42,6 +42,12 @@
   h3 {
     font-family: var(--font-display);
     font-weight: 700;
+    /* German compounds regularly run past a phone's width at display sizes: "Aufmerksamkeits-
+       ökonomie" alone measures 508px at 390px viewport and has no break opportunity, which pushed
+       a whole case-study hero into horizontal scroll. <html lang> is always set, so the browser
+       hyphenates with the right dictionary; break-word is the backstop for anything it cannot. */
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 
   /* `balance` only where it matters — it is a per-element layout pass; `pretty` on every <p>

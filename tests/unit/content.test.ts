@@ -13,7 +13,7 @@ describe("content loader", () => {
   it("lists slugs from the English files and orders the hero first", async () => {
     const { getWorkSlugs, getAllWork } = await loadWith("development");
     expect(getWorkSlugs()).toContain("compass-pos");
-    const all = getAllWork("en");
+    const all = getAllWork("de");
     expect(all[0]?.slug).toBe("compass-pos");
     expect(all[0]?.tier).toBe("hero");
     // Featured entries follow in featuredOrder.
@@ -21,49 +21,49 @@ describe("content loader", () => {
     expect(featured).toEqual([...featured].sort((a, b) => (a ?? 99) - (b ?? 99)));
   });
 
-  it("falls back to English for a missing Spanish file and flags it", async () => {
+  it("falls back to German for a missing Spanish file and flags it", async () => {
     const { getWork } = await loadWith("development");
     const es = getWork("compass-pos", "es");
     expect(es?.fallback).toBe(true);
-    expect(es?.locale).toBe("en");
-    const en = getWork("compass-pos", "en");
-    expect(en?.fallback).toBe(false);
+    expect(es?.locale).toBe("de");
+    const de = getWork("compass-pos", "de");
+    expect(de?.fallback).toBe(false);
   });
 
   it("returns null for unknown slugs", async () => {
     const { getWork } = await loadWith("development");
-    expect(getWork("does-not-exist", "en")).toBeNull();
+    expect(getWork("does-not-exist", "de")).toBeNull();
   });
 
   it("strips placeholder results and hides drafts in production only", async () => {
     const dev = await loadWith("development");
-    const devEntry = dev.getWork("compass-pos", "en");
+    const devEntry = dev.getWork("compass-pos", "de");
     expect(devEntry?.results.some((r) => r.status === "confirm")).toBe(true);
 
     const prod = await loadWith("production");
-    const prodEntry = prod.getWork("compass-pos", "en");
+    const prodEntry = prod.getWork("compass-pos", "de");
     expect(prodEntry?.results.some((r) => r.status === "confirm")).toBe(false);
-    expect(prod.getAllWork("en").some((e) => e.draft)).toBe(false);
+    expect(prod.getAllWork("de").some((e) => e.draft)).toBe(false);
 
     // Whatever drafts the catalogue holds are readable in development and absent from production.
     // Asserting over the set rather than one slug keeps this true as entries are published.
-    for (const draft of dev.getAllWork("en").filter((e) => e.draft)) {
-      expect(dev.getWork(draft.slug, "en")).not.toBeNull();
-      expect(prod.getWork(draft.slug, "en")).toBeNull();
+    for (const draft of dev.getAllWork("de").filter((e) => e.draft)) {
+      expect(dev.getWork(draft.slug, "de")).not.toBeNull();
+      expect(prod.getWork(draft.slug, "de")).toBeNull();
     }
   });
 
   it("wraps prev/next around the listing", async () => {
     const { getAllWork, getAdjacentWork } = await loadWith("development");
-    const all = getAllWork("en");
-    const first = getAdjacentWork(all[0]!.slug, "en");
+    const all = getAllWork("de");
+    const first = getAdjacentWork(all[0]!.slug, "de");
     expect(first.next?.slug).toBe(all[1]?.slug);
     expect(first.prev?.slug).toBe(all[all.length - 1]?.slug);
   });
 
   it("filters by the /work filter keys", async () => {
     const { getAllWork, filterWork } = await loadWith("development");
-    const all = getAllWork("en");
+    const all = getAllWork("de");
     expect(filterWork(all, "all")).toHaveLength(all.length);
     for (const e of filterWork(all, "games")) expect(e.filters).toContain("games");
   });

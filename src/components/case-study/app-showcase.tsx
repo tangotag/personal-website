@@ -45,7 +45,7 @@ export function AppShowcase({ locale }: { locale: string }) {
           className="border-t border-border pt-10 first:border-t-0 first:pt-0"
         >
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-3">
-            <h3 className="scroll-mt-24 text-h3">{app.name}</h3>
+            <h3 className="scroll-mt-24 text-h3">{pick(app.name, locale)}</h3>
             <ul className="flex flex-wrap gap-2">
               {app.tags.map((tag) => (
                 <li key={tag}>

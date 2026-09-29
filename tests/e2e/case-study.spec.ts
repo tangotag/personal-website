@@ -10,14 +10,14 @@ test.describe("case study", () => {
     // Meta list carries role/timeline/platforms.
     await expect(page.getByText("Senior Product Designer").first()).toBeVisible();
     // TOC links to the body headings (collapsed behind a toggle on mobile).
-    const toc = page.getByRole("navigation", { name: "On this page" });
-    const toggle = toc.getByRole("button", { name: "On this page" });
+    const toc = page.getByRole("navigation", { name: "Auf dieser Seite" });
+    const toggle = toc.getByRole("button", { name: "Auf dieser Seite" });
     if (await toggle.isVisible()) await toggle.click();
     await expect(toc.getByRole("link").first()).toBeVisible();
     const target = await toc.getByRole("link").first().getAttribute("href");
     await expect(page.locator(target!)).toBeVisible();
     // Next project card exists and links to another case study.
-    const next = page.getByRole("link", { name: /Next project/ });
+    const next = page.getByRole("link", { name: /Nächstes Projekt/ });
     await expect(next).toHaveAttribute("href", /^\/work\/(?!compass-pos)/);
   });
 
@@ -26,10 +26,10 @@ test.describe("case study", () => {
     await expect(page.getByText("[CONFIRM]")).toHaveCount(0);
   });
 
-  test("Spanish falls back to English with a notice", async ({ page }) => {
+  test("Spanish falls back to German with a notice", async ({ page }) => {
     await page.goto("/es/work/compass-pos");
     await expect(page.locator("html")).toHaveAttribute("lang", "es");
-    await expect(page.getByText("solo está disponible en inglés")).toBeVisible();
+    await expect(page.getByText("solo está disponible en alemán")).toBeVisible();
   });
 
   test("unknown slug is a 404", async ({ page }) => {

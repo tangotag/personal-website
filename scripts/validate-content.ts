@@ -1,7 +1,7 @@
 /**
  * Build-time content validation (runs via `prebuild`).
  *
- * 1. Message catalogs — every key in messages/en.json exists in every other locale with the
+ * 1. Message catalogs — every key in messages/de.json exists in every other locale with the
  *    same value type, and no locale carries stray keys.
  * 2. Case studies — every src/content/work/*.mdx has valid frontmatter (zod), a cover file on
  *    disk when `cover` is set, and a coverAlt whenever a cover exists.
@@ -38,7 +38,7 @@ function flatten(value: Json, prefix = ""): Map<string, string> {
 
 const messagesDir = join(root, "messages");
 const catalogs = readdirSync(messagesDir).filter((f) => f.endsWith(".json"));
-const base = "en.json";
+const base = "de.json";
 if (!catalogs.includes(base)) errors.push(`messages/${base} is missing`);
 const baseFlat = flatten(JSON.parse(readFileSync(join(messagesDir, base), "utf8")) as Json);
 
@@ -86,7 +86,7 @@ for (const file of mdxFiles) {
   }
   if (fm.loop && !existsSync(join(root, "public", fm.loop)))
     errors.push(`work/${file}: loop "${fm.loop}" not found under public/`);
-  if (locale === "en" && !fm.draft) {
+  if (locale === "de" && !fm.draft) {
     slugsSeen.set(fm.slug, file);
     for (const f of fm.filters) filterHits.set(f, (filterHits.get(f) ?? 0) + 1);
   }

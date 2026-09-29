@@ -85,7 +85,7 @@ export default async function WorkEntryPage({ params }: PageProps<"/[locale]/wor
         description: entry.hook,
         author: { "@id": PERSON_ID },
         creator: { "@id": PERSON_ID },
-        inLanguage: entry.locale === "es" ? "es-ES" : "en-US",
+        inLanguage: entry.locale === "es" ? "es-ES" : "de-DE",
         keywords: entry.tags.join(", "),
         genre: entry.industry.join(", "),
         about: entry.platforms.join(", "),

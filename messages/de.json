@@ -1,0 +1,484 @@
+{
+  "meta": {
+    "siteName": "Raheel Ahmad Qureshi · Senior Product Designer",
+    "titleTemplate": "%s · Raheel Ahmad Qureshi",
+    "home": {
+      "title": "Raheel Ahmad Qureshi · Senior Product Designer",
+      "description": "Senior Product Designer mit über 9 Jahren Erfahrung in Fintech, POS, SaaS und Games. Ich mache aus komplexen Systemen Produkte, die Menschen gern benutzen, und übergebe Designs, mit denen Entwickler 25 % schneller liefern."
+    }
+  },
+  "nav": {
+    "work": "Arbeiten",
+    "services": "Leistungen",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "cta": "Sprechen wir",
+    "menu": "Menü",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "skipToContent": "Zum Inhalt springen",
+    "home": "Start"
+  },
+  "common": {
+    "available": "Verfügbar für Festanstellung & Freelance",
+    "downloadResume": "Lebenslauf herunterladen",
+    "startProject": "Projekt starten",
+    "viewWork": "Arbeiten ansehen",
+    "seeAll": "Alle ansehen",
+    "readCase": "Case Study lesen",
+    "copyEmail": "E-Mail kopieren",
+    "copied": "Kopiert",
+    "bookCall": "30-Minuten-Termin buchen",
+    "sendMessage": "Nachricht senden",
+    "theme": {
+      "toggle": "Design wechseln",
+      "light": "Hell",
+      "dark": "Dunkel"
+    },
+    "language": {
+      "label": "Sprache",
+      "de": "Deutsch",
+      "es": "Spanisch"
+    },
+    "email": "E-Mail",
+    "viewDesigns": "Designs ansehen"
+  },
+  "marquee": {
+    "items": [
+      "Verfügbar für Festanstellung",
+      "Offen für Freelance-Projekte",
+      "Remote weltweit",
+      "Fintech",
+      "POS & Kiosk",
+      "SaaS",
+      "Games"
+    ]
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Senior Product Designer · Remote weltweit",
+      "title": "Ich mache aus komplexen Systemen Produkte, die Menschen wirklich gern benutzen.",
+      "highlight": "wirklich gern",
+      "lead": "Über 9 Jahre End-to-End-Produktdesign: Kassensysteme und Self-Service-Kioske für die Gastronomie, Compliance-SaaS und Multiplayer-Games. Die Übergabe eines Entwicklers, das Gespür eines Spielers dafür, was Menschen wiederkommen lässt.",
+      "replyTime": "Antwort in der Regel innerhalb von 24 Stunden."
+    },
+    "paths": {
+      "hiring": {
+        "title": "Sie suchen jemanden fürs Team?",
+        "text": "Senior Product Designer, über 9 Jahre Erfahrung, remote-erprobt, ab sofort verfügbar.",
+        "cta": "Werdegang ansehen"
+      },
+      "client": {
+        "title": "Sie brauchen ein Produktdesign?",
+        "text": "Projekte mit festem Umfang oder ein Senior Designer im Team, ohne den Weg über die Personalsuche.",
+        "cta": "Leistungen ansehen"
+      }
+    },
+    "work": {
+      "eyebrow": "Ausgewählte Arbeiten",
+      "title": "Vier Projekte, die zeigen, wie ich denke.",
+      "lead": "Fintech, SaaS und Games. Jedes mit einem echten Problem, einer klaren Rolle und einem Ergebnis, das sich überprüfen lässt.",
+      "all": "Alle Arbeiten"
+    },
+    "numbers": {
+      "eyebrow": "Belege in Zahlen",
+      "title": "Geliefert und gemessen.",
+      "years": "Jahre Design digitaler Produkte",
+      "devTime": "Entwicklungszeit dank entwicklungsfertiger Übergabe (rund 5.000 $ Ersparnis pro Projekt)",
+      "conversion": "Conversion nach dem Redesign von Open Omaha",
+      "retention": "Spielerbindung bei Titeln von Argon Tech",
+      "awards": "Auszeichnungen der Branche"
+    },
+    "familiar": {
+      "eyebrow": "Kommt Ihnen das bekannt vor?",
+      "title": "Kommt Ihnen das bekannt vor?",
+      "items": [
+        {
+          "pain": "Das Produkt funktioniert, aber die Nutzer bleiben nicht.",
+          "answer": "Ich gestalte Engagement-Schleifen, nicht nur Screens. Gelernt in Games, angewendet auf SaaS und Fintech."
+        },
+        {
+          "pain": "Die Entwickler kommen ständig mit Rückfragen.",
+          "answer": "Sie bekommen entwicklungsfertige Specs, Komponentenbibliotheken und Design-QA. Genau an dieser Reibung spare ich Teams 25 % der Umsetzungszeit."
+        },
+        {
+          "pain": "Wir liefern auf Kassen, Kioske und Tablets, und es fühlt sich an wie eine Website.",
+          "answer": "Ich habe für Terminals, Kioske und den Offline-Modus gestaltet. Touch, Blendung, Warteschlangen und Handschuhe inklusive."
+        },
+        {
+          "pain": "Wir brauchen erfahrenes Urteilsvermögen, keinen Junior mit Vorlage.",
+          "answer": "Neun Jahre, drei Branchen, ein Designer, der ein Team geführt und allein geliefert hat."
+        }
+      ],
+      "cta": "Projekt starten"
+    },
+    "services": {
+      "eyebrow": "Was ich für Sie tun kann",
+      "title": "Senior Product Design, wenn Sie es brauchen.",
+      "lead": "Wählen Sie einen Umfang oder bringen Sie das Problem mit. Das erste Gespräch ist kostenlos.",
+      "all": "Alle Leistungen",
+      "quote": "Angebot anfragen"
+    },
+    "worked": {
+      "eyebrow": "Wo ich gearbeitet habe",
+      "title": "Fintech, Enterprise-SaaS und Game-Studios.",
+      "text": "Aktuell Senior Product Designer bei Cygnus Payments (US-Fintech), wo ich das Compass-POS- und Kiosk-Ökosystem gestalte. Davor Enterprise-SaaS bei 360SynergyTech, Casino-Games bei Fifty Cats und Teamleitung der Gaming-Abteilung von Argon Tech. Freelance auf Upwork seit 2020.",
+      "cta": "Die ganze Geschichte"
+    },
+    "testimonials": {
+      "eyebrow": "Was andere sagen",
+      "title": "Von den Menschen, mit denen ich gearbeitet habe.",
+      "empty": "Referenzen werden gerade eingeholt, mit Einverständnis, und erscheinen hier.",
+      "viewProject": "Projekt ansehen"
+    },
+    "process": {
+      "eyebrow": "Wie ich arbeite",
+      "title": "Vier Schritte, keine Überraschungen.",
+      "steps": [
+        {
+          "title": "Verstehen",
+          "text": "Ziele, Nutzer, Rahmenbedingungen, vorhandene Daten.",
+          "gets": "Sie bekommen: ein einseitiges Briefing, das wir beide unterschreiben."
+        },
+        {
+          "title": "Definieren",
+          "text": "Flows, Informationsarchitektur, Wireframes.",
+          "gets": "Sie bekommen: einen klickbaren Prototyp, früh und absichtlich unfertig."
+        },
+        {
+          "title": "Gestalten",
+          "text": "UI, Design-System, Motion.",
+          "gets": "Sie bekommen: eine Figma-Bibliothek und Spezifikationen."
+        },
+        {
+          "title": "Übergeben",
+          "text": "Handoff, Design-QA, Iteration mit Ihren Entwicklern.",
+          "gets": "Sie bekommen: ein Release, das dem Design entspricht, und weniger Rückfragen im Chat."
+        }
+      ],
+      "cta": "Angebot anfragen"
+    },
+    "cta": {
+      "title": "Bauen wir etwas, zu dem Menschen zurückkommen.",
+      "call": "30-Minuten-Termin buchen",
+      "message": "Oder schreiben Sie mir"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Fragen, die Menschen vor der Kontaktaufnahme stellen."
+    }
+  },
+  "footer": {
+    "tagline": "Senior Product Designer · Fintech, SaaS & Games.",
+    "rights": "© {year} Raheel Ahmad Qureshi. Alle Rechte vorbehalten.",
+    "navigate": "Navigation",
+    "work": "Arbeiten",
+    "connect": "Kontakt",
+    "backToTop": "Nach oben",
+    "email": "E-Mail"
+  },
+  "notFound": {
+    "title": "Diese Seite gibt es nicht.",
+    "description": "Der Link ist vielleicht alt, oder die Seite ist umgezogen.",
+    "cta": "Zurück zur Startseite"
+  },
+  "consent": {
+    "text": "Ich nutze datenschutzfreundliche Analytics (ohne Cookies) und Google Analytics, wenn Sie zustimmen.",
+    "accept": "Zustimmen",
+    "decline": "Nein danke",
+    "learnMore": "Datenschutz"
+  },
+  "pages": {
+    "work": {
+      "title": "Arbeiten",
+      "description": "Produktdesign für Fintech, SaaS und Games. Filtern Sie nach dem, was Sie bauen.",
+      "placeholder": "Case Studies folgen in Phase 5–7.",
+      "filters": {
+        "all": "Alle",
+        "fintech-pos": "Fintech & POS",
+        "saas": "SaaS",
+        "mobile": "Mobile",
+        "games": "Games"
+      },
+      "filterLabel": "Arbeiten filtern",
+      "count": "{count, plural, =1 {1 Projekt} other {# Projekte}}",
+      "empty": "Hier ist noch nichts. Probieren Sie einen anderen Filter.",
+      "ctaTitle": "Ihre Branche ist nicht dabei?",
+      "ctaText": "Wahrscheinlich habe ich etwas Verwandtes gestaltet. Erzählen Sie mir, was Sie bauen.",
+      "cta": "Erzählen Sie mir, was Sie bauen"
+    },
+    "services": {
+      "title": "Leistungen",
+      "description": "Senior Product Design, wenn Sie es brauchen. Projekte mit festem Umfang oder ein Senior Designer im Team.",
+      "placeholder": "Die Leistungsseite folgt in Phase 8.",
+      "hero": {
+        "title": "Senior Product Design, wenn Sie es brauchen.",
+        "lead": "Projekte mit festem Umfang oder ein Senior Designer im Team, ohne den Weg über die Personalsuche. Wählen Sie unten einen Umfang oder bringen Sie das Problem mit; das erste Gespräch ist kostenlos.",
+        "cta": "Angebot anfragen"
+      },
+      "cardsEyebrow": "Buchen Sie mich für",
+      "cardsTitle": "Sieben Arten der Zusammenarbeit.",
+      "detail": {
+        "deliverables": "Was Sie bekommen",
+        "timeline": "Üblicher Zeitrahmen",
+        "quote": "Dafür ein Angebot anfragen"
+      },
+      "models": {
+        "eyebrow": "Formen der Zusammenarbeit",
+        "title": "Projekt, Retainer oder im Team.",
+        "items": [
+          {
+            "title": "Projekt",
+            "text": "Fester Umfang, fester Preis, klare Meilensteine. Am besten für einen Launch, ein Redesign oder ein neues Modul."
+          },
+          {
+            "title": "Retainer",
+            "text": "Eine feste Anzahl Tage pro Monat, für Teams, die laufend liefern und Senior-Design auf Abruf brauchen."
+          },
+          {
+            "title": "Im Team / Festanstellung",
+            "text": "Ich komme als Senior Product Designer in Ihr Team, für die richtige Rolle ab sofort verfügbar."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "Wie es abläuft",
+        "title": "Vier Schritte, und was ich bei jedem von Ihnen brauche.",
+        "steps": [
+          {
+            "title": "Verstehen",
+            "text": "Ziele, Nutzer, Rahmenbedingungen, vorhandene Daten.",
+            "needs": "Von Ihnen: 60 Minuten, Zugang zu Analytics und zu der Person, der das Produkt gehört."
+          },
+          {
+            "title": "Definieren",
+            "text": "Flows, Informationsarchitektur, Wireframes.",
+            "needs": "Von Ihnen: ehrliches Feedback innerhalb von 48 Stunden nach jedem Review."
+          },
+          {
+            "title": "Gestalten",
+            "text": "UI, Design-System, Motion.",
+            "needs": "Von Ihnen: Markenmaterial und eine Entwicklerin oder einen Entwickler im Raum für die Machbarkeit."
+          },
+          {
+            "title": "Übergeben",
+            "text": "Handoff, Design-QA, Iteration mit Ihren Entwicklern.",
+            "needs": "Von Ihnen: einen Staging-Link, damit ich am echten Build prüfen kann."
+          }
+        ]
+      },
+      "quote": {
+        "eyebrow": "Angebot anfragen",
+        "title": "Erzählen Sie mir, was Sie bauen.",
+        "lead": "Ein paar Zeilen genügen. Ich antworte innerhalb von 24 Stunden mit Rückfragen oder einem Vorschlag.",
+        "next": {
+          "title": "Wie es weitergeht",
+          "items": [
+            "Ich antworte innerhalb von 24 Stunden mit Rückfragen oder einem groben Umfang.",
+            "Wir führen ein kostenloses 30-Minuten-Gespräch über Ziele und Zeitrahmen.",
+            "Sie erhalten ein schriftliches Angebot: Umfang, Preis, Meilensteine."
+          ]
+        }
+      },
+      "faqEyebrow": "FAQ",
+      "faqTitle": "Was Kunden meistens fragen."
+    },
+    "about": {
+      "title": "Über mich",
+      "description": "Games haben mir Engagement beigebracht. Fintech hat mir beigebracht, was auf dem Spiel steht.",
+      "placeholder": "Die Über-mich-Seite folgt in Phase 8.",
+      "hero": {
+        "eyebrow": "Über mich",
+        "title": "Games haben mir Engagement beigebracht. Fintech hat mir beigebracht, was auf dem Spiel steht."
+      },
+      "story": [
+        "2017 habe ich bei Argon Tech in Lahore mit Spielgrafik angefangen und führte innerhalb eines Jahres die UI/UX der Gaming-Abteilung: Game-Design-Dokumente schreiben, Aufwände schätzen und Features liefern, die die Spielerbindung um 30 % erhöht haben. Games sind unnachsichtige Lehrmeister: Wenn ein Screen verwirrt, sind die Spieler in Sekunden weg.",
+        "Dieses Gespür kam mit mir in den Enterprise-SaaS-Bereich bei 360SynergyTech, wo ich Dashboards zur Geldwäscheprävention und RPA-Werkzeuge gebaut habe. Dort waren die Nutzer Analysten statt Spieler, und der Preis für Verwirrung war ein Compliance-Risiko. Ich habe gelernt: Der schnellste Weg zu gutem Design ist, Entwicklern etwas zu übergeben, das sie nicht interpretieren müssen. Das hat die Umsetzungszeit um ein Viertel gesenkt.",
+        "Heute bin ich Senior Product Designer bei Cygnus Payments und gestalte das Compass-POS- und Kiosk-Ökosystem, mit dem Restaurants ihren ganzen Tag bestreiten. Dazwischen arbeite ich seit 2020 freiberuflich für Kunden in den USA, Kanada und Europa: Apps, Immobilienseiten, Ticketing-Plattformen und einen plattformübergreifenden Shooter."
+      ],
+      "bring": {
+        "eyebrow": "Was ich mitbringe",
+        "title": "Drei Dinge, von denen die meisten Designer eines haben.",
+        "items": [
+          {
+            "title": "Systeme + Engagement",
+            "text": "Unternehmenskomplexität (POS, AML, RPA) und Engagement-Schleifen aus Games (Bindung, Conversion, Belohnungen) in einer Person."
+          },
+          {
+            "title": "Die Übergabe eines Entwicklers",
+            "text": "Ein Bachelor in Software Engineering bedeutet entwicklungsfertige Specs, Komponentenbibliotheken und Design-QA, gemessen an 25 % weniger Umsetzungszeit."
+          },
+          {
+            "title": "Hardware im Blick",
+            "text": "POS-Terminals und Kioske: Touch-Flächen, Offline-Modus, Blendung, Handschuhe und der Druck der Warteschlange. Reale Bedingungen, nicht nur Screens."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Werdegang",
+        "title": "Neun Jahre, drei Branchen.",
+        "now": "Heute",
+        "kinds": {
+          "full-time": "Festanstellung",
+          "contract": "Vertrag",
+          "freelance": "Freelance"
+        }
+      },
+      "skills": {
+        "eyebrow": "Fähigkeiten",
+        "title": "Was ich tatsächlich den ganzen Tag mache.",
+        "groups": [
+          {
+            "title": "Produkt",
+            "items": [
+              "Produktstrategie",
+              "Discovery",
+              "Informationsarchitektur",
+              "User Flows",
+              "Gamification"
+            ]
+          },
+          {
+            "title": "Research",
+            "items": [
+              "Interviews",
+              "Usability-Tests",
+              "A/B-Tests",
+              "UX-Audits",
+              "KI-gestützte Synthese"
+            ]
+          },
+          {
+            "title": "Handwerk",
+            "items": ["UI-Design", "Prototyping", "Motion", "Design-Systeme", "Barrierefreiheit"]
+          },
+          {
+            "title": "Führung",
+            "items": [
+              "Teamleitung",
+              "Mentoring",
+              "Stakeholder-Management",
+              "Game-Design-Dokumente",
+              "Aufwandsschätzung"
+            ]
+          },
+          {
+            "title": "Werkzeuge",
+            "items": ["Figma", "Figma-Komponentenbibliotheken", "Design-QA"]
+          }
+        ]
+      },
+      "awards": {
+        "eyebrow": "Anerkennung",
+        "title": "Auszeichnungen & Zertifikate",
+        "items": [
+          {
+            "title": "The Brainiac Award",
+            "org": "360SynergyTech",
+            "year": "2023"
+          },
+          {
+            "title": "Mitarbeiter des Jahres 2021",
+            "org": "360SynergyTech",
+            "year": "2022"
+          },
+          {
+            "title": "Star Performer, Gaming-Abteilung 2019",
+            "org": "Argon Tech",
+            "year": "2020"
+          }
+        ],
+        "certs": ["Google UX Design Professional Certificate"]
+      },
+      "education": {
+        "title": "Ausbildung",
+        "degree": "B.Sc. Software Engineering",
+        "school": "University of Management and Technology",
+        "years": "2012 – 2016",
+        "coursework": "Mensch-Computer-Interaktion · Anforderungserhebung · Software-Projektmanagement"
+      },
+      "resume": {
+        "title": "Lieber die einseitige Fassung?",
+        "text": "Vollständiger Lebenslauf als PDF, mit Kontaktdaten.",
+        "cta": "Lebenslauf herunterladen"
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Eine Stelle, ein Projekt oder einfach eine Frage. Ich lese alles.",
+      "placeholder": "Das Kontaktformular folgt in Phase 8.",
+      "hero": {
+        "title": "Sprechen wir.",
+        "lead": "Eine Stelle, ein Projekt oder einfach eine Frage. Ich lese alles."
+      },
+      "details": {
+        "email": "E-Mail",
+        "calendar": "Termin buchen",
+        "calendarText": "30 Minuten, kein Pitch. Nur Fragen.",
+        "socials": "Anderswo",
+        "response": "Antwort in der Regel innerhalb von 24 Stunden."
+      },
+      "faqEyebrow": "FAQ",
+      "faqTitle": "Bevor Sie schreiben"
+    }
+  },
+  "caseStudy": {
+    "toc": "Auf dieser Seite",
+    "prev": "Vorheriges Projekt",
+    "next": "Nächstes Projekt",
+    "minutes": "{count, plural, =1 {1 Min. Lesezeit} other {# Min. Lesezeit}}",
+    "fallbackNotice": "Diese Case Study ist vorerst nur auf Deutsch verfügbar.",
+    "backToWork": "Alle Arbeiten",
+    "meta": {
+      "role": "Rolle",
+      "client": "Kunde",
+      "timeline": "Zeitraum",
+      "platforms": "Plattformen",
+      "industry": "Branche",
+      "team": "Team",
+      "readingTime": "Lesezeit",
+      "link": "Live"
+    }
+  },
+  "forms": {
+    "name": "Name",
+    "email": "E-Mail",
+    "company": "Unternehmen (optional)",
+    "iam": "Ich bin…",
+    "iamOptions": {
+      "hiring": "Auf der Suche fürs Team",
+      "client": "Kunde mit einem Projekt",
+      "other": "Etwas anderes"
+    },
+    "service": "Leistung",
+    "serviceAny": "Noch unklar",
+    "budget": "Budget (optional)",
+    "budgetOptions": {
+      "unsure": "Noch unklar",
+      "b1": "Unter 3.000 $",
+      "b2": "3.000 $ – 10.000 $",
+      "b3": "10.000 $ – 25.000 $",
+      "b4": "Über 25.000 $"
+    },
+    "message": "Nachricht",
+    "messagePlaceholder": "Was bauen Sie, und was steht im Weg?",
+    "submit": "Nachricht senden",
+    "submitQuote": "Angebot anfragen",
+    "sending": "Wird gesendet…",
+    "privacy": "Ihre Angaben werden ausschließlich für die Antwort an Sie verwendet.",
+    "success": {
+      "title": "Angekommen. Ich antworte innerhalb von 24 Stunden.",
+      "text": "Schneller geht es im Gespräch: Buchen Sie 30 Minuten.",
+      "cta": "Termin buchen",
+      "another": "Weitere senden"
+    },
+    "errors": {
+      "name": "Bitte nennen Sie mir Ihren Namen.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "message": "Ein paar Worte mehr würden helfen. Mindestens 10 Zeichen.",
+      "turnstile": "Bitte schließen Sie die Spam-Prüfung ab.",
+      "rate": "Zu viele Nachrichten in kurzer Zeit. Versuchen Sie es in einer Minute erneut.",
+      "generic": "Beim Senden Ihrer Nachricht ist etwas schiefgegangen. Schreiben Sie mir direkt an {email}."
+    }
+  }
+}

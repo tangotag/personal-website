@@ -15,10 +15,10 @@ test.describe("services", () => {
 
   test("lists seven services, models, process, FAQ and the quote form", async ({ page }) => {
     await page.goto("/services");
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("Senior product design");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Senior Product Design");
     await expect(page.locator("main li[id]")).toHaveCount(7);
     await expect(
-      page.getByRole("heading", { name: "Project, retainer or embedded." }),
+      page.getByRole("heading", { name: "Projekt, Retainer oder im Team." }),
     ).toBeVisible();
     await expect(page.locator("details")).toHaveCount(6);
     await expect(page.locator("#quote form")).toBeVisible();
@@ -34,7 +34,7 @@ test.describe("services", () => {
   test("service card links deep-link into the quote form", async ({ page }) => {
     await page.goto("/services");
     const first = page.locator("main li[id]").first();
-    await first.getByRole("link", { name: /Request a quote for this/ }).click();
+    await first.getByRole("link", { name: /Dafür ein Angebot anfragen/ }).click();
     await expect(page).toHaveURL(/\/services\?service=end-to-end-product-design#quote$/);
   });
 });
@@ -45,12 +45,12 @@ test.describe("about", () => {
   test("renders story, timeline, skills, awards and the resume link", async ({ page }) => {
     await page.goto("/about");
     await expect(page.getByRole("heading", { level: 1 })).toContainText(
-      "Games taught me engagement",
+      "Games haben mir Engagement beigebracht",
     );
     await expect(page.locator("#experience ol > li")).toHaveCount(6);
     await expect(page.getByText("Cygnus Payments").first()).toBeVisible();
     await expect(page.getByText("The Brainiac Award")).toBeVisible();
-    const resume = page.getByRole("link", { name: /Download resume/ }).first();
+    const resume = page.getByRole("link", { name: /Lebenslauf herunterladen/ }).first();
     await expect(resume).toHaveAttribute("href", /\.pdf$/);
     const ld = await page.locator('script[type="application/ld+json"]').first().textContent();
     const graph = JSON.parse(ld!)["@graph"] as { "@type": string; [k: string]: unknown }[];
@@ -65,35 +65,35 @@ test.describe("contact", () => {
   test("shows validation errors for an empty submit and keeps input on error", async ({ page }) => {
     await page.goto("/contact");
     await page.getByLabel(/^Name/).fill("R");
-    await page.getByLabel(/^Email/).fill("not-an-email");
-    await page.getByLabel(/^Message/).fill("short");
-    await page.getByRole("button", { name: "Send message" }).click();
-    await expect(page.getByText("Please tell me your name.")).toBeVisible();
-    await expect(page.getByText("Enter a valid email address.")).toBeVisible();
-    await expect(page.getByText(/at least 10 characters/i)).toBeVisible();
+    await page.getByLabel(/^E-Mail/).fill("not-an-email");
+    await page.getByLabel(/^Nachricht/).fill("short");
+    await page.getByRole("button", { name: "Nachricht senden" }).click();
+    await expect(page.getByText("Bitte nennen Sie mir Ihren Namen.")).toBeVisible();
+    await expect(page.getByText("Bitte geben Sie eine gültige E-Mail-Adresse ein.")).toBeVisible();
+    await expect(page.getByText(/mindestens 10 Zeichen/i)).toBeVisible();
     // Values survive the round trip.
-    await expect(page.getByLabel(/^Email/)).toHaveValue("not-an-email");
+    await expect(page.getByLabel(/^E-Mail/)).toHaveValue("not-an-email");
   });
 
   test("submits successfully in dev mode (no email/Turnstile keys)", async ({ page }) => {
     await page.goto("/contact");
     await page.getByLabel(/^Name/).fill("Playwright Tester");
-    await page.getByLabel(/^Email/).fill("tester@example.com");
-    await page.getByLabel(/^Message/).fill("This is an end-to-end test message from Playwright.");
+    await page.getByLabel(/^E-Mail/).fill("tester@example.com");
+    await page.getByLabel(/^Nachricht/).fill("This is an end-to-end test message from Playwright.");
     await awaitTurnstile(page);
-    await page.getByRole("button", { name: "Send message" }).click();
+    await page.getByRole("button", { name: "Nachricht senden" }).click();
     await expect(page.getByTestId("contact-success")).toBeVisible();
-    await expect(page.getByTestId("contact-success")).toContainText("within 24 hours");
+    await expect(page.getByTestId("contact-success")).toContainText("innerhalb von 24 Stunden");
   });
 
   test("honeypot submissions are silently accepted", async ({ page }) => {
     await page.goto("/contact");
     await page.getByLabel(/^Name/).fill("Bot");
-    await page.getByLabel(/^Email/).fill("bot@example.com");
-    await page.getByLabel(/^Message/).fill("Buy cheap things now please thanks.");
+    await page.getByLabel(/^E-Mail/).fill("bot@example.com");
+    await page.getByLabel(/^Nachricht/).fill("Buy cheap things now please thanks.");
     await page.locator('input[name="website"]').fill("http://spam.example");
     await awaitTurnstile(page);
-    await page.getByRole("button", { name: "Send message" }).click();
+    await page.getByRole("button", { name: "Nachricht senden" }).click();
     await expect(page.getByTestId("contact-success")).toBeVisible();
   });
 

@@ -10,7 +10,7 @@ export type ContactSubmission = {
   service?: string;
   budget?: string;
   message: string;
-  locale: "en" | "es";
+  locale: "de" | "es";
   source: "contact" | "quote";
   ip?: string;
   user_agent?: string;

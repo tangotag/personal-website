@@ -68,7 +68,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
         url: pageUrl,
         email: site.email,
         areaServed: "Worldwide",
-        availableLanguage: ["en", "es"],
+        availableLanguage: ["de", "es"],
         founder: { "@id": PERSON_ID },
         makesOffer: services.map((s) => ({
           "@type": "Offer",

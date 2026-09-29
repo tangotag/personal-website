@@ -47,7 +47,7 @@ export type WorkFrontmatter = z.infer<typeof workFrontmatterSchema>;
 export type WorkResult = z.infer<typeof resultSchema>;
 
 export type WorkEntry = WorkFrontmatter & {
-  /** Locale the body was loaded from — "en" when the requested locale has no file yet. */
+  /** Locale the body was loaded from — "de" when the requested locale has no file yet. */
   locale: string;
   /** True when the requested locale fell back to English. */
   fallback: boolean;

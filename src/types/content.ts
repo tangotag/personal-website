@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-/** A string with a value per locale; ES may be omitted and falls back to EN. */
-export const localizedSchema = z.object({ en: z.string().min(1), es: z.string().optional() });
+/** A string with a value per locale; ES may be omitted and falls back to DE. */
+export const localizedSchema = z.object({ de: z.string().min(1), es: z.string().optional() });
 export type Localized = z.infer<typeof localizedSchema>;
 
 export function pick(value: Localized, locale: string): string {
-  return (locale === "es" && value.es) || value.en;
+  return (locale === "es" && value.es) || value.de;
 }
 
 export const serviceSchema = z.object({
@@ -64,7 +64,7 @@ export type Testimonial = z.infer<typeof testimonialSchema>;
  */
 export const mobileAppSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
-  name: z.string().min(1),
+  name: localizedSchema,
   tags: z.array(z.string().min(1)).min(1).max(4),
   summary: localizedSchema,
   screens: z
