@@ -25,7 +25,7 @@ export async function Numbers() {
         <SectionHeader number="02" eyebrow={t("eyebrow")} title={t("title")} />
         <ul className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 lg:grid-cols-5 lg:gap-x-10">
           {visible.map((s) => (
-            <li key={s.key} className="border-l border-border pl-5">
+            <li key={s.key} className="min-w-0 border-l border-border pl-5">
               <Metric
                 value={s.value}
                 prefix={"prefix" in s ? s.prefix : undefined}

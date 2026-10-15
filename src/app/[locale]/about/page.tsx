@@ -158,14 +158,20 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
       <Section className="border-y border-border bg-surface">
         <Container>
           <SectionHeader number="06" eyebrow={t("skills.eyebrow")} title={t("skills.title")} />
+          {/* A five-column track at 1536px is 206px wide and "Figma-Komponentenbibliotheken" is
+              319px, so these tags have to be allowed to wrap: single-line pills overflowed their
+              column and sat on top of the next one. min-w-0 lets the track shrink; the rest turns
+              the pill into a block that breaks and hyphenates in whatever language it holds. */}
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
             {groups.map((g) => (
-              <div key={g.title}>
+              <div key={g.title} className="min-w-0">
                 <p className="text-eyebrow text-fg-muted">{g.title}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {g.items.map((item) => (
-                    <li key={item}>
-                      <Tag>{item}</Tag>
+                    <li key={item} className="min-w-0">
+                      <Tag className="h-auto min-h-7 py-1 break-words hyphens-auto whitespace-normal">
+                        {item}
+                      </Tag>
                     </li>
                   ))}
                 </ul>

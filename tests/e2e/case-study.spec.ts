@@ -26,10 +26,19 @@ test.describe("case study", () => {
     await expect(page.getByText("[CONFIRM]")).toHaveCount(0);
   });
 
-  test("Spanish falls back to German with a notice", async ({ page }) => {
+  // Every entry is translated, so the Spanish URL must serve Spanish prose. The fallback notice is
+  // still built and still correct; it has nothing left to announce, and its reappearance here would
+  // mean a case study shipped without its .es.mdx.
+  test("Spanish serves the Spanish body, not a German fallback", async ({ page }) => {
     await page.goto("/es/work/compass-pos");
     await expect(page.locator("html")).toHaveAttribute("lang", "es");
-    await expect(page.getByText("solo está disponible en alemán")).toBeVisible();
+    await expect(page.getByText("solo está disponible en alemán")).toHaveCount(0);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(
+      "el terminal con el que un restaurante pasa todo el día",
+    );
+    await expect(page.getByText("Diseñador de Producto Senior").first()).toBeVisible();
+    // The shared catalogues used to leak English tag chips into both locales.
+    await expect(page.getByText("Sistema de diseño").first()).toBeVisible();
   });
 
   test("unknown slug is a 404", async ({ page }) => {

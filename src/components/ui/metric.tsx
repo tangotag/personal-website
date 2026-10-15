@@ -26,7 +26,7 @@ export function Metric({
   className,
 }: MetricProps) {
   return (
-    <div className={cn("flex flex-col gap-2", className)}>
+    <div className={cn("flex min-w-0 flex-col gap-2", className)}>
       <p className="text-stat text-fg">
         {typeof value === "number" ? (
           <CountUp value={value} prefix={prefix} suffix={suffix} decimals={decimals} />
@@ -34,7 +34,7 @@ export function Metric({
           display
         )}
       </p>
-      <p className="text-sm text-fg-muted">{label}</p>
+      <p className="text-sm break-words hyphens-auto text-fg-muted">{label}</p>
       {note ? <p className="font-mono text-xs text-fg-muted">{note}</p> : null}
     </div>
   );

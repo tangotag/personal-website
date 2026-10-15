@@ -53,10 +53,10 @@ function Card({ entry, label, dir }: { entry: WorkEntry; label: string; dir: "pr
           />
         ) : null}
       </p>
-      <p className="text-h3 transition-colors duration-300 ease-out group-hover:text-accent-strong">
+      <p className="text-h3 break-words hyphens-auto transition-colors duration-300 ease-out group-hover:text-accent-strong">
         {entry.title}
       </p>
-      <p className="text-sm text-fg-muted">{entry.client}</p>
+      <p className="text-sm break-words text-fg-muted">{entry.client}</p>
     </Link>
   );
 }

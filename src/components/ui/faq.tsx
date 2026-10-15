@@ -21,7 +21,7 @@ export function Faq({
       {items.map((item, i) => (
         <details key={i} name={name} className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-medium text-fg marker:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus [&::-webkit-details-marker]:hidden">
-            {item.q}
+            <span className="min-w-0 break-words hyphens-auto">{item.q}</span>
             <ChevronDown
               aria-hidden
               className="size-5 shrink-0 text-fg-muted transition-transform duration-200 group-open:rotate-180"

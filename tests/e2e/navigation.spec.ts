@@ -11,7 +11,7 @@ test.describe("header & navigation", () => {
   test("desktop nav marks the current page and routes work", async ({ page, isMobile }) => {
     test.skip(isMobile, "desktop-only nav");
     await page.goto("/");
-    const nav = page.getByRole("navigation", { name: "Primary" });
+    const nav = page.getByRole("navigation", { name: "Hauptnavigation" });
     await nav.getByRole("link", { name: "Arbeiten" }).click();
     await expect(page).toHaveURL(/\/work$/);
     await expect(nav.getByRole("link", { name: "Arbeiten" })).toHaveAttribute(
