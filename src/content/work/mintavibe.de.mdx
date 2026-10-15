@@ -20,101 +20,107 @@ coverAlt: "Drei Mintavibe-Screens auf dunkelgrünem Grund: die Videoliste zum Sc
 featuredOrder: 4
 ---
 
-{/* The wireframes are Raheel's own, converted by scripts/build-supplied.mts; the final screens are the shipped product. Engagement window still open (docs/11). */}
+{/* Die Wireframes sind Raheels eigene, konvertiert von scripts/build-supplied.mts; die finalen Screens sind das ausgelieferte Produkt. Der Projektzeitraum ist noch offen (docs/11). */}
 
 <TLDR
   items={[
-    "Mintavibe pays people in MV points for watching video, playing games and referring friends, then lets them spend those points on collectables and time with Bollywood celebrities.",
-    "The whole product hangs on one question a user asks constantly: what is a point actually worth? The answer is put on the invoice, where points and cash are shown side by side.",
-    "Four tabs, one currency, and a fan tier system that turns a balance into status rather than a score.",
+    "Mintavibe bezahlt Menschen in MV-Punkten fürs Videoschauen, Spielen und Weiterempfehlen und lässt sie diese Punkte für Sammlerstücke und Zeit mit Bollywood-Stars ausgeben.",
+    "Das ganze Produkt hängt an einer Frage, die Nutzer ständig stellen: Was ist ein Punkt eigentlich wert? Die Antwort steht auf der Rechnung, wo Punkte und Geld nebeneinander ausgewiesen sind.",
+    "Vier Reiter, eine Währung und ein System aus Fan-Stufen, das aus einem Kontostand Status macht statt einer Punktzahl.",
   ]}
 />
 
-## Overview
+## Überblick
 
-Mintavibe is a mobile rewards platform built around celebrity access. Users earn MV points by
-watching content, playing games and referring friends, then redeem them against fan collectables:
-a signed guitar, an excursion, a live session, coffee with the artist, a voucher.
+Mintavibe ist eine mobile Belohnungsplattform rund um Nähe zu Stars. Nutzer verdienen MV-Punkte,
+indem sie Inhalte schauen, Spiele spielen und Freunde werben, und lösen sie gegen Sammlerstücke für
+Fans ein: eine signierte Gitarre, eine Exkursion, eine Live-Session, einen Kaffee mit der Künstlerin,
+einen Gutschein.
 
-The splash screen states the whole product in three words: play games, meet celebrities, earn
-rewards. Everything after that has to keep that promise legible.
+Der Startbildschirm fasst das ganze Produkt in drei Zeilen: Spiele spielen, Stars treffen,
+Belohnungen verdienen. Alles danach muss dieses Versprechen lesbar halten.
 
 | | |
 |---|---|
-| **Tools** | Figma, Adobe Illustrator, Adobe Photoshop |
-| **Methodology** | Five phases: research, ideation, problem and solution, prototype, feedback and testing |
-| **Deliverables** | Personas, empathy maps, card sorting, information architecture, wireframes, low-fidelity screens, high-fidelity UI, design system |
-| **Surfaces** | Home, watch and earn, play and earn, redeem, celebrity profile, invoice, profile settings |
+| **Werkzeuge** | Figma, Adobe Illustrator, Adobe Photoshop |
+| **Vorgehen** | Fünf Phasen: Research, Ideenfindung, Problem und Lösung, Prototyp, Feedback und Tests |
+| **Ergebnisse** | Personas, Empathy Maps, Card Sorting, Informationsarchitektur, Wireframes, Screens in niedriger Auflösung, hochauflösende UI, Design-System |
+| **Oberflächen** | Start, Schauen und Verdienen, Spielen und Verdienen, Einlösen, Star-Profil, Rechnung, Profileinstellungen |
 
-## Discovery and problem definition
+## Discovery und Problemdefinition
 
-### The problem
+### Das Problem
 
-A rewards currency is only real if a user can answer three questions without leaving the screen
-they are on. How many points do I have. What did this action pay. What will those points buy.
+Eine Belohnungswährung ist nur dann echt, wenn ein Nutzer drei Fragen beantworten kann, ohne den
+Screen zu verlassen, auf dem er ist. Wie viele Punkte habe ich? Was hat diese Handlung gebracht? Was
+bekomme ich für diese Punkte?
 
-Most rewards apps answer the first and dodge the other two. Points accrue somewhere in a profile
-tab, activities do not say what they pay until afterwards, and redemption is a separate world with
-its own prices. The currency then reads as a loyalty gimmick, and engagement follows.
+Die meisten Belohnungs-Apps beantworten die erste und weichen den anderen beiden aus. Punkte sammeln
+sich irgendwo in einem Profilreiter, Aktivitäten sagen erst hinterher, was sie bringen, und das
+Einlösen ist eine eigene Welt mit eigenen Preisen. Dann liest sich die Währung als Treue-Spielerei,
+und das Engagement folgt dem.
 
-Mintavibe had a second problem on top. It spans four unrelated activities, video, games, social
-and shopping, and each one wants to be the front door. Left unresolved, the app becomes a menu of
-things that happen to share a login.
+Mintavibe hatte ein zweites Problem obendrauf. Die App umfasst vier zusammenhanglose Aktivitäten,
+Video, Spiele, Soziales und Einkaufen, und jede will die Eingangstür sein. Ungelöst wird die App zu
+einer Liste von Dingen, die zufällig einen Login teilen.
 
-### The goal
+### Das Ziel
 
-Make the value of a point visible at every step, and give the four earning paths one architecture
-so no activity outranks another.
+Den Wert eines Punktes an jeder Stelle sichtbar machen und den vier Verdienstwegen eine gemeinsame
+Architektur geben, damit keine Aktivität über einer anderen steht.
 
-### My role and responsibilities
+### Meine Rolle und Verantwortung
 
-End-to-end product design: research synthesis, personas and empathy maps, card sorting, the
-information architecture, wireframes and low-fidelity screens, the full high-fidelity interface,
-the brand and icon system, and the prototype used in testing. The app launched after prototype
-feedback had been folded back in.
+Produktdesign von Anfang bis Ende: Auswertung der Recherche, Personas und Empathy Maps, Card
+Sorting, die Informationsarchitektur, Wireframes und Screens in niedriger Auflösung, die
+vollständige hochauflösende Oberfläche, das Marken- und Icon-System sowie der Prototyp für die
+Tests. Die App ging live, nachdem das Feedback aus dem Prototyp eingearbeitet war.
 
 <Callout kind="constraint">
-  A points balance that appears in different places with different formatting stops being money and
-  becomes a score. One component, one position, every screen.
+  Ein Punktestand, der an verschiedenen Stellen unterschiedlich formatiert auftaucht, ist kein Geld
+  mehr, sondern eine Punktzahl. Eine Komponente, eine Position, auf jedem Screen.
 </Callout>
 
-## Understanding the user
+## Den Nutzer verstehen
 
-### Research summary
+### Zusammenfassung der Recherche
 
-Two behaviours dominate. People who arrive for a specific celebrity and treat earning as the price
-of admission. And people who arrive to pass time, earn without a target, and discover the celebrity
-side later. The first group needs the reward to be visible from the earning screen. The second
-needs a reason to care about a balance they did not set out to build.
+Zwei Verhaltensweisen überwiegen. Menschen, die wegen eines bestimmten Stars kommen und das
+Verdienen als Eintrittspreis behandeln. Und Menschen, die kommen, um Zeit zu vertreiben, ohne Ziel
+verdienen und die Star-Seite erst später entdecken. Die erste Gruppe braucht die Belohnung sichtbar
+auf dem Verdienst-Screen. Die zweite braucht einen Grund, sich für einen Kontostand zu
+interessieren, den sie gar nicht aufbauen wollte.
 
 ### Personas
 
-Rahul, a marketing professional in a city, here for celebrity content and games. Sonal, a business
-owner in a suburb, here for discounts and vouchers. Their scores disagree: Rahul rates
-entertainment and social interaction highest, Sonal rates shopping and personalised offers.
+Rahul, Marketingfachmann in der Stadt, hier wegen Star-Inhalten und Spielen. Sonal,
+Unternehmerin im Vorort, hier wegen Rabatten und Gutscheinen. Ihre Bewertungen widersprechen sich:
+Rahul gewichtet Unterhaltung und soziale Interaktion am höchsten, Sonal Einkaufen und persönliche
+Angebote.
 
-That disagreement is why the four earning paths carry equal weight in the tab bar. Any ranking
-would have served one persona and demoted the other.
+Dieser Widerspruch ist der Grund, warum die vier Verdienstwege in der Reiterleiste gleich gewichtet
+sind. Jede Rangfolge hätte einer Persona gedient und die andere herabgestuft.
 
-### Journey mapping
+### Mapping des Ablaufs
 
-Install, see the promise on the splash, sign up, land on home, earn something small, see the
-balance move, find a celebrity worth saving for, keep earning, redeem, read the invoice. The
-invoice is the end of the journey and the moment the currency is proved.
+Installieren, das Versprechen auf dem Startbildschirm sehen, registrieren, auf der Startseite
+landen, etwas Kleines verdienen, den Kontostand sich bewegen sehen, einen Star finden, für den sich
+Sparen lohnt, weiter verdienen, einlösen, die Rechnung lesen. Die Rechnung ist das Ende des Weges
+und der Moment, in dem sich die Währung beweist.
 
-### Competitive audit
+### Wettbewerbsanalyse
 
-Rewards apps in this space usually bury the balance in a profile tab and present redemption as a
-catalogue of gift cards. That is efficient and forgettable. The differentiator here is that the
-reward is a person, not a product, so the celebrity profile had to be a first-class destination
-rather than a category inside a shop.
+Belohnungs-Apps in diesem Feld vergraben den Kontostand meist in einem Profilreiter und zeigen das
+Einlösen als Katalog von Geschenkkarten. Das ist effizient und vergessenswert. Der Unterschied hier
+ist, dass die Belohnung ein Mensch ist und kein Produkt, deshalb musste das Star-Profil ein Ziel
+erster Klasse sein statt einer Kategorie in einem Shop.
 
-## Starting the design
+## Der Einstieg ins Design
 
 ### Wireframes
 
-Structure first, with no copy and no brand, to settle where the balance lives and how a reward is
-attached to an activity.
+Erst die Struktur, ohne Text und ohne Marke, um zu klären, wo der Kontostand lebt und wie eine
+Belohnung an eine Aktivität gebunden wird.
 
 <Gallery
   cols={3}
@@ -123,43 +129,43 @@ attached to an activity.
   items={[
     {
       src: "/work/mintavibe/wireframe-1-celebrity.webp",
-      alt: "Hand-drawn mobile wireframe of a celebrity club page: the Mintavibe header with a points balance and a logout control, a film strip thumbnail beside a biography with a read more link, a top five fans avatar row, a celebrity club benefits grid, and a segmented control switching between collectables, images, videos and events above two panels of icons.",
-      caption: "01 Celebrity club. The reason to come back sits above the fold.",
+      alt: "Handgezeichnetes mobiles Wireframe einer Star-Club-Seite: die Mintavibe-Kopfzeile mit Punktestand und Abmelde-Element, eine Filmstreifen-Miniatur neben einer Biografie mit Weiterlesen-Link, eine Reihe der fünf größten Fans, ein Raster mit Clubvorteilen und ein segmentierter Umschalter zwischen Sammlerstücken, Bildern, Videos und Events über zwei Feldern mit Symbolen.",
+      caption: "01 Star-Club. Der Grund zurückzukommen steht über dem Falz.",
     },
     {
       src: "/work/mintavibe/wireframe-2-watch.webp",
-      alt: "Hand-drawn mobile wireframe of the watch and earn list: a banner reading get your popcorn ready with a watch now button, then five video rows each with a thumbnail, a duration, the points that can be earned and a share control, above a four tab bar.",
-      caption: "02 Watch and earn. Every row states the reward before the tap.",
+      alt: "Handgezeichnetes mobiles Wireframe der Liste zum Schauen und Verdienen: ein Banner mit einer Schaltfläche zum Ansehen, darunter fünf Videozeilen mit je Miniatur, Dauer, den erreichbaren Punkten und einem Teilen-Element, über einer Leiste mit vier Reitern.",
+      caption: "02 Schauen und Verdienen. Jede Zeile nennt die Belohnung vor dem Tippen.",
     },
     {
       src: "/work/mintavibe/wireframe-3-play.webp",
-      alt: "Hand-drawn mobile wireframe of the play and earn screen: a game of the day ribbon above a play and win panel with artwork and a play now button, then an explore more games list where each entry shows a rating, when it was last played, the player count, time played, points earned and likes.",
-      caption: "03 Play and earn. Progress is stated per game rather than pooled.",
+      alt: "Handgezeichnetes mobiles Wireframe des Screens zum Spielen und Verdienen: eine Schleife für das Spiel des Tages über einem Feld zum Spielen und Gewinnen mit Illustration und Startschaltfläche, darunter eine Liste weiterer Spiele, bei der jeder Eintrag Bewertung, letzte Partie, Spielerzahl, Spielzeit, verdiente Punkte und Likes zeigt.",
+      caption: "03 Spielen und Verdienen. Der Fortschritt steht je Spiel, nicht zusammengefasst.",
     },
     {
       src: "/work/mintavibe/wireframe-4-collectables.webp",
-      alt: "Hand-drawn mobile wireframe of a fan collectables page: a celebrity card at the top, a benefits grid listing a Spotify playlist, a Discord invite, a live session, tea with the artist and an excursion, and an invoice panel below showing the order number and date, the payment method, the total, the points used and the net amount paid.",
-      caption: "04 Collectables. The invoice keeps points and cash on separate lines.",
+      alt: "Handgezeichnetes mobiles Wireframe einer Seite mit Sammlerstücken für Fans: oben eine Star-Karte, ein Raster mit Vorteilen von einer Spotify-Playlist über eine Discord-Einladung und eine Live-Session bis zu einem Tee mit der Künstlerin und einer Exkursion, und darunter eine Rechnung mit Bestellnummer und Datum, Zahlungsart, Summe, eingesetzten Punkten und gezahltem Restbetrag.",
+      caption: "04 Sammlerstücke. Die Rechnung hält Punkte und Geld in getrennten Zeilen.",
     },
     {
       src: "/work/mintavibe/wireframe-5-profile.webp",
-      alt: "Hand-drawn mobile wireframe of profile settings: an avatar, username and email at the top, then rows for my points with a balance, my purchases, rate us, notifications, FAQ, about us, disable account and refer and earn, with privacy policy and terms of use links at the foot.",
-      caption: "05 Profile. The points balance is a row, not a screen you have to find.",
+      alt: "Handgezeichnetes mobiles Wireframe der Profileinstellungen: oben Avatar, Benutzername und E-Mail, darunter Zeilen für meine Punkte mit Kontostand, meine Käufe, Bewertung, Benachrichtigungen, häufige Fragen, über uns, Konto deaktivieren sowie Werben und Verdienen, am Fuß Links zu Datenschutz und Nutzungsbedingungen.",
+      caption: "05 Profil. Der Punktestand ist eine Zeile, kein Screen, den man suchen muss.",
     },
   ]}
 />
 
-### What testing changed
+### Was die Tests verändert haben
 
-Two things. The reward moved from below the fold of a video row to the row itself, because people
-were opening videos to find out what they paid. And the invoice stopped being a confirmation email:
-showing points and cash side by side on screen was the single clearest answer to what a point is
-worth.
+Zwei Dinge. Die Belohnung wanderte von unterhalb des Falzes einer Videozeile in die Zeile selbst,
+weil Leute Videos öffneten, um herauszufinden, was sie bringen. Und die Rechnung hörte auf, eine
+Bestätigungs-E-Mail zu sein: Punkte und Geld nebeneinander auf dem Bildschirm zu zeigen war die
+klarste Antwort darauf, was ein Punkt wert ist.
 
-## Refinement and final screens
+## Verfeinerung und finale Screens
 
-The shipped product. Four tabs, one balance component, and a celebrity destination that makes the
-earning worth doing.
+Das ausgelieferte Produkt. Vier Reiter, eine Kontostand-Komponente und ein Star-Ziel, das das
+Verdienen lohnend macht.
 
 <Gallery
   cols={3}
@@ -168,65 +174,67 @@ earning worth doing.
   items={[
     {
       src: "/work/mintavibe/final-1-splash.webp",
-      alt: "The Mintavibe splash screen on a black ground: the gold Mintavibe wordmark above three starred lines reading play games, meet celebrities and earn rewards, with a gold coin mark and a loading label at the bottom.",
-      caption: "Splash. The whole product in three lines.",
+      alt: "Der Startbildschirm von Mintavibe auf schwarzem Grund: der goldene Mintavibe-Schriftzug über drei mit Sternen markierten Zeilen zu Spielen, Stars treffen und Belohnungen verdienen, mit einem goldenen Münzzeichen und einer Ladeanzeige unten.",
+      caption: "Start. Das ganze Produkt in drei Zeilen.",
     },
     {
       src: "/work/mintavibe/final-2-watch.webp",
-      alt: "The watch and earn screen: an orange banner reading get your popcorn ready, watch amazing content and get rewarded, then a list of video rows each with a thumbnail, title, duration, like count, share icon and a gold pill reading earn up to 1000, 500, 50 or 1500 MV points, above a four-tab bar.",
-      caption: "Watch and earn. Every row states its payout before it is opened.",
+      alt: "Der Screen zum Schauen und Verdienen: ein oranges Banner mit dem Hinweis, Inhalte zu schauen und belohnt zu werden, darunter eine Liste von Videozeilen mit Miniatur, Titel, Dauer, Likes, Teilen-Symbol und einer goldenen Pille mit den erreichbaren MV-Punkten, über einer Leiste mit vier Reitern.",
+      caption: "Schauen und Verdienen. Jede Zeile nennt ihre Auszahlung, bevor sie geöffnet wird.",
     },
     {
       src: "/work/mintavibe/final-3-play.webp",
-      alt: "The play and earn screen with a game of the day banner reading play and win Cricket with a play now button, then game rows for Super Sixes, Top Goals and Cricket 3D showing star ratings, player counts, play time, points earned and last played dates.",
-      caption: "Play and earn. Last played and points earned sit on every row.",
+      alt: "Der Screen zum Spielen und Verdienen mit einem Banner zum Spiel des Tages und einer Startschaltfläche, darunter Spielzeilen für Super Sixes, Top Goals und Cricket 3D mit Sternebewertungen, Spielerzahlen, Spielzeit, verdienten Punkten und dem Datum der letzten Partie.",
+      caption: "Spielen und Verdienen. Letzte Partie und verdiente Punkte stehen in jeder Zeile.",
     },
     {
       src: "/work/mintavibe/final-4-celebrity.webp",
-      alt: "The Arjun Rampal celebrity profile: a red bio card with birth date, birthplace and height and a read more link, a top five fans row of avatars on gold plinths, three celebrity club benefit cards, filter chips for collectables, images, videos and events, and a Brigadier tier card above a Colonel one.",
-      caption: "The celebrity. Bio, a fan leaderboard, then the tiers a balance unlocks.",
+      alt: "Das Star-Profil von Arjun Rampal: eine rote Biografiekarte mit Geburtsdatum, Geburtsort und Größe samt Weiterlesen-Link, eine Reihe der fünf größten Fans auf goldenen Sockeln, drei Karten mit Clubvorteilen, Filter-Chips für Sammlerstücke, Bilder, Videos und Events sowie eine Brigadier-Stufenkarte über einer Colonel-Karte.",
+      caption: "Der Star. Biografie, eine Fan-Rangliste und dann die Stufen, die ein Kontostand freischaltet.",
     },
     {
       src: "/work/mintavibe/final-5-collectable.webp",
-      alt: "The collectable detail screen: a Brigadier tier card with seven benefit icons, a fan collectables benefits grid of seven cards including a Spotify playlist, Discord access, a voucher worth 5000 rupees, a live session, tea with the artist, a signed guitar and an excursion, then an invoice showing order number 2146461414, order date 12 March 2023, credit card payment, total 7000, MV points used 3000 and net paid 4000.",
-      caption: "The invoice. Points and cash side by side, which is the whole argument.",
+      alt: "Der Detail-Screen eines Sammlerstücks: eine Brigadier-Stufenkarte mit sieben Vorteilssymbolen, ein Raster aus sieben Karten mit Fan-Vorteilen, darunter eine Spotify-Playlist, Discord-Zugang, ein Gutschein über 5000 Rupien, eine Live-Session, ein Tee mit der Künstlerin, eine signierte Gitarre und eine Exkursion, dann eine Rechnung mit Bestellnummer, Bestelldatum, Kartenzahlung, Summe 7000, eingesetzten 3000 MV-Punkten und 4000 gezahltem Restbetrag.",
+      caption: "Die Rechnung. Punkte und Geld nebeneinander, und das ist das ganze Argument.",
     },
     {
       src: "/work/mintavibe/final-6-profile.webp",
-      alt: "The profile settings screen showing an avatar, the name Tangotag and an email address, a My MV points row reading 5500, then rows for my purchases, rate us, notifications, FAQ, about us and disable account, with a gold refer and earn banner pinned at the bottom above privacy policy and terms of use links.",
-      caption: "Profile. The balance leads, and refer and earn is pinned where it cannot be missed.",
+      alt: "Der Screen der Profileinstellungen mit Avatar, dem Namen Tangotag und einer E-Mail-Adresse, einer Zeile für meine MV-Punkte mit dem Stand 5500, darunter Zeilen für meine Käufe, Bewertung, Benachrichtigungen, häufige Fragen, über uns und Konto deaktivieren, unten ein goldenes Banner zum Werben und Verdienen über Links zu Datenschutz und Nutzungsbedingungen.",
+      caption: "Profil. Der Kontostand führt, und Werben und Verdienen ist dort fixiert, wo es nicht zu übersehen ist.",
     },
   ]}
 />
 
 <Callout kind="decision">
-  Put the exchange rate on the receipt. Showing 3,000 MV points against a 7,000 total and a 4,000
-  cash balance does more for trust in the currency than any amount of copy about how rewarding the
-  app is.
+  Den Wechselkurs auf den Beleg schreiben. 3.000 MV-Punkte gegen eine Summe von 7.000 und einen
+  Restbetrag von 4.000 zu zeigen tut mehr für das Vertrauen in die Währung als jede Menge Text
+  darüber, wie lohnend die App sei.
 </Callout>
 
-## Impact, accessibility and reflection
+## Wirkung, Barrierefreiheit und Rückblick
 
-### Accessibility
+### Barrierefreiheit
 
-Every row target in the earning flows clears 48 by 48 device-independent pixels, because these are
-screens people tap quickly and repeatedly. Point values are always numerals beside the MV mark, not
-the mark alone, and gold on near-black carries the contrast without depending on hue, so the balance
-survives a colourblind reader. Tier names are words, Brigadier and Colonel, rather than colour
-bands. Log out is the one red control on screen, so destructive actions are never confused with
-gold ones. The invoice states each figure with its own label rather than relying on column position.
+Jedes Zeilenziel in den Verdienst-Flows erreicht 48 mal 48 geräteunabhängige Pixel, weil das Screens
+sind, auf denen schnell und wiederholt getippt wird. Punktwerte stehen immer als Zahlen neben dem
+MV-Zeichen, nie als Zeichen allein, und Gold auf Fastschwarz trägt den Kontrast ohne Abhängigkeit
+vom Farbton, sodass der Kontostand auch für farbenblinde Leser funktioniert. Stufennamen sind
+Wörter, Brigadier und Colonel, statt Farbbänder. Das Abmelden ist das einzige rote Element auf dem
+Bildschirm, damit zerstörende Aktionen nie mit goldenen verwechselt werden. Die Rechnung nennt jede
+Zahl mit eigener Beschriftung, statt sich auf die Spaltenposition zu verlassen.
 
-### Impact and takeaways
+### Wirkung und Erkenntnisse
 
 <Results>
-  <Metric display="4" label="tabs, one currency across all of them" />
-  <Metric display="3,000" label="MV points off a 7,000 order, shown on the invoice" />
-  <Metric display="7" label="feature groups from card sorting" />
+  <Metric display="4" label="Reiter, eine Währung über alle hinweg" />
+  <Metric display="3.000" label="MV-Punkte von 7.000 Bestellwert, auf der Rechnung" />
+  <Metric display="7" label="Funktionsgruppen aus dem Card Sorting" />
 </Results>
 
-A multi-purpose app does not need a clever home screen, it needs a currency that is worth the same
-everywhere and says so. Once every earning row carried its payout and every redemption carried its
-split, the architecture stopped being a negotiation between features and became a simple tree.
+Eine App mit mehreren Zwecken braucht keinen cleveren Startbildschirm, sie braucht eine Währung, die
+überall gleich viel wert ist und das auch sagt. Sobald jede Verdienstzeile ihre Auszahlung trug und
+jede Einlösung ihre Aufteilung, hörte die Architektur auf, eine Verhandlung zwischen Funktionen zu
+sein, und wurde ein einfacher Baum.
 
-The next version would put a target on the balance: pick the collectable you are saving for, and let
-every earning screen show how much closer that action gets you.
+Die nächste Version würde dem Kontostand ein Ziel geben: das Sammlerstück wählen, auf das man
+spart, und jeden Verdienst-Screen zeigen lassen, wie viel näher diese Handlung einen bringt.

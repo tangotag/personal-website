@@ -17,7 +17,9 @@
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "skipToContent": "Saltar al contenido",
-    "home": "Inicio"
+    "home": "Inicio",
+    "primary": "Navegación principal",
+    "breadcrumb": "Ruta de navegación"
   },
   "common": {
     "available": "Disponible para empleo y freelance",
@@ -186,7 +188,8 @@
     "text": "Uso analítica respetuosa con la privacidad (sin cookies) y, si lo permites, Google Analytics.",
     "accept": "Permitir",
     "decline": "No, gracias",
-    "learnMore": "Privacidad"
+    "learnMore": "Privacidad",
+    "label": "Consentimiento de cookies"
   },
   "pages": {
     "work": {
@@ -370,7 +373,11 @@
           },
           {
             "title": "Herramientas",
-            "items": ["Figma", "Librerías de componentes en Figma", "QA de diseño"]
+            "items": [
+              "Figma",
+              "Librerías de componentes en Figma",
+              "QA de diseño"
+            ]
           }
         ]
       },
@@ -394,7 +401,9 @@
             "year": "2020"
           }
         ],
-        "certs": ["Certificado profesional de Diseño UX de Google"]
+        "certs": [
+          "Certificado profesional de Diseño UX de Google"
+        ]
       },
       "education": {
         "title": "Formación",
@@ -444,6 +453,12 @@
       "team": "Equipo",
       "readingTime": "Tiempo de lectura",
       "link": "En vivo"
+    },
+    "gallery": {
+      "close": "Cerrar",
+      "prev": "Imagen anterior",
+      "next": "Imagen siguiente",
+      "counter": "Imagen {current} de {total}"
     }
   },
   "forms": {

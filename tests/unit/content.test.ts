@@ -10,7 +10,7 @@ async function loadWith(env: "development" | "production") {
 afterEach(() => vi.unstubAllEnvs());
 
 describe("content loader", () => {
-  it("lists slugs from the English files and orders the hero first", async () => {
+  it("lists slugs from the German files and orders the hero first", async () => {
     const { getWorkSlugs, getAllWork } = await loadWith("development");
     expect(getWorkSlugs()).toContain("compass-pos");
     const all = getAllWork("de");
@@ -21,13 +21,22 @@ describe("content loader", () => {
     expect(featured).toEqual([...featured].sort((a, b) => (a ?? 99) - (b ?? 99)));
   });
 
-  it("falls back to German for a missing Spanish file and flags it", async () => {
-    const { getWork } = await loadWith("development");
-    const es = getWork("compass-pos", "es");
-    expect(es?.fallback).toBe(true);
-    expect(es?.locale).toBe("de");
-    const de = getWork("compass-pos", "de");
-    expect(de?.fallback).toBe(false);
+  // The loader falls back to the German body when a Spanish one is missing, which renders German
+  // prose under a Spanish URL. Every entry is translated today, so the guarantee worth asserting is
+  // that none of them is relying on that fallback — add a .de.mdx without its .es.mdx and this
+  // fails by name.
+  it("serves every published entry in both locales without falling back", async () => {
+    const { getWorkSlugs, getWork } = await loadWith("development");
+    const slugs = getWorkSlugs();
+    expect(slugs.length).toBeGreaterThan(0);
+    for (const slug of slugs) {
+      for (const locale of ["de", "es"] as const) {
+        const entry = getWork(slug, locale);
+        expect(entry, `${slug}.${locale}.mdx is missing`).not.toBeNull();
+        expect(entry?.fallback, `${slug}.${locale}.mdx falls back`).toBe(false);
+        expect(entry?.locale).toBe(locale);
+      }
+    }
   });
 
   it("returns null for unknown slugs", async () => {

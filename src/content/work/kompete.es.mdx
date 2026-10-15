@@ -1,0 +1,206 @@
+---
+slug: kompete
+title: "KOMPETE: UI/UX para un shooter multijugador multiplataforma"
+hook: "Un frontend para un battle royale: lobby, identidad, economía y progresión."
+template: full
+tier: featured
+client: "KOMPETE"
+role: "Diseñador de Producto / UI-UX"
+timeline: "2021 – 2022"
+platforms: ["PC", "Consola", "Móvil"]
+industry: ["Videojuegos"]
+tags: ["UX de juego", "HUD", "Economía", "Progresión", "Sistema de diseño"]
+filters: ["games"]
+results:
+  - { value: "9", label: "pantallas de frontend sobre un marco" }
+  - { value: "3", label: "tipos de entrada, un set de componentes" }
+  - { value: "1", label: "color de acento que sostiene cada estado" }
+cover: "/work/kompete/cover.webp"
+coverAlt: "El lobby de KOMPETE sobre un fondo verde oscuro: tres figuras con armadura en fila sobre los botones de battle royal y buscar partida, a la derecha una lista de amigos, y detrás la pantalla de estadísticas de carrera."
+featuredOrder: 3
+---
+
+{/* Fase 7: las capturas llevan el rótulo LEGACY del build del que salieron. Raheel tiene que confirmar si es el mismo título o una marca propia (docs/11). */}
+
+<TLDR
+  items={[
+    "Un battle royale se decide en los segundos previos a la partida, así que el frontend tiene que decir qué tienes, qué puedes hacer a continuación y cuánto cuesta, sin ponerse nunca entre el jugador y el botón de empezar.",
+    "Nueve pantallas comparten un marco, una barra de navegación y un único verde ácido que significa disponible o seleccionado y nada más.",
+    "El mismo set de componentes tiene que funcionar con mando, ratón y pulgar, así que nada es más pequeño de lo que un puntero guiado por stick puede acertar con comodidad.",
+  ]}
+/>
+
+## Resumen
+
+KOMPETE es un shooter multijugador multiplataforma. Mi ámbito era todo lo que rodea a la partida: el
+lobby al que vuelve un jugador, la cadena de identidad que hace que su personaje sea suyo, las tres
+tiendas que venden tres clases distintas de cosas, la progresión de carrera y los ajustes, en los que
+nadie debería tener que pensar.
+
+| | |
+|---|---|
+| **Herramientas** | Figma, Adobe Illustrator, Adobe Photoshop |
+| **Metodología** | Auditoría competitiva, mapa de flujos, sistema de componentes, revisión con prototipo, QA de diseño contra el build |
+| **Superficies** | Lobby, taquilla, tienda, bazar, carrera, clasificaciones, drops, ajustes |
+
+## El problema
+
+Los shooters free-to-play viven y mueren por el bucle entre partidas. En ese bucle un jugador mira
+lo que ha ganado, decide si gasta y vuelve a empezar. Todos los estudios lo saben, y precisamente por
+eso ese mismo bucle suele quedar enterrado bajo una tienda que grita.
+
+Tres dificultades concretas hacían este caso más duro que la mayoría.
+
+Multiplataforma significa que el mismo layout tiene que manejarse con el stick de un mando, con un
+ratón y con una pantalla táctil. Los layouts que dan por supuesto un puntero fracasan con el stick;
+los que dan por supuesto un pulgar desperdician un monitor.
+
+El frontend de un shooter es densa por naturaleza. Moneda, tickets, rango, amigos, invitaciones y
+estado de la partida quieren estar visibles todos a la vez.
+
+Y tres tiendas venden tres cosas sin relación. Las monedas se compran con dinero, un pase de
+temporada con tiempo, un objeto con monedas. Presentarlas igual no le enseña nada al jugador.
+
+## El objetivo
+
+Llevar a un jugador que vuelve desde el inicio hasta la partida con una sola decisión, y hacer que
+cada precio se lea en la unidad que el jugador realmente gasta.
+
+## Mi rol
+
+Diseño de producto e interfaz para el frontend: auditoría competitiva, mapa de flujos, el inventario
+de pantallas, el sistema de componentes, el diseño visual de las nueve pantallas y el QA de diseño
+contra el build. El arte de armas del HUD de partida y los modelos de personaje no son míos.
+
+<Callout kind="constraint">
+  Un marco, tres tipos de entrada. Todo lo que solo funcionaba con un puntero preciso se cayó:
+  pistas al pasar el cursor, zonas de cierre diminutas y menús contextuales densos.
+</Callout>
+
+## Entender a los jugadores
+
+### Resumen de investigación
+
+Predominan dos comportamientos. El jugador que vuelve, que abre el juego para jugar y trata todo lo
+demás como un obstáculo. Y el jugador que hojea, que mira qué hay nuevo, pasa tiempo en la taquilla y
+en el bazar y puede que en esa sesión no juegue. El frontend tiene que servir al primero sin esconder
+al segundo.
+
+### El recorrido entre partidas
+
+Aterrizar en el lobby, leer qué ha cambiado, revisar el escuadrón, quizá retocar el personaje o
+gastar algo, y luego entrar en cola. El único paso obligatorio es el último, y por eso el botón de
+empezar es el único elemento que nunca se mueve.
+
+### Auditoría competitiva
+
+Los líderes del género ponen la tienda en la puerta de entrada y la partida detrás de una pestaña.
+Eso convierte, y también enseña al jugador a cerrar el juego. El camino elegido aquí mantiene la
+partida en primera posición y da superficie a las tiendas desde la navegación superior permanente.
+
+## La cadena de personaje
+
+Tres pantallas de profundidad creciente, para que un jugador que quiere ir directo a la partida no
+tenga que ver nunca la segunda ni la tercera. Primero plantillas, luego morfología facial, luego un
+presupuesto de puntos sobre los atributos.
+
+<Gallery
+  cols={3}
+  wide
+  items={[
+    {
+      src: "/work/kompete/customizer.webp",
+      alt: "Pantalla de archivo del editor de identidad con un selector de género entre masculino, femenino y no binario, una rejilla de huecos de plantilla con uno enmarcado en verde, a la izquierda elementos para plantillas guardadas, compradas y nuevas, y a la derecha el modelo del personaje sobre un pedestal.",
+      caption: "Plantillas. El extremo llano, y donde la mayoría de jugadores se detiene.",
+    },
+    {
+      src: "/work/kompete/face-morph.webp",
+      alt: "Pantalla de rostro del editor de identidad con una lista de regiones faciales a la izquierda, entre ellas raíz nasal, cejas, cuenca del ojo, nariz y mandíbula, en el centro deslizadores de altura, longitud y tamaño, y a la derecha el modelo del personaje cambiando con los valores.",
+      caption: "Rostro. Primero la región, luego tres deslizadores, nunca un muro de ellos.",
+    },
+    {
+      src: "/work/kompete/attributes.webp",
+      alt: "Pantalla de ADN con atributos físicos de altura, peso y músculo junto a velocidad, aceleración y fuerza, y una zona de habilidades encabezada con la indicación de que hay cien puntos disponibles, con deslizadores para construcción de juego y remate.",
+      caption: "Un presupuesto de puntos. Invertir aquí cuesta algo, y por eso es la pantalla más profunda.",
+    },
+  ]}
+/>
+
+<Callout kind="decision">
+  La profundidad es voluntaria. Cada pantalla de personalización es un destino propio y no un paso de
+  un asistente, para que a nadie que solo quiera una plantilla y una partida se le haga pasar antes
+  por deslizadores de morfología.
+</Callout>
+
+## La economía
+
+Tres tiendas, tres unidades de cuenta. Cada una dice su precio en la unidad que el jugador gasta de
+verdad, y exactamente por eso no son una pantalla con tres pestañas.
+
+<Gallery
+  cols={3}
+  wide
+  items={[
+    {
+      src: "/work/kompete/currency.webp",
+      alt: "Pantalla de moneda de Voolah con cuatro paquetes de 1.000, 2.800, 5.000 y 13.500 monedas, cada uno ilustrado con un montón creciente de monedas de oro y con precios de 9,97, 16,76, 27 y 67 dólares, y un botón de compra bajo cada uno.",
+      caption: "Monedas, con precio en dinero. El montón crece con el paquete.",
+    },
+    {
+      src: "/work/kompete/season-pass.webp",
+      alt: "Pantalla del pase de temporada con el encabezado ticket 00, temporada 00, un aviso de que la temporada acaba en treinta días, tres huecos grandes de carta con el del centro seleccionado, botones de comprar y regalar debajo y a la derecha un panel de rareza y categoría.",
+      caption: "El pase, con precio en tiempo. La cuenta atrás es la etiqueta de precio.",
+    },
+    {
+      src: "/work/kompete/item-shop.webp",
+      alt: "Pantalla del bazar con un campo de búsqueda, filtros de categoría para atuendos, guantes, vendas, emotes y ganadores, y una rejilla de tarjetas de objeto con nombre y precio en monedas, una de ellas enmarcada en verde.",
+      caption: "Objetos, con precio en monedas. La rareza es una cinta con texto, nunca solo color.",
+    },
+  ]}
+/>
+
+## Progresión y ajustes
+
+Las estadísticas de carrera son el motivo por el que un jugador vuelve, así que reciben el mismo peso
+y la misma gramática de layout que la tienda, en lugar de desaparecer en un menú de perfil. Los
+ajustes usan los propios controles del juego en vez de inventarse un dialecto de opciones aparte.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/kompete/career-stats.webp",
+      alt: "Pantalla de estadísticas de carrera con barras de atributos físicos, una zona con todos los valores, entre ellos tiempo jugado, daño, asistencias, disparos a la cabeza, victorias y arma favorita, y una tabla de las últimas diez partidas con resultado, duración y puntuación.",
+      caption: "Carrera. Las últimas diez partidas van junto a los totales, porque lo que se consulta es la forma actual.",
+    },
+    {
+      src: "/work/kompete/settings.webp",
+      alt: "Pantalla de ajustes con pestañas de pantalla, audio, general, juegos, controles y tutoriales, opciones de pantalla para modo, resolución, sincronización vertical, desenfoque de movimiento y brillo, niveles de calidad de bajo a ultra y botones de restablecer y aplicar.",
+      caption: "Ajustes. Restablecer está junto a aplicar, para que probar no tenga coste.",
+    },
+  ]}
+/>
+
+## Accesibilidad
+
+Multiplataforma es un requisito de accesibilidad antes de ser uno técnico. Todos los objetivos están
+dimensionados para el stick de un mando y no para un ratón, lo que en el build táctil los deja muy
+por encima de 48 por 48 píxeles independientes del dispositivo. La selección se indica con un marco y
+con una posición en la barra de navegación, no solo con el color de acento, así que la interfaz se lee
+también sin tono. Los ajustes de calidad tratan el desenfoque de movimiento como un elemento propio,
+lo que cuenta para quien sufre mareo por movimiento, y la pantalla de ajustes es accesible desde
+cualquier pantalla a través de la barra permanente, no solo desde el lobby.
+
+## Impacto y reflexión
+
+<Results>
+  <Metric display="9" label="pantallas de frontend sobre un marco" />
+  <Metric display="3" label="tipos de entrada, un set de componentes" />
+  <Metric display="1" label="color de acento que sostiene cada estado" />
+</Results>
+
+La lección que pasó directa al trabajo de producto: una tienda es más clara cuando dice su precio en
+la unidad que gasta quien compra. Monedas en dinero, un pase en tiempo, un objeto en monedas. Vale
+igual para una página de suscripción, un indicador de consumo o una caja, y por eso estas tres
+tiendas nunca se convirtieron en una pantalla con tres pestañas.

@@ -20,90 +20,91 @@ coverAlt: "Die Lobby von KOMPETE auf dunkelgrünem Grund: drei gepanzerte Figure
 featuredOrder: 3
 ---
 
-{/* Phase 7: the captures carry a LEGACY wordmark from the build they came from. Raheel to confirm whether that is the same title or a separate brand (docs/11). */}
+{/* Phase 7: die Aufnahmen tragen den Schriftzug LEGACY aus dem Build, aus dem sie stammen. Raheel muss bestätigen, ob das derselbe Titel oder eine eigene Marke ist (docs/11). */}
 
 <TLDR
   items={[
-    "A battle royale is judged in the seconds before a match, so the front end has to say what you own, what you can do next and what it costs, without ever standing between the player and the play button.",
-    "Nine screens share one chrome, one navigation bar and a single acid green that means available or selected and nothing else.",
-    "The same component set has to work under a controller, a mouse and a thumb, so nothing is smaller than a stick-driven cursor can comfortably land on.",
+    "Über eine Battle Royale wird in den Sekunden vor dem Match entschieden, also muss das Frontend sagen, was man besitzt, was als Nächstes geht und was es kostet, ohne je zwischen Spieler und Start-Schaltfläche zu stehen.",
+    "Neun Screens teilen sich einen Rahmen, eine Navigationsleiste und ein einziges Säuregrün, das verfügbar oder ausgewählt bedeutet und sonst nichts.",
+    "Dasselbe Komponenten-Set muss unter Controller, Maus und Daumen funktionieren, also ist nichts kleiner, als ein per Stick geführter Zeiger bequem treffen kann.",
   ]}
 />
 
-## Overview
+## Überblick
 
-KOMPETE is a cross-platform multiplayer shooter. My scope was everything around the match: the
-lobby a player returns to, the identity pipeline that makes their character theirs, the three
-storefronts that sell three different kinds of thing, career progression and the settings nobody
-should have to think about.
+KOMPETE ist ein plattformübergreifender Multiplayer-Shooter. Mein Aufgabenbereich war alles rund um
+das Match: die Lobby, in die ein Spieler zurückkehrt, die Identitäts-Pipeline, die seine Figur zu
+seiner macht, die drei Shops, die drei verschiedene Arten von Dingen verkaufen, die Karriere-
+Progression und die Einstellungen, über die niemand nachdenken sollte.
 
 | | |
 |---|---|
-| **Tools** | Figma, Adobe Illustrator, Adobe Photoshop |
-| **Methodology** | Competitive teardown, flow mapping, component system, prototype review, design QA against the build |
-| **Surfaces** | Lobby, locker, shop, bazaar, career, leaderboards, drops, settings |
+| **Werkzeuge** | Figma, Adobe Illustrator, Adobe Photoshop |
+| **Vorgehen** | Wettbewerbsanalyse, Flow-Mapping, Komponentensystem, Prototyp-Review, Design-QA gegen den Build |
+| **Oberflächen** | Lobby, Spind, Shop, Basar, Karriere, Bestenlisten, Drops, Einstellungen |
 
-## The problem
+## Das Problem
 
-Free-to-play shooters live or die on the loop between matches. That loop is where a player checks
-what they earned, decides whether to spend, and starts again. Every studio knows this, which is why
-the same loop is usually buried under a storefront that shouts.
+Free-to-Play-Shooter leben und sterben mit der Schleife zwischen den Matches. In dieser Schleife
+schaut ein Spieler, was er verdient hat, entscheidet, ob er etwas ausgibt, und startet erneut. Jedes
+Studio weiß das, und genau deshalb liegt dieselbe Schleife meist unter einem Shop begraben, der
+schreit.
 
-Three specific difficulties made this one harder than most.
+Drei konkrete Schwierigkeiten machten diesen Fall härter als die meisten.
 
-Cross-platform means the same layout must be driven by a controller stick, a mouse and a
-touchscreen. Layouts that assume a cursor fail on a stick; layouts that assume a thumb waste a
-monitor.
+Plattformübergreifend heißt, dass dasselbe Layout von einem Controller-Stick, einer Maus und einem
+Touchscreen bedient werden muss. Layouts, die einen Zeiger voraussetzen, scheitern am Stick; Layouts,
+die einen Daumen voraussetzen, verschenken einen Monitor.
 
-A shooter's front end is dense by nature. Currency, tickets, rank, friends, invites and match state
-all want to be visible at once.
+Das Frontend eines Shooters ist von Natur aus dicht. Währung, Tickets, Rang, Freunde, Einladungen
+und Match-Status wollen alle gleichzeitig sichtbar sein.
 
-And three storefronts sell three unrelated things. Coins are bought with money, a season pass is
-bought with time, an item is bought with coins. Presenting them identically teaches the player
-nothing.
+Und drei Shops verkaufen drei zusammenhanglose Dinge. Münzen kauft man mit Geld, einen Season-Pass
+mit Zeit, einen Gegenstand mit Münzen. Sie identisch zu präsentieren lehrt den Spieler nichts.
 
-## The goal
+## Das Ziel
 
-Get a returning player from launch to a match in one decision, and make every price legible in the
-unit the player is actually spending.
+Einen wiederkehrenden Spieler mit einer Entscheidung vom Start ins Match bringen und jeden Preis in
+der Einheit lesbar machen, die der Spieler tatsächlich ausgibt.
 
-## My role
+## Meine Rolle
 
-Product and interface design for the front end: competitive teardown, flow mapping, the screen
-inventory, the component system, the visual design across all nine screens, and design QA against
-the build. I did not design the in-match HUD weapon art or the character models.
+Produkt- und Interface-Design für das Frontend: Wettbewerbsanalyse, Flow-Mapping, das Verzeichnis
+der Screens, das Komponentensystem, die visuelle Gestaltung über alle neun Screens und Design-QA
+gegen den Build. Die Waffengrafik im Match-HUD und die Charaktermodelle stammen nicht von mir.
 
 <Callout kind="constraint">
-  One chrome, three inputs. Anything that only worked with a precise cursor was out, which ruled
-  out hover-only affordances, small close targets and dense right-click menus.
+  Ein Rahmen, drei Eingabearten. Alles, was nur mit einem präzisen Zeiger funktionierte, fiel weg:
+  Hover-Hinweise, kleine Schließflächen und dichte Rechtsklick-Menüs.
 </Callout>
 
-## Understanding the players
+## Die Spieler verstehen
 
-### Research summary
+### Zusammenfassung der Recherche
 
-Two behaviours dominate. The returning player, who opens the game to play and treats everything
-else as an obstacle. And the browsing player, who opens it to see what is new, spends time in the
-locker and the bazaar, and may not play at all that session. The front end has to serve the first
-without hiding the second.
+Zwei Verhaltensweisen überwiegen. Der wiederkehrende Spieler, der das Spiel zum Spielen öffnet und
+alles andere als Hindernis behandelt. Und der stöbernde Spieler, der schaut, was neu ist, Zeit im
+Spind und im Basar verbringt und in dieser Sitzung vielleicht gar nicht spielt. Das Frontend muss
+dem ersten dienen, ohne den zweiten zu verstecken.
 
-### The journey between matches
+### Der Ablauf zwischen den Matches
 
-Land in the lobby, read what changed, check the squad, maybe adjust the character or spend, then
-queue. The only step that is mandatory is the last one, so the play button is the only element that
-never moves.
+In der Lobby landen, lesen, was sich geändert hat, den Squad prüfen, vielleicht die Figur anpassen
+oder etwas ausgeben, dann in die Warteschlange. Der einzige Pflichtschritt ist der letzte, deshalb
+ist die Start-Schaltfläche das einzige Element, das sich nie bewegt.
 
-### Competitive audit
+### Wettbewerbsanalyse
 
-The genre leaders put the store on the front door and the match behind a tab. That converts, and it
-also trains players to close the game. The alternative taken here keeps the match in the primary
-position and gives the stores real estate through the persistent top navigation instead.
+Die Genreführer setzen den Shop an die Eingangstür und das Match hinter einen Reiter. Das
+konvertiert, und es erzieht Spieler auch dazu, das Spiel zu schließen. Der hier gewählte Weg hält
+das Match an der ersten Position und gibt den Shops stattdessen Fläche über die durchgehende obere
+Navigation.
 
-## The character pipeline
+## Die Charakter-Pipeline
 
-Three screens of increasing depth, so a player who wants to jump straight into a match never has to
-see the second or third. Presets first, then facial morphing, then a points budget across
-attributes.
+Drei Screens mit wachsender Tiefe, damit ein Spieler, der direkt ins Match will, den zweiten und
+dritten nie sehen muss. Zuerst Vorlagen, dann Gesichtsmorphologie, dann ein Punktebudget über
+Attribute.
 
 <Gallery
   cols={3}
@@ -111,32 +112,32 @@ attributes.
   items={[
     {
       src: "/work/kompete/customizer.webp",
-      alt: "The identity customizer storage screen with a gender selector offering male, female and non-binary, a grid of preset slots with one outlined in green, preset controls for saved, purchased and create new on the left, and the character model standing on a plinth to the right.",
-      caption: "Presets. The shallow end, and where most players stop.",
+      alt: "Der Ablage-Screen des Identitäts-Editors mit einer Geschlechtsauswahl aus männlich, weiblich und nicht-binär, einem Raster aus Vorlagenplätzen mit einem grün umrandeten, links Elementen für gespeicherte, gekaufte und neue Vorlagen und rechts dem Charaktermodell auf einem Sockel.",
+      caption: "Vorlagen. Das flache Ende, und dort hören die meisten Spieler auf.",
     },
     {
       src: "/work/kompete/face-morph.webp",
-      alt: "The identity customizer face morph screen with a list of facial regions on the left including procerus, brow drop, eye orbital, nose and jaw, sliders for height, length and size in the centre, and the character model to the right updating as values change.",
-      caption: "Face morph. Region first, then three sliders, never a wall of them.",
+      alt: "Der Gesichts-Screen des Identitäts-Editors mit einer Liste von Gesichtsregionen links, darunter Nasenwurzel, Brauen, Augenhöhle, Nase und Kiefer, in der Mitte Schiebereglern für Höhe, Länge und Größe und rechts dem Charaktermodell, das sich mit den Werten ändert.",
+      caption: "Gesicht. Erst die Region, dann drei Regler, nie eine Wand davon.",
     },
     {
       src: "/work/kompete/attributes.webp",
-      alt: "The DNA screen showing physical attributes for height, weight and muscle beside speed, acceleration and strength, and a skill attributes section headed you have one hundred points, with play making and finishing sliders.",
-      caption: "A points budget. Spending here costs something, so it is the deepest screen.",
+      alt: "Der DNA-Screen mit körperlichen Attributen für Größe, Gewicht und Muskeln neben Geschwindigkeit, Beschleunigung und Kraft sowie einem Bereich für Fähigkeiten mit der Überschrift, dass hundert Punkte zur Verfügung stehen, mit Reglern für Spielaufbau und Abschluss.",
+      caption: "Ein Punktebudget. Hier zu investieren kostet etwas, deshalb ist es der tiefste Screen.",
     },
   ]}
 />
 
 <Callout kind="decision">
-  Depth is opt-in. Each customisation screen is a destination in its own right rather than a step in
-  a wizard, so the player who wants a preset and a match is never walked through morphology sliders
-  to get there.
+  Tiefe ist freiwillig. Jeder Anpassungs-Screen ist ein eigenes Ziel und kein Schritt in einem
+  Assistenten, damit niemand, der nur eine Vorlage und ein Match will, erst durch Morphologie-Regler
+  geführt wird.
 </Callout>
 
-## The economy
+## Die Ökonomie
 
-Three storefronts, three units of account. Each one states its price in the unit the player is
-actually spending, which is the whole reason they are not one screen with three tabs.
+Drei Shops, drei Recheneinheiten. Jeder nennt seinen Preis in der Einheit, die der Spieler
+tatsächlich ausgibt, und genau deshalb sind es nicht ein Screen mit drei Reitern.
 
 <Gallery
   cols={3}
@@ -144,27 +145,28 @@ actually spending, which is the whole reason they are not one screen with three 
   items={[
     {
       src: "/work/kompete/currency.webp",
-      alt: "The Voolah currency screen offering four coin bundles of 1,000, 2,800, 5,000 and 13,500 coins, each illustrated with a growing stack of gold coins and priced at $9.97, $16.76, $27 and $67, with a Buy Now button under each.",
-      caption: "Coins, priced in money. The stack grows with the bundle.",
+      alt: "Der Währungs-Screen von Voolah mit vier Münzpaketen zu 1.000, 2.800, 5.000 und 13.500 Münzen, jeweils mit einem wachsenden Stapel Goldmünzen illustriert und mit 9,97, 16,76, 27 und 67 Dollar bepreist, darunter jeweils eine Kaufschaltfläche.",
+      caption: "Münzen, in Geld bepreist. Der Stapel wächst mit dem Paket.",
     },
     {
       src: "/work/kompete/season-pass.webp",
-      alt: "The season pass screen headed Ticket 00, Season 00, with a warning that the season ends in thirty days, three large card slots with the middle one selected, Buy Now and Gift buttons below, and a rarity and category panel on the right.",
-      caption: "The pass, priced in time. The countdown is the price tag.",
+      alt: "Der Season-Pass-Screen mit der Überschrift Ticket 00, Season 00, einem Hinweis, dass die Saison in dreißig Tagen endet, drei großen Kartenplätzen mit dem mittleren ausgewählt, Schaltflächen zum Kaufen und Verschenken darunter und rechts einem Feld für Seltenheit und Kategorie.",
+      caption: "Der Pass, in Zeit bepreist. Der Countdown ist das Preisschild.",
     },
     {
       src: "/work/kompete/item-shop.webp",
-      alt: "The bazaar screen with a search field, category filters for outfits, gloves, wraps, emotes and winners, and a grid of item cards each showing a name and a coin price, with one card outlined in green.",
-      caption: "Items, priced in coins. Rarity is a labelled band, never colour alone.",
+      alt: "Der Basar-Screen mit einem Suchfeld, Kategoriefiltern für Outfits, Handschuhe, Wraps, Emotes und Gewinner und einem Raster aus Gegenstandskarten mit Namen und Münzpreis, eine Karte grün umrandet.",
+      caption: "Gegenstände, in Münzen bepreist. Seltenheit ist ein beschriftetes Band, nie Farbe allein.",
     },
   ]}
 />
 
-## Progression and settings
+## Progression und Einstellungen
 
-Career stats are the reason a player comes back, so they get the same weight and the same layout
-grammar as the store rather than being tucked into a profile menu. Settings reuse the game's own
-controls instead of inventing an options dialect.
+Die Karrierestatistik ist der Grund, warum ein Spieler zurückkommt, deshalb bekommt sie dasselbe
+Gewicht und dieselbe Layout-Grammatik wie der Shop, statt in einem Profilmenü zu verschwinden. Die
+Einstellungen nutzen die Bedienelemente des Spiels selbst, statt einen eigenen Optionsdialekt zu
+erfinden.
 
 <Gallery
   cols={2}
@@ -172,35 +174,36 @@ controls instead of inventing an options dialect.
   items={[
     {
       src: "/work/kompete/career-stats.webp",
-      alt: "The career stats screen with physical attribute bars, an all stats section covering time played, damage, assists, headshots, wins and favourite weapon, and a last ten games table listing result, time and score.",
-      caption: "Career. Last ten games sits beside lifetime totals, because recent form is what a player checks.",
+      alt: "Der Karrierestatistik-Screen mit Balken für körperliche Attribute, einem Bereich für alle Werte mit Spielzeit, Schaden, Vorlagen, Kopfschüssen, Siegen und Lieblingswaffe sowie einer Tabelle der letzten zehn Partien mit Ergebnis, Zeit und Punktzahl.",
+      caption: "Karriere. Die letzten zehn Partien stehen neben den Gesamtwerten, weil die aktuelle Form das ist, was geprüft wird.",
     },
     {
       src: "/work/kompete/settings.webp",
-      alt: "The settings screen with tabs for display, audio, general, games, bindings and tutorials, display settings for screen mode, resolution, v-sync, motion blur and brightness, quality settings offering low, medium, high and ultra, and revert and apply buttons.",
-      caption: "Settings. Revert sits beside apply, so experimenting is safe.",
+      alt: "Der Einstellungs-Screen mit Reitern für Anzeige, Audio, Allgemein, Spiele, Tastenbelegung und Tutorials, Anzeigeeinstellungen für Bildschirmmodus, Auflösung, V-Sync, Bewegungsunschärfe und Helligkeit, Qualitätsstufen von niedrig bis ultra und Schaltflächen zum Zurücksetzen und Übernehmen.",
+      caption: "Einstellungen. Zurücksetzen steht neben Übernehmen, damit Ausprobieren gefahrlos bleibt.",
     },
   ]}
 />
 
-## Accessibility
+## Barrierefreiheit
 
-Cross-platform is an accessibility requirement before it is a technical one. Every target is sized
-for a controller stick rather than a mouse, which puts them well past 48 by 48 device-independent
-pixels on the touch build. Selection is shown by an outline and a position in the navigation bar,
-not by the accent colour alone, so the interface still reads without hue. Quality settings expose
-motion blur as its own control, which matters to players who get motion sick, and the settings
-screen is reachable from the persistent bar on every screen rather than only from the lobby.
+Plattformübergreifend ist eine Anforderung an Barrierefreiheit, bevor es eine technische ist. Jedes
+Ziel ist für einen Controller-Stick bemessen statt für eine Maus, was es im Touch-Build deutlich
+über 48 mal 48 geräteunabhängige Pixel bringt. Die Auswahl wird durch eine Umrandung und eine
+Position in der Navigationsleiste gezeigt, nicht allein durch die Akzentfarbe, sodass sich die
+Oberfläche auch ohne Farbton lesen lässt. Die Qualitätseinstellungen führen Bewegungsunschärfe als
+eigenes Element, was für Spieler mit Bewegungsübelkeit zählt, und der Einstellungs-Screen ist über
+die durchgehende Leiste von jedem Screen aus erreichbar, nicht nur aus der Lobby.
 
-## Impact and reflection
+## Wirkung und Rückblick
 
 <Results>
-  <Metric display="9" label="front-end screens on one chrome" />
-  <Metric display="3" label="input methods, one component set" />
-  <Metric display="1" label="accent colour carrying every state" />
+  <Metric display="9" label="Frontend-Screens auf einem Rahmen" />
+  <Metric display="3" label="Eingabearten, ein Komponenten-Set" />
+  <Metric display="1" label="Akzentfarbe, die jeden Zustand trägt" />
 </Results>
 
-The lesson that transferred straight into product work: a storefront is clearer when it states its
-price in the unit the buyer is spending. Coins in money, a pass in time, an item in coins. The same
-is true of a subscription page, a usage meter or a checkout, and it is why the three stores here
-never became one screen with three tabs.
+Die Lehre, die direkt in die Produktarbeit übergegangen ist: Ein Shop ist klarer, wenn er seinen
+Preis in der Einheit nennt, die der Käufer ausgibt. Münzen in Geld, ein Pass in Zeit, ein Gegenstand
+in Münzen. Dasselbe gilt für eine Abo-Seite, eine Verbrauchsanzeige oder eine Kasse, und genau
+deshalb sind die drei Shops hier nie ein Screen mit drei Reitern geworden.

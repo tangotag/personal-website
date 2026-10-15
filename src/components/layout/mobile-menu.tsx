@@ -73,7 +73,7 @@ export function MobileMenu({ open, onClose }: Props) {
         </div>
       </div>
 
-      <nav aria-label="Primary" className="container-content flex flex-1 flex-col justify-center">
+      <nav aria-label={t("primary")} className="container-content flex flex-1 flex-col justify-center">
         <ul className="flex flex-col gap-2">
           {navItems.map((item, i) => {
             const active =

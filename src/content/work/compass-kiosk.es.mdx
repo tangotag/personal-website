@@ -1,0 +1,241 @@
+---
+slug: compass-kiosk
+title: "Compass Kiosk: autoservicio con una cola detrás"
+hook: "Doce pantallas desde la bienvenida hasta el recibo impreso, cada una con una sola decisión."
+template: full
+tier: featured
+client: "Cygnus Payments"
+role: "Diseñador de Producto Senior"
+timeline: "Jul 2025 – actualidad"
+platforms: ["Kiosco de autoservicio"]
+industry: ["Fintech", "Hostelería"]
+tags: ["Kiosco", "Autoservicio", "Accesibilidad", "Pedidos", "Sistema de diseño"]
+filters: ["fintech-pos", "saas"]
+results:
+  - { value: "12", label: "pantallas, de la bienvenida al recibo" }
+  - { value: "1", label: "decisión por pantalla" }
+  - { value: "0", label: "campos obligatorios más allá del pedido" }
+cover: "/work/compass-kiosk/cover.webp"
+coverAlt: "El configurador de artículo del Compass Kiosk sobre un fondo verde profundo: a la izquierda la foto de una pizza y el total en curso, una fila de tamaño marcada como obligatoria, una lista de ingredientes con precios y contadores, y una fila de bebidas, con el menú de categorías fotografiado detrás."
+featuredOrder: 2
+externalUrl: "https://cygnuspay.com/cpos"
+---
+
+{/* Traducción del caso en inglés. La mitad de autoservicio del ecosistema Compass; la de mostrador está en /work/compass-pos. */}
+
+<TLDR
+  items={[
+    "En un kiosco no hay personal a quien preguntar y hay una cola que mete prisa, así que cada pantalla pide exactamente una decisión y dice la consecuencia antes de que se tome.",
+    "Todo el recorrido son doce pantallas, y solo el pedido es obligatorio. El nombre y el teléfono existen para que el mostrador pueda avisarte, y ambos se pueden saltar.",
+    "Comparte sistema de diseño con el terminal de mostrador, así el comercio aprende un producto en lugar de dos.",
+  ]}
+/>
+
+## Resumen
+
+Compass Kiosk es la mitad de autoservicio del ecosistema de restauración de Cygnus Payments. Un
+cliente se acerca, pide, paga y se lleva un número impreso al mostrador, sin hablar con nadie. Usa
+el mismo menú, los mismos modificadores y el mismo sistema de diseño que
+[el terminal de mostrador](/work/compass-pos), sobre un hardware muy distinto y para una persona muy
+distinta.
+
+| | |
+|---|---|
+| **Herramientas** | Figma, Adobe Illustrator, QA de diseño sobre el mueble |
+| **Metodología** | Observación del comportamiento de pedido, mapa de flujos, estructura de baja fidelidad, revisión con prototipo, revisión de accesibilidad, QA de diseño |
+| **Superficies** | Mueble del kiosco, terminal de tarjeta acoplado, impresora de recibos |
+| **Relacionado** | [Compass POS](/work/compass-pos), la mitad de mostrador del mismo ecosistema |
+
+## Descubrimiento y definición del problema
+
+### El problema
+
+Un terminal lo usa una persona formada muchas veces al día. Un kiosco lo usa una vez alguien que no
+lo ha visto nunca, con gente esperando detrás. Cada supuesto que hace rápido el mostrador vuelve
+hostil el kiosco.
+
+De ahí salen tres fallos. La gente abandona a mitad porque una pantalla pidió algo que no esperaba.
+Piden lo que no querían porque una elección obligatoria era fácil de pasar por alto. O se bloquean
+al pagar porque no quedaba claro qué pasa después.
+
+### El objetivo
+
+Llevar a un cliente primerizo desde la bienvenida hasta un número de pedido impreso sin ayuda, sin
+equivocarse y sin presentarle nunca más de una decisión a la vez.
+
+### Mi rol y responsabilidades
+
+Diseño de producto para la superficie de autoservicio: el flujo de pedido, el inventario de
+pantallas, la interfaz, la revisión de accesibilidad y el QA de diseño sobre el mueble físico. Los
+datos del menú, los modificadores y los precios vienen del mismo sistema que el mostrador, así que
+mi trabajo fue el recorrido y no el catálogo.
+
+<Callout kind="constraint">
+  Alcance y postura. Un kiosco se usa de pie, a veces desde una silla de ruedas, así que todo control
+  tiene que estar en la mitad inferior de la pantalla y nada importante puede vivir en el borde
+  superior.
+</Callout>
+
+## Entender a los usuarios
+
+### Resumen de investigación
+
+Al usuario de kiosco lo definen tres presiones que el de mostrador no tiene. No conoce la interfaz.
+Lo está mirando la cola. Y no tiene a quién preguntar.
+
+Esa combinación significa que la interfaz tiene que ser su propia instrucción. Todo lo que
+normalmente explicaría una persona del equipo tiene que estar escrito en la pantalla donde se toma
+la decisión.
+
+### Mapa del recorrido
+
+Bienvenida, elegir sala o para llevar, recorrer categorías, elegir una, configurar el artículo,
+revisar el pedido, elegir forma de pago, pagar en el terminal, dar un nombre, dar un teléfono,
+recoger el recibo. Once momentos, de los cuales exactamente uno es obligatorio.
+
+### Auditoría competitiva
+
+La mayoría de kioscos de comida rápida lo cargan todo al principio: piden identificarse en el
+programa de fidelidad, venden extras antes de completar el pedido y esconden el total en curso.
+Cada una de esas cosas añade una decisión justo cuando un primerizo menos puede tomarla. Aquí el
+planteamiento aplaza todo lo que no sea el pedido.
+
+## Empezar a diseñar
+
+### Wireframes
+
+Primero la estructura, para resolver qué puede pedir cada pantalla.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/compass-kiosk/wireframe-1-menu.webp",
+      alt: "Wireframe a mano del menú del kiosco: arriba a la izquierda un conmutador entre para llevar y sala, arriba a la derecha un botón de ver pedido con el número de artículos y el total, once fichas de categoría para pizza, hamburguesa, alitas, ensalada, sándwich, postres, taco, wraps, patatas, bebidas y salsas, abajo a la izquierda un selector de idioma y abajo a la derecha un teléfono de ayuda.",
+      caption: "01 Menú. Primero las categorías, y el selector de idioma se queda en pantalla todo el rato.",
+    },
+    {
+      src: "/work/compass-kiosk/wireframe-2-configurator.webp",
+      alt: "Wireframe a mano del configurador de artículo: a la izquierda imagen, nombre, calorías y precio sobre una lista de condimentos, un contador de cantidad, el total en curso y botones de cancelar y añadir; a la derecha un grupo de tamaño marcado como obligatorio, una lista de ingredientes marcada como opcional con casillas y contadores, y un carrusel de bebidas con tamaños.",
+      caption: "02 Configurador. Obligatorio y opcional se dicen con palabras, nunca solo con color.",
+    },
+    {
+      src: "/work/compass-kiosk/wireframe-3-order.webp",
+      alt: "Wireframe a mano de la pantalla de revisión del pedido: dos líneas, cada una con miniatura, sus modificadores, un enlace para personalizar, un contador de cantidad y un control de borrado; debajo un carrusel de cuatro sugerencias; y a la derecha un resumen con subtotal, impuestos, descuento y total sobre botones de volver al menú y continuar al pago.",
+      caption: "03 Revisión. Todo sigue siendo editable justo donde la cola está mirando.",
+    },
+    {
+      src: "/work/compass-kiosk/wireframe-4-payment.webp",
+      alt: "Wireframe a mano de la pantalla de pago: un titular para pagar, una línea para elegir el método preferido, tres fichas para tocar y continuar con caja en efectivo, tarjeta regalo y tarjeta de crédito o débito, y a la derecha un resumen con subtotal, impuestos, descuento y total sobre botones de volver al carrito y cancelar.",
+      caption: "04 Pago. Tres formas de pagar, y el total se queda al lado.",
+    },
+  ]}
+/>
+
+### Qué cambió con los tests
+
+Los pasos de nombre y teléfono se movieron al final y pasaron a poder saltarse. Pedidos antes del
+pago se leían como un registro, y la gente abandonaba. Pedidos después, explicados como la forma en
+que el mostrador te avisará, se responden de buena gana.
+
+## Diseño final
+
+El recorrido entregado, en orden.
+
+<Gallery
+  cols={3}
+  wide
+  items={[
+    {
+      src: "/work/compass-kiosk/01-welcome.webp",
+      alt: "Pantalla de bienvenida del kiosco con el logotipo de Cygnus Payments, la palabra bienvenido, una fila de iconos de categorías, un botón ancho para empezar y una foto de hamburguesa y patatas, sobre una barra con selector de idioma y teléfono de ayuda.",
+      caption: "01 Bienvenida. Un solo objetivo, y el idioma queda resuelto antes de pedir nada.",
+    },
+    {
+      src: "/work/compass-kiosk/02-dine-in-or-take-away.webp",
+      alt: "Pantalla del kiosco con un saludo y la pregunta de cómo se quiere disfrutar la comida hoy, con dos tarjetas grandes: en sala con cubiertos y para llevar con una bolsa.",
+      caption: "02 La única bifurcación del recorrido, tomada una vez.",
+    },
+    {
+      src: "/work/compass-kiosk/03-menu.webp",
+      alt: "Pantalla de menú del kiosco con fichas de categoría fotografiadas para pizza, hamburguesa, alitas, ensalada, sándwich, postres, taco, wraps, patatas, bebidas y salsas, y un botón de ver pedido con el total en curso.",
+      caption: "03 Categorías como fotografías, total del pedido arriba a la derecha.",
+    },
+    {
+      src: "/work/compass-kiosk/04-category.webp",
+      alt: "Listado de hamburguesas del kiosco agrupado en pollo, ternera y cordero, cada artículo una fotografía con nombre y precio, algunos con el precio original tachado.",
+      caption: "04 Dentro de una categoría, agrupado y con precios.",
+    },
+    {
+      src: "/work/compass-kiosk/05-pizza-configurator.webp",
+      alt: "Configurador de pizza del kiosco con una fotografía grande, una fila de tamaño marcada como obligatoria entre pequeña, mediana y grande, una lista opcional de ingredientes con contadores para cebolla, aceituna, tomate y champiñón, una fila de bebida, el total en curso y un botón para añadir.",
+      caption: "05 Configurar. Primero el tamaño obligatorio, luego los ingredientes opcionales.",
+    },
+    {
+      src: "/work/compass-kiosk/06-burger-configurator.webp",
+      alt: "Configurador de hamburguesa del kiosco con una fotografía, una fila obligatoria para elegir guarnición, una fila de ingredientes con maíz, aceitunas, cebolla y pimiento con contadores y precios, una fila de bebida y el total en curso con un botón para añadir.",
+      caption: "06 El mismo patrón en otro artículo, para que se aprenda una sola vez.",
+    },
+    {
+      src: "/work/compass-kiosk/07-order-review.webp",
+      alt: "Pantalla de revisión del pedido del kiosco con una pizza de pepperoni y un sándwich con sus personalizaciones, contadores de cantidad y botones de quitar, un resumen con subtotal, impuestos, descuento y total, una fila de sugerencias y botones de volver al menú y continuar al pago.",
+      caption: "07 Revisión. Cada línea sigue siendo editable, las sugerencias van debajo del pedido.",
+    },
+    {
+      src: "/work/compass-kiosk/08-payment-methods.webp",
+      alt: "Pantalla de pago del kiosco con tres métodos como tarjetas, caja en efectivo, tarjeta regalo y tarjeta de crédito o débito, junto a un resumen con subtotal, impuestos, descuento y total.",
+      caption: "08 Elegir cómo pagar, con el resumen todavía en pantalla.",
+    },
+    {
+      src: "/work/compass-kiosk/09-card-terminal.webp",
+      alt: "Pantalla del kiosco que pide acercar, insertar o pasar la tarjeta, con una nota de que la operación puede cancelarse desde el terminal, el total en grande y la ilustración de una mano acercando una tarjeta a un lector.",
+      caption: "09 El terminal de tarjeta, con la salida indicada en pantalla.",
+    },
+    {
+      src: "/work/compass-kiosk/10-name.webp",
+      alt: "Pantalla del kiosco que pide el nombre y explica que se llamará por él cuando el pedido esté listo en el mostrador de recogida, con un único campo de texto y un teclado en pantalla.",
+      caption: "10 Nombre, pedido después de pagar y explicado como la forma de avisarte.",
+    },
+    {
+      src: "/work/compass-kiosk/11-phone.webp",
+      alt: "Pantalla del kiosco que pide el teléfono y explica que se enviará un mensaje cuando la comida esté lista, con un único campo y un teclado numérico grande.",
+      caption: "11 Teléfono, opcional, con el motivo dicho.",
+    },
+    {
+      src: "/work/compass-kiosk/12-receipt.webp",
+      alt: "Pantalla de confirmación del kiosco con una marca verde, el aviso de que se está imprimiendo el recibo, la instrucción de llevarlo a caja y un número de pedido grande sobre la ilustración de un ticket y una línea de horizonte dibujada.",
+      caption: "12 Un número impreso, y una sola instrucción sobre qué hacer con él.",
+    },
+  ]}
+/>
+
+<Callout kind="decision">
+  Aplazar todo lo que no sea el pedido. El nombre, el teléfono y las sugerencias pasaron detrás del
+  pago, lo que convirtió tres oportunidades de abandono en tres preguntas que la gente responde
+  cuando ya se ha comprometido.
+</Callout>
+
+## Impacto, accesibilidad y reflexión
+
+### Accesibilidad
+
+El alcance marcó el layout. Los controles principales están en la mitad inferior de la pantalla para
+que el kiosco se pueda usar sentado además de de pie, y nada necesario para completar un pedido vive
+en el borde superior. Los objetivos superan los 48 por 48 píxeles independientes del dispositivo con
+amplia separación, porque aquí un toque fallido cuesta un pedido equivocado y no uno corregido. El
+idioma se ofrece en la primera pantalla y se queda en una barra permanente junto a un teléfono de
+ayuda, para que quien se atasque no tenga que buscar. Las elecciones obligatorias llevan la palabra
+obligatorio, y los precios aparecen como cifras junto a cada opción y no como un total que cambia
+sin explicación.
+
+### Impacto y aprendizajes
+
+<Results>
+  <Metric display="12" label="pantallas, de la bienvenida al recibo" />
+  <Metric display="1" label="decisión por pantalla" />
+</Results>
+
+Un kiosco no es un terminal con botones más grandes. El sistema de mostrador optimiza para quien ya
+lo conoce; el kiosco tiene que enseñarse solo a un desconocido en lo que dura pedir la comida.
+Compartir el sistema de diseño entre ambos fue acertado, compartir el flujo habría sido un error.

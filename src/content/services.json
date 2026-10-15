@@ -27,7 +27,20 @@
         "es": "Entrega a desarrollo y QA de diseño"
       }
     ],
-    "tags": ["0→1", "Discovery", "Design system"],
+    "tags": [
+      {
+        "de": "0→1",
+        "es": "0→1"
+      },
+      {
+        "de": "Discovery",
+        "es": "Descubrimiento"
+      },
+      {
+        "de": "Design-System",
+        "es": "Sistema de diseño"
+      }
+    ],
     "timeline": {
       "de": "6–12 Wochen",
       "es": "6–12 semanas"
@@ -59,7 +72,20 @@
         "es": "Prototipo navegable"
       }
     ],
-    "tags": ["iOS", "Android", "Web"],
+    "tags": [
+      {
+        "de": "iOS",
+        "es": "iOS"
+      },
+      {
+        "de": "Android",
+        "es": "Android"
+      },
+      {
+        "de": "Web",
+        "es": "Web"
+      }
+    ],
     "timeline": {
       "de": "3–8 Wochen",
       "es": "3–8 semanas"
@@ -91,7 +117,20 @@
         "es": "Librería de componentes"
       }
     ],
-    "tags": ["Enterprise", "Dashboards", "Multi-role"],
+    "tags": [
+      {
+        "de": "Enterprise",
+        "es": "Corporativo"
+      },
+      {
+        "de": "Dashboards",
+        "es": "Paneles"
+      },
+      {
+        "de": "Mehrere Rollen",
+        "es": "Multirol"
+      }
+    ],
     "timeline": {
       "de": "4–10 Wochen",
       "es": "4–10 semanas"
@@ -123,7 +162,20 @@
         "es": "UI táctil y sistema de diseño"
       }
     ],
-    "tags": ["POS", "Kiosk", "Offline-first"],
+    "tags": [
+      {
+        "de": "POS",
+        "es": "POS"
+      },
+      {
+        "de": "Kiosk",
+        "es": "Kiosco"
+      },
+      {
+        "de": "Offline-first",
+        "es": "Offline-first"
+      }
+    ],
     "timeline": {
       "de": "6–12 Wochen",
       "es": "6–12 semanas"
@@ -155,7 +207,20 @@
         "es": "Set de componentes adaptable a plataforma"
       }
     ],
-    "tags": ["HUD", "Economy", "Cross-platform"],
+    "tags": [
+      {
+        "de": "HUD",
+        "es": "HUD"
+      },
+      {
+        "de": "Ökonomie",
+        "es": "Economía"
+      },
+      {
+        "de": "Plattformübergreifend",
+        "es": "Multiplataforma"
+      }
+    ],
     "timeline": {
       "de": "3–10 Wochen",
       "es": "3–10 semanas"
@@ -187,7 +252,20 @@
         "es": "QA de diseño por versión"
       }
     ],
-    "tags": ["Figma", "Tokens", "Design QA"],
+    "tags": [
+      {
+        "de": "Figma",
+        "es": "Figma"
+      },
+      {
+        "de": "Tokens",
+        "es": "Tokens"
+      },
+      {
+        "de": "Design-QA",
+        "es": "QA de diseño"
+      }
+    ],
     "timeline": {
       "de": "2–6 Wochen",
       "es": "2–6 semanas"
@@ -219,7 +297,20 @@
         "es": "Llamada de presentación de resultados"
       }
     ],
-    "tags": ["Heuristics", "Analytics", "Quick wins"],
+    "tags": [
+      {
+        "de": "Heuristiken",
+        "es": "Heurísticas"
+      },
+      {
+        "de": "Analytics",
+        "es": "Analítica"
+      },
+      {
+        "de": "Schnelle Erfolge",
+        "es": "Mejoras rápidas"
+      }
+    ],
     "timeline": {
       "de": "1–2 Wochen",
       "es": "1–2 semanas"

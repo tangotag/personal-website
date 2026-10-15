@@ -21,87 +21,92 @@ featuredOrder: 1
 externalUrl: "https://cygnuspay.com/cpos"
 ---
 
-{/* Compass Kiosk is a separate product and a separate case study. Shipped screens appear only under the final-design section; the wireframes are Raheel's own, converted by scripts/build-supplied.mts. The under-30-minute onboarding figure stays tagged `confirm` until Raheel verifies it. */}
+{/* Compass Kiosk ist ein eigenes Produkt und eine eigene Case Study. Ausgelieferte Screens erscheinen nur im Abschnitt zum finalen Design; die Wireframes sind Raheels eigene, konvertiert von scripts/build-supplied.mts. Die Zahl zur Einarbeitung unter 30 Minuten bleibt als `confirm` markiert, bis Raheel sie bestätigt. */}
 
 <TLDR
   items={[
-    "A counter terminal that has to survive the worst shift, not the demo: gloves, glare, a dropped connection mid-ticket and a new hire on day one.",
-    "The order ticket never leaves the left rail. Menu, modifiers and payment all open beside it, so a cashier's eyes stay in one place from the first item to the receipt.",
-    "Dual pricing, tipping and splitting resolve in a single view, and the whole thing keeps taking orders when the connection goes.",
+    "Ein Tresen-Terminal, das die schlimmste Schicht überstehen muss, nicht die Vorführung: Handschuhe, Blendung, ein Verbindungsabbruch mitten im Bon und eine neue Kraft am ersten Tag.",
+    "Der Bon verlässt die linke Spalte nie. Menü, Zusätze und Zahlung öffnen sich daneben, damit der Blick der Kassenkraft vom ersten Artikel bis zum Beleg an einer Stelle bleibt.",
+    "Doppelte Preise, Trinkgeld und Rechnungsteilung werden in einer einzigen Ansicht geklärt, und das Ganze nimmt weiter Bestellungen an, wenn die Verbindung wegbricht.",
   ]}
 />
 
-## Overview
+## Überblick
 
-Cygnus Payments is a US payments ISO moving from reselling third-party point of sale to owning the
-product. Compass POS is the counter half of that: the terminal staff use all day, the kitchen board
-behind it, and the customer-facing display that asks for the tip and the signature.
+Cygnus Payments ist ein US-Zahlungsdienstleister, der vom Weiterverkauf fremder Kassensysteme zum
+eigenen Produkt wechselt. Compass POS ist die Tresenhälfte davon: das Terminal, das das Personal den
+ganzen Tag bedient, die Küchentafel dahinter und das Kundendisplay, das nach Trinkgeld und
+Unterschrift fragt.
 
 | | |
 |---|---|
-| **Tools** | Figma, Adobe Illustrator, design QA on hardware |
-| **Methodology** | Stakeholder and staff interviews, flow mapping, low-fidelity structure, prototype review, design QA against the build |
-| **Surfaces** | Terminal, kitchen display, customer display |
-| **Related** | [Compass Kiosk](/work/compass-kiosk), the self-service half of the same ecosystem |
+| **Werkzeuge** | Figma, Adobe Illustrator, Design-QA an der Hardware |
+| **Vorgehen** | Gespräche mit Stakeholdern und Personal, Flow-Mapping, Struktur in niedriger Auflösung, Prototyp-Review, Design-QA gegen den Build |
+| **Oberflächen** | Terminal, Küchendisplay, Kundendisplay |
+| **Verwandt** | [Compass Kiosk](/work/compass-kiosk), die Selbstbedienungshälfte desselben Ökosystems |
 
-## Discovery and problem definition
+## Discovery und Problemdefinition
 
-### The problem
+### Das Problem
 
-Independent restaurants were stitching a counter system together from separate vendors: one for
-orders, another for online, another for timekeeping, another for reporting. Nothing agreed, and
-staff paid for the disagreement during service.
+Unabhängige Restaurants haben sich ihr Tresensystem aus getrennten Anbietern zusammengestückelt:
+einer für Bestellungen, einer fürs Online-Geschäft, einer für die Zeiterfassung, einer fürs
+Reporting. Nichts passte zusammen, und das Personal bezahlte diese Unstimmigkeit während des
+Service.
 
-The design difficulty is not the feature list. It is that a terminal is used by someone with wet
-hands, under a heat lamp, with three people waiting, who may have started that morning. Every
-screen has to be legible and forgiving under exactly those conditions.
+Die gestalterische Schwierigkeit ist nicht die Funktionsliste. Sie liegt darin, dass ein Terminal
+von jemandem mit nassen Händen bedient wird, unter einer Wärmelampe, mit drei Wartenden, und das
+womöglich seit heute Morgen. Jeder Screen muss genau unter diesen Bedingungen lesbar und
+nachsichtig sein.
 
-### The goal
+### Das Ziel
 
-A terminal a new hire can run in a single shift, that keeps taking orders when the internet drops,
-and that discloses dual pricing correctly without slowing the transaction down.
+Ein Terminal, das eine neue Kraft in einer einzigen Schicht bedienen kann, das weiter Bestellungen
+annimmt, wenn das Internet ausfällt, und das die doppelte Preisauszeichnung korrekt offenlegt, ohne
+den Vorgang zu verlangsamen.
 
-### My role and responsibilities
+### Meine Rolle und Verantwortung
 
-Sole product designer for the counter surfaces: information architecture, ordering and payment
-flows, the interface, the component library, offline and sync states, and design QA against the
-built terminal. I partnered with product and engineering on scope. I did not select hardware or
-integrate payment processors.
+Alleiniger Produktdesigner für die Tresen-Oberflächen: Informationsarchitektur, Bestell- und
+Zahlungsflows, die Oberfläche, die Komponentenbibliothek, Offline- und Sync-Zustände sowie
+Design-QA gegen das gebaute Terminal. Umfang und Zuschnitt habe ich mit Produkt und Entwicklung
+abgestimmt. Hardware-Auswahl und die Anbindung der Zahlungsabwickler lagen nicht bei mir.
 
 <Callout kind="constraint">
-  Fixed hardware and a fixed screen size. Nothing could be solved by giving the layout more room, so
-  every improvement had to come from sequencing, labelling and state.
+  Feste Hardware und feste Bildschirmgröße. Nichts ließ sich dadurch lösen, dem Layout mehr Platz zu
+  geben, also musste jede Verbesserung aus Abfolge, Beschriftung und Zustand kommen.
 </Callout>
 
-## Understanding the users
+## Die Nutzer verstehen
 
-### Research summary
+### Zusammenfassung der Recherche
 
-Four people share this terminal. Cashiers and servers who need speed and fewer mistakes. Kitchen
-staff reading tickets from three metres away. Owner-operators who live in menus, pricing and
-reports. And the Cygnus support team onboarding merchants remotely.
+Vier Personengruppen teilen sich dieses Terminal. Kassen- und Servicekräfte, die Tempo und weniger
+Fehler brauchen. Küchenpersonal, das Bons aus drei Metern Entfernung liest. Inhaber, die in Menüs,
+Preisen und Berichten leben. Und das Support-Team von Cygnus, das Händler aus der Ferne einrichtet.
 
-They pull in different directions. Speed for the cashier means fewer taps; accuracy for the kitchen
-means more explicit modifiers; control for the owner means more configuration. The architecture had
-to serve all three without letting the owner's tools clutter the cashier's screen.
+Sie ziehen in verschiedene Richtungen. Tempo für die Kasse heißt weniger Tipps; Genauigkeit für die
+Küche heißt deutlichere Zusätze; Kontrolle für den Inhaber heißt mehr Konfiguration. Die Architektur
+musste allen dreien dienen, ohne dass die Werkzeuge des Inhabers den Kassenbildschirm zustellen.
 
-### Journey mapping
+### Mapping des Ablaufs
 
-Sign in on a PIN, open a ticket, add items, answer required modifiers, take payment with the right
-disclosure, fire to the kitchen, close out. Seven steps, and the terminal is judged on the two that
-take money.
+Mit PIN anmelden, einen Bon öffnen, Artikel hinzufügen, Pflichtzusätze beantworten, mit der
+richtigen Offenlegung kassieren, an die Küche senden, abschließen. Sieben Schritte, und beurteilt
+wird das Terminal an den beiden, bei denen Geld fließt.
 
-### Competitive audit
+### Wettbewerbsanalyse
 
-Toast, Square and Clover set the expectation. Matching them feature for feature was not the goal at
-this price point, so the differentiators are dual pricing done properly, offline resilience, and a
-single design language across surfaces that competitors treat as separate products.
+Toast, Square und Clover setzen die Erwartung. Sie Funktion für Funktion zu erreichen war in dieser
+Preisklasse nicht das Ziel, deshalb liegen die Unterschiede in einer sauber umgesetzten doppelten
+Preisauszeichnung, in Offline-Festigkeit und in einer gemeinsamen Designsprache über Oberflächen
+hinweg, die Wettbewerber als getrennte Produkte behandeln.
 
-## Starting the design
+## Der Einstieg ins Design
 
 ### Wireframes
 
-Structure before decoration, so the argument was about order rather than colour.
+Struktur vor Dekoration, damit es um Reihenfolge ging statt um Farbe.
 
 <Gallery
   cols={2}
@@ -109,36 +114,36 @@ Structure before decoration, so the argument was about order rather than colour.
   items={[
     {
       src: "/work/compass-pos/wireframe-1-sign-in.webp",
-      alt: "Hand-drawn wireframe of the Compass POS sign-in screen: a promotional panel on the left with a placeholder image and the line get everything you want, and on the right the Cygnus Payments mark above a type your PIN field of four dots and a numeric keypad with backspace and confirm keys.",
-      caption: "01 Sign-in. A PIN rather than a password, because the terminal changes hands every shift.",
+      alt: "Handgezeichnetes Wireframe des Anmeldebildschirms von Compass POS: links eine Werbefläche mit Platzhalterbild und einer Zeile darüber, alles zu bekommen, was man will, rechts das Zeichen von Cygnus Payments über einem PIN-Feld aus vier Punkten und einem Ziffernblock mit Rücktaste und Bestätigung.",
+      caption: "01 Anmeldung. Eine PIN statt eines Passworts, weil das Terminal jede Schicht den Besitzer wechselt.",
     },
     {
       src: "/work/compass-pos/wireframe-2-home.webp",
-      alt: "Hand-drawn wireframe of the shift home screen: the Cygnus Payments mark at the top left, a greeting reading hi Jhon admin at the top right, twelve module tiles labelled dine in, to go, delivery, pick up, menu, orders, reservation, tables, messages, settings, recall and day closing, a staff report tile centred below them, and brightness, network and sync icons in the corner.",
-      caption: "02 Shift home. Twelve modules, no submenus, and the role decides which ones render.",
+      alt: "Handgezeichnetes Wireframe des Startbildschirms einer Schicht: oben links das Zeichen von Cygnus Payments, oben rechts eine Begrüßung mit Namen und Rolle, zwölf Modulkacheln für Restaurant, Mitnahme, Lieferung, Abholung, Menü, Bestellungen, Reservierung, Tische, Nachrichten, Einstellungen, Rückruf und Tagesabschluss, darunter mittig eine Kachel für den Personalbericht und in der Ecke Symbole für Helligkeit, Netz und Synchronisierung.",
+      caption: "02 Schichtstart. Zwölf Module, keine Untermenüs, und die Rolle entscheidet, welche erscheinen.",
     },
     {
       src: "/work/compass-pos/wireframe-3-payment.webp",
-      alt: "Hand-drawn wireframe of the payment screen: an order ticket down the left listing a double bacon burger combo and a Hawaiian pizza with separate card and cash columns, subtotal, tax and two totals; a centre panel with a card amount, a cash amount, an add tip control, exact, round up and cash buttons and a grid splitting the bill two to ten ways; and a payment method rail on the right.",
-      caption: "03 Payment. Both prices sit on the ticket from the first line, and the split grid does the arithmetic.",
+      alt: "Handgezeichnetes Wireframe des Zahlungsbildschirms: links ein Bon mit einem Burger-Kombi und einer Hawaii-Pizza mit getrennten Spalten für Karte und Bar, Zwischensumme, Steuer und zwei Summen; in der Mitte ein Feld mit Kartenbetrag, Barbetrag, einem Trinkgeld-Element, Schaltflächen für exakt, aufrunden und bar sowie einem Raster zum Teilen der Rechnung auf zwei bis zehn Personen; rechts eine Leiste mit Zahlungsarten.",
+      caption: "03 Zahlung. Beide Preise stehen ab der ersten Zeile auf dem Bon, und das Teilungsraster rechnet.",
     },
     {
       src: "/work/compass-pos/wireframe-4-kitchen.webp",
-      alt: "Hand-drawn wireframe of the kitchen display system: four order tickets side by side, each with an order number, a running timer, a to go or dine in label, line items with their modifiers, a note line and a complete button, with a recall control in the top right.",
-      caption: "04 Kitchen display. A ticket ages by timer as well as by position.",
+      alt: "Handgezeichnetes Wireframe des Küchendisplays: vier Bons nebeneinander, jeder mit Bestellnummer, laufender Uhr, einer Kennzeichnung für Mitnahme oder vor Ort, den Positionen mit ihren Zusätzen, einer Notizzeile und einer Fertig-Schaltfläche, oben rechts ein Element zum Zurückholen.",
+      caption: "04 Küchendisplay. Ein Bon altert über die Uhr ebenso wie über seine Position.",
     },
   ]}
 />
 
-### What testing changed
+### Was die Tests verändert haben
 
-Two things stuck. Required modifiers moved from a dismissible sheet to one that blocks the ticket,
-because staff were sending incomplete items to the kitchen. And the two totals moved onto the ticket
-from the start rather than appearing at payment, which removed an argument at the counter.
+Zwei Dinge blieben. Pflichtzusätze wanderten von einem schließbaren Blatt zu einem, das den Bon
+blockiert, weil Personal unvollständige Artikel an die Küche schickte. Und die beiden Summen
+wanderten von der Zahlung auf den Bon von Anfang an, was eine Diskussion am Tresen beseitigte.
 
-## Final design
+## Finales Design
 
-The shipped terminal, kitchen board and customer display.
+Das ausgelieferte Terminal, die Küchentafel und das Kundendisplay.
 
 <Gallery
   cols={2}
@@ -146,82 +151,84 @@ The shipped terminal, kitchen board and customer display.
   items={[
     {
       src: "/work/compass-pos/pos-staff-pin.webp",
-      alt: "Two Compass screens side by side. On the left an idle attract poster reading Get Everything You Want. On the right a staff sign-in screen headed Type your PIN, with a large three-column numeric keypad under the Cygnus Payments logo.",
-      caption: "Shift start. The terminal idles on an attract screen and wakes to a PIN pad.",
+      alt: "Zwei Compass-Screens nebeneinander. Links ein Ruhebildschirm mit einem Werbeplakat, rechts eine Personalanmeldung mit der Aufforderung zur PIN-Eingabe und einem großen dreispaltigen Ziffernblock unter dem Logo von Cygnus Payments.",
+      caption: "Schichtbeginn. Das Terminal ruht auf einem Werbebildschirm und wacht mit dem PIN-Feld auf.",
     },
     {
       src: "/work/compass-pos/pos-home-modules.webp",
-      alt: "The Compass POS home screen. Twelve labelled tiles in two rows: dine in, to go, delivery, pick up, menu, orders, reservation, tables, messages, settings, recall and day closing, with a staff report tile centred below them.",
-      caption: "Home. Every job a shift needs is one tap away.",
+      alt: "Der Startbildschirm von Compass POS. Zwölf beschriftete Kacheln in zwei Reihen für Restaurant, Mitnahme, Lieferung, Abholung, Menü, Bestellungen, Reservierung, Tische, Nachrichten, Einstellungen, Rückruf und Tagesabschluss, darunter mittig eine Kachel für den Personalbericht.",
+      caption: "Start. Jede Aufgabe einer Schicht ist einen Tipp entfernt.",
     },
     {
       src: "/work/compass-pos/pos-menu-grid.webp",
-      alt: "The Compass order screen with a menu grid beside the ticket. Category chips read all, gifts, EBT and dinner menu, above a row of cakes, cookies, burgers, croissants and pizza, and photographed item tiles with prices.",
-      caption: "Menu browse. Photographs carry the scan, prices confirm it.",
+      alt: "Der Bestellbildschirm von Compass mit einem Menüraster neben dem Bon. Kategorie-Chips über einer Reihe aus Kuchen, Keksen, Burgern, Croissants und Pizza sowie fotografierten Artikelkacheln mit Preisen.",
+      caption: "Menü. Fotos tragen den Blick, Preise bestätigen ihn.",
     },
     {
       src: "/work/compass-pos/pos-required-modifiers.webp",
-      alt: "A Compass order ticket on the left listing a double bacon burger combo with its condiments and card and cash columns. On the right a sheet titled condiments for double bacon burger combo marked required, with plus and minus steppers for mustard, mayo, ketchup, onion, pickles and hot sauce, and a rail of optional add-ons, sides and drinks.",
-      caption: "Required modifiers hold the ticket until they are answered.",
+      alt: "Links ein Compass-Bon mit einem Burger-Kombi, seinen Zutaten und Spalten für Karte und Bar. Rechts ein als Pflicht gekennzeichnetes Blatt für Zutaten mit Plus- und Minus-Zählern für Senf, Mayo, Ketchup, Zwiebeln, Gurken und scharfe Soße sowie einer Leiste mit optionalen Extras, Beilagen und Getränken.",
+      caption: "Pflichtzusätze halten den Bon fest, bis sie beantwortet sind.",
     },
     {
       src: "/work/compass-pos/pos-pizza-builder.webp",
-      alt: "A Hawaiian pizza builder beside the order ticket, with tabs for pizza size, cheese, meat and veggies, a two-column topping list with per-item prices, and a half-and-half selector.",
-      caption: "The pizza builder handles per-half toppings without a second screen.",
+      alt: "Ein Pizza-Konfigurator neben dem Bon, mit Reitern für Größe, Käse, Fleisch und Gemüse, einer zweispaltigen Belagliste mit Einzelpreisen und einer Auswahl für halb und halb.",
+      caption: "Der Pizza-Konfigurator beherrscht Beläge je Hälfte ohne zweiten Screen.",
     },
     {
       src: "/work/compass-pos/pos-payment-split.webp",
-      alt: "The Compass payment screen showing a card amount of forty dollars and a cash amount of thirty, an add tip control, exact, round up and cash buttons, a grid of split by two through split by ten with the amount each guest owes, and a payment method rail of card, cash and gift card.",
-      caption: "Dual pricing, tipping and splitting in one view.",
+      alt: "Der Zahlungsbildschirm von Compass mit einem Kartenbetrag von vierzig Dollar und einem Barbetrag von dreißig, einem Trinkgeld-Element, Schaltflächen für exakt, aufrunden und bar, einem Raster zum Teilen auf zwei bis zehn Personen mit dem Betrag je Gast und einer Leiste mit Karte, Bar und Gutschein.",
+      caption: "Doppelte Preise, Trinkgeld und Teilung in einer Ansicht.",
     },
     {
       src: "/work/compass-pos/pos-drive-through.webp",
-      alt: "A drive through orders screen with four order tickets open side by side, each with its own items, totals and pay button, and a search field above them.",
-      caption: "Drive-through keeps several tickets open, because cars do not arrive one at a time.",
+      alt: "Ein Bildschirm für Autoschalter-Bestellungen mit vier gleichzeitig offenen Bons, jeder mit eigenen Positionen, Summen und Zahlschaltfläche, darüber ein Suchfeld.",
+      caption: "Der Autoschalter hält mehrere Bons offen, weil Autos nicht einzeln ankommen.",
     },
     {
       src: "/work/compass-pos/kds-board.webp",
-      alt: "The kitchen display system board with four order cards in grey, red, green and amber. Each card shows an order number, a running timer, a to go or dine in label, the items with their modifications, and a complete button. A recall button sits in the top corner.",
-      caption: "The kitchen board. Colour and a timer both track how long a ticket has waited.",
+      alt: "Die Tafel des Küchendisplays mit vier Bestellkarten in Grau, Rot, Grün und Gelb. Jede Karte zeigt Bestellnummer, laufende Uhr, eine Kennzeichnung für Mitnahme oder vor Ort, die Positionen mit ihren Änderungen und eine Fertig-Schaltfläche. Oben in der Ecke sitzt eine Schaltfläche zum Zurückholen.",
+      caption: "Die Küchentafel. Farbe und Uhr zeigen beide, wie lange ein Bon schon wartet.",
     },
   ]}
 />
 
 <Figure
   src="/work/compass-pos/customer-display-tip.webp"
-  alt="A customer-facing display asking would you like to leave a tip, showing the bill total and a grid of tip options from no tip through thirty percent plus a custom amount, above a signature area. Beside it, a photograph of a customer tapping a card on a terminal."
-  caption="The customer display asks for the tip and the signature, in currency rather than only percentages."
+  alt="Ein Kundendisplay fragt nach Trinkgeld, zeigt die Rechnungssumme und ein Raster von Trinkgeld-Optionen von keinem Trinkgeld bis dreißig Prozent samt freiem Betrag, darüber ein Unterschriftenfeld. Daneben das Foto einer Kundin, die eine Karte an ein Terminal hält."
+  caption="Das Kundendisplay fragt nach Trinkgeld und Unterschrift, in Währung statt nur in Prozent."
   kind="pos"
   aspect="16/10"
   wide
 />
 
 <Callout kind="decision">
-  One design language across the counter surfaces instead of three products that happen to be sold
-  together. A merchant learns one system and the engineering team builds one component library.
+  Eine Designsprache über die Tresen-Oberflächen hinweg statt dreier Produkte, die zufällig zusammen
+  verkauft werden. Ein Händler lernt ein System, und die Entwicklung baut eine Komponentenbibliothek.
 </Callout>
 
-## Impact, accessibility and reflection
+## Wirkung, Barrierefreiheit und Rückblick
 
-### Accessibility
+### Barrierefreiheit
 
-Targets are sized for a gloved hand, well past 48 by 48 device-independent pixels, and spaced so a
-mis-tap lands on empty chrome rather than the wrong item. The kitchen board never relies on colour
-alone: every card carries a running timer and a dine-in or to-go word alongside its colour band,
-which is what makes it readable to a colourblind cook across a hot line. Required modifiers are
-labelled with the word required. Both prices are shown as numerals rather than one price and a
-percentage the cashier has to compute.
+Die Ziele sind für eine behandschuhte Hand bemessen, deutlich über 48 mal 48 geräteunabhängigen
+Pixeln, und so verteilt, dass ein Fehlgriff auf leerer Fläche landet statt auf dem falschen Artikel.
+Die Küchentafel verlässt sich nie allein auf Farbe: jede Karte trägt neben ihrem Farbband eine
+laufende Uhr und das Wort für vor Ort oder Mitnahme, was sie für eine farbenblinde Küchenkraft über
+die heiße Linie hinweg lesbar macht. Pflichtzusätze sind mit dem Wort Pflicht beschriftet. Beide
+Preise stehen als Zahlen da, statt als ein Preis und ein Prozentsatz, den die Kasse ausrechnen
+müsste.
 
-### Impact and takeaways
+### Wirkung und Erkenntnisse
 
 <Results>
-  <Metric display="12" label="modules, no submenus" />
-  <Metric display="Offline-first" label="ordering and payments" />
+  <Metric display="12" label="Module, keine Untermenüs" />
+  <Metric display="Offline-first" label="Bestellung und Zahlung" />
 </Results>
 
-Design for the worst shift, not the demo. When a product asks for a decision several times in a row,
-the design problem is sequencing rather than layout, and the fastest way to reduce mistakes is to
-make the incomplete state impossible rather than to warn about it.
+Für die schlimmste Schicht gestalten, nicht für die Vorführung. Wenn ein Produkt mehrmals
+hintereinander eine Entscheidung verlangt, ist das Designproblem die Abfolge und nicht das Layout,
+und der schnellste Weg zu weniger Fehlern ist, den unvollständigen Zustand unmöglich zu machen,
+statt vor ihm zu warnen.
 
-The self-service half of the same ecosystem has a different user with a different problem, which is
-why it is [its own case study](/work/compass-kiosk).
+Die Selbstbedienungshälfte desselben Ökosystems hat andere Nutzer mit einem anderen Problem, und
+genau deshalb ist sie [eine eigene Case Study](/work/compass-kiosk).

@@ -13,7 +13,7 @@ export const serviceSchema = z.object({
   title: localizedSchema,
   scope: localizedSchema,
   deliverables: z.array(localizedSchema).min(1),
-  tags: z.array(z.string()).min(1).max(4),
+  tags: z.array(localizedSchema).min(1).max(4),
   /** Typical timeline label, e.g. "6–12 weeks". */
   timeline: localizedSchema,
   /** "confirm" hides the timeline from production until Raheel approves it. */
@@ -36,7 +36,7 @@ export const experienceSchema = z.object({
   location: z.string().min(1),
   kind: z.enum(["full-time", "contract", "freelance"]),
   summary: localizedSchema,
-  tags: z.array(z.string()).min(1).max(4),
+  tags: z.array(localizedSchema).min(1).max(4),
   url: z.string().url().optional(),
 });
 export const experiencesSchema = z.array(experienceSchema).min(1);
@@ -65,7 +65,7 @@ export type Testimonial = z.infer<typeof testimonialSchema>;
 export const mobileAppSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   name: localizedSchema,
-  tags: z.array(z.string().min(1)).min(1).max(4),
+  tags: z.array(localizedSchema).min(1).max(4),
   summary: localizedSchema,
   screens: z
     .array(

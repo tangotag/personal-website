@@ -45,7 +45,7 @@ export async function ServicesTeaser({ locale }: { locale: string }) {
                 <p className="text-fg-muted">{pick(s.scope, locale)}</p>
                 <div className="mt-auto flex flex-wrap gap-2 pt-2">
                   {s.tags.map((tag) => (
-                    <Tag key={tag}>{tag}</Tag>
+                    <Tag key={tag.de}>{pick(tag, locale)}</Tag>
                   ))}
                 </div>
               </Link>

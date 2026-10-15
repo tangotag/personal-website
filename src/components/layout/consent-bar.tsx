@@ -82,7 +82,7 @@ export function ConsentBar() {
   return (
     <div
       role="region"
-      aria-label="Cookie consent"
+      aria-label={t("label")}
       className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-md border border-border bg-surface p-4 shadow-soft-lg md:inset-x-6 md:bottom-6"
     >
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">

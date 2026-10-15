@@ -12,7 +12,20 @@
       "de": "Gestaltung des Compass-POS- und Kiosk-Ökosystems: Bestellung, Zahlung, Küchendisplay, Zeiterfassung, KI-Reporting und das Backoffice-Portal. Ein Design-System über fünf Oberflächen hinweg.",
       "es": "Diseño del ecosistema Compass POS y kioscos: pedidos, pagos, pantalla de cocina, control horario, reportes con IA y el portal de administración; un solo sistema de diseño en cinco superficies."
     },
-    "tags": ["Fintech", "POS & Kiosk", "Design system"],
+    "tags": [
+      {
+        "de": "Fintech",
+        "es": "Fintech"
+      },
+      {
+        "de": "POS & Kiosk",
+        "es": "POS y kiosco"
+      },
+      {
+        "de": "Design-System",
+        "es": "Sistema de diseño"
+      }
+    ],
     "url": "https://cygnuspay.com"
   },
   {
@@ -28,7 +41,20 @@
       "de": "End-to-End-UI/UX für Kunden aus den Bereichen Mobile Apps, Immobilien, Event-Ticketing und ein plattformübergreifender Multiplayer-Shooter.",
       "es": "UI/UX de principio a fin para clientes en apps móviles, inmobiliaria, venta de entradas y un shooter multijugador multiplataforma."
     },
-    "tags": ["Mobile", "Web", "Games"]
+    "tags": [
+      {
+        "de": "Mobile",
+        "es": "Móvil"
+      },
+      {
+        "de": "Web",
+        "es": "Web"
+      },
+      {
+        "de": "Games",
+        "es": "Videojuegos"
+      }
+    ]
   },
   {
     "company": "360SynergyTech",
@@ -44,7 +70,20 @@
       "de": "Enterprise-SaaS für Geldwäscheprüfung und RPA-Werkzeuge. Entwicklungsfertige Wireframes und Prototypen senkten die Entwicklungszeit um 25 % (rund 5.000 $ pro Projekt); Mentoring für Junior-Designer.",
       "es": "SaaS empresarial: screening antilavado de dinero y herramientas de RPA. Wireframes y prototipos listos para desarrollo redujeron el tiempo de desarrollo un 25 % (≈ 5 000 $ por proyecto); mentoría a diseñadores junior."
     },
-    "tags": ["Enterprise SaaS", "RegTech", "Mentoring"]
+    "tags": [
+      {
+        "de": "Enterprise-SaaS",
+        "es": "SaaS corporativo"
+      },
+      {
+        "de": "RegTech",
+        "es": "RegTech"
+      },
+      {
+        "de": "Mentoring",
+        "es": "Mentoría"
+      }
+    ]
   },
   {
     "company": "Fifty Cats",
@@ -60,7 +99,20 @@
       "de": "Verantwortung für UX/UI von zwei veröffentlichten Casino-Titeln von Anfang bis Ende; das Redesign von Open Omaha steigerte die Conversion um 40 %.",
       "es": "Lideré la UX/UI de principio a fin de dos juegos de casino lanzados; el rediseño de Open Omaha aumentó la conversión un 40 %."
     },
-    "tags": ["Casino games", "Conversion", "Usability testing"]
+    "tags": [
+      {
+        "de": "Casinospiele",
+        "es": "Juegos de casino"
+      },
+      {
+        "de": "Conversion",
+        "es": "Conversión"
+      },
+      {
+        "de": "Usability-Tests",
+        "es": "Test de usabilidad"
+      }
+    ]
   },
   {
     "company": "Argon Tech",
@@ -76,7 +128,20 @@
       "de": "Verantwortung für die UX-Vision über Game-Design-Dokumente und Spezifikationen; Planung und Aufwandsschätzung verbesserten die Liefertermine um 20 %, die Arbeit an der Gameplay-UI steigerte die Spielerbindung um 30 %.",
       "es": "Definí la visión de UX con documentos de diseño de juego y especificaciones; la planificación y estimación mejoraron los plazos de entrega un 20 % y la UI de juego elevó la retención un 30 %."
     },
-    "tags": ["Leadership", "GDD", "Retention"]
+    "tags": [
+      {
+        "de": "Führung",
+        "es": "Liderazgo"
+      },
+      {
+        "de": "GDD",
+        "es": "GDD"
+      },
+      {
+        "de": "Retention",
+        "es": "Retención"
+      }
+    ]
   },
   {
     "company": "Argon Tech",
@@ -92,6 +157,15 @@
       "de": "UI/UX-Konzepte und Interface-Assets für PC- und Mobile-Spiele, in Zusammenarbeit mit Game-Designern zur Verbesserung des Spielerlebnisses.",
       "es": "Conceptos de UI/UX y recursos de interfaz para juegos de PC y móvil, en colaboración con diseñadores de juego."
     },
-    "tags": ["Game UI", "2D assets"]
+    "tags": [
+      {
+        "de": "Game-UI",
+        "es": "UI de juego"
+      },
+      {
+        "de": "2D-Assets",
+        "es": "Assets 2D"
+      }
+    ]
   }
 ]

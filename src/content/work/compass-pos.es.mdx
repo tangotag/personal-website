@@ -1,0 +1,232 @@
+---
+slug: compass-pos
+title: "Compass POS: el terminal con el que un restaurante pasa todo el día"
+hook: "Un sistema de mostrador para pedidos, doble precio, división de cuenta y la cocina que hay detrás."
+template: full
+tier: hero
+client: "Cygnus Payments"
+role: "Diseñador de Producto Senior"
+timeline: "Jul 2025 – actualidad"
+platforms: ["Terminal POS", "Pantalla de cocina", "Pantalla de cliente"]
+industry: ["Fintech", "Hostelería"]
+tags: ["POS", "Doble precio", "Offline-first", "Sistema de diseño", "Entrega a desarrollo"]
+filters: ["fintech-pos", "saas"]
+results:
+  - { value: "12", label: "módulos, sin submenús" }
+  - { value: "Offline-first", label: "pedidos y pagos" }
+  - { value: "< 30 min", label: "formación de una cajera", status: "confirm" }
+cover: "/work/compass-pos/cover.webp"
+coverAlt: "La pantalla de pedido de Compass POS sobre un fondo verde profundo: a la izquierda un ticket con líneas, impuestos y dos totales, junto a una cuadrícula de menú con hamburguesas fotografiadas, y detrás la pantalla de propina para el cliente y la foto de alguien pagando con tarjeta."
+featuredOrder: 1
+externalUrl: "https://cygnuspay.com/cpos"
+---
+
+{/* Traducción del caso en inglés. Compass Kiosk es un producto aparte y un caso aparte; las pantallas finales solo aparecen bajo la sección de diseño final. */}
+
+<TLDR
+  items={[
+    "Un terminal de mostrador que tiene que sobrevivir al peor turno, no a la demo: guantes, reflejos, una conexión caída a mitad de ticket y alguien que empezó esta mañana.",
+    "El ticket nunca abandona la columna izquierda. Menú, modificadores y pago se abren al lado, así la mirada de quien cobra se queda en un sitio desde el primer artículo hasta el recibo.",
+    "El doble precio, la propina y la división de cuenta se resuelven en una sola vista, y todo sigue aceptando pedidos cuando se cae la conexión.",
+  ]}
+/>
+
+## Resumen
+
+Cygnus Payments es un proveedor de pagos estadounidense que pasa de revender sistemas de terceros a
+tener producto propio. Compass POS es la mitad de mostrador: el terminal que el personal usa todo el
+día, la pantalla de cocina que hay detrás y la pantalla de cara al cliente que pide la propina y la
+firma.
+
+| | |
+|---|---|
+| **Herramientas** | Figma, Adobe Illustrator, QA de diseño sobre el hardware |
+| **Metodología** | Entrevistas con responsables y personal, mapa de flujos, estructura de baja fidelidad, revisión con prototipo, QA de diseño contra el build |
+| **Superficies** | Terminal, pantalla de cocina, pantalla de cliente |
+| **Relacionado** | [Compass Kiosk](/work/compass-kiosk), la mitad de autoservicio del mismo ecosistema |
+
+## Descubrimiento y definición del problema
+
+### El problema
+
+Los restaurantes independientes montaban su sistema de mostrador con proveedores distintos: uno para
+pedidos, otro para el canal online, otro para fichar, otro para informes. Nada cuadraba, y el
+personal pagaba ese desajuste durante el servicio.
+
+La dificultad de diseño no es la lista de funciones. Es que un terminal lo usa alguien con las manos
+mojadas, bajo una lámpara de calor, con tres personas esperando, y que quizá empezó esa misma
+mañana. Cada pantalla tiene que ser legible e indulgente exactamente en esas condiciones.
+
+### El objetivo
+
+Un terminal que una persona nueva pueda manejar en un solo turno, que siga aceptando pedidos cuando
+cae internet y que informe del doble precio correctamente sin frenar la transacción.
+
+### Mi rol y responsabilidades
+
+Único diseñador de producto para las superficies de mostrador: arquitectura de información, flujos
+de pedido y pago, la interfaz, la librería de componentes, los estados sin conexión y de
+sincronización, y QA de diseño contra el terminal construido. El alcance lo acordé con producto e
+ingeniería. No elegí el hardware ni integré las pasarelas de pago.
+
+<Callout kind="constraint">
+  Hardware y tamaño de pantalla fijos. Nada se podía resolver dando más espacio al layout, así que
+  toda mejora tenía que venir de la secuencia, las etiquetas y los estados.
+</Callout>
+
+## Entender a los usuarios
+
+### Resumen de investigación
+
+Cuatro perfiles comparten este terminal. Cajeros y camareros que necesitan velocidad y menos
+errores. Personal de cocina que lee tickets a tres metros. Dueños que viven en los menús, los
+precios y los informes. Y el equipo de soporte de Cygnus, que da de alta comercios en remoto.
+
+Tiran en direcciones distintas. Velocidad para la caja significa menos toques; precisión para la
+cocina significa modificadores más explícitos; control para el dueño significa más configuración. La
+arquitectura tenía que servir a los tres sin que las herramientas del dueño ensuciaran la pantalla
+de caja.
+
+### Mapa del recorrido
+
+Entrar con un PIN, abrir un ticket, añadir artículos, responder los modificadores obligatorios,
+cobrar con la información correcta, mandar a cocina, cerrar. Siete pasos, y el terminal se juzga por
+los dos en los que se mueve dinero.
+
+### Auditoría competitiva
+
+Toast, Square y Clover marcan la expectativa. Igualarlas función por función no era el objetivo a
+este precio, así que la diferencia está en un doble precio bien resuelto, en aguantar sin conexión y
+en un mismo lenguaje de diseño entre superficies que la competencia trata como productos separados.
+
+## Empezar a diseñar
+
+### Wireframes
+
+Estructura antes que decoración, para que la discusión fuera sobre el orden y no sobre el color.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/compass-pos/wireframe-1-sign-in.webp",
+      alt: "Wireframe a mano de la pantalla de acceso de Compass POS: a la izquierda un panel promocional con una imagen de marcador de posición, y a la derecha la marca de Cygnus Payments sobre un campo de PIN de cuatro puntos y un teclado numérico con borrado y confirmación.",
+      caption: "01 Acceso. Un PIN en vez de una contraseña, porque el terminal cambia de manos cada turno.",
+    },
+    {
+      src: "/work/compass-pos/wireframe-2-home.webp",
+      alt: "Wireframe a mano de la pantalla de inicio de turno: arriba a la izquierda la marca de Cygnus Payments, arriba a la derecha un saludo con nombre y rol, doce fichas de módulo para sala, para llevar, reparto, recogida, menú, pedidos, reservas, mesas, mensajes, ajustes, recuperar y cierre de día, debajo una ficha centrada de informe de personal, y en la esquina iconos de brillo, red y sincronización.",
+      caption: "02 Inicio de turno. Doce módulos, sin submenús, y el rol decide cuáles aparecen.",
+    },
+    {
+      src: "/work/compass-pos/wireframe-3-payment.webp",
+      alt: "Wireframe a mano de la pantalla de pago: a la izquierda un ticket con un combo de hamburguesa y una pizza hawaiana con columnas separadas de tarjeta y efectivo, subtotal, impuestos y dos totales; en el centro un panel con importe en tarjeta, importe en efectivo, un control de propina, botones de exacto, redondear y efectivo y una cuadrícula para dividir la cuenta entre dos y diez; a la derecha una columna de métodos de pago.",
+      caption: "03 Pago. Los dos precios están en el ticket desde la primera línea, y la cuadrícula hace la cuenta.",
+    },
+    {
+      src: "/work/compass-pos/wireframe-4-kitchen.webp",
+      alt: "Wireframe a mano del sistema de pantalla de cocina: cuatro tickets en paralelo, cada uno con número de pedido, un cronómetro en marcha, una etiqueta de sala o para llevar, las líneas con sus modificadores, una línea de nota y un botón de completado, con un control de recuperación arriba a la derecha.",
+      caption: "04 Pantalla de cocina. Un ticket envejece por cronómetro además de por posición.",
+    },
+  ]}
+/>
+
+### Qué cambió con los tests
+
+Dos cosas se quedaron. Los modificadores obligatorios pasaron de una hoja que se podía cerrar a una
+que bloquea el ticket, porque el personal mandaba artículos incompletos a cocina. Y los dos totales
+pasaron a estar en el ticket desde el principio en lugar de aparecer al pagar, lo que eliminó una
+discusión en el mostrador.
+
+## Diseño final
+
+El terminal, la pantalla de cocina y la pantalla de cliente tal como se entregaron.
+
+<Gallery
+  cols={2}
+  wide
+  items={[
+    {
+      src: "/work/compass-pos/pos-staff-pin.webp",
+      alt: "Dos pantallas de Compass en paralelo. A la izquierda un cartel de reposo. A la derecha una pantalla de acceso del personal que pide el PIN, con un teclado numérico grande de tres columnas bajo el logotipo de Cygnus Payments.",
+      caption: "Inicio de turno. El terminal reposa en un cartel y despierta con el teclado del PIN.",
+    },
+    {
+      src: "/work/compass-pos/pos-home-modules.webp",
+      alt: "La pantalla de inicio de Compass POS. Doce fichas etiquetadas en dos filas: sala, para llevar, reparto, recogida, menú, pedidos, reservas, mesas, mensajes, ajustes, recuperar y cierre de día, con una ficha de informe de personal centrada debajo.",
+      caption: "Inicio. Cada tarea de un turno está a un toque.",
+    },
+    {
+      src: "/work/compass-pos/pos-menu-grid.webp",
+      alt: "La pantalla de pedido de Compass con una cuadrícula de menú junto al ticket. Chips de categoría sobre una fila de pasteles, galletas, hamburguesas, cruasanes y pizza, y fichas de artículo fotografiadas con precios.",
+      caption: "Menú. Las fotografías guían la mirada y los precios la confirman.",
+    },
+    {
+      src: "/work/compass-pos/pos-required-modifiers.webp",
+      alt: "A la izquierda un ticket de Compass con un combo de hamburguesa, sus condimentos y columnas de tarjeta y efectivo. A la derecha una hoja marcada como obligatoria con contadores para mostaza, mayonesa, kétchup, cebolla, pepinillos y salsa picante, y una columna de extras, guarniciones y bebidas opcionales.",
+      caption: "Los modificadores obligatorios retienen el ticket hasta que se responden.",
+    },
+    {
+      src: "/work/compass-pos/pos-pizza-builder.webp",
+      alt: "Un configurador de pizza junto al ticket, con pestañas de tamaño, queso, carne y verduras, una lista de ingredientes a dos columnas con precios unitarios y un selector de mitad y mitad.",
+      caption: "El configurador de pizza resuelve los ingredientes por mitad sin una segunda pantalla.",
+    },
+    {
+      src: "/work/compass-pos/pos-payment-split.webp",
+      alt: "La pantalla de pago de Compass con un importe en tarjeta de cuarenta dólares y uno en efectivo de treinta, un control de propina, botones de exacto, redondear y efectivo, una cuadrícula para dividir entre dos y diez con el importe de cada comensal, y una columna de tarjeta, efectivo y tarjeta regalo.",
+      caption: "Doble precio, propina y división en una sola vista.",
+    },
+    {
+      src: "/work/compass-pos/pos-drive-through.webp",
+      alt: "Una pantalla de pedidos de autoservicio en coche con cuatro tickets abiertos a la vez, cada uno con sus líneas, totales y botón de pago, y un campo de búsqueda encima.",
+      caption: "El autoservicio mantiene varios tickets abiertos, porque los coches no llegan de uno en uno.",
+    },
+    {
+      src: "/work/compass-pos/kds-board.webp",
+      alt: "El tablero de la pantalla de cocina con cuatro tarjetas de pedido en gris, rojo, verde y ámbar. Cada tarjeta muestra número de pedido, cronómetro, etiqueta de sala o para llevar, las líneas con sus modificaciones y un botón de completado. Arriba hay un botón de recuperación.",
+      caption: "El tablero de cocina. El color y el cronómetro indican los dos cuánto lleva esperando un ticket.",
+    },
+  ]}
+/>
+
+<Figure
+  src="/work/compass-pos/customer-display-tip.webp"
+  alt="Una pantalla de cara al cliente pregunta por la propina, muestra el total de la cuenta y una cuadrícula de opciones desde sin propina hasta el treinta por ciento más un importe libre, sobre una zona de firma. Al lado, la foto de un cliente acercando una tarjeta a un terminal."
+  caption="La pantalla de cliente pide la propina y la firma, en moneda y no solo en porcentajes."
+  kind="pos"
+  aspect="16/10"
+  wide
+/>
+
+<Callout kind="decision">
+  Un solo lenguaje de diseño en las superficies de mostrador en lugar de tres productos que se
+  venden juntos por casualidad. El comercio aprende un sistema y el equipo construye una sola
+  librería de componentes.
+</Callout>
+
+## Impacto, accesibilidad y reflexión
+
+### Accesibilidad
+
+Los objetivos están dimensionados para una mano con guante, muy por encima de 48 por 48 píxeles
+independientes del dispositivo, y separados para que un toque fallido caiga en zona vacía y no en
+el artículo equivocado. El tablero de cocina nunca depende solo del color: cada tarjeta lleva un
+cronómetro y la palabra de sala o para llevar junto a su banda de color, que es lo que la hace
+legible para un cocinero daltónico al otro lado de la línea caliente. Los modificadores obligatorios
+llevan la palabra obligatorio. Los dos precios se muestran como cifras y no como un precio y un
+porcentaje que la caja tenga que calcular.
+
+### Impacto y aprendizajes
+
+<Results>
+  <Metric display="12" label="módulos, sin submenús" />
+  <Metric display="Offline-first" label="pedidos y pagos" />
+</Results>
+
+Diseñar para el peor turno, no para la demo. Cuando un producto pide una decisión varias veces
+seguidas, el problema de diseño es la secuencia y no el layout, y la forma más rápida de reducir
+errores es hacer imposible el estado incompleto en lugar de avisar de él.
+
+La mitad de autoservicio del mismo ecosistema tiene otro usuario con otro problema, y por eso es
+[un caso aparte](/work/compass-kiosk).

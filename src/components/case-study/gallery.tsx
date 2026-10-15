@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
@@ -18,6 +19,7 @@ type Props = {
 
 /** Thumbnail grid that opens a native <dialog> lightbox with keyboard and swipe navigation. */
 export function Gallery({ items, cols = 2, aspect = "16/10", wide }: Props) {
+  const t = useTranslations("caseStudy.gallery");
   const [index, setIndex] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const touchStart = useRef<number | null>(null);
@@ -104,12 +106,17 @@ export function Gallery({ items, cols = 2, aspect = "16/10", wide }: Props) {
           <div className="flex h-full flex-col">
             <div className="flex items-center justify-between px-4 py-3">
               <p className="font-mono text-xs text-white/70">
-                {(index ?? 0) + 1} / {items.length}
+                <span className="sr-only">
+                  {t("counter", { current: (index ?? 0) + 1, total: items.length })}
+                </span>
+                <span aria-hidden>
+                  {(index ?? 0) + 1} / {items.length}
+                </span>
               </p>
               <button
                 type="button"
                 onClick={close}
-                aria-label="Close"
+                aria-label={t("close")}
                 autoFocus
                 className="inline-flex size-11 items-center justify-center rounded-sm hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
@@ -130,7 +137,7 @@ export function Gallery({ items, cols = 2, aspect = "16/10", wide }: Props) {
                   <button
                     type="button"
                     onClick={() => step(-1)}
-                    aria-label="Previous"
+                    aria-label={t("prev")}
                     className="absolute top-1/2 left-3 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 hover:bg-black/70 focus-visible:outline-2 focus-visible:outline-white"
                   >
                     <ChevronLeft className="size-5" />
@@ -138,7 +145,7 @@ export function Gallery({ items, cols = 2, aspect = "16/10", wide }: Props) {
                   <button
                     type="button"
                     onClick={() => step(1)}
-                    aria-label="Next"
+                    aria-label={t("next")}
                     className="absolute top-1/2 right-3 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 hover:bg-black/70 focus-visible:outline-2 focus-visible:outline-white"
                   >
                     <ChevronRight className="size-5" />

@@ -19,75 +19,78 @@ coverAlt: "Der Tisch von Texas Flip auf dunkelgrünem Grund: ein blauer Filztisc
 featuredOrder: 6
 ---
 
-{/* Phase 7: same Fifty Cats contract as Open Omaha. Timeline confirmed from the CV; the specific launch date is still open (docs/11). */}
+{/* Phase 7: derselbe Fifty-Cats-Vertrag wie Open Omaha. Zeitraum aus dem Lebenslauf bestätigt; das genaue Launch-Datum ist noch offen (docs/11). */}
 
 <TLDR
   items={[
-    "A five-seat table where each seat plays two hands, so a screen that already held four money decisions now had to hold ten betting positions.",
-    "I kept Open Omaha's sequencing and changed only what the second hand required: the pair is one visual unit until the moment the two hands need different answers.",
-    "The title mechanic, a bet on flipping the top cards, is explained by pricing it against a stake the player already made.",
+    "Ein Tisch mit fünf Plätzen, an dem jeder Platz zwei Hände spielt: ein Bildschirm, der schon vier Geldentscheidungen trug, musste nun zehn Wettpositionen tragen.",
+    "Ich habe die Abfolge von Open Omaha behalten und nur geändert, was die zweite Hand verlangt: Das Paar bleibt eine visuelle Einheit, bis die beiden Hände unterschiedliche Antworten brauchen.",
+    "Die namensgebende Mechanik, eine Wette auf das Umdrehen der obersten Karten, wird erklärt, indem ihr Preis gegen einen bereits gesetzten Einsatz gestellt wird.",
   ]}
 />
 
-## Overview
+## Überblick
 
-Texas Flip is the second casino title I designed for Fifty Cats, built on the same table framework
-as [Open Omaha](/work/open-omaha) but with a mechanic that doubles the density of the screen. Every
-seat holds two hands, and the player may bet on flipping the position of the top card in each.
+Texas Flip ist der zweite Casino-Titel, den ich für Fifty Cats gestaltet habe, gebaut auf demselben
+Tischgerüst wie [Open Omaha](/work/open-omaha), aber mit einer Mechanik, die die Dichte des
+Bildschirms verdoppelt. Jeder Platz hält zwei Hände, und der Spieler darf darauf setzen, die
+Position der obersten Karte in jeder umzudrehen.
 
-|                 |                                                                                                         |
-| --------------- | ------------------------------------------------------------------------------------------------------- |
-| **Tools**       | Figma, Adobe Illustrator, Adobe Photoshop                                                               |
-| **Methodology** | Reuse audit against the sister title, flow mapping, low-fidelity structure, prototype review, design QA |
-| **Surfaces**    | Table, bonus bets, flip bet, per-hand decision                                                          |
+|                  |                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Werkzeuge**    | Figma, Adobe Illustrator, Adobe Photoshop                                                                    |
+| **Vorgehen**     | Wiederverwendungs-Audit gegen den Schwestertitel, Flow-Mapping, Struktur in niedriger Auflösung, Prototyp-Review, Design-QA |
+| **Oberflächen**  | Tisch, Bonuswetten, Flip-Wette, Entscheidung je Hand                                                         |
 
-## The problem
+## Das Problem
 
-Doubling the hands does not double the difficulty, it squares it. Five seats times two hands is ten
-positions, each with an ante, a blind and a potential raise, on a table whose geometry cannot grow.
-Two failure modes follow. A player stakes only one of their two hands by accident, or the screen
-becomes so dense that nobody stakes anything.
+Zwei Hände verdoppeln die Schwierigkeit nicht, sie quadrieren sie. Fünf Plätze mal zwei Hände sind
+zehn Positionen, jede mit Ante, Blind und möglicher Erhöhung, auf einem Tisch, dessen Geometrie
+nicht wachsen kann. Daraus folgen zwei Fehlermodi. Ein Spieler setzt versehentlich nur auf eine
+seiner beiden Hände, oder der Bildschirm wird so dicht, dass niemand mehr etwas setzt.
 
-## The goal
+## Das Ziel
 
-Carry the second hand without adding a second learning curve, and make the flip bet, which is the
-reason the title exists, understandable at first sight.
+Die zweite Hand tragen, ohne eine zweite Lernkurve hinzuzufügen, und die Flip-Wette, der Grund für
+die Existenz des Titels, auf den ersten Blick verständlich machen.
 
-## My role
+## Meine Rolle
 
-UI and UX for the title, working from the framework I had built for Open Omaha: flow, table layout,
-the per-hand state model, visual design and design QA. Shared chip, card and typographic systems
-came across from the sister title deliberately.
+UI und UX für den Titel, aufbauend auf dem Gerüst, das ich für Open Omaha gebaut hatte: Flow,
+Tischlayout, das Zustandsmodell je Hand, visuelles Design und Design-QA. Die gemeinsamen Chip-,
+Karten- und Typo-Systeme kamen bewusst vom Schwestertitel herüber.
 
 <Callout kind="constraint">
-  A player arriving from Open Omaha should recognise the table immediately. Anything that could stay
-  the same had to stay the same, so the novelty budget could be spent entirely on the second hand.
+  Wer von Open Omaha kommt, soll den Tisch sofort wiedererkennen. Alles, was gleich bleiben konnte,
+  musste gleich bleiben, damit das Budget für Neues vollständig in die zweite Hand fließt.
 </Callout>
 
-## Understanding the players
+## Die Spieler verstehen
 
-### Research summary
+### Zusammenfassung der Recherche
 
-The audience is the sister title's audience. That is an advantage and a trap. They already know the
-betting rhythm, so the risk is not teaching them the sequence, it is that a familiar-looking table
-behaves differently and they discover it after staking.
+Das Publikum ist das Publikum des Schwestertitels. Das ist ein Vorteil und eine Falle. Es kennt den
+Wettrhythmus bereits, also besteht das Risiko nicht darin, die Abfolge zu lehren, sondern darin,
+dass sich ein vertraut aussehender Tisch anders verhält und man das erst nach dem Einsatz merkt.
 
-### The journey
+### Der Ablauf
 
-Ante across both hands, optional bonus bets, the flip bet, then a per-hand decision once the
-community cards land. The pair of hands travels together until the last step, where it must split.
+Ante über beide Hände, optionale Bonuswetten, die Flip-Wette, dann eine Entscheidung je Hand, sobald
+die Gemeinschaftskarten liegen. Das Handpaar reist gemeinsam bis zum letzten Schritt, an dem es sich
+trennen muss.
 
-### Competitive audit
+### Wettbewerbsanalyse
 
-Multi-hand tables usually solve density by shrinking everything. That fails on tablet. The
-alternative, which is what shipped, is to treat the pair as one object for as long as possible and
-only separate it at the moment the two hands genuinely need different answers.
+Tische mit mehreren Händen lösen Dichte meist dadurch, dass sie alles verkleinern. Auf dem Tablet
+scheitert das. Die Alternative, die auch ausgeliefert wurde, behandelt das Paar so lange wie möglich
+als ein Objekt und trennt es erst in dem Moment, in dem die beiden Hände wirklich unterschiedliche
+Antworten brauchen.
 
-## Starting the design
+## Der Einstieg ins Design
 
 ### Wireframes
 
-The wireframes exist to settle one question: when does the pair stop being a single unit?
+Die Wireframes existieren, um eine Frage zu klären: Wann hört das Paar auf, eine Einheit zu sein?
 
 <Gallery
   cols={2}
@@ -95,38 +98,39 @@ The wireframes exist to settle one question: when does the pair stop being a sin
   items={[
     {
       src: "/work/texas-flip/wireframe-1-table.webp",
-      alt: "Greybox wireframe of the Texas Flip table with no hand in play: the dealer area at the top left, two rows of five community cards, five seat blocks each with an ante and a blind chip position and placeholder lines for the player label, and an action bar along the bottom.",
-      caption: "01 Table. The layout before anything is dealt.",
+      alt: "Wireframe aus grauen Blöcken für den Tisch von Texas Flip ohne laufende Hand: oben links der Bereich des Gebers, zwei Reihen mit je fünf Gemeinschaftskarten, fünf Platzblöcke mit je einer Position für Ante- und Blind-Chip und Platzhalterlinien für das Spielerkürzel, unten eine Aktionsleiste.",
+      caption: "01 Tisch. Die Anordnung, bevor ausgeteilt wird.",
     },
     {
       src: "/work/texas-flip/wireframe-2-ante-blind.webp",
-      alt: "Wireframe of the ante and blind wager step, marked option four: the community card area, a total bet readout, five seats each showing a four card row with round ante and blind chips beneath, the second seat carrying an amount on each, and a confirm control at the lower right.",
-      caption: "02 Ante and blind. Both chips are placed in one action.",
+      alt: "Wireframe des Schritts für Ante und Blind, als Option vier markiert: der Bereich der Gemeinschaftskarten, die Anzeige des Gesamteinsatzes, fünf Plätze mit je einer Reihe aus vier Karten und runden Ante- und Blind-Chips darunter, der zweite Platz mit einem Betrag auf jedem, und unten rechts ein Bestätigungselement.",
+      caption: "02 Ante und Blind. Beide Chips werden in einer Aktion gesetzt.",
     },
     {
       src: "/work/texas-flip/wireframe-3-dealt.webp",
-      alt: "Greybox wireframe with a hand in play: five seats each holding a four card hand above their ante and blind chips, the dealer area and the two community rows above them, and the action bar unchanged along the bottom.",
-      caption: "03 Dealt. Five hands, one shared board.",
+      alt: "Wireframe aus grauen Blöcken mit laufender Hand: fünf Plätze mit je einer Hand aus vier Karten über ihren Ante- und Blind-Chips, darüber der Bereich des Gebers und die zwei Gemeinschaftsreihen, unten die unveränderte Aktionsleiste.",
+      caption: "03 Ausgeteilt. Fünf Hände, ein gemeinsamer Tisch.",
     },
     {
       src: "/work/texas-flip/wireframe-4-turn.webp",
-      alt: "Greybox wireframe showing whose turn it is: the same five seats with two of them ringed in different colours to mark the active player and the next one, and the rest left unmarked.",
-      caption: "04 Turn. Position is shown by outline rather than by moving anything.",
+      alt: "Wireframe aus grauen Blöcken, das den Zug anzeigt: dieselben fünf Plätze, zwei davon in unterschiedlichen Farben umrandet, um den aktiven und den nächsten Spieler zu markieren, der Rest ohne Markierung.",
+      caption: "04 Zug. Die Position wird durch eine Umrandung gezeigt, nicht durch Bewegung.",
     },
     {
       src: "/work/texas-flip/wireframe-5-bets.webp",
-      alt: "Greybox wireframe of the wagering state: each of the five seats shows a four card hand under a solid bar with a single large chip beside it, marking a bet that has been placed.",
-      caption: "05 Bets placed. One chip per seat, readable at a glance.",
+      alt: "Wireframe aus grauen Blöcken für den Wettzustand: jeder der fünf Plätze zeigt eine Hand aus vier Karten unter einem massiven Balken mit einem einzelnen großen Chip daneben, der eine gesetzte Wette markiert.",
+      caption: "05 Wetten gesetzt. Ein Chip pro Platz, auf einen Blick lesbar.",
     },
   ]}
 />
 
-### What testing changed
+### Was die Tests verändert haben
 
-The flip bet needed a sentence, not a tooltip. Stating its price as a comparison to a stake already
-on the table, rather than as a number, was the change that made people take it.
+Die Flip-Wette brauchte einen Satz, keinen Tooltip. Ihren Preis als Vergleich zu einem bereits
+gesetzten Einsatz zu nennen statt als Zahl war die Änderung, die dazu führte, dass Leute sie
+annahmen.
 
-## Final screens
+## Finale Screens
 
 <Gallery
   cols={2}
@@ -134,58 +138,59 @@ on the table, rather than as a number, was the change that made people take it.
   items={[
     {
       src: "/work/texas-flip/ante.webp",
-      alt: "Texas Flip ante screen. A blue felt table with a dealer area at the top, five seats each showing a hand 1 and hand 2 position, an instruction reading place your ante and buy-in values, a chip denomination rail and auto all and auto ante controls.",
-      caption: "Ante. Both hands take the stake together.",
+      alt: "Ante-Bildschirm von Texas Flip. Ein blauer Filztisch mit dem Bereich des Gebers oben, fünf Plätze mit je einer Position für Hand 1 und Hand 2, eine Anweisung zum Setzen der Ante samt Buy-in-Werten, eine Leiste mit Chipwerten und Elemente für automatische Einsätze.",
+      caption: "Ante. Beide Hände nehmen den Einsatz gemeinsam.",
     },
     {
       src: "/work/texas-flip/bonus-bets.webp",
-      alt: "Texas Flip bonus screen with the instruction to place bets for the four card bonus and three card bonus, chips placed at several seats, and auto 3 card, auto 4 card and ok controls along the bottom.",
-      caption: "Bonus bets, with auto controls for players who always take them.",
+      alt: "Bonus-Bildschirm von Texas Flip mit der Anweisung, Einsätze für den Vier-Karten- und den Drei-Karten-Bonus zu setzen, Chips auf mehreren Plätzen und unten Elementen für automatische Bonuswetten und Bestätigung.",
+      caption: "Bonuswetten, mit Automatik für alle, die sie ohnehin immer nehmen.",
     },
     {
       src: "/work/texas-flip/flip-bet.webp",
-      alt: "Texas Flip flip-bet screen. The instruction reads place your bets to flip positions of top cards of each hands, two seats show their top cards outlined with a gold chip beneath, and a hint line at the lower left reads flip bet is equal to ante.",
-      caption: "The title mechanic, explained in one line at the edge of the felt.",
+      alt: "Flip-Wett-Bildschirm von Texas Flip. Die Anweisung nennt das Setzen auf das Umdrehen der obersten Karten jeder Hand, zwei Plätze zeigen ihre obersten Karten umrandet mit einem goldenen Chip darunter, und unten links steht der Hinweis, dass die Flip-Wette der Ante entspricht.",
+      caption: "Die namensgebende Mechanik, in einer Zeile am Rand des Filzes erklärt.",
     },
     {
       src: "/work/texas-flip/hand-bets.webp",
-      alt: "Texas Flip per-hand betting screen with the instruction to place bets for each hand of each seat, ante and blind chips at each hand position, and check and 3x bet ante controls at the lower right.",
-      caption: "Now the hands are priced apart.",
+      alt: "Bildschirm von Texas Flip für Einsätze je Hand mit der Anweisung, für jede Hand jedes Platzes zu setzen, Ante- und Blind-Chips an jeder Handposition und unten rechts Elementen zum Passen und für den dreifachen Ante-Einsatz.",
+      caption: "Jetzt werden die Hände getrennt bepreist.",
     },
   ]}
 />
 
 <Figure
   src="/work/texas-flip/community-cards.webp"
-  alt="Texas Flip table with two community card areas highlighted at the top in bright blue, seats showing their ante and blind chips, and a turbo control at the lower right."
-  caption="Two community areas, lit only while they are being dealt into."
+  alt="Tisch von Texas Flip mit zwei oben hell hervorgehobenen Bereichen für Gemeinschaftskarten, Plätzen mit ihren Ante- und Blind-Chips und einem Turbo-Element unten rechts."
+  caption="Zwei Gemeinschaftsbereiche, nur beleuchtet, während in sie ausgeteilt wird."
   kind="desktop"
   aspect="16/10"
   wide
 />
 
 <Callout kind="decision">
-  Treat the pair of hands as one object until the game genuinely needs two. Every step that can be
-  answered once for both hands is answered once, which is what keeps ten betting positions from
-  reading as ten decisions.
+  Das Handpaar als ein Objekt behandeln, bis das Spiel wirklich zwei braucht. Jeder Schritt, der sich
+  für beide Hände einmal beantworten lässt, wird einmal beantwortet. Genau das verhindert, dass zehn
+  Wettpositionen als zehn Entscheidungen gelesen werden.
 </Callout>
 
-## Accessibility
+## Barrierefreiheit
 
-Ten positions on one table makes target size the binding constraint. Every chip drop zone and
-control clears 48 by 48 device-independent pixels on the tablet layout, and adjacent hand positions
-are separated by more than a target's width so a mis-tap lands on empty felt rather than the wrong
-hand. Hand 1 and Hand 2 are labelled in text. Totals are shown as numbers in two separate fields
-rather than as one figure the player has to decompose.
+Zehn Positionen auf einem Tisch machen die Zielgröße zur bindenden Vorgabe. Jede Ablagefläche für
+Chips und jedes Bedienelement erreicht auf dem Tablet-Layout mindestens 48 mal 48 geräteunabhängige
+Pixel, und benachbarte Handpositionen liegen weiter als eine Zielbreite auseinander, damit ein
+Fehlgriff auf leerem Filz landet statt auf der falschen Hand. Hand 1 und Hand 2 sind in Text
+beschriftet. Summen stehen als Zahlen in zwei getrennten Feldern, statt als eine Zahl, die der
+Spieler zerlegen müsste.
 
-## Impact and reflection
+## Wirkung und Rückblick
 
 <Results>
-  <Metric display="2" label="hands per seat, priced separately" />
-  <Metric display="10" label="betting positions on one table" />
+  <Metric display="2" label="Hände pro Platz, getrennt bepreist" />
+  <Metric display="10" label="Wettpositionen auf einem Tisch" />
 </Results>
 
-Designing a sister title taught me more about systems than designing the first one. The value was
-almost entirely in what I refused to change. A shared framework meant the whole design effort went
-into the one thing that was actually new, and a returning player could sit down and read the table
-in seconds.
+Einen Schwestertitel zu gestalten hat mir mehr über Systeme beigebracht als der erste. Der Wert lag
+fast vollständig in dem, was ich nicht geändert habe. Ein gemeinsames Gerüst bedeutete, dass die
+gesamte Gestaltungsarbeit in das eine floss, was wirklich neu war, und dass ein wiederkehrender
+Spieler sich hinsetzen und den Tisch in Sekunden lesen konnte.

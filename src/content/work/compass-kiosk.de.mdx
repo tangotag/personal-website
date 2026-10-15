@@ -21,85 +21,89 @@ featuredOrder: 2
 externalUrl: "https://cygnuspay.com/cpos"
 ---
 
-{/* The self-service half of the Compass ecosystem; the counter half is /work/compass-pos. Shipped screens appear only under the final-design section. The wireframes are Raheel's own, converted by scripts/build-supplied.mts. */}
+{/* Die Selbstbedienungshälfte des Compass-Ökosystems; die Tresenhälfte liegt unter /work/compass-pos. Ausgelieferte Screens erscheinen nur im Abschnitt zum finalen Design. Die Wireframes sind Raheels eigene, konvertiert von scripts/build-supplied.mts. */}
 
 <TLDR
   items={[
-    "A kiosk has no staff to ask and a queue that makes people rush, so every screen asks for exactly one decision and states the consequence before it is taken.",
-    "The whole journey is twelve screens, and only the order itself is required. Name and phone exist so the counter can call you, and both can be skipped.",
-    "It shares its design system with the counter terminal, so a merchant learns one product rather than two.",
+    "An einem Kiosk gibt es kein Personal zum Fragen und eine Schlange, die zur Eile treibt, also verlangt jeder Screen genau eine Entscheidung und nennt die Folge, bevor sie fällt.",
+    "Der ganze Weg sind zwölf Screens, und verpflichtend ist nur die Bestellung selbst. Name und Telefonnummer gibt es, damit der Tresen rufen kann, und beide lassen sich überspringen.",
+    "Er teilt sein Design-System mit dem Tresen-Terminal, damit ein Händler ein Produkt lernt statt zwei.",
   ]}
 />
 
-## Overview
+## Überblick
 
-Compass Kiosk is the self-service half of the Cygnus Payments restaurant ecosystem. A customer walks
-up, orders, pays and takes a printed number to the counter, without speaking to anyone. It runs the
-same menu, the same modifiers and the same design system as [the counter terminal](/work/compass-pos),
-on very different hardware for a very different person.
+Compass Kiosk ist die Selbstbedienungshälfte des Gastronomie-Ökosystems von Cygnus Payments. Ein
+Gast tritt heran, bestellt, bezahlt und nimmt eine gedruckte Nummer mit zum Tresen, ohne mit
+jemandem zu sprechen. Er nutzt dasselbe Menü, dieselben Zusätze und dasselbe Design-System wie
+[das Tresen-Terminal](/work/compass-pos), auf sehr anderer Hardware und für sehr andere Menschen.
 
 | | |
 |---|---|
-| **Tools** | Figma, Adobe Illustrator, design QA on the enclosure |
-| **Methodology** | Observation of ordering behaviour, flow mapping, low-fidelity structure, prototype review, accessibility pass, design QA |
-| **Surfaces** | Kiosk enclosure, attached card terminal, receipt printer |
-| **Related** | [Compass POS](/work/compass-pos), the counter half of the same ecosystem |
+| **Werkzeuge** | Figma, Adobe Illustrator, Design-QA am Gehäuse |
+| **Vorgehen** | Beobachtung des Bestellverhaltens, Flow-Mapping, Struktur in niedriger Auflösung, Prototyp-Review, Prüfung der Barrierefreiheit, Design-QA |
+| **Oberflächen** | Kiosk-Gehäuse, angeschlossenes Kartenterminal, Belegdrucker |
+| **Verwandt** | [Compass POS](/work/compass-pos), die Tresenhälfte desselben Ökosystems |
 
-## Discovery and problem definition
+## Discovery und Problemdefinition
 
-### The problem
+### Das Problem
 
-A terminal is used by a trained person many times a day. A kiosk is used once, by someone who has
-never seen it, with people waiting behind them. Every assumption that makes the counter fast makes
-the kiosk hostile.
+Ein Terminal bedient eine geschulte Person viele Male am Tag. Einen Kiosk bedient jemand einmal, der
+ihn noch nie gesehen hat, mit Wartenden im Rücken. Jede Annahme, die den Tresen schnell macht, macht
+den Kiosk unwirtlich.
 
-Three failures follow. People abandon halfway because a screen asked for something they did not
-expect. They order the wrong thing because a required choice was easy to miss. Or they freeze at
-payment because it was not clear what happens next.
+Daraus folgen drei Fehlschläge. Leute brechen auf halbem Weg ab, weil ein Screen etwas verlangt hat,
+womit sie nicht gerechnet haben. Sie bestellen das Falsche, weil eine Pflichtauswahl leicht zu
+übersehen war. Oder sie erstarren bei der Zahlung, weil unklar war, was als Nächstes passiert.
 
-### The goal
+### Das Ziel
 
-Get a first-time customer from attract to a printed order number without help, without a wrong
-order, and without ever presenting more than one decision at a time.
+Einen Erstbesucher ohne Hilfe von der Begrüßung bis zur gedruckten Bestellnummer bringen, ohne
+Fehlbestellung und ohne je mehr als eine Entscheidung gleichzeitig vorzulegen.
 
-### My role and responsibilities
+### Meine Rolle und Verantwortung
 
-Product design for the self-service surface: the ordering flow, screen inventory, interface,
-accessibility pass, and design QA on the physical enclosure. The menu data, modifiers and pricing
-come from the same system as the counter, so my work was the journey rather than the catalogue.
+Produktdesign für die Selbstbedienungsoberfläche: der Bestellablauf, das Verzeichnis der Screens,
+die Oberfläche, die Prüfung der Barrierefreiheit und Design-QA am physischen Gehäuse. Menüdaten,
+Zusätze und Preise kommen aus demselben System wie am Tresen, meine Arbeit war also der Weg und
+nicht der Katalog.
 
 <Callout kind="constraint">
-  Reach and posture. A kiosk is used standing, sometimes from a wheelchair, so every control has to
-  sit in the lower half of the screen, and nothing important may live along the top edge.
+  Reichweite und Haltung. Ein Kiosk wird im Stehen bedient, manchmal aus dem Rollstuhl, also muss
+  jedes Bedienelement in der unteren Bildschirmhälfte sitzen, und nichts Wichtiges darf am oberen
+  Rand leben.
 </Callout>
 
-## Understanding the users
+## Die Nutzer verstehen
 
-### Research summary
+### Zusammenfassung der Recherche
 
-The kiosk user is defined by three pressures that the counter user does not have. They are
-unfamiliar with the interface. They are being watched by the queue. And they have no one to ask.
+Den Kiosk-Nutzer bestimmen drei Zwänge, die der Tresen-Nutzer nicht hat. Er kennt die Oberfläche
+nicht. Er wird von der Schlange beobachtet. Und er hat niemanden zum Fragen.
 
-That combination means the interface has to be its own instruction. Anything that would normally be
-explained by a member of staff has to be written on the screen where the decision is made.
+Diese Kombination bedeutet: Die Oberfläche muss ihre eigene Anleitung sein. Alles, was sonst eine
+Servicekraft erklären würde, muss dort auf dem Bildschirm stehen, wo die Entscheidung fällt.
 
-### Journey mapping
+### Mapping des Ablaufs
 
-Attract, choose dine in or take away, browse categories, pick a category, configure the item, review
-the order, choose how to pay, pay at the terminal, give a name, give a phone number, take the
-receipt. Eleven moments, of which exactly one is mandatory.
+Begrüßung, vor Ort oder zum Mitnehmen wählen, Kategorien durchsehen, eine Kategorie wählen, den
+Artikel konfigurieren, die Bestellung prüfen, die Zahlungsart wählen, am Terminal bezahlen, einen
+Namen angeben, eine Telefonnummer angeben, den Beleg nehmen. Elf Momente, von denen genau einer
+verpflichtend ist.
 
-### Competitive audit
+### Wettbewerbsanalyse
 
-Most quick-service kiosks front-load: they ask for loyalty sign-in, upsell before the order is
-complete, and hide the running total. Each of those adds a decision at the moment a first-timer is
-least able to take one. The approach here defers everything that is not the order.
+Die meisten Kioske in der Schnellgastronomie packen alles nach vorn: Sie fragen nach dem
+Treueprogramm, verkaufen Zusatzartikel vor Abschluss der Bestellung und verstecken die laufende
+Summe. Jedes davon fügt eine Entscheidung genau in dem Moment hinzu, in dem ein Erstbesucher sie am
+wenigsten treffen kann. Der hier gewählte Ansatz verschiebt alles, was nicht die Bestellung ist.
 
-## Starting the design
+## Der Einstieg ins Design
 
 ### Wireframes
 
-Structure first, to settle what each screen is allowed to ask for.
+Erst die Struktur, um zu klären, was jeder Screen verlangen darf.
 
 <Gallery
   cols={2}
@@ -107,36 +111,36 @@ Structure first, to settle what each screen is allowed to ask for.
   items={[
     {
       src: "/work/compass-kiosk/wireframe-1-menu.webp",
-      alt: "Hand-drawn wireframe of the kiosk menu: a take away and dine in toggle at the top left, a view order button showing the basket count and total at the top right, eleven category tiles labelled pizza, burger, wings, salad, sandwich, deserts, taco, wraps, fries, drinks and sauces, an English and Spanish language switch at the bottom left and a help telephone number at the bottom right.",
-      caption: "01 Menu. Categories first, and the language switch stays on screen throughout.",
+      alt: "Handgezeichnetes Wireframe des Kiosk-Menüs: oben links ein Umschalter zwischen Mitnahme und vor Ort, oben rechts eine Schaltfläche zur Bestellübersicht mit Anzahl und Summe, elf Kategoriekacheln für Pizza, Burger, Wings, Salat, Sandwich, Desserts, Taco, Wraps, Pommes, Getränke und Soßen, unten links ein Sprachumschalter und unten rechts eine Hilfe-Telefonnummer.",
+      caption: "01 Menü. Erst die Kategorien, und der Sprachumschalter bleibt durchgehend sichtbar.",
     },
     {
       src: "/work/compass-kiosk/wireframe-2-configurator.webp",
-      alt: "Hand-drawn wireframe of the item configurator: a product image, name, calorie count and price on the left above a condiments list, a quantity stepper, a running total and cancel and add to bag buttons; on the right a pizza size group marked required, a fillings list marked optional with checkboxes and steppers, and a drinks carousel with size options.",
-      caption: "02 Configurator. Required and optional are labelled in words, never by colour alone.",
+      alt: "Handgezeichnetes Wireframe des Artikel-Konfigurators: links Produktbild, Name, Kalorienangabe und Preis über einer Zutatenliste, ein Mengenzähler, die laufende Summe sowie Schaltflächen zum Abbrechen und Hinzufügen; rechts eine als Pflicht markierte Gruppe zur Pizzagröße, eine als optional markierte Belagliste mit Kästchen und Zählern und ein Getränke-Karussell mit Größenoptionen.",
+      caption: "02 Konfigurator. Pflicht und optional stehen in Worten da, nie allein in Farbe.",
     },
     {
       src: "/work/compass-kiosk/wireframe-3-order.webp",
-      alt: "Hand-drawn wireframe of the order review screen: two line items each with a thumbnail, its modifiers, a customise link, a quantity stepper and a delete control; a you may also like carousel of four suggestions below; and an order summary panel on the right with subtotal, tax, discount and total above back to menu and continue to payment buttons.",
-      caption: "03 Review. Everything is still editable at the point where the queue is watching.",
+      alt: "Handgezeichnetes Wireframe der Bestellübersicht: zwei Positionen mit je Vorschaubild, Zusätzen, einem Link zum Anpassen, einem Mengenzähler und einem Löschelement; darunter ein Karussell mit vier Empfehlungen; rechts eine Zusammenfassung mit Zwischensumme, Steuer, Rabatt und Summe über Schaltflächen zurück zum Menü und weiter zur Zahlung.",
+      caption: "03 Prüfen. Alles bleibt änderbar, genau dort, wo die Schlange zuschaut.",
     },
     {
       src: "/work/compass-kiosk/wireframe-4-payment.webp",
-      alt: "Hand-drawn wireframe of the payment screen: a pay now heading, a line reading choose your preferred payment method, three tap to continue tiles for cash counter, gift card and credit or debit card, and an order summary rail on the right with subtotal, tax, discount and total above back to cart and cancel order buttons.",
-      caption: "04 Payment. Three ways to pay, and the total stays beside them.",
+      alt: "Handgezeichnetes Wireframe des Zahlungsbildschirms: eine Überschrift zum Bezahlen, eine Zeile zur Wahl der bevorzugten Zahlungsart, drei Kacheln zum Antippen für Barkasse, Gutschein und Kredit- oder Debitkarte, und rechts eine Zusammenfassung mit Zwischensumme, Steuer, Rabatt und Summe über Schaltflächen zurück zum Warenkorb und zum Abbrechen.",
+      caption: "04 Zahlung. Drei Wege zu zahlen, und die Summe bleibt daneben stehen.",
     },
   ]}
 />
 
-### What testing changed
+### Was die Tests verändert haben
 
-The name and phone steps moved to the end and became skippable. Asking for them before payment read
-as a sign-up, and people abandoned. Asked afterwards, framed as how the counter will call you, they
-are answered willingly.
+Die Schritte für Name und Telefonnummer wanderten ans Ende und wurden überspringbar. Vor der Zahlung
+gefragt, lasen sie sich wie eine Registrierung, und Leute brachen ab. Danach gefragt und als Weg
+erklärt, wie der Tresen einen ruft, werden sie bereitwillig beantwortet.
 
-## Final design
+## Finales Design
 
-The shipped journey, in order.
+Der ausgelieferte Weg, der Reihe nach.
 
 <Gallery
   cols={3}
@@ -144,92 +148,94 @@ The shipped journey, in order.
   items={[
     {
       src: "/work/compass-kiosk/01-welcome.webp",
-      alt: "Kiosk welcome screen with the Cygnus Payments wordmark, the word welcome, a row of food category icons, a wide tap to start button and a burger and fries photograph, above a bar offering English and Spanish and a help number.",
-      caption: "01 Attract. One target, and language is settled before anything is asked.",
+      alt: "Begrüßungsbildschirm des Kiosks mit dem Schriftzug von Cygnus Payments, dem Wort Willkommen, einer Reihe von Speisesymbolen, einer breiten Schaltfläche zum Starten und einem Foto von Burger und Pommes, darunter eine Leiste mit Sprachwahl und Hilfenummer.",
+      caption: "01 Begrüßung. Ein Ziel, und die Sprache ist geklärt, bevor irgendetwas gefragt wird.",
     },
     {
       src: "/work/compass-kiosk/02-dine-in-or-take-away.webp",
-      alt: "Kiosk screen headed welcome, let us get started, asking how you would like to enjoy your meal today, with two large cards: dine in with cutlery, and take away with a bag.",
-      caption: "02 The only branch in the journey, taken once.",
+      alt: "Kiosk-Bildschirm mit einer Begrüßung und der Frage, wie man heute essen möchte, mit zwei großen Karten: vor Ort mit Besteck und zum Mitnehmen mit einer Tüte.",
+      caption: "02 Die einzige Verzweigung im Ablauf, einmal genommen.",
     },
     {
       src: "/work/compass-kiosk/03-menu.webp",
-      alt: "Kiosk menu screen headed our menu with photographed category tiles for pizza, burger, wings, salad, sandwich, desserts, taco, wraps, fries, drinks and sauces, and a view order button showing a running total.",
-      caption: "03 Categories as photographs, order total top right.",
+      alt: "Menübildschirm des Kiosks mit fotografierten Kategoriekacheln für Pizza, Burger, Wings, Salat, Sandwich, Desserts, Taco, Wraps, Pommes, Getränke und Soßen sowie einer Schaltfläche zur Bestellübersicht mit laufender Summe.",
+      caption: "03 Kategorien als Fotos, die Summe oben rechts.",
     },
     {
       src: "/work/compass-kiosk/04-category.webp",
-      alt: "Kiosk burgers listing grouped into chicken burger, beef burger and lamb burger rows, each item a photograph with a name and price, some showing a struck-through original price.",
-      caption: "04 Within a category, grouped and priced.",
+      alt: "Burger-Übersicht des Kiosks, gruppiert in Hähnchen-, Rind- und Lammburger, jeder Artikel ein Foto mit Namen und Preis, einige mit durchgestrichenem Originalpreis.",
+      caption: "04 Innerhalb einer Kategorie, gruppiert und bepreist.",
     },
     {
       src: "/work/compass-kiosk/05-pizza-configurator.webp",
-      alt: "Kiosk pizza configurator with a large photograph, a required select pizza size row of small, medium and large, an optional fillings list with steppers for onion, olive, tomato and mushroom, a drink row, a running total and an add to bag button.",
-      caption: "05 Configure. Required size first, then optional fillings.",
+      alt: "Pizza-Konfigurator des Kiosks mit großem Foto, einer als Pflicht markierten Zeile zur Größenwahl zwischen klein, mittel und groß, einer optionalen Belagliste mit Zählern für Zwiebel, Olive, Tomate und Pilze, einer Getränkezeile, der laufenden Summe und einer Schaltfläche zum Hinzufügen.",
+      caption: "05 Konfigurieren. Erst die Pflichtgröße, dann die optionalen Beläge.",
     },
     {
       src: "/work/compass-kiosk/06-burger-configurator.webp",
-      alt: "Kiosk burger configurator showing a burger photograph, a required choose your side row, a fillings row of corn, olives, onion and capsicum with steppers and prices, a drink row, and the running total with an add to bag button.",
-      caption: "06 The same pattern on a different item, so it is learned once.",
+      alt: "Burger-Konfigurator des Kiosks mit einem Burgerfoto, einer als Pflicht markierten Zeile zur Beilagenwahl, einer Belagzeile mit Mais, Oliven, Zwiebeln und Paprika samt Zählern und Preisen, einer Getränkezeile und der laufenden Summe mit einer Schaltfläche zum Hinzufügen.",
+      caption: "06 Dasselbe Muster an einem anderen Artikel, damit es einmal gelernt wird.",
     },
     {
       src: "/work/compass-kiosk/07-order-review.webp",
-      alt: "Kiosk your order review screen listing a pepperoni pizza and a sandwich with their customisations, quantity steppers and remove buttons, an order summary panel with subtotal, tax, discount and total, a you may also like row, and back to menu and continue to payment buttons.",
-      caption: "07 Review. Every line still editable, upsell below the order.",
+      alt: "Bestellübersicht des Kiosks mit einer Pepperoni-Pizza und einem Sandwich samt ihren Anpassungen, Mengenzählern und Entfernen-Schaltflächen, einer Zusammenfassung mit Zwischensumme, Steuer, Rabatt und Summe, einer Empfehlungszeile und Schaltflächen zurück zum Menü und weiter zur Zahlung.",
+      caption: "07 Prüfen. Jede Zeile bleibt änderbar, Empfehlungen stehen unter der Bestellung.",
     },
     {
       src: "/work/compass-kiosk/08-payment-methods.webp",
-      alt: "Kiosk pay now screen offering three payment methods as cards, cash counter, gift card and credit or debit card, beside an order summary showing subtotal, tax, discount and total.",
-      caption: "08 Choose how to pay, with the summary still on screen.",
+      alt: "Zahlungsbildschirm des Kiosks mit drei Zahlungsarten als Karten für Barkasse, Gutschein und Kredit- oder Debitkarte, daneben eine Zusammenfassung mit Zwischensumme, Steuer, Rabatt und Summe.",
+      caption: "08 Die Zahlungsart wählen, mit der Zusammenfassung weiterhin im Bild.",
     },
     {
       src: "/work/compass-kiosk/09-card-terminal.webp",
-      alt: "Kiosk screen reading please tap, insert or swipe your card, with a note that the transaction can be cancelled by pressing X on the card terminal, the total shown large, and an illustration of a hand presenting a card to a reader.",
-      caption: "09 The card terminal, with the way out stated on screen.",
+      alt: "Kiosk-Bildschirm mit der Aufforderung, die Karte aufzulegen, einzustecken oder durchzuziehen, einem Hinweis, dass sich der Vorgang am Kartenterminal abbrechen lässt, der groß dargestellten Summe und der Illustration einer Hand, die eine Karte an ein Lesegerät hält.",
+      caption: "09 Das Kartenterminal, mit dem Ausweg auf dem Bildschirm.",
     },
     {
       src: "/work/compass-kiosk/10-name.webp",
-      alt: "Kiosk screen asking please enter your name, explaining the name will be called once the order is ready at the takeout counter, with a single text field and an on-screen keyboard.",
-      caption: "10 Name, asked after payment and framed as how you will be called.",
+      alt: "Kiosk-Bildschirm mit der Bitte um den Namen und der Erklärung, dass der Name aufgerufen wird, sobald die Bestellung am Abholtresen bereitsteht, mit einem einzelnen Textfeld und einer Bildschirmtastatur.",
+      caption: "10 Name, nach der Zahlung gefragt und als Weg erklärt, wie man gerufen wird.",
     },
     {
       src: "/work/compass-kiosk/11-phone.webp",
-      alt: "Kiosk screen asking please enter your phone number, explaining a text will be sent when the food is ready for pickup, with a single field and a large numeric keypad.",
-      caption: "11 Phone, optional, with the reason given.",
+      alt: "Kiosk-Bildschirm mit der Bitte um die Telefonnummer und der Erklärung, dass eine Nachricht kommt, sobald das Essen abholbereit ist, mit einem einzelnen Feld und einem großen Ziffernblock.",
+      caption: "11 Telefonnummer, optional, mit genanntem Grund.",
     },
     {
       src: "/work/compass-kiosk/12-receipt.webp",
-      alt: "Kiosk confirmation screen with a green tick, the words printing receipt, an instruction to take the receipt to the cashier to finish checkout, and a large order number forty on a ticket illustration above a line-drawn city skyline.",
-      caption: "12 A printed number, and one instruction about what to do with it.",
+      alt: "Bestätigungsbildschirm des Kiosks mit grünem Haken, dem Hinweis auf den Druck des Belegs, der Anweisung, den Beleg zur Kasse zu bringen, und einer großen Bestellnummer vierzig auf einer Beleg-Illustration über einer gezeichneten Skyline.",
+      caption: "12 Eine gedruckte Nummer, und eine Anweisung, was damit zu tun ist.",
     },
   ]}
 />
 
 <Callout kind="decision">
-  Defer everything that is not the order. Name, phone and upsell all moved behind payment, which
-  turned three chances to abandon into three questions people answer once they have already
-  committed.
+  Alles verschieben, was nicht die Bestellung ist. Name, Telefonnummer und Empfehlungen wanderten
+  hinter die Zahlung, was aus drei Gelegenheiten zum Abbruch drei Fragen gemacht hat, die Leute
+  beantworten, wenn sie sich schon entschieden haben.
 </Callout>
 
-## Impact, accessibility and reflection
+## Wirkung, Barrierefreiheit und Rückblick
 
-### Accessibility
+### Barrierefreiheit
 
-Reach drove the layout. Primary controls sit in the lower half of the screen so the kiosk is usable
-seated as well as standing, and nothing needed to complete an order lives along the top edge. Targets
-clear 48 by 48 device-independent pixels with wide separation, because a mis-tap here costs a wrong
-order rather than a corrected one. Language is offered on the first screen and stays on a persistent
-bar, along with a help number, so a stuck customer never has to hunt. Required choices are labelled
-with the word required, and prices are numerals beside every option rather than a total that changes
-without explanation.
+Die Reichweite hat das Layout bestimmt. Die wichtigsten Bedienelemente sitzen in der unteren
+Bildschirmhälfte, damit der Kiosk im Sitzen wie im Stehen nutzbar ist, und nichts, was zum
+Abschließen einer Bestellung nötig ist, lebt am oberen Rand. Die Ziele erreichen 48 mal 48
+geräteunabhängige Pixel mit großem Abstand, denn ein Fehlgriff kostet hier eine falsche Bestellung
+statt einer korrigierten. Die Sprache wird auf dem ersten Screen angeboten und bleibt zusammen mit
+einer Hilfenummer in einer durchgehenden Leiste, damit ein feststeckender Gast nie suchen muss.
+Pflichtauswahlen sind mit dem Wort Pflicht beschriftet, und Preise stehen als Zahlen neben jeder
+Option, statt als Summe, die sich ohne Erklärung ändert.
 
-### Impact and takeaways
+### Wirkung und Erkenntnisse
 
 <Results>
-  <Metric display="12" label="screens, attract to receipt" />
-  <Metric display="1" label="decision per screen" />
+  <Metric display="12" label="Screens, Begrüßung bis Beleg" />
+  <Metric display="1" label="Entscheidung pro Screen" />
 </Results>
 
-A kiosk is not a terminal with bigger buttons. The counter system optimises for someone who already
-knows it; the kiosk has to teach itself to a stranger in the time it takes to order lunch. Sharing
-the design system between them was right, but sharing the flow would have been wrong.
+Ein Kiosk ist kein Terminal mit größeren Schaltflächen. Das Tresensystem optimiert für jemanden, der
+es bereits kennt; der Kiosk muss sich einem Fremden in der Zeit beibringen, die eine
+Mittagsbestellung dauert. Das Design-System zwischen beiden zu teilen war richtig, den Ablauf zu
+teilen wäre falsch gewesen.

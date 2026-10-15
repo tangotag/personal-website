@@ -20,79 +20,79 @@ coverAlt: "Der Showdown-Bildschirm von Open Omaha auf dunkelgrünem Grund: ein r
 featuredOrder: 2
 ---
 
-{/* Phase 7: the +40% figure is carried from the CV and stays tagged `confirm` until Raheel verifies the measurement window. Everything else here is read from the shipped screens. */}
+{/* Phase 7: die Zahl von +40 % stammt aus dem Lebenslauf und bleibt als `confirm` markiert, bis Raheel den Messzeitraum bestätigt. Alles andere hier ist aus den ausgelieferten Screens gelesen. */}
 
 <TLDR
   items={[
-    "A five-seat Omaha table where the money decisions, ante, blind, two bonus side bets and a raise multiplier, all had to happen in sequence without losing the player.",
-    "I rebuilt the table around one rule: ask for one decision at a time, and never show a control the player cannot use yet.",
-    "Hands are named in words at showdown, so a player learns the game while playing it rather than before.",
+    "Ein Omaha-Tisch mit fünf Plätzen, an dem alle Geldentscheidungen (Ante, Blind, zwei Bonus-Nebenwetten und ein Erhöhungs-Multiplikator) nacheinander fallen mussten, ohne den Spieler zu verlieren.",
+    "Ich habe den Tisch um eine Regel herum neu gebaut: immer nur eine Entscheidung verlangen und nie ein Element zeigen, das der Spieler noch nicht nutzen kann.",
+    "Hände werden beim Showdown in Worten benannt, damit ein Spieler das Spiel beim Spielen lernt statt vorher.",
   ]}
 />
 
-## Overview
+## Überblick
 
-Open Omaha is a browser poker title for Fifty Cats, played at a five-seat table against the house.
-Its difficulty is not the poker. It is that a single hand asks a player for money four separate
-times, and each request has to be understood in a couple of seconds by someone who may be new to
-the variant.
+Open Omaha ist ein Browser-Pokertitel für Fifty Cats, gespielt an einem Tisch mit fünf Plätzen gegen
+die Bank. Seine Schwierigkeit ist nicht das Poker. Sie liegt darin, dass eine einzige Hand den
+Spieler viermal getrennt um Geld bittet und jede dieser Bitten in wenigen Sekunden verstanden werden
+muss, womöglich von jemandem, der die Variante nicht kennt.
 
-|                 |                                                                                                         |
-| --------------- | ------------------------------------------------------------------------------------------------------- |
-| **Tools**       | Figma, Adobe Illustrator, Adobe Photoshop                                                               |
-| **Methodology** | Heuristic audit, competitive review, low-fidelity flows, prototype testing, design QA on the live build |
-| **Surfaces**    | Table, settings, coin size, pay table, history, cashier                                                 |
+|                 |                                                                                                            |
+| --------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Werkzeuge**   | Figma, Adobe Illustrator, Adobe Photoshop                                                                  |
+| **Vorgehen**    | Heuristisches Audit, Wettbewerbsanalyse, Flows in niedriger Auflösung, Prototyp-Tests, Design-QA am Live-Build |
+| **Oberflächen** | Tisch, Einstellungen, Münzwert, Auszahlungstabelle, Verlauf, Kasse                                         |
 
-## The problem
+## Das Problem
 
-The betting sequence was the product. Ante, blind, a three-card bonus, a four-card bonus, then a
-raise decision priced as a multiple of the ante. Presented all at once it reads as a wall of
-controls, and a player who does not understand a bet does not place it.
+Die Wettabfolge war das Produkt. Ante, Blind, ein Drei-Karten-Bonus, ein Vier-Karten-Bonus, dann
+eine Erhöhungsentscheidung, bepreist als Vielfaches der Ante. Alles auf einmal gezeigt liest sich
+als Wand aus Bedienelementen, und wer eine Wette nicht versteht, setzt sie nicht.
 
-There was a second problem underneath. Omaha is less familiar than Hold'em, and a player who cannot
-tell whether they have won is a player who leaves.
+Darunter lag ein zweites Problem. Omaha ist weniger vertraut als Hold'em, und ein Spieler, der nicht
+erkennen kann, ob er gewonnen hat, ist ein Spieler, der geht.
 
-## The goal
+## Das Ziel
 
-Raise the share of seated players who complete a full hand and place at least one optional bet, and
-make the outcome of every hand legible without a rules page.
+Den Anteil der Spieler erhöhen, die eine vollständige Hand zu Ende spielen und mindestens eine
+optionale Wette setzen, und den Ausgang jeder Hand ohne Regelseite lesbar machen.
 
-## My role
+## Meine Rolle
 
-End-to-end UI and UX as the contract senior designer: heuristic audit of the existing table, the
-betting sequence, the interface, the icon and chip system, and design QA against the built game. I
-did not write the hand-evaluation logic or set the pay tables.
+UI und UX von Anfang bis Ende als Senior Designer im Vertrag: heuristisches Audit des bestehenden
+Tisches, die Wettabfolge, die Oberfläche, das Icon- und Chip-System sowie Design-QA gegen das
+gebaute Spiel. Die Logik zur Handauswertung und die Auszahlungstabellen stammen nicht von mir.
 
 <Callout kind="constraint">
-  Fixed table geometry. Five seats and a dealer position cannot move, so every improvement had to
-  come from sequencing, labelling and state, not from a new layout.
+  Feste Tischgeometrie. Fünf Plätze und die Geberposition lassen sich nicht verschieben, also musste
+  jede Verbesserung aus Abfolge, Beschriftung und Zustand kommen, nicht aus einem neuen Layout.
 </Callout>
 
-## Understanding the players
+## Die Spieler verstehen
 
-### Research summary
+### Zusammenfassung der Recherche
 
-Two groups sit at the same table. Players who know Omaha and want speed, and players who arrived
-from a simpler title and are learning as they go. The first group is lost by friction, the second by
-confusion. A design that only serves one loses the other.
+Am selben Tisch sitzen zwei Gruppen. Spieler, die Omaha kennen und Tempo wollen, und Spieler, die
+von einem einfacheren Titel kommen und nebenbei lernen. Die erste Gruppe verliert man durch
+Reibung, die zweite durch Verwirrung. Ein Design, das nur einer dient, verliert die andere.
 
-### The journey, one hand at a time
+### Der Ablauf, eine Hand nach der anderen
 
-Buy in, place the ante and blind, decide on the optional bonuses, receive cards, judge the hand,
-raise or check, see the result. Seven moments, of which four ask for money.
+Einkaufen, Ante und Blind setzen, über die optionalen Boni entscheiden, Karten erhalten, die Hand
+bewerten, erhöhen oder passen, das Ergebnis sehen. Sieben Momente, vier davon verlangen Geld.
 
-### Competitive audit
+### Wettbewerbsanalyse
 
-Table titles from the larger studios lean on animation to carry the moment. That was not available
-at this budget, so the differentiator had to be clarity: state the price of every bet in the
-currency already on the table, and name every hand in words.
+Tischtitel der größeren Studios tragen den Moment über Animation. Die war in diesem Budget nicht
+drin, also musste die Klarheit der Unterschied sein: den Preis jeder Wette in der Währung nennen,
+die schon auf dem Tisch liegt, und jede Hand in Worten benennen.
 
-## Starting the design
+## Der Einstieg ins Design
 
 ### Wireframes
 
-The sequence was worked out in flat wireframes before any felt was drawn, so the argument was about
-order rather than decoration.
+Die Abfolge wurde in flachen Wireframes geklärt, bevor überhaupt Filz gezeichnet wurde, damit es um
+Reihenfolge ging statt um Dekoration.
 
 <Gallery
   cols={2}
@@ -100,37 +100,37 @@ order rather than decoration.
   items={[
     {
       src: "/work/open-omaha/wireframe-1-buy-in.webp",
-      alt: "Wireframe of the Open Omaha table before a hand: a dealer marker at the top, an empty community card area, five seats each with a plus control to sit down, the second seat highlighted and carrying ante and blind chips, a denomination rail at the lower left and buy-in and play controls at the lower right.",
-      caption: "01 Buy-in. An empty seat asks one question at a time.",
+      alt: "Wireframe des Tisches von Open Omaha vor einer Hand: oben eine Markierung für den Geber, ein leerer Bereich für Gemeinschaftskarten, fünf Plätze mit je einem Plus-Element zum Hinsetzen, der zweite Platz hervorgehoben und mit Ante- und Blind-Chips, unten links eine Leiste mit Chipwerten und unten rechts Elemente für Einkauf und Spielstart.",
+      caption: "01 Einkauf. Ein leerer Platz stellt eine Frage nach der anderen.",
     },
     {
       src: "/work/open-omaha/wireframe-2-ante-blind.webp",
-      alt: "Wireframe of the ante and blind wager step, marked option four A: the community card area at the top, a total bet readout, five seats each showing a four card row with ante and blind amounts beneath, a buy-in button on the first seat and ante and blind wager buttons on the rest, and a confirm control at the lower right.",
-      caption: "02 Ante and blind. The wager is one confirmation, not a sequence.",
+      alt: "Wireframe des Schritts für Ante und Blind, als Option vier A markiert: oben der Bereich der Gemeinschaftskarten, die Anzeige des Gesamteinsatzes, fünf Plätze mit je einer Reihe aus vier Karten und den Beträgen für Ante und Blind darunter, eine Einkaufsschaltfläche auf dem ersten Platz und Wettschaltflächen auf den übrigen, unten rechts ein Bestätigungselement.",
+      caption: "02 Ante und Blind. Die Wette ist eine Bestätigung, keine Abfolge.",
     },
     {
       src: "/work/open-omaha/wireframe-3-decision.webp",
-      alt: "Wireframe of the decision step: the payout table on the left listing odds from three to four up to three to twenty, the dealer's cards face down, total bet and total win readouts, an empty community area, five seats with the second marked active and holding a four card bet, and check, three times and four times wager buttons along the bottom.",
-      caption: "03 Decision. Multipliers appear only when the seat is actually being asked.",
+      alt: "Wireframe des Entscheidungsschritts: links die Auszahlungstabelle mit Quoten von drei zu vier bis drei zu zwanzig, die Karten des Gebers verdeckt, Anzeigen für Gesamteinsatz und Gesamtgewinn, ein leerer Gemeinschaftsbereich, fünf Plätze mit dem zweiten als aktiv markiert, und unten Schaltflächen zum Passen sowie für den drei- und vierfachen Einsatz.",
+      caption: "03 Entscheidung. Multiplikatoren erscheinen erst, wenn der Platz wirklich gefragt wird.",
     },
     {
       src: "/work/open-omaha/wireframe-4-showdown.webp",
-      alt: "Wireframe of the showdown: the payout table on the left, the dealer's cards face up for the final round, total bet and total win readouts, the community cards dealt with the winning ones outlined, a hand name label beneath them, five seats showing their cards face up, and the line best hand wins and pot division.",
-      caption: "04 Showdown. Every hand is named, so nobody has to read the board.",
+      alt: "Wireframe des Showdowns: links die Auszahlungstabelle, die Karten des Gebers offen für die letzte Runde, Anzeigen für Gesamteinsatz und Gesamtgewinn, die ausgeteilten Gemeinschaftskarten mit den gewinnenden umrandet, darunter eine Beschriftung mit dem Namen der Hand, fünf Plätze mit offenen Karten und die Zeile, dass die beste Hand gewinnt und der Pot geteilt wird.",
+      caption: "04 Showdown. Jede Hand wird benannt, damit niemand den Tisch lesen muss.",
     },
   ]}
 />
 
-### What testing changed
+### Was die Tests verändert haben
 
-Two things came out of prototype rounds and stayed. The bonus grids moved off the centre of the
-table, because players were placing them by accident on the way to the deal button. And the raise
-multipliers stopped appearing until the seat was actually being asked, which removed a persistent
-question about whether the player had already acted.
+Zwei Dinge kamen aus den Prototyp-Runden und blieben. Die Bonusraster wanderten aus der Tischmitte
+weg, weil Spieler sie auf dem Weg zur Austeil-Schaltfläche versehentlich gesetzt haben. Und die
+Erhöhungs-Multiplikatoren erschienen erst, wenn der Platz tatsächlich gefragt wurde, was eine
+hartnäckige Unsicherheit darüber beseitigte, ob man schon gehandelt hatte.
 
-## Final screens
+## Finale Screens
 
-The sequence, as shipped. Each step adds exactly one kind of decision.
+Die Abfolge, wie ausgeliefert. Jeder Schritt fügt genau eine Art von Entscheidung hinzu.
 
 <Gallery
   cols={2}
@@ -138,66 +138,67 @@ The sequence, as shipped. Each step adds exactly one kind of decision.
   items={[
     {
       src: "/work/open-omaha/buy-in.webp",
-      alt: "Open Omaha buy-in screen. A red felt table with five empty seat positions each marked with a plus button, an instruction reading please set your buy-in amount, a chip denomination rail at the lower left and auto buy-in, auto play all and 2x controls at the lower right.",
-      caption: "Buy-in. Empty seats invite a tap and nothing else is reachable yet.",
+      alt: "Einkaufsbildschirm von Open Omaha. Ein roter Filztisch mit fünf leeren Plätzen, jeder mit einer Plus-Schaltfläche, eine Anweisung zum Festlegen des Einkaufsbetrags, unten links eine Leiste mit Chipwerten und unten rechts Elemente für automatischen Einkauf, automatisches Spiel und doppelten Einsatz.",
+      caption: "Einkauf. Leere Plätze laden zum Tippen ein, und sonst ist nichts erreichbar.",
     },
     {
       src: "/work/open-omaha/side-bets.webp",
-      alt: "Open Omaha side-bet screen with a three and four card bonus payout grid on the left, an instruction to set bets for the three and four card bonus, seat positions with plus buttons, and buy-in, auto 4 card, auto 3 card, revert, reset and deal cards controls along the bottom.",
-      caption: "Optional bets, with their payout table beside them.",
+      alt: "Nebenwett-Bildschirm von Open Omaha mit der Auszahlungstabelle für Drei- und Vier-Karten-Bonus links, einer Anweisung zum Setzen dieser Boni, Plätzen mit Plus-Schaltflächen und unten Elementen für Einkauf, automatische Boni, Zurücksetzen und Austeilen.",
+      caption: "Optionale Wetten, mit ihrer Auszahlungstabelle daneben.",
     },
     {
       src: "/work/open-omaha/cards-dealt.webp",
-      alt: "Open Omaha after the deal: five community cards face up at the dealer position and four hole cards at each of the five seats, with ante and blind chips in front of every seat.",
-      caption: "The deal. Ante and blind stay visible in front of each seat.",
+      alt: "Open Omaha nach dem Austeilen: fünf offene Gemeinschaftskarten an der Geberposition und vier verdeckte Karten an jedem der fünf Plätze, davor jeweils Ante- und Blind-Chips.",
+      caption: "Das Austeilen. Ante und Blind bleiben vor jedem Platz sichtbar.",
     },
     {
       src: "/work/open-omaha/bonus-win.webp",
-      alt: "Open Omaha bonus result callout reading four card bonus, seat two, win 0.90, pair pays times two, shown above the seat it belongs to.",
-      caption: "Bonus results resolve where the bet was placed.",
+      alt: "Bonus-Ergebnishinweis von Open Omaha mit Vier-Karten-Bonus, Platz zwei, einem Gewinn von 0,90 und dem Hinweis, dass ein Paar das Doppelte zahlt, angezeigt über dem zugehörigen Platz.",
+      caption: "Bonusergebnisse werden dort aufgelöst, wo die Wette gesetzt wurde.",
     },
     {
       src: "/work/open-omaha/bet-decision.webp",
-      alt: "Open Omaha decision step showing a check button at the lower left and 3x and 4x bet ante buttons at the lower right, with the active seat highlighted.",
-      caption: "The raise is priced as a multiple of the ante the player already staked.",
+      alt: "Entscheidungsschritt von Open Omaha mit einer Schaltfläche zum Passen unten links und Schaltflächen für den drei- und vierfachen Ante-Einsatz unten rechts, der aktive Platz hervorgehoben.",
+      caption: "Die Erhöhung ist als Vielfaches der bereits gesetzten Ante bepreist.",
     },
     {
       src: "/work/open-omaha/showdown.webp",
-      alt: "Open Omaha showdown. The dealer's hand is labelled two pair with its kicker at the top left, and each of the five seats carries a printed hand name above its cards reading pair, full house, two pair, two pair and full house.",
-      caption: "Showdown. Every hand is named in words, dealer included.",
+      alt: "Showdown von Open Omaha. Die Hand des Gebers ist oben links als Zwei Paare mit Beikarte beschriftet, und jeder der fünf Plätze trägt über seinen Karten einen gedruckten Handnamen: Paar, Full House, Zwei Paare, Zwei Paare und Full House.",
+      caption: "Showdown. Jede Hand wird in Worten benannt, die des Gebers eingeschlossen.",
     },
   ]}
 />
 
 <Callout kind="decision">
-  Name the hand, do not make the player read the cards. A printed hand name above every seat turns a
-  rules problem into a reading problem, and it teaches the variant while the player is playing it.
+  Die Hand benennen, statt den Spieler die Karten lesen zu lassen. Ein gedruckter Handname über
+  jedem Platz macht aus einem Regelproblem ein Leseproblem und lehrt die Variante, während gespielt
+  wird.
 </Callout>
 
 <Figure
   src="/work/open-omaha/coin-size.webp"
-  alt="Open Omaha coin size modal offering denominations from 0.1 to 1000 as a grid of buttons, with the left rail showing Home, Game Rules, Pay Table, Coin Size, Settings, History and Cashier."
-  caption="Coin size. A twelve-step grid rather than a slider, because a stake is chosen, not tuned."
+  alt="Dialog für den Münzwert in Open Omaha mit Werten von 0,1 bis 1000 als Raster von Schaltflächen, links eine Leiste mit Start, Spielregeln, Auszahlungstabelle, Münzwert, Einstellungen, Verlauf und Kasse."
+  caption="Münzwert. Ein Raster aus zwölf Stufen statt eines Schiebereglers, weil ein Einsatz gewählt und nicht justiert wird."
   kind="desktop"
   aspect="16/10"
   wide
 />
 
-## Accessibility
+## Barrierefreiheit
 
-Every control on the felt clears a 48 by 48 device-independent pixel target, which matters on the
-tablet layout where a mis-tap costs real money. Status is never colour alone: a win carries a
-printed amount, a fold carries the word, and chips carry their denomination as text. Hand names are
-words rather than icons, which is also what makes the table usable for a colourblind player reading
-red and green suits.
+Jedes Bedienelement auf dem Filz erreicht ein Ziel von 48 mal 48 geräteunabhängigen Pixeln, was auf
+dem Tablet-Layout zählt, wo ein Fehlgriff echtes Geld kostet. Status wird nie allein über Farbe
+vermittelt: ein Gewinn trägt einen gedruckten Betrag, ein Passen trägt das Wort, und Chips tragen
+ihren Wert als Text. Handnamen sind Wörter statt Symbolen, was den Tisch auch für Spieler nutzbar
+macht, die rote und schwarze Farben schlecht unterscheiden.
 
-## Impact and reflection
+## Wirkung und Rückblick
 
 <Results>
-  <Metric display="+40%" label="conversion after redesign" />
-  <Metric display="5" label="seats, one shared table state" />
+  <Metric display="+40 %" label="Conversion nach dem Redesign" />
+  <Metric display="5" label="Plätze, ein gemeinsamer Tischzustand" />
 </Results>
 
-The lesson generalised past casino work. When a product asks for a decision several times in a row,
-the design problem is sequencing, not layout. Ask once, price the ask in something the person has
-already committed, and say the outcome in words.
+Die Lehre reicht über Casino-Arbeit hinaus. Wenn ein Produkt mehrmals hintereinander eine
+Entscheidung verlangt, ist das Designproblem die Abfolge, nicht das Layout. Einmal fragen, die Frage
+in etwas bepreisen, das die Person bereits eingesetzt hat, und das Ergebnis in Worten sagen.

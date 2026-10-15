@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import type { Crumb } from "@/lib/seo";
@@ -9,11 +11,12 @@ import type { Crumb } from "@/lib/seo";
  * The matching BreadcrumbList lives in each page's JSON-LD graph, built from the same array, so
  * what a crawler reads and what a visitor sees cannot drift apart.
  */
-export function Breadcrumbs({ crumbs, className }: { crumbs: Crumb[]; className?: string }) {
+export async function Breadcrumbs({ crumbs, className }: { crumbs: Crumb[]; className?: string }) {
   if (crumbs.length < 2) return null;
+  const t = await getTranslations("nav");
 
   return (
-    <nav aria-label="Breadcrumb" className={cn("text-eyebrow text-fg-muted", className)}>
+    <nav aria-label={t("breadcrumb")} className={cn("text-eyebrow text-fg-muted", className)}>
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
         {crumbs.map((c, i) => {
           const last = i === crumbs.length - 1;

@@ -68,7 +68,7 @@ export function Header() {
             {site.shortName}
           </Link>
 
-          <nav aria-label="Primary" className="hidden md:block">
+          <nav aria-label={t("primary")} className="hidden md:block">
             <ul className="flex items-center gap-1">
               {navItems.map((item) => {
                 const active =

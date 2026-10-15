@@ -5,7 +5,20 @@
       "de": "Kinobuchung",
       "es": "Reserva de cine"
     },
-    "tags": ["iOS", "Booking", "Seat map"],
+    "tags": [
+      {
+        "de": "iOS",
+        "es": "iOS"
+      },
+      {
+        "de": "Buchung",
+        "es": "Reservas"
+      },
+      {
+        "de": "Sitzplan",
+        "es": "Mapa de asientos"
+      }
+    ],
     "summary": {
       "de": "Film wählen, Platz wählen, Ticket behalten. Der Sitzplan trägt die Arbeit: belegt, reserviert und ausgewählt müssen auf Armlänge lesbar sein, und nie allein über Farbe.",
       "es": "Elegir película, elegir asiento y guardar la entrada. El mapa de asientos es lo que carga el peso: ocupado, reservado y elegido tienen que leerse a un brazo de distancia y nunca solo por color."
@@ -52,7 +65,20 @@
       "de": "Brewtopia Kaffeebestellung",
       "es": "Pedidos de café Brewtopia"
     },
-    "tags": ["iOS", "Ordering", "Checkout"],
+    "tags": [
+      {
+        "de": "iOS",
+        "es": "iOS"
+      },
+      {
+        "de": "Bestellung",
+        "es": "Pedidos"
+      },
+      {
+        "de": "Kasse",
+        "es": "Pago"
+      }
+    ],
     "summary": {
       "de": "Eine Kaffeebestellung in vier Screens. Größe, Röstung und Milch haben jeweils einen Preis, deshalb bewegt sich die Summe während der Auswahl, statt am Ende zu überraschen.",
       "es": "Un pedido de café en cuatro pantallas. El tamaño, el tueste y la leche tienen precio, así que el total se mueve mientras eliges en vez de aparecer como sorpresa al final."
@@ -110,7 +136,20 @@
       "de": "Möbelshop",
       "es": "Tienda de muebles"
     },
-    "tags": ["iOS", "Catalogue", "E-commerce"],
+    "tags": [
+      {
+        "de": "iOS",
+        "es": "iOS"
+      },
+      {
+        "de": "Katalog",
+        "es": "Catálogo"
+      },
+      {
+        "de": "E-Commerce",
+        "es": "Comercio electrónico"
+      }
+    ],
     "summary": {
       "de": "Ein kleiner Katalog, in dem die Fotografie verkauft. Typ, Preis und der Button zum Warenkorb sitzen bei jedem Produkt an derselben Stelle, damit Stöbern nicht zum Neulernen wird.",
       "es": "Un catálogo pequeño donde la fotografía es la que vende. Tipo, precio y el botón de añadir al carrito están en el mismo sitio en cada producto, así navegar no obliga a reaprender."
@@ -157,7 +196,20 @@
       "de": "Luxus-Autovermietung",
       "es": "Alquiler de coches de lujo"
     },
-    "tags": ["iOS", "Marketplace", "Payments"],
+    "tags": [
+      {
+        "de": "iOS",
+        "es": "iOS"
+      },
+      {
+        "de": "Marktplatz",
+        "es": "Marketplace"
+      },
+      {
+        "de": "Zahlungen",
+        "es": "Pagos"
+      }
+    ],
     "summary": {
       "de": "Ein Auto vom Handy aus mieten: nach Marke suchen, die Daten lesen, bezahlen. Die Detailseite stellt Sitze, Getriebe, Höchstgeschwindigkeit und Tank neben den Namen des Vermieters, weil beides über die Buchung entscheidet.",
       "es": "Alquilar un coche desde el móvil: buscar por marca, leer la ficha y pagar. La pantalla de detalle pone plazas, cambio, velocidad máxima y depósito junto al nombre del propietario, porque las dos cosas deciden la reserva."

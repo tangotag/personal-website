@@ -68,7 +68,7 @@ export function GET() {
   );
   for (const app of apps) {
     lines.push(
-      `- **${pick(app.name, DE)}** (${app.tags.join(", ")}): ${pick(app.summary, DE)} ${app.screens.length} Screens.`,
+      `- **${pick(app.name, DE)}** (${app.tags.map((t) => pick(t, DE)).join(", ")}): ${pick(app.summary, DE)} ${app.screens.length} Screens.`,
     );
   }
 

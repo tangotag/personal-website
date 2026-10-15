@@ -130,7 +130,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
                   >
                     <div className="flex flex-wrap gap-2">
                       {s.tags.map((tag) => (
-                        <Tag key={tag}>{tag}</Tag>
+                        <Tag key={tag.de}>{pick(tag, locale)}</Tag>
                       ))}
                     </div>
                     <h3 className="text-h3">{pick(s.title, locale)}</h3>

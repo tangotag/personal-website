@@ -54,7 +54,7 @@ export async function ExperienceTimeline({ locale }: { locale: string }) {
             <p className="mt-3 max-w-[68ch] text-fg-muted">{pick(x.summary, locale)}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {x.tags.map((tag) => (
-                <Tag key={tag}>{tag}</Tag>
+                <Tag key={tag.de}>{pick(tag, locale)}</Tag>
               ))}
             </div>
           </div>

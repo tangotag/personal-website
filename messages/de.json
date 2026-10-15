@@ -17,7 +17,9 @@
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
     "skipToContent": "Zum Inhalt springen",
-    "home": "Start"
+    "home": "Start",
+    "primary": "Hauptnavigation",
+    "breadcrumb": "Navigationspfad"
   },
   "common": {
     "available": "Verfügbar für Festanstellung & Freelance",
@@ -186,7 +188,8 @@
     "text": "Ich nutze datenschutzfreundliche Analytics (ohne Cookies) und Google Analytics, wenn Sie zustimmen.",
     "accept": "Zustimmen",
     "decline": "Nein danke",
-    "learnMore": "Datenschutz"
+    "learnMore": "Datenschutz",
+    "label": "Cookie-Einwilligung"
   },
   "pages": {
     "work": {
@@ -350,7 +353,13 @@
           },
           {
             "title": "Handwerk",
-            "items": ["UI-Design", "Prototyping", "Motion", "Design-Systeme", "Barrierefreiheit"]
+            "items": [
+              "UI-Design",
+              "Prototyping",
+              "Motion",
+              "Design-Systeme",
+              "Barrierefreiheit"
+            ]
           },
           {
             "title": "Führung",
@@ -364,7 +373,11 @@
           },
           {
             "title": "Werkzeuge",
-            "items": ["Figma", "Figma-Komponentenbibliotheken", "Design-QA"]
+            "items": [
+              "Figma",
+              "Figma-Komponentenbibliotheken",
+              "Design-QA"
+            ]
           }
         ]
       },
@@ -388,7 +401,9 @@
             "year": "2020"
           }
         ],
-        "certs": ["Google UX Design Professional Certificate"]
+        "certs": [
+          "Google UX Design Professional Certificate"
+        ]
       },
       "education": {
         "title": "Ausbildung",
@@ -438,6 +453,12 @@
       "team": "Team",
       "readingTime": "Lesezeit",
       "link": "Live"
+    },
+    "gallery": {
+      "close": "Schließen",
+      "prev": "Vorheriges Bild",
+      "next": "Nächstes Bild",
+      "counter": "Bild {current} von {total}"
     }
   },
   "forms": {
