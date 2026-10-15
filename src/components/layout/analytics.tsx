@@ -3,7 +3,7 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
-import { useConsent } from "@/components/layout/consent-bar";
+import { useStatisticsConsent } from "@/components/layout/cookie-consent";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const CF_TOKEN = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
@@ -20,10 +20,10 @@ const SpeedInsights = dynamic(() =>
 
 /**
  * Cloudflare Web Analytics, Vercel Analytics and Vercel Speed Insights are cookieless and load
- * unconditionally. GA4 loads only after explicit consent (see ConsentBar).
+ * unconditionally. GA4 sets cookies, so it waits for Cookiebot's statistics consent.
  */
 export function Analytics() {
-  const [consent] = useConsent();
+  const statistics = useStatisticsConsent();
   return (
     <>
       {CF_TOKEN ? (
@@ -33,7 +33,7 @@ export function Analytics() {
           strategy="afterInteractive"
         />
       ) : null}
-      {GA_ID && consent === "granted" ? <GoogleAnalytics gaId={GA_ID} /> : null}
+      {GA_ID && statistics ? <GoogleAnalytics gaId={GA_ID} /> : null}
       {ON_VERCEL ? (
         <>
           <VercelAnalytics />

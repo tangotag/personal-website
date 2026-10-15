@@ -53,7 +53,13 @@ function waitForServer(url: string, timeoutMs = 120_000): Promise<void> {
   });
 }
 
-function build() {
+/**
+ * `forAudit` also switches Cookiebot off. It is a render-blocking third-party script in
+ * production and its cost is real, but an audit that fetches it measures Cookiebot's CDN on top
+ * of the site and reaches a third party from an automated run, which this repo does not do. The
+ * e2e build keeps it so the tag can be asserted; Playwright resolves the host to nothing.
+ */
+function build({ forAudit }: { forAudit: boolean }) {
   return new Promise<void>((resolve, reject) => {
     const nextBin = createRequire(import.meta.url).resolve("next/dist/bin/next");
     const child = spawn(process.execPath, [nextBin, "build"], {
@@ -65,6 +71,7 @@ function build() {
         NEXT_PUBLIC_TURNSTILE_SITE_KEY: "1x00000000000000000000AA",
         // GA is consent-gated and never loads in automated runs; keep the id out of the test build anyway.
         NEXT_PUBLIC_GA_ID: "",
+        ...(forAudit ? { NEXT_PUBLIC_COOKIEBOT_ID: "" } : {}),
       },
     });
     child.on("exit", (code) =>
@@ -75,10 +82,10 @@ function build() {
 
 async function main() {
   if (process.argv.includes("--build-only")) {
-    await build();
+    await build({ forAudit: false });
     return;
   }
-  if (process.argv.includes("--build")) await build();
+  if (process.argv.includes("--build")) await build({ forAudit: true });
   // Spawn the real `next` binary (no shell wrapper) so the PID we later kill is the server itself.
   const nextBin = createRequire(import.meta.url).resolve("next/dist/bin/next");
   const server = spawn(process.execPath, [nextBin, "start", "-p", String(PORT)], {

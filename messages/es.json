@@ -184,13 +184,6 @@
     "description": "Puede que el enlace sea antiguo o que la página se haya movido.",
     "cta": "Volver al inicio"
   },
-  "consent": {
-    "text": "Uso analítica respetuosa con la privacidad (sin cookies) y, si lo permites, Google Analytics.",
-    "accept": "Permitir",
-    "decline": "No, gracias",
-    "learnMore": "Privacidad",
-    "label": "Consentimiento de cookies"
-  },
   "pages": {
     "work": {
       "title": "Trabajo",

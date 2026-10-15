@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Analytics } from "@/components/layout/analytics";
-import { ConsentBar } from "@/components/layout/consent-bar";
+import { Cookiebot } from "@/components/layout/cookiebot";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { SkipLink } from "@/components/layout/skip-link";
@@ -42,7 +42,7 @@ const jetbrains = JetBrains_Mono({
 const OG_IMAGE = "/images/og-default.jpg";
 
 /** Only the namespaces client islands read — keeps the serialized RSC payload small. */
-const CLIENT_NAMESPACES = ["nav", "common", "consent", "forms", "pages"] as const;
+const CLIENT_NAMESPACES = ["nav", "common", "forms", "pages"] as const;
 
 function clientMessages(all: Record<string, unknown>) {
   const out: Record<string, unknown> = {};
@@ -102,9 +102,14 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
     <html
       lang={locale}
       suppressHydrationWarning
+      // Tells Next the smooth scroll is deliberate, so it stops warning and still disables it for
+      // the duration of a route change — a smooth scroll across a navigation looks like a glitch.
+      data-scroll-behavior="smooth"
       className={`${bricolage.variable} ${inter.variable} ${jetbrains.variable} h-full`}
     >
       <body className="flex min-h-full flex-col">
+        {/* Consent first: it decides what every later script is allowed to do. */}
+        <Cookiebot locale={locale} />
         {/* Marks JS as running so the CSS motion system may hide elements before they reveal. */}
         <script
           dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js")' }}
@@ -117,7 +122,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
               {children}
             </div>
             <Footer />
-            <ConsentBar />
             <Analytics />
           </NextIntlClientProvider>
         </ThemeProvider>

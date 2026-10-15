@@ -23,6 +23,12 @@ export default defineConfig({
     baseURL,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
+    // Cookiebot ships on every page and must stay assertable, but an automated run never reaches
+    // a third party: Chromium is told the host does not resolve, so the tag is there and the
+    // request is not. ~NOTFOUND fails resolution outright rather than pointing it somewhere.
+    launchOptions: {
+      args: ["--host-resolver-rules=MAP consent.cookiebot.com ~NOTFOUND"],
+    },
   },
   projects: [
     { name: "desktop-chromium", use: { ...devices["Desktop Chrome"] } },

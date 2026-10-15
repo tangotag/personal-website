@@ -29,6 +29,13 @@ export const site = {
     freelance: true,
   },
   calendarUrl: process.env.NEXT_PUBLIC_CAL_LINK ?? "",
+  /**
+   * Cookiebot is the consent manager for the whole site. The CBID is public — it ships in the
+   * HTML of every page — so it lives here rather than in .env, and NEXT_PUBLIC_COOKIEBOT_ID
+   * overrides it. An empty string switches Cookiebot off, which is what the Lighthouse build
+   * does so the audit never reaches a third party.
+   */
+  cookiebotId: process.env.NEXT_PUBLIC_COOKIEBOT_ID ?? "0a52951b-cf4e-4ef9-b5ca-74cb474cc686",
   resumePath: "/Raheel-Ahmad-Qureshi-Senior-Product-Designer.pdf",
   social: {
     linkedin: "https://www.linkedin.com/in/theraheel10/",

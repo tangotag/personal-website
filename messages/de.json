@@ -184,13 +184,6 @@
     "description": "Der Link ist vielleicht alt, oder die Seite ist umgezogen.",
     "cta": "Zurück zur Startseite"
   },
-  "consent": {
-    "text": "Ich nutze datenschutzfreundliche Analytics (ohne Cookies) und Google Analytics, wenn Sie zustimmen.",
-    "accept": "Zustimmen",
-    "decline": "Nein danke",
-    "learnMore": "Datenschutz",
-    "label": "Cookie-Einwilligung"
-  },
   "pages": {
     "work": {
       "title": "Arbeiten",

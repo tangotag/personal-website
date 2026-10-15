@@ -16,7 +16,7 @@ export function Parallax({
 }) {
   return (
     <div className={className} style={{ overflow: "hidden" }}>
-      <div className="parallax h-full" style={{ "--parallax": `${amount * 50}%` } as CSSProperties}>
+      <div className="parallax relative h-full" style={{ "--parallax": `${amount * 50}%` } as CSSProperties}>
         {children}
       </div>
     </div>
