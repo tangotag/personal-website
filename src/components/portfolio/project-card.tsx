@@ -87,7 +87,7 @@ export function ProjectCard({
           isHero && "lg:col-span-8",
         )}
       >
-        <ViewTransition name={`cover-${entry.slug}`}>
+        <ViewTransition name={`cover-${entry.slug}`} share="morph" default="none">
           <div className="absolute inset-0">
             <Cover entry={entry} priority={priority} variant={variant} />
           </div>

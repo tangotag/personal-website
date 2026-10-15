@@ -24,7 +24,7 @@ export async function CaseHero({ entry }: Props) {
   return (
     <header className="pt-6 md:pt-10">
       <Container bleed>
-        <ViewTransition name={`cover-${entry.slug}`}>
+        <ViewTransition name={`cover-${entry.slug}`} share="morph" default="none">
           <Parallax
             amount={0.08}
             // 16:10 everywhere: the same ratio as the cover files and the /work cards, so a cover

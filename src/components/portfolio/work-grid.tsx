@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import {
   useCallback,
   useMemo,
+  useState,
   useSyncExternalStore,
   type CSSProperties,
   type ReactNode,
@@ -47,11 +48,13 @@ function subscribe(cb: () => void) {
  * Filter chips + grid. The active filter lives in `?f=` so views are shareable; unknown values
  * fall back to "all". The URL is read with useSyncExternalStore (server snapshot = "all"), so the
  * page stays static and every card is in the server HTML. Re-layouts animate with the View
- * Transitions API where available (each card carries a view-transition-name) — no JS library.
+ * Transitions API where available — no JS library. Each card is given a view-transition-name for
+ * the length of that morph and not a moment longer; see setFilter.
  */
 export function WorkGrid({ items }: Props) {
   const t = useTranslations("pages.work");
   const active = useSyncExternalStore(subscribe, readFilter, () => "all" as Active);
+  const [morphing, setMorphing] = useState(false);
 
   const setFilter = useCallback((next: Active) => {
     const apply = () => {
@@ -63,8 +66,18 @@ export function WorkGrid({ items }: Props) {
       flushSync(() => window.dispatchEvent(new Event(EVENT)));
     };
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!reduce && "startViewTransition" in document) document.startViewTransition(apply);
-    else apply();
+    if (reduce || !("startViewTransition" in document)) {
+      apply();
+      return;
+    }
+    // The per-card names exist only for the length of this morph. Left on permanently, every card
+    // stays a named element in *any* later transition: clicking through to a case study animated
+    // eight card groups out while the cover was morphing in and the root was crossfading, and the
+    // root snapshot had eight holes in it. flushSync puts the names in the old snapshot before the
+    // transition captures it, and `finished` takes them off once there is nothing left to pair.
+    flushSync(() => setMorphing(true));
+    const transition = document.startViewTransition(apply);
+    void transition.finished.finally(() => setMorphing(false));
   }, []);
 
   const visible = useMemo(
@@ -93,7 +106,9 @@ export function WorkGrid({ items }: Props) {
           <li
             key={item.slug}
             className={item.tier === "hero" ? "md:col-span-2 xl:col-span-3" : undefined}
-            style={{ viewTransitionName: `card-${item.slug}` } as CSSProperties}
+            style={
+              morphing ? ({ viewTransitionName: `card-${item.slug}` } as CSSProperties) : undefined
+            }
           >
             {item.node}
           </li>

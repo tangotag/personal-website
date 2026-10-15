@@ -258,8 +258,39 @@ body:has(dialog[open]) {
   animation-duration: 300ms;
   animation-timing-function: var(--ease-out);
 }
+/**
+ * The cover morph from a /work card into the case-study hero, which is the one transition on the
+ * site that carries meaning: it says "this is the same picture". It gets longer than the generic
+ * 300ms so it registers, and a blur mid-flight to hide the pixel interpolation of a photo being
+ * scaled and repositioned at once. The pair is named `morph` by `share="morph"` on both ends.
+ */
+::view-transition-group(.morph) {
+  animation-duration: 400ms;
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  30% {
+    filter: blur(3px);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
+  /*
+   * "Opacity-only, short" (§8 above) was honoured by the reveals and nowhere else: a card still
+   * lifted on hover, an arrow still slid, the header still translated out of the way on scroll.
+   * Reduced motion drops the tween and keeps the end state, so all of those snap into place while
+   * colour, shadow and opacity keep easing — none of which moves. !important because every one of
+   * them is a Tailwind utility, which outranks a `*` selector.
+   */
+  *,
+  *::before,
+  *::after {
+    transition-property:
+      color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow,
+      opacity, outline-color !important;
+  }
   .js [data-reveal]:not([data-inview]),
   .js [data-reveal]:not([data-inview]) [data-reveal-item] {
     translate: 0;
@@ -279,6 +310,8 @@ body:has(dialog[open]) {
     animation: none;
   }
   ::view-transition-group(*),
+  ::view-transition-group(.morph),
+  ::view-transition-image-pair(.morph),
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
