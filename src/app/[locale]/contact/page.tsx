@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/seo/json-ld";
 import { addressFor } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { ContactForm } from "@/components/forms/contact-form";
@@ -12,7 +13,7 @@ import { Faq } from "@/components/ui/faq";
 import { StatusPill } from "@/components/ui/status-pill";
 import { TextLink } from "@/components/ui/text-link";
 import { site } from "@/data/site";
-import { jsonLdString, siteGraph, PERSON_ID } from "@/lib/json-ld";
+import { siteGraph, PERSON_ID } from "@/lib/json-ld";
 import { getFaq } from "@/lib/data";
 import { pick } from "@/types/content";
 
@@ -76,10 +77,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
 
   return (
     <main id="main" className="flex-1">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <Section>
         <Container>
           <Breadcrumbs crumbs={crumbs} className="mb-8" />

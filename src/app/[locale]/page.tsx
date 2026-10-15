@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { FaqSection } from "@/components/sections/faq-section";
 import { Hero } from "@/components/sections/hero";
@@ -11,7 +12,7 @@ import { SoundFamiliar } from "@/components/sections/sound-familiar";
 import { Testimonials } from "@/components/sections/testimonials";
 import { TwoPaths } from "@/components/sections/two-paths";
 import { WorkedWith } from "@/components/sections/worked-with";
-import { jsonLdString, siteGraph } from "@/lib/json-ld";
+import { siteGraph } from "@/lib/json-ld";
 
 /** Home — section order per docs/03 §4 and docs/08 §2. */
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
@@ -36,10 +37,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
   return (
     <main id="main" className="flex-1">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <Marquee />
       <Hero />
       <TwoPaths />

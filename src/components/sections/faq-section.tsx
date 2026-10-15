@@ -1,10 +1,10 @@
 import { getTranslations } from "next-intl/server";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { Faq } from "@/components/ui/faq";
 import { getFaq } from "@/lib/data";
-import { jsonLdString } from "@/lib/json-ld";
 import { pick } from "@/types/content";
 
 /**
@@ -28,10 +28,7 @@ export async function FaqSection({ locale }: { locale: string }) {
 
   return (
     <Section id="faq">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <Container className="grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <SectionHeader number="08" eyebrow={t("eyebrow")} title={t("title")} />

@@ -110,8 +110,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
       <body className="flex min-h-full flex-col">
         {/* Consent first: it decides what every later script is allowed to do. */}
         <Cookiebot locale={locale} />
-        {/* Marks JS as running so the CSS motion system may hide elements before they reveal. */}
+        {/* Marks JS as running so the CSS motion system may hide elements before they reveal.
+            This one is load-bearing: without the class the reveal rules never release, and the
+            page stays blank below the fold. See the Cookiebot note on the attributes. */}
         <script
+          type="text/javascript"
+          data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js")' }}
         />
         <ThemeProvider>

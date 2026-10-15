@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/seo/json-ld";
 import { CaseHero } from "@/components/case-study/case-hero";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { NextProject } from "@/components/case-study/next-project";
@@ -12,7 +13,7 @@ import { routing } from "@/i18n/routing";
 import { getAdjacentWork, getWork, getWorkSlugs } from "@/lib/content";
 import { extractHeadings } from "@/lib/headings";
 import { renderMdx } from "@/lib/mdx";
-import { jsonLdString, siteGraph, PERSON_ID, WEBSITE_ID } from "@/lib/json-ld";
+import { siteGraph, PERSON_ID, WEBSITE_ID } from "@/lib/json-ld";
 import { absoluteUrl, addressFor, hrefFor } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -99,10 +100,7 @@ export default async function WorkEntryPage({ params }: PageProps<"/[locale]/wor
 
   return (
     <main id="main" className="flex-1">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <ReadingProgress />
       <Container className="pt-6 md:pt-10">
         <Breadcrumbs crumbs={crumbs} />

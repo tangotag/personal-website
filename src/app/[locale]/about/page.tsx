@@ -3,6 +3,7 @@ import { join } from "node:path";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/seo/json-ld";
 import { addressFor } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container } from "@/components/layout/container";
@@ -14,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/ui/tag";
 import { site } from "@/data/site";
 import { getExperience } from "@/lib/data";
-import { jsonLdString, siteGraph, PERSON_ID } from "@/lib/json-ld";
+import { siteGraph, PERSON_ID } from "@/lib/json-ld";
 
 const PORTRAIT = "/images/portrait.webp";
 const hasPortrait = existsSync(join(process.cwd(), "public", PORTRAIT));
@@ -77,10 +78,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
 
   return (
     <main id="main" className="flex-1">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <Section>
         <Container>

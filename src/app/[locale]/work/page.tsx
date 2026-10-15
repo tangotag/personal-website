@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/seo/json-ld";
 import { addressFor } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container } from "@/components/layout/container";
@@ -11,7 +12,7 @@ import { WorkGrid, type GridItem } from "@/components/portfolio/work-grid";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { Button } from "@/components/ui/button";
 import { getAllWork } from "@/lib/content";
-import { jsonLdString, siteGraph } from "@/lib/json-ld";
+import { siteGraph } from "@/lib/json-ld";
 
 export async function generateMetadata({
   params,
@@ -68,10 +69,7 @@ export default async function WorkPage({ params }: PageProps<"/[locale]/work">) 
 
   return (
     <main id="main" className="flex-1">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <Section>
         <Container>
           <Breadcrumbs crumbs={crumbs} className="mb-8" />

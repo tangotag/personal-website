@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/seo/json-ld";
 import { addressFor } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { ContactForm } from "@/components/forms/contact-form";
@@ -12,7 +13,7 @@ import { Faq } from "@/components/ui/faq";
 import { Tag } from "@/components/ui/tag";
 import { site } from "@/data/site";
 import { getFaq, getServices } from "@/lib/data";
-import { jsonLdString, siteGraph, PERSON_ID } from "@/lib/json-ld";
+import { siteGraph, PERSON_ID } from "@/lib/json-ld";
 import { pick } from "@/types/content";
 
 const IS_PROD = process.env.NODE_ENV === "production";
@@ -95,10 +96,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
 
   return (
     <main id="main" className="flex-1">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <Section>
         <Container>

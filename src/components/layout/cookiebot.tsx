@@ -36,6 +36,16 @@ export function Cookiebot({ locale }: { locale: string }) {
     `s.setAttribute("data-culture",${JSON.stringify(culture)});` +
     `document.head.appendChild(s)})()`;
 
-  // Same escaping as the JSON-LD blocks: a "<" inside a script body can close the tag early.
-  return <script dangerouslySetInnerHTML={{ __html: js.replace(/</g, "\\u003c") }} />;
+  return (
+    <script
+      // Cookiebot's auto-blocking stamps a `type` on the inline scripts it processes, which
+      // rewrites the DOM under React and mismatches on every page. `ignore` is Cookiebot's own
+      // opt-out for scripts that set no cookies; the explicit `type` means that even if it stamps
+      // one anyway, the value it writes is the value React already rendered.
+      type="text/javascript"
+      data-cookieconsent="ignore"
+      // Same escaping as the JSON-LD blocks: a "<" inside a script body can close the tag early.
+      dangerouslySetInnerHTML={{ __html: js.replace(/</g, "\\u003c") }}
+    />
+  );
 }
