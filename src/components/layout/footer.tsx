@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { LocaleSwitch } from "@/components/ui/locale-switch";
-import { StatusPill } from "@/components/ui/status-pill";
 import { TextLink } from "@/components/ui/text-link";
 import { navItems } from "@/data/nav";
 import { site } from "@/data/site";
@@ -34,7 +33,6 @@ export async function Footer() {
               {site.shortName}
             </Link>
             <p className="max-w-xs text-fg-muted">{t("tagline")}</p>
-            <StatusPill className="self-start">{tc("available")}</StatusPill>
           </div>
 
           {/*

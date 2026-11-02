@@ -6,7 +6,6 @@ import { useEffect, useRef } from "react";
 import { IconButton } from "@/components/ui/icon-button";
 import { LocaleSwitch } from "@/components/ui/locale-switch";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { StatusPill } from "@/components/ui/status-pill";
 import { TextLink } from "@/components/ui/text-link";
 import { navItems } from "@/data/nav";
 import { site } from "@/data/site";
@@ -73,7 +72,10 @@ export function MobileMenu({ open, onClose }: Props) {
         </div>
       </div>
 
-      <nav aria-label={t("primary")} className="container-content flex flex-1 flex-col justify-center">
+      <nav
+        aria-label={t("primary")}
+        className="container-content flex flex-1 flex-col justify-center"
+      >
         <ul className="flex flex-col gap-2">
           {navItems.map((item, i) => {
             const active =
@@ -104,7 +106,6 @@ export function MobileMenu({ open, onClose }: Props) {
       </nav>
 
       <div className="container-content flex shrink-0 flex-col gap-5 border-t border-border py-6">
-        <StatusPill>{tc("available")}</StatusPill>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
           <TextLink external href={`mailto:${site.email}`}>
             {tc("email")}

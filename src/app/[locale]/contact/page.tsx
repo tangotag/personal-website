@@ -10,7 +10,6 @@ import { SectionHeader } from "@/components/layout/section-header";
 import { Button } from "@/components/ui/button";
 import { CopyButton } from "@/components/ui/copy-button";
 import { Faq } from "@/components/ui/faq";
-import { StatusPill } from "@/components/ui/status-pill";
 import { TextLink } from "@/components/ui/text-link";
 import { site } from "@/data/site";
 import { siteGraph, PERSON_ID } from "@/lib/json-ld";
@@ -81,13 +80,11 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
       <Section>
         <Container>
           <Breadcrumbs crumbs={crumbs} className="mb-8" />
-          <StatusPill>{tc("available")}</StatusPill>
           <SectionHeader
             as="h1"
             eyebrow={t("title")}
             title={t("hero.title")}
             lead={t("hero.lead")}
-            className="mt-6"
           />
 
           <div className="mt-14 grid gap-14 lg:grid-cols-12 lg:gap-16">

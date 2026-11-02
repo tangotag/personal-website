@@ -9,7 +9,6 @@ import { Field, Input, Select, Textarea } from "@/components/ui/field";
 import { IconButton } from "@/components/ui/icon-button";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { Metric } from "@/components/ui/metric";
-import { StatusPill } from "@/components/ui/status-pill";
 import { ChipButton, Tag } from "@/components/ui/tag";
 import { TextLink } from "@/components/ui/text-link";
 import { Copy, Menu, Moon } from "lucide-react";
@@ -122,7 +121,6 @@ export default async function ComponentsPage({ params }: PageProps<"/[locale]/de
             </Row>
 
             <Row title="Status & icons">
-              <StatusPill>Available for full-time & freelance</StatusPill>
               <IconButton aria-label="Toggle theme">
                 <Moon className="size-5" />
               </IconButton>

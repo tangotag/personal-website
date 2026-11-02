@@ -5,7 +5,6 @@ import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { FadeUp } from "@/components/motion/split-reveal";
 import { Button } from "@/components/ui/button";
-import { StatusPill } from "@/components/ui/status-pill";
 import { site } from "@/data/site";
 
 const PORTRAIT = "/images/portrait.webp";
@@ -38,8 +37,7 @@ export async function Hero() {
       <Container className="grid gap-12 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-8">
           <FadeUp rise delayMs={0}>
-            <StatusPill>{tc("available")}</StatusPill>
-            <p className="mt-6 text-eyebrow text-fg-muted">{t("eyebrow")}</p>
+            <p className="text-eyebrow text-fg-muted">{t("eyebrow")}</p>
           </FadeUp>
           <FadeUp rise delayMs={120}>
             <h1 className="mt-5 max-w-[20ch] text-display">
