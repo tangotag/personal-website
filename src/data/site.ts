@@ -1,14 +1,19 @@
 /**
- * Production serves from www; the apex 308-redirects to it. A canonical on the apex therefore
- * points at a redirect *and* sits in the hreflang set, which is exactly Lighthouse's "points to
- * another hreflang location" failure — it cost the site its SEO 100 on 2026-09-08. Normalising
- * here rather than relying on NEXT_PUBLIC_SITE_URL keeps the canonical right whatever the
- * environment says; preview and localhost URLs pass through untouched.
+ * Production serves from the APEX, raheelqureshi.com, and www 308-redirects to it (Cloudflare).
+ * A canonical pointing at the host that redirects is both a redirect *and* a member of the
+ * hreflang set, which is Lighthouse's "points to another hreflang location" failure — it cost the
+ * site its SEO 100 on 2026-09-08, and it was live again from 2026-11-03 until this was corrected,
+ * because the rule had been written for the opposite redirect direction.
+ *
+ * Normalising here rather than trusting NEXT_PUBLIC_SITE_URL keeps the canonical, the hreflang set
+ * and the sitemap on one host whatever the environment says. Preview and localhost URLs pass
+ * through untouched. If the redirect is ever flipped back to apex→www, this is the one place to
+ * change, and tests/unit/seo.test.ts is the one place that will tell you.
  */
-function canonicalOrigin(raw: string) {
+export function canonicalOrigin(raw: string) {
   try {
     const u = new URL(raw);
-    if (u.hostname === "raheelqureshi.com") u.hostname = "www.raheelqureshi.com";
+    if (u.hostname === "www.raheelqureshi.com") u.hostname = "raheelqureshi.com";
     return u.origin;
   } catch {
     return raw;
@@ -20,7 +25,7 @@ export const site = {
   name: "Raheel Ahmad Qureshi",
   shortName: "RAQ",
   role: "Senior Product Designer",
-  url: canonicalOrigin(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.raheelqureshi.com"),
+  url: canonicalOrigin(process.env.NEXT_PUBLIC_SITE_URL ?? "https://raheelqureshi.com"),
   email: "connect@raheelqureshi.com",
   // No location is shown anywhere on the site (user decision 2026-09-04); the zone is used only for formatting.
   timeZone: "Asia/Karachi",
