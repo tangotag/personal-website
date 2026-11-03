@@ -5,7 +5,10 @@ import dynamic from "next/dynamic";
 import Script from "next/script";
 import { useStatisticsConsent } from "@/components/layout/cookie-consent";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+// Raheel's naming. NEXT_PUBLIC_* is inlined at build time, so changing this in Vercel does
+// nothing until the next deploy, and the value must be the measurement ID (G-XXXXXXXXXX) from
+// Admin → Data streams → Web — not the numeric property or stream id.
+const GA_ID = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
 const CF_TOKEN = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
 // Vercel injects this on every deployment. Off locally, so `next start` audits never request
 // /_vercel/insights/script.js (a 404 that would surface as a console error in Lighthouse).

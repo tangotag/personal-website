@@ -117,7 +117,7 @@ tests/           unit/  e2e/
 - Automated: `@axe-core/playwright` on every route in both themes; manual: keyboard-only pass, VoiceOver/NVDA spot check.
 
 ## 11. Environment & secrets
-`RESEND_API_KEY` · `CONTACT_TO` · `TURNSTILE_SECRET_KEY` · `NEXT_PUBLIC_TURNSTILE_SITE_KEY` · `NEXT_PUBLIC_GA_ID` · `NEXT_PUBLIC_CF_BEACON_TOKEN` · `NEXT_PUBLIC_CAL_LINK` · `NEXT_PUBLIC_SITE_URL` · `SUPABASE_PROJECT_URL` · `SUPABASE_SERVICE_ROLE_KEY` (or `SUPABASE_ANON_KEY`) · `DATABASE_URL` (migrations only, never at runtime) · flags. Stored in Vercel; `.env.example` committed.
+`RESEND_API_KEY` · `CONTACT_TO` · `TURNSTILE_SECRET_KEY` · `NEXT_PUBLIC_TURNSTILE_SITE_KEY` · `NEXT_PUBLIC_GA4_MEASUREMENT_ID` · `NEXT_PUBLIC_CF_BEACON_TOKEN` · `NEXT_PUBLIC_CAL_LINK` · `NEXT_PUBLIC_SITE_URL` · `SUPABASE_PROJECT_URL` · `SUPABASE_SERVICE_ROLE_KEY` (or `SUPABASE_ANON_KEY`) · `DATABASE_URL` (migrations only, never at runtime) · flags. Stored in Vercel; `.env.example` committed.
 
 ## 12. Decisions requested
 1. Approve the custom MDX loader over a content framework.

@@ -55,7 +55,7 @@ Copy `.env.example` to `.env.local`. Nothing is required for local development:
 - **Automated tests never touch real services**: `test:e2e`/`lhci` build with Cloudflare's test site key
   and run the server with the always-pass test secret, an empty Resend key and no database keys.
 - **Analytics**: Cloudflare's cookieless beacon loads when `NEXT_PUBLIC_CF_BEACON_TOKEN` is set; GA4 loads
-  only after the visitor accepts the consent bar and `NEXT_PUBLIC_GA_ID` holds the *measurement ID*
+  only after the visitor allows statistics in Cookiebot and `NEXT_PUBLIC_GA4_MEASUREMENT_ID` holds the *measurement ID*
   (`G-XXXXXXXXXX`, from GA Admin → Data streams → Web) — the numeric property/stream id will not work.
 - **Calendar**: `NEXT_PUBLIC_CAL_LINK` turns every "Book a call" into a Cal.com link (mailto until then).
 

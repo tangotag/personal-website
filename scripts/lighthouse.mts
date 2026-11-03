@@ -70,7 +70,7 @@ function build({ forAudit }: { forAudit: boolean }) {
         // Cloudflare's visible always-pass test site key, so audits and e2e never hit the real widget.
         NEXT_PUBLIC_TURNSTILE_SITE_KEY: "1x00000000000000000000AA",
         // GA is consent-gated and never loads in automated runs; keep the id out of the test build anyway.
-        NEXT_PUBLIC_GA_ID: "",
+        NEXT_PUBLIC_GA4_MEASUREMENT_ID: "",
         ...(forAudit ? { NEXT_PUBLIC_COOKIEBOT_ID: "" } : {}),
       },
     });
